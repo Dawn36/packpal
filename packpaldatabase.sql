@@ -1,8 +1,9 @@
 /*
-SQLyog Ultimate v10.00 Beta1
-MySQL - 5.5.5-10.4.11-MariaDB : Database - packpal
+SQLyog Ultimate v12.09 (64 bit)
+MySQL - 5.7.33 : Database - packpal
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -16,6 +17,29 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`packpal` /*!40100 DEFAULT CHARACTER SET
 
 USE `packpal`;
 
+/*Table structure for table `ads` */
+
+DROP TABLE IF EXISTS `ads`;
+
+CREATE TABLE `ads` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `ads_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `file_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `path` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `size` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `updated_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` enum('top','middle','last') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'top',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/*Data for the table `ads` */
+
+insert  into `ads`(`id`,`ads_name`,`file_name`,`path`,`size`,`created_by`,`updated_by`,`status`,`created_at`,`updated_at`,`deleted_at`) values (4,'aa','ads1.png','uploads/user-ads/1/1662108430ads1.png','353384','1',NULL,'top','2022-09-02 08:47:10','2022-09-02 08:47:10',NULL),(5,'aa','service-05.jpg','uploads/user-ads/1/1662108441service-05.jpg','7651','1',NULL,'middle','2022-09-02 08:47:21','2022-09-02 08:47:21',NULL),(6,'aaa','about.jpg','uploads/user-ads/1/1662108452about.jpg','129573','1',NULL,'middle','2022-09-02 08:47:32','2022-09-02 08:47:32',NULL),(7,'aaaaaaa','job1.png','uploads/user-ads/1/1662108463job1.png','250053','1',NULL,'last','2022-09-02 08:47:43','2022-09-02 08:47:43',NULL),(8,'aaa','artsi3d.jpg','uploads/user-ads/1/1662108470artsi3d.jpg','49840','1',NULL,'last','2022-09-02 08:47:50','2022-09-02 08:47:50',NULL),(9,'aaaaa','guide-01.jpg','uploads/user-ads/1/1662108480guide-01.jpg','160839','1',NULL,'top','2022-09-02 08:48:00','2022-09-02 08:48:00',NULL);
+
 /*Table structure for table `bid_comments` */
 
 DROP TABLE IF EXISTS `bid_comments`;
@@ -24,18 +48,18 @@ CREATE TABLE `bid_comments` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `bids_id` bigint(20) DEFAULT NULL,
   `user_id` bigint(20) DEFAULT NULL,
-  `comment` text DEFAULT NULL,
+  `comment` text,
   `created_by` bigint(20) DEFAULT NULL,
   `updated_by` bigint(20) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `bid_comments` */
 
-insert  into `bid_comments`(`id`,`bids_id`,`user_id`,`comment`,`created_by`,`updated_by`,`created_at`,`updated_at`,`deleted_at`) values (1,1,1,'hi how are you',NULL,NULL,'2022-08-10 02:11:12',NULL,NULL),(2,1,1,'hi how are you asdsad',NULL,NULL,'2022-08-10 02:11:12',NULL,NULL),(3,NULL,1,'what',1,NULL,'2022-08-09 09:27:06','2022-08-09 21:27:06',NULL),(4,NULL,1,'sadasd',1,NULL,'2022-08-09 09:27:13','2022-08-09 21:27:13',NULL),(5,1,1,'asd',1,NULL,'2022-08-09 09:28:21','2022-08-09 21:28:21',NULL),(6,1,1,'asd',1,NULL,'2022-08-09 21:28:42','2022-08-09 21:28:42',NULL),(7,2,1,'asd',1,NULL,'2022-08-09 21:30:01','2022-08-09 21:30:01',NULL),(8,1,1,'no this is wor',1,NULL,'2022-08-09 21:33:38','2022-08-09 21:33:38',NULL),(9,3,1,'hsakjhdk dhaskjdhaskh dkash dkhas',1,NULL,'2022-08-19 15:22:13','2022-08-19 15:22:13',NULL);
+insert  into `bid_comments`(`id`,`bids_id`,`user_id`,`comment`,`created_by`,`updated_by`,`created_at`,`updated_at`,`deleted_at`) values (1,1,1,'no sad \\ad as\r\nd as\r\nsad as',1,NULL,'2022-09-04 21:10:39','2022-09-04 21:10:39',NULL);
 
 /*Table structure for table `bid_images` */
 
@@ -54,11 +78,11 @@ CREATE TABLE `bid_images` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `bid_images` */
 
-insert  into `bid_images`(`id`,`bids_id`,`user_id`,`file_name`,`path`,`size`,`created_by`,`updated_by`,`created_at`,`updated_at`,`deleted_at`) values (1,1,1,'2022080912293.jpg','1/2022080912293.jpg','165158',NULL,NULL,NULL,NULL,NULL),(2,1,1,'2022080912294.jpg','1/2022080912294.jpg','204791',NULL,NULL,NULL,NULL,NULL),(3,2,1,'2022080912335.jpg','2/2022080912335.jpg','94055',NULL,NULL,NULL,NULL,NULL),(4,2,1,'2022080912336.jpg','2/2022080912336.jpg','127118',NULL,NULL,NULL,NULL,NULL),(5,1,1,'20220809164416.jpg','1/20220809164416.jpg','102986',NULL,NULL,NULL,NULL,'2022-08-09 16:44:46'),(6,3,1,'2022081915141.jpg','3/2022081915141.jpg','98664',NULL,NULL,NULL,NULL,NULL),(7,3,1,'2022081915142.jpg','3/2022081915142.jpg','116317',NULL,NULL,NULL,NULL,NULL),(8,3,1,'2022081915143.jpg','3/2022081915143.jpg','165158',NULL,NULL,NULL,NULL,NULL),(9,3,1,'2022081915144.jpg','3/2022081915144.jpg','204791',NULL,NULL,NULL,NULL,'2022-08-19 15:17:13');
+insert  into `bid_images`(`id`,`bids_id`,`user_id`,`file_name`,`path`,`size`,`created_by`,`updated_by`,`created_at`,`updated_at`,`deleted_at`) values (1,1,2,'202209042033about.jpg','1/202209042033about.jpg','129573',NULL,NULL,NULL,NULL,NULL),(2,1,2,'202209042033ads1.png','1/202209042033ads1.png','353384',NULL,NULL,NULL,NULL,NULL),(3,1,2,'202209042033artsi3d.jpg','1/202209042033artsi3d.jpg','49840',NULL,NULL,NULL,NULL,NULL);
 
 /*Table structure for table `bids` */
 
@@ -83,11 +107,11 @@ CREATE TABLE `bids` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `bids` */
 
-insert  into `bids`(`id`,`user_id`,`categories_id`,`sub_categories_id`,`bids_name`,`location`,`city_post_code`,`contact_no`,`description`,`thumbnail`,`target_price`,`status`,`created_by`,`updated_by`,`created_at`,`updated_at`,`deleted_at`) values (1,1,1,2,'Karen Maysa','sada','Tempora cumque aspera','12192019209102','<p>asdsad <strong>aaa sad</strong></p>','1/2022080912291.jpg','370','active','1','1','2022-08-09 12:29:32','2022-08-12 17:13:22',NULL),(2,1,1,2,'Brielle Hornea','asd','Vel distinctio Labo','213','<p>asdas sdas s<em>adsa</em></p>','2/2022080912333.jpg','628','pending','1','1','2022-08-09 12:33:18','2022-08-09 21:34:08',NULL),(3,1,2,4,'abc','hjsahkjhsd bnbsakj sd','karachi /123','1546546123751273','<p>my first ads</p>','3/2022081915142.jpg','1000','active','1','1','2022-08-19 03:14:52','2022-08-19 15:23:14',NULL);
+insert  into `bids`(`id`,`user_id`,`categories_id`,`sub_categories_id`,`bids_name`,`location`,`city_post_code`,`contact_no`,`description`,`thumbnail`,`target_price`,`status`,`created_by`,`updated_by`,`created_at`,`updated_at`,`deleted_at`) values (1,2,1,1,'Alma Trana','Rerum corrupti expl','Suscipit magni aut e','29131','<p><strong><em>hi i m selleinsad as das dkj sajd sad kaskd \'asl d</em></strong></p>','1/202209042033artsi3d.jpg','1000','active','2','2','2022-09-04 08:33:42','2022-09-04 21:15:32',NULL);
 
 /*Table structure for table `categories` */
 
@@ -104,11 +128,11 @@ CREATE TABLE `categories` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `categories` */
 
-insert  into `categories`(`id`,`user_id`,`category_name`,`category_image`,`created_by`,`updated_by`,`created_at`,`updated_at`,`deleted_at`) values (1,1,'sad',NULL,NULL,NULL,'2022-08-10 00:00:00',NULL,NULL),(2,1,'fff',NULL,NULL,NULL,'2022-08-10 00:00:00',NULL,NULL),(3,1,'dawna','3/202208101926150-10.jpg','1',NULL,'2022-08-10 00:00:00','2022-08-10 19:27:01','2022-08-10 19:27:01'),(4,1,'123aa','4/2022081915257.jpg','1',NULL,'2022-08-19 00:00:00','2022-08-19 15:25:01',NULL);
+insert  into `categories`(`id`,`user_id`,`category_name`,`category_image`,`created_by`,`updated_by`,`created_at`,`updated_at`,`deleted_at`) values (1,1,'c1','1/202209041213service-01.jpg','1',NULL,'2022-09-04 00:00:00','2022-09-04 12:13:11',NULL),(2,1,'c2','2/202209041213service-02.jpg','1',NULL,'2022-09-04 00:00:00','2022-09-04 12:13:20',NULL),(3,1,'c3','3/202209041213service-03.jpg','1',NULL,'2022-09-04 00:00:00','2022-09-04 12:13:31',NULL);
 
 /*Table structure for table `chat` */
 
@@ -124,11 +148,11 @@ CREATE TABLE `chat` (
   `deleted_at` datetime DEFAULT NULL,
   `is_read` enum('yes','no') DEFAULT 'no',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `chat` */
 
-insert  into `chat`(`id`,`therd_id`,`user_id`,`message`,`type`,`created_at`,`deleted_at`,`is_read`) values (1,2,1,'1','text','2022-08-24 12:09:32',NULL,'yes'),(2,2,1,'2','text','2022-08-24 12:09:34',NULL,'yes'),(3,2,1,'3','text','2022-08-24 12:09:35',NULL,'yes'),(4,2,4,'4','text','2022-08-24 12:09:39',NULL,'yes'),(5,2,4,'5','text','2022-08-24 12:09:40',NULL,'yes'),(6,2,4,'6','text','2022-08-24 12:09:41',NULL,'yes'),(7,2,1,'7','text','2022-08-24 12:09:58',NULL,'yes'),(8,2,1,'8','text','2022-08-24 12:10:00',NULL,'yes'),(9,2,4,'9','text','2022-08-24 12:10:07',NULL,'yes'),(10,2,4,'10','text','2022-08-24 12:10:08',NULL,'yes'),(11,2,1,'1','text','2022-08-24 12:44:38',NULL,'yes'),(12,2,1,'2','text','2022-08-24 12:44:39',NULL,'yes'),(13,2,1,'3','text','2022-08-24 12:44:40',NULL,'yes'),(14,2,1,'4','text','2022-08-24 12:44:40',NULL,'yes'),(15,2,1,'5','text','2022-08-24 12:44:41',NULL,'yes'),(16,2,4,'6','text','2022-08-24 12:44:55',NULL,'yes'),(17,2,4,'7','text','2022-08-24 12:45:01',NULL,'yes'),(18,2,4,'8','text','2022-08-24 12:45:08',NULL,'yes'),(19,2,1,'a','text','2022-08-24 12:50:38',NULL,'yes');
+insert  into `chat`(`id`,`therd_id`,`user_id`,`message`,`type`,`created_at`,`deleted_at`,`is_read`) values (1,1,2,'aa','text','2022-09-04 20:09:14',NULL,'yes'),(2,1,1,'who','text','2022-09-04 22:41:36',NULL,'yes'),(3,1,1,'hn','text','2022-09-04 22:43:15',NULL,'yes'),(4,3,4,'hi','text','2022-09-05 11:08:19',NULL,'yes'),(5,3,2,'who','text','2022-09-05 11:08:35',NULL,'yes'),(6,3,2,'what do you want','text','2022-09-05 11:08:44',NULL,'yes'),(7,3,4,'hi da','text','2022-09-05 11:27:37',NULL,'yes'),(8,3,4,'asd','text','2022-09-05 11:27:37',NULL,'yes'),(9,3,4,'sad','text','2022-09-05 11:27:38',NULL,'yes'),(10,3,2,'sdas dsa d','text','2022-09-05 11:38:03',NULL,'yes'),(11,3,2,'as das','text','2022-09-05 11:38:03',NULL,'yes'),(12,3,2,'as d','text','2022-09-05 11:38:04',NULL,'yes'),(13,3,2,'Offer price change old offer price is : 200 and the new offer price is : 1000','text','2022-09-05 12:00:37',NULL,'yes'),(14,3,4,'l','text','2022-09-05 12:01:34',NULL,'yes'),(15,3,4,'Offer price change old offer price is : 1000 and the new offer price is : 200','text','2022-09-05 12:02:08',NULL,'yes'),(16,3,4,'asd','text','2022-09-05 12:22:18',NULL,'yes'),(17,3,4,'asd','text','2022-09-05 12:22:21',NULL,'yes'),(18,3,4,'sad','text','2022-09-05 12:23:58',NULL,'yes'),(19,3,4,'asd','text','2022-09-05 12:24:01',NULL,'yes'),(20,3,4,'cb','text','2022-09-05 12:24:58',NULL,'yes'),(21,3,4,'a','text','2022-09-05 12:26:56',NULL,'yes'),(22,3,4,'hi','text','2022-09-05 12:27:32',NULL,'yes'),(23,3,4,'a','text','2022-09-05 12:27:52',NULL,'yes'),(24,3,4,'a','text','2022-09-05 12:27:59',NULL,'yes'),(25,3,4,'a','text','2022-09-05 12:28:03',NULL,'yes'),(26,3,4,'dawn','text','2022-09-05 12:28:09',NULL,'yes'),(27,3,4,'what','text','2022-09-05 12:33:54',NULL,'yes'),(28,3,4,'the','text','2022-09-05 12:33:57',NULL,'yes'),(29,3,4,'it is working','text','2022-09-05 12:34:01',NULL,'yes'),(30,3,2,'fuck you','text','2022-09-05 12:34:28',NULL,'no');
 
 /*Table structure for table `failed_jobs` */
 
@@ -141,7 +165,7 @@ CREATE TABLE `failed_jobs` (
   `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -157,11 +181,11 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `migrations` */
 
-insert  into `migrations`(`id`,`migration`,`batch`) values (4,'2014_10_12_000000_create_users_table',1),(5,'2014_10_12_100000_create_password_resets_table',1),(6,'2019_08_19_000000_create_failed_jobs_table',1),(7,'2022_08_08_175023_laratrust_setup_tables',2),(8,'2022_08_08_205320_create_bids_table',3),(9,'2022_08_09_113820_create_categories_table',4),(10,'2022_08_09_113950_create_sub_categories_table',4),(11,'2022_08_10_141903_create_products_table',5),(12,'2022_08_12_173137_create_orders_table',6),(13,'2022_08_12_210701_review',7);
+insert  into `migrations`(`id`,`migration`,`batch`) values (4,'2014_10_12_000000_create_users_table',1),(5,'2014_10_12_100000_create_password_resets_table',1),(6,'2019_08_19_000000_create_failed_jobs_table',1),(7,'2022_08_08_175023_laratrust_setup_tables',2),(8,'2022_08_08_205320_create_bids_table',3),(9,'2022_08_09_113820_create_categories_table',4),(10,'2022_08_09_113950_create_sub_categories_table',4),(11,'2022_08_10_141903_create_products_table',5),(12,'2022_08_12_173137_create_orders_table',6),(13,'2022_08_12_210701_review',7),(14,'2022_08_31_202415_create_ads_table',8);
 
 /*Table structure for table `orders` */
 
@@ -169,7 +193,8 @@ DROP TABLE IF EXISTS `orders`;
 
 CREATE TABLE `orders` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` bigint(20) NOT NULL,
+  `b_user_id` bigint(20) DEFAULT NULL,
+  `s_user_id` bigint(20) NOT NULL,
   `bids_id` bigint(20) NOT NULL,
   `categories_id` bigint(20) NOT NULL,
   `sub_categories_id` bigint(20) NOT NULL,
@@ -182,11 +207,11 @@ CREATE TABLE `orders` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `orders` */
 
-insert  into `orders`(`id`,`user_id`,`bids_id`,`categories_id`,`sub_categories_id`,`offer_price`,`status`,`feed_back`,`created_by`,`updated_by`,`created_at`,`updated_at`,`deleted_at`) values (1,1,1,1,1,'1000','complete','yes',NULL,NULL,NULL,'2022-08-19 16:10:10',NULL),(2,1,1,1,1,'1000','complete','yes',NULL,NULL,NULL,'2022-08-12 21:49:41',NULL),(3,1,1,1,1,'1000','complete','yes',NULL,NULL,NULL,'2022-08-12 21:10:28',NULL);
+insert  into `orders`(`id`,`b_user_id`,`s_user_id`,`bids_id`,`categories_id`,`sub_categories_id`,`offer_price`,`status`,`feed_back`,`created_by`,`updated_by`,`created_at`,`updated_at`,`deleted_at`) values (1,2,4,1,1,1,'200','complete','yes',4,NULL,'2022-09-05 00:00:00','2022-09-05 12:08:00',NULL);
 
 /*Table structure for table `password_resets` */
 
@@ -215,8 +240,6 @@ CREATE TABLE `permission_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `permission_role` */
-
-insert  into `permission_role`(`permission_id`,`role_id`) values (1,1),(1,2),(2,1),(2,2),(3,1),(3,2),(4,1),(4,2),(5,1),(6,1),(7,1),(8,1),(9,1),(9,2),(9,3),(10,1),(10,2),(10,3);
 
 /*Table structure for table `permission_user` */
 
@@ -267,11 +290,9 @@ CREATE TABLE `product_comments` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `product_comments` */
-
-insert  into `product_comments`(`id`,`products_id`,`user_id`,`comment`,`created_by`,`updated_by`,`created_at`,`updated_at`,`deleted_at`) values (1,1,1,'hi why are you doing this','1',NULL,'2022-08-10 17:36:04','2022-08-10 17:36:04',NULL),(2,1,1,'noooooooooo','1',NULL,'2022-08-10 17:37:39','2022-08-10 17:37:39',NULL);
 
 /*Table structure for table `product_images` */
 
@@ -290,11 +311,9 @@ CREATE TABLE `product_images` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `product_images` */
-
-insert  into `product_images`(`id`,`products_id`,`user_id`,`file_name`,`path`,`size`,`created_by`,`updated_by`,`created_at`,`updated_at`,`deleted_at`) values (1,1,1,'202208101724150-10.jpg','1/202208101724150-10.jpg','28074',NULL,NULL,NULL,NULL,NULL),(2,1,1,'202208101724150-11.jpg','1/202208101724150-11.jpg','29324',NULL,NULL,NULL,NULL,NULL),(3,1,1,'202208101724150-12.jpg','1/202208101724150-12.jpg','20678',NULL,NULL,NULL,NULL,'2022-08-10 17:25:50'),(4,1,1,'202208101725150-13.jpg','1/202208101725150-13.jpg','30777',NULL,NULL,NULL,NULL,NULL);
 
 /*Table structure for table `products` */
 
@@ -319,11 +338,9 @@ CREATE TABLE `products` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `products` */
-
-insert  into `products`(`id`,`user_id`,`categories_id`,`sub_categories_id`,`product_name`,`location`,`city_post_code`,`contact_no`,`description`,`thumbnail`,`target_price`,`status`,`created_by`,`updated_by`,`created_at`,`updated_at`,`deleted_at`) values (1,1,1,3,'dawa','sad','asd','32231321','<p>asd adasd as das</p>','1/202208101726150-12.jpg','1000','inactive','1','1','2022-08-10 05:24:21','2022-08-20 00:00:00',NULL);
 
 /*Table structure for table `reviews` */
 
@@ -343,11 +360,11 @@ CREATE TABLE `reviews` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `reviews` */
 
-insert  into `reviews`(`id`,`from_user_id`,`to_user_id`,`bids_id`,`order_id`,`star`,`comment`,`created_by`,`updated_by`,`created_at`,`updated_at`,`deleted_at`) values (1,1,1,1,3,'2','sad',1,NULL,'2022-08-12 00:00:00',NULL,NULL),(2,1,1,1,2,'5','good work',1,NULL,'2022-08-12 00:00:00',NULL,NULL),(3,1,2,1,1,'1','dooo',1,NULL,'2022-08-13 00:00:00',NULL,NULL),(4,1,2,1,1,'2','dooo',1,NULL,'2022-08-13 00:00:00',NULL,NULL),(5,1,1,1,1,'5','xzczxc',1,NULL,'2022-08-19 00:00:00',NULL,NULL);
+insert  into `reviews`(`id`,`from_user_id`,`to_user_id`,`bids_id`,`order_id`,`star`,`comment`,`created_by`,`updated_by`,`created_at`,`updated_at`,`deleted_at`) values (1,2,4,1,1,'5','good work',2,NULL,'2022-09-05 00:00:00',NULL,NULL);
 
 /*Table structure for table `role_user` */
 
@@ -364,7 +381,7 @@ CREATE TABLE `role_user` (
 
 /*Data for the table `role_user` */
 
-insert  into `role_user`(`role_id`,`user_id`,`user_type`) values (3,1,'App\\Models\\User'),(2,2,'App\\Models\\User'),(2,4,'App\\Models\\User'),(3,5,'App\\Models\\User');
+insert  into `role_user`(`role_id`,`user_id`,`user_type`) values (1,1,'App\\Models\\User'),(2,4,'App\\Models\\User'),(3,2,'App\\Models\\User');
 
 /*Table structure for table `roles` */
 
@@ -404,7 +421,7 @@ CREATE TABLE `sub_categories` (
 
 /*Data for the table `sub_categories` */
 
-insert  into `sub_categories`(`id`,`user_id`,`categories_id`,`sub_category_name`,`created_by`,`updated_by`,`created_at`,`updated_at`,`deleted_at`) values (1,1,1,'sd',NULL,NULL,NULL,NULL,'2022-08-09 17:18:06'),(2,1,1,'daw',NULL,NULL,NULL,NULL,NULL),(3,1,1,'hahaah',NULL,NULL,NULL,NULL,NULL),(4,1,2,'aaa',NULL,NULL,NULL,NULL,NULL),(5,1,1,'asdsas','1',NULL,'2022-08-12 00:00:00','2022-08-12 17:00:47','2022-08-12 17:00:47'),(6,1,4,'qqq','1',NULL,'2022-08-19 00:00:00','2022-08-19 15:25:17',NULL);
+insert  into `sub_categories`(`id`,`user_id`,`categories_id`,`sub_category_name`,`created_by`,`updated_by`,`created_at`,`updated_at`,`deleted_at`) values (1,1,1,'c1-cs1','1',NULL,'2022-09-04 00:00:00','2022-09-04 12:13:50',NULL),(2,1,1,'c1-cs2','1',NULL,'2022-09-04 00:00:00','2022-09-04 12:13:55',NULL),(3,1,1,'c1-cs3','1',NULL,'2022-09-04 00:00:00','2022-09-04 12:14:00',NULL),(4,1,2,'c2-cs1','1',NULL,'2022-09-04 00:00:00','2022-09-04 12:14:29',NULL),(5,1,2,'c2-cs2','1',NULL,'2022-09-04 00:00:00','2022-09-04 12:14:33',NULL),(6,1,3,'c3-cs1','1',NULL,'2022-09-04 00:00:00','2022-09-04 12:14:42',NULL);
 
 /*Table structure for table `therd` */
 
@@ -422,7 +439,7 @@ CREATE TABLE `therd` (
 
 /*Data for the table `therd` */
 
-insert  into `therd`(`id`,`user_id_from`,`user_id_to`,`last_message_date`,`created_at`,`deleted_at`) values (1,1,2,'2022-08-21 19:01:36',NULL,NULL),(2,1,4,'2022-08-21 19:01:39',NULL,NULL),(4,3,1,'2022-08-24 17:52:45',NULL,NULL);
+insert  into `therd`(`id`,`user_id_from`,`user_id_to`,`last_message_date`,`created_at`,`deleted_at`) values (1,2,1,'2022-09-04 20:00:15',NULL,NULL),(3,4,2,'2022-09-05 11:02:39',NULL,NULL),(4,4,1,'2022-09-05 11:03:23',NULL,NULL);
 
 /*Table structure for table `user_document` */
 
@@ -438,11 +455,30 @@ CREATE TABLE `user_document` (
   `created_by` bigint(20) DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `user_document` */
 
-insert  into `user_document`(`id`,`user_id`,`file_name`,`size`,`path`,`created_at`,`created_by`,`deleted_at`) values (1,1,'logo tekrevol.png',4186,'uploads/user-document/1/1660761132logo tekrevol.png','2022-08-16 23:45:57',0,NULL),(2,1,'logo tekrevol.png',4186,'uploads/user-document/1/1660761575logo tekrevol.png','2022-08-16 23:45:57',0,NULL),(3,1,'adminpanel (1).sql',15444,'uploads/user-document/1/1660761575adminpanel (1).sql','2022-08-16 23:45:57',0,NULL);
+/*Table structure for table `user_expiry_image` */
+
+DROP TABLE IF EXISTS `user_expiry_image`;
+
+CREATE TABLE `user_expiry_image` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) DEFAULT NULL,
+  `package` varchar(255) DEFAULT NULL,
+  `file_name` varchar(255) DEFAULT NULL,
+  `size` varchar(255) DEFAULT NULL,
+  `path` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `created_by` bigint(20) DEFAULT NULL,
+  `status` enum('pending','accept','reject') DEFAULT 'pending',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `user_expiry_image` */
+
+insert  into `user_expiry_image`(`id`,`user_id`,`package`,`file_name`,`size`,`path`,`created_at`,`created_by`,`status`) values (1,4,'1 month','about.jpg','129573','uploads/user-subscription-document/4/1662367296about.jpg','2022-09-05 08:41:36',4,'accept'),(2,4,'1 month','ads1.png','353384','uploads/user-subscription-document/4/1662367296ads1.png','2022-09-05 08:41:36',4,'accept');
 
 /*Table structure for table `users` */
 
@@ -455,6 +491,7 @@ CREATE TABLE `users` (
   `middle_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_type` bigint(20) DEFAULT NULL,
   `profile_picture` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'blank.png',
   `company_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `company_logo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'blanklogo.jpg',
@@ -484,15 +521,16 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
+  `expiry_date` datetime DEFAULT NULL,
   `latitude` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `longitude` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `users` */
 
-insert  into `users`(`id`,`first_name`,`last_name`,`middle_name`,`email`,`password`,`profile_picture`,`company_name`,`company_logo`,`company_banner`,`designation`,`department`,`address`,`country`,`city`,`zip_postal_code`,`landline_no`,`phone_number`,`primary_business`,`specify`,`establishment_year`,`annual_sales`,`certifications`,`seller_of`,`buyer_of`,`categories_id`,`sub_categories_id`,`description`,`verified`,`send_doc`,`email_verified_at`,`remember_token`,`created_at`,`updated_at`,`deleted_at`,`latitude`,`longitude`) values (1,'dawn','gill','Hedwig Dawson','dawn@gmail.com','$2y$10$wfMRSjxG.6EtKz8LNJkVNeMevQRI91ZCQb7cV07jmCQ3fFrx/YIn6','blank.png','Fox Wilkinson Associates','1/202208141747150-9.jpg','blankbanner.jpg','Voluptates sunt volu','Qui aut magnam quasi','Kalma Chowk Ferozepur Road, Block E 2 Gulberg III, Lahore, Pakistan','Recusandae Ut quos','Molestiae omnis vel','39131','Ut quaerat ut quia c','+1 (843) 218-8947','other',NULL,'2006-05-04 00:00:00','97','Incididunt sunt ame','Corporis quisquam ve','Expedita quia incidi','2','2','Aut quis voluptatem','yes','yes',NULL,NULL,'2022-08-08 20:05:19','2022-08-25 19:17:51',NULL,'31.5075881','74.3301201'),(2,'darrel','gill','asd','darrel@gmail.com','$2y$10$wfMRSjxG.6EtKz8LNJkVNeMevQRI91ZCQb7cV07jmCQ3fFrx/YIn6','blank.png','Fox Wilkinson Associates','blanklogo.jpg','blankbanner.jpg','Voluptates sunt volu','Qui aut magnam quasi','Neque et veniam min','Recusandae Ut quos','Molestiae omnis vel','39131','Ut quaerat ut quia c','+1 (843) 218-8947','other',NULL,'2006-05-04 00:00:00','97','Incididunt sunt ame','Corporis quisquam ve','Expedita quia incidi','2','4','Aut quis voluptatem','no','no',NULL,NULL,'2022-08-08 20:05:19','2022-08-09 11:18:28',NULL,NULL,NULL),(4,'darwin','gill','asdsasad','darwin@gmail.com','$2y$10$wfMRSjxG.6EtKz8LNJkVNeMevQRI91ZCQb7cV07jmCQ3fFrx/YIn6','blank.png','Fox Wilkinson Associates','blanklogo.jpg','blankbanner.jpg','Voluptates sunt volu','Qui aut magnam quasi','Neque et veniam min','Recusandae Ut quos','Molestiae omnis vel','39131','Ut quaerat ut quia c','+1 (843) 218-8947','other',NULL,'2006-05-04 00:00:00','97','Incididunt sunt ame','Corporis quisquam ve','Expedita quia incidi','1','4','Aut quis voluptatem','no','no',NULL,NULL,'2022-08-08 20:05:19','2022-08-09 11:18:28',NULL,NULL,NULL),(5,'asd','asd','sda','dawnggggg@gmail.com','$2y$10$1ltwixXtp65jd7IAidZGJOD4RNOKkheIJKpQb1jHoTuAeLQKZUV4m','blank.png',NULL,'blanklogo.jpg','blankbanner.jpg','sad','asd','Karimabad Block 3 Gulberg Town, Karachi, Pakistan','sad','asd','asd213',NULL,'213asd',NULL,NULL,NULL,NULL,NULL,NULL,'asd',NULL,NULL,NULL,'no','no',NULL,NULL,'2022-08-25 18:57:41','2022-08-25 18:57:41',NULL,NULL,NULL);
+insert  into `users`(`id`,`first_name`,`last_name`,`middle_name`,`email`,`password`,`user_type`,`profile_picture`,`company_name`,`company_logo`,`company_banner`,`designation`,`department`,`address`,`country`,`city`,`zip_postal_code`,`landline_no`,`phone_number`,`primary_business`,`specify`,`establishment_year`,`annual_sales`,`certifications`,`seller_of`,`buyer_of`,`categories_id`,`sub_categories_id`,`description`,`verified`,`send_doc`,`email_verified_at`,`remember_token`,`created_at`,`updated_at`,`deleted_at`,`expiry_date`,`latitude`,`longitude`) values (1,'dawn','gill','sad','dawngill08@gmail.com','$2y$10$Z2zScBG2OsLDJAqxc616Cu5VX.OzZhtUrCS64raxFB/Xfl.XjkVAu',1,'blank.png',NULL,'blanklogo.jpg','blankbanner.jpg','sad','sad','Saddar Karachi, Pakistan','sad','sad','02121','02020','212020',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1','1',NULL,'yes','no',NULL,NULL,'2022-09-04 11:23:55','2022-09-04 11:23:55',NULL,NULL,NULL,NULL),(2,'darrel','asd','asd','darrelgill08@gmail.com','$2y$10$shmXeh/m5h8FkOzWw/Di1O.7prRuJqc1kpqf/onUp.UpdzTsd3zh6',3,'blank.png',NULL,'blanklogo.jpg','blankbanner.jpg','asd','sad','Karimabad Block 3 Gulberg Town, Karachi, Pakistan','asd','dasd','3213','2131','23131',NULL,NULL,NULL,NULL,NULL,NULL,'asd',NULL,NULL,NULL,'no','no',NULL,NULL,'2022-09-04 19:48:52','2022-09-04 19:48:52',NULL,'2022-09-04 12:47:28',NULL,NULL),(4,'darwin','gill','sad','darwingill08@gmail.com','$2y$10$hrr5EIkko2FG2GVK.kWsPOvttQiWRQOxaG0T7oU/BD6zswbqN.hhO',2,'blank.png','hahahaha','blanklogo.jpg','blankbanner.jpg','sad','sds','Hyderabad, Pakistan','asd','asd','032','3213','3213',NULL,NULL,'2022-09-01 00:00:00','2121212','sadsad','sdasd',NULL,'2','5','sad asda dkjaslkj','no','no',NULL,NULL,'2022-09-05 08:00:48','2022-09-05 08:42:21',NULL,'2022-10-05 00:00:00','40.7767644','-73.9761399');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
