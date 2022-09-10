@@ -271,7 +271,7 @@
                         $rating=round($supplier[$i]->rating);
                         @endphp
               <div>
-                <a href="product-detail.html">
+                <a href="{{route('supplier_detail',['userId'=>$supplier[$i]->user_id,'catId'=>$supplier[$i]->cat_id])}}">
                   <img class="img-fluid" src="{{asset('/profile/' . $supplier[0]->company_banner)}}" />
                 </a>
                 <div class="inner-slider">
@@ -285,7 +285,7 @@
                         />
                       </span>
                       <span class="seller-name">
-                        <a href="profile.html">{{ucwords($supplier[$i]->first_name)}} {{ucwords($supplier[$i]->last_name)}}</a>
+                        <a href="{{route('supplier_detail',['userId'=>$supplier[$i]->user_id,'catId'=>$supplier[$i]->cat_id])}}">{{ucwords($supplier[$i]->first_name)}} {{ucwords($supplier[$i]->last_name)}}</a>
                         <span
                             class="level"
                             style="font-weight: bold; color: #524e4e"
@@ -338,6 +338,26 @@
                           <span>({{$supplier[$i]->rating_count}})</span>
                         </span>
                       </div>
+                    </div>
+                    <div class="footer">
+                      <div class="seller-card">
+                        <div>
+                        </div>
+                      </div>
+                      <div class="price" >
+                        
+                        <button
+                      onclick="viewSupplierDetails('{{$supplier[$i]->user_id}}' , '{{$supplier[$i]->cat_id}}')"
+                          type="button"
+                          class="btn btn-outline-success btn-sm" 
+                        >
+                          View Details
+                        </button>
+                       
+
+                     
+                      </div>
+                      
                     </div>
                   </div>
                 </div>
@@ -402,7 +422,7 @@
                       Starting At: {{$bidListing[$i]->target_price}}
                       <div class="price" >
                         @if(Auth::check())
-                        @if(date('Y-m-d') > Auth::user()->expiry_date )
+                        @if(date('Y-m-d') > Auth::user()->expiry_date && Auth::user()->hasRole('supplier'))
                         <a href="{{route('subscribe_page')}}" type="button" class="btn btn-outline-success btn-sm">Bid Now</a>
                         @else
                         <button
@@ -536,6 +556,7 @@
   function search() {
     document.getElementById('search').submit();
 }
+
 
 </script>
   @endsection('content_website')

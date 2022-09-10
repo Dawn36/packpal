@@ -73,7 +73,7 @@
               $rating=round($supplier[$i]->rating);
               @endphp
           <div class="col-md-3">
-              <a href="{{route('supplier_detail',['userId'=>$supplier[0]->user_id,'catId'=>$supplier[0]->cat_id])}}">
+              <a href="{{route('supplier_detail',['userId'=>$supplier[$i]->user_id,'catId'=>$supplier[$i]->cat_id])}}">
                 <img class="img-fluid" src="{{asset('/profile/' . $supplier[0]->company_banner)}}" />
               </a>
               <div class="inner-slider">
@@ -140,6 +140,26 @@
                         <span>({{$supplier[$i]->rating_count}})</span>
                       </span>
                     </div>
+                  </div>
+                  <div class="footer">
+                    <div class="seller-card">
+                      <div>
+                      </div>
+                    </div>
+                    <div class="price" >
+                      
+                      <button
+                    onclick="viewSupplierDetails('{{$supplier[$i]->user_id}}' , '{{$supplier[$i]->cat_id}}')"
+                        type="button"
+                        class="btn btn-outline-success btn-sm" 
+                      >
+                        View Details
+                      </button>
+                     
+
+                   
+                    </div>
+                    
                   </div>
                 </div>
               </div>

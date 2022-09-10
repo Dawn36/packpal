@@ -145,11 +145,12 @@ class WebsiteController extends Controller
     }
     public function bidNow(Request $request)
     {
+        $userIdAuth = Auth::user()->id;
         $bidId=$request->bidId;
         $userId=$request->userId;
         $catId=$request->catId;
         $subCatId=$request->subCatId;
-        if (Order::where('s_user_id', $userId)->where('bids_id', $bidId)->exists()) {
+        if (Order::where('s_user_id', $userIdAuth)->where('bids_id', $bidId)->exists()) {
             return view('web-site/bid_now_message');
          }
          else

@@ -745,7 +745,7 @@
                                     <div class="card card-flush">
                                         <div class="card-header">
                                             <div class="card-title">
-                                                <h2>Reviews</h2>
+                                                <h2>Map</h2>
                                             </div>
                                         </div>
                                         <div id="googleMap" style="width:100%;height:400px;"></div>

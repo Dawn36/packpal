@@ -167,7 +167,13 @@
         //Call back function
      
     }
-     
+    function viewSupplierDetails(userId,catId)
+{
+  url="{{route('supplier_detail',['userId'=>':userId:','catId'=>':catId:'])}}"; 
+  url = url.replace(':userId:', userId);
+  url = url.replace(':catId:', catId);
+  document.location.href=url;
+}
   </script>
 
   <!-- <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon='{"rayId":"73c555c5ae11b764","version":"2022.8.0","r":1,"token":"dd471ab1978346bbb991feaa79e6ce5c","si":100}' crossorigin="anonymous"></script> -->

@@ -156,11 +156,11 @@
                                         <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
                                             <!--begin::Number-->
                                             <div class="d-flex align-items-center">
-                                                <div class="fs-2 fw-bolder" data-kt-countup="true" data-kt-countup-value="{{$bids->target_price}}" data-kt-countup-prefix="$">{{$bids->target_price}}</div>
+                                                <div class="fs-2 fw-bolder" data-kt-countup="true" data-kt-countup-value="{{$bids->target_price}}" data-kt-countup-prefix="Rs">{{$bids->target_price}}</div>
                                             </div>
                                             <!--end::Number-->
                                             <!--begin::Label-->
-                                            <div class="fw-bold fs-6 text-gray-400">Price</div>
+                                            <div class="fw-bold fs-6 text-gray-400">Target Price</div>
                                             <!--end::Label-->
                                         </div>
                                         <!--end::Stat-->
@@ -770,11 +770,11 @@
                             <!--begin::Input group-->
                             <div class="row mb-7">
                                 <!--begin::Label-->
-                                <label class="col-lg-4 fw-bold text-muted">Price</label>
+                                <label class="col-lg-4 fw-bold text-muted">Target Price</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg-8 fv-row">
-                                    <span class="fw-bold text-gray-800 fs-6">${{ucwords($bids->target_price)}}</span>
+                                    <span class="fw-bold text-gray-800 fs-6">RS {{ucwords($bids->target_price)}}</span>
                                 </div>
                                 <!--end::Col-->
                             </div>
