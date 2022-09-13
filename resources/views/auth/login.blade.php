@@ -63,6 +63,11 @@
                             <input class="form-control form-control-lg form-control-solid" id="email" type="email" name="email" value="{{ old('email') }}" required autofocus />
                             <!--end::Input-->
                         </div>
+                        @if (Route::has('password.request'))
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                        {{ __('Forgot your password?') }}
+                    </a>
+                @endif
                         <!--end::Input group-->
                         <!--begin::Input group-->
                         <div class="fv-row mb-10">
