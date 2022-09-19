@@ -27,19 +27,59 @@
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
     <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"> -->
     <!-- <script src="https://use.fontawesome.com/792974b28a.js"></script> -->
-    <!-- <style>
-        @media (min-width:1400px) {
-
-            .container,
-            .container-lg,
-            .container-md,
-            .container-sm,
-            .container-xl,
-            .container-xxl {
-                max-width: 1620px
-            }
+     <style>
+       a {
+            color: #d80026;
+            text-decoration: none;
         }
-    </style> -->
+        .text-hover-primary:hover {
+            color: #d80026!important;
+        }
+        .btn.btn-primary {
+            color: #fff;
+            border-color: #d80026;
+            background-color: #d80026;
+        }
+        .btn-check:active+.btn.btn-active-light-primary i, .btn-check:checked+.btn.btn-active-light-primary i, .btn.btn-active-light-primary.active i, .btn.btn-active-light-primary.show i, .btn.btn-active-light-primary:active:not(.btn-active) i, .btn.btn-active-light-primary:focus:not(.btn-active) i, .btn.btn-active-light-primary:hover:not(.btn-active) i, .show>.btn.btn-active-light-primary i {
+            color: #d80026;
+        }
+        .btn-check:active+.btn.btn-active-light-primary, .btn-check:checked+.btn.btn-active-light-primary, .btn.btn-active-light-primary.active, .btn.btn-active-light-primary.show, .btn.btn-active-light-primary:active:not(.btn-active), .btn.btn-active-light-primary:focus:not(.btn-active), .btn.btn-active-light-primary:hover:not(.btn-active), .show>.btn.btn-active-light-primary {
+            color: #d6d6d6;
+            border-color: #ffb0bb;
+            background-color: #ffb0bb!important;
+        }
+        .page-item.active .page-link {
+            z-index: 3;
+            color: #fff;
+            background-color: #d80026;
+            border-color: transparent;
+        }
+        .text-primary {
+            color: #d80026!important;
+        }
+        .text-hover-primary:hover .svg-icon svg [fill]:not(.permanent):not(g) {
+            fill: #d80026;
+        }
+        .svg-icon.svg-icon-primary svg [fill]:not(.permanent):not(g) {
+            fill: #d80026;
+        }
+        .menu-state-primary .menu-item.hover:not(.here)>.menu-link:not(.disabled):not(.active):not(.here), .menu-state-primary .menu-item:not(.here) .menu-link:hover:not(.disabled):not(.active):not(.here) {
+            color: #d80026;
+        }
+        .menu-state-bg .menu-item.hover:not(.here)>.menu-link:not(.disabled):not(.active):not(.here), .menu-state-bg .menu-item:not(.here) .menu-link:hover:not(.disabled):not(.active):not(.here) {
+            background-color: #fdeaed;
+        }
+        .badge-light-success {
+            color: #cd5060;
+            background-color: #fdeaed;
+        }
+        btn.btn-primary:focus:not(.btn-active), .btn.btn-primary:hover:not(.btn-active), .show>.btn.btn-primary {
+            color: #fff;
+            border-color: #940111;
+            background-color: #940111!important;
+        }
+        
+    </style> 
 </head>
 
 <body id="kt_body" style="background-image: url({{ asset('theme/assets/media/patterns/header-bg.jpg')}})" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled">

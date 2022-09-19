@@ -17,7 +17,64 @@
 </head>
 <!--end::Head-->
 <!--begin::Body-->
-
+<style>
+    a {
+            color: #d80026;
+            text-decoration: none;
+        }
+        .text-hover-primary:hover {
+            color: #d80026!important;
+        }
+        .link-primary {
+    color: #d80026;
+    }
+            .link-primary:focus, .link-primary:hover {
+                color: #940111;
+            }
+        .btn.btn-primary {
+            color: #fff;
+            border-color: #d80026;
+            background-color: #d80026;
+        }
+        .btn-check:active+.btn.btn-active-light-primary i, .btn-check:checked+.btn.btn-active-light-primary i, .btn.btn-active-light-primary.active i, .btn.btn-active-light-primary.show i, .btn.btn-active-light-primary:active:not(.btn-active) i, .btn.btn-active-light-primary:focus:not(.btn-active) i, .btn.btn-active-light-primary:hover:not(.btn-active) i, .show>.btn.btn-active-light-primary i {
+            color: #d80026;
+        }
+        .btn-check:active+.btn.btn-active-light-primary, .btn-check:checked+.btn.btn-active-light-primary, .btn.btn-active-light-primary.active, .btn.btn-active-light-primary.show, .btn.btn-active-light-primary:active:not(.btn-active), .btn.btn-active-light-primary:focus:not(.btn-active), .btn.btn-active-light-primary:hover:not(.btn-active), .show>.btn.btn-active-light-primary {
+            color: #d6d6d6;
+            border-color: #ffb0bb;
+            background-color: #ffb0bb!important;
+        }
+        .page-item.active .page-link {
+            z-index: 3;
+            color: #fff;
+            background-color: #d80026;
+            border-color: transparent;
+        }
+        .text-primary {
+            color: #d80026!important;
+        }
+        .text-hover-primary:hover .svg-icon svg [fill]:not(.permanent):not(g) {
+            fill: #d80026;
+        }
+        .svg-icon.svg-icon-primary svg [fill]:not(.permanent):not(g) {
+            fill: #d80026;
+        }
+        .menu-state-primary .menu-item.hover:not(.here)>.menu-link:not(.disabled):not(.active):not(.here), .menu-state-primary .menu-item:not(.here) .menu-link:hover:not(.disabled):not(.active):not(.here) {
+            color: #d80026;
+        }
+        .menu-state-bg .menu-item.hover:not(.here)>.menu-link:not(.disabled):not(.active):not(.here), .menu-state-bg .menu-item:not(.here) .menu-link:hover:not(.disabled):not(.active):not(.here) {
+            background-color: #fdeaed;
+        }
+        .badge-light-success {
+            color: #cd5060;
+            background-color: #fdeaed;
+        }
+        btn.btn-primary:focus:not(.btn-active), .btn.btn-primary:hover:not(.btn-active), .show>.btn.btn-primary {
+            color: #fff;
+            border-color: #940111;
+            background-color: #940111!important;
+        }
+    </style>
 <body id="kt_body" class="bg-body">
 
     <!-- Session Status -->
@@ -81,6 +138,13 @@
                             <input class="form-control form-control-lg form-control-solid" id="password" type="password" name="password" :value="old('password')" required autofocus />
                             <!--end::Input-->
                         </div>
+                        <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
+                            <div></div>
+                            <!--begin::Link-->
+                            <a href="{{ route('password.request') }}" class="link-primary">Forgot Password ?</a>
+                            <!--end::Link-->
+                        </div>
+                           
                         <!--end::Input group-->
                         <!--begin::Actions-->
                         <div class="text-center">

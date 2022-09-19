@@ -85,6 +85,7 @@
 <script src="{{ asset('theme/assets/js/custom/documentation/editors/quill/basic.js') }}"></script>
 {{-- <!-- <script src="{{ asset('theme/assets/custom/customjs.js"></script> --> --}}
 <!--end::Page Custom Javascript-->
+
 <script>
     // $("#kt_datatable_example_1").DataTable();
     $(document).ready(function() {

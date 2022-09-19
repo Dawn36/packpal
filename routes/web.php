@@ -12,7 +12,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\AdsController;
 use App\Http\Controllers\WebsiteController;
-
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,9 +51,10 @@ Route::Get('contact_us', [WebsiteController::class, 'contactUs'])->name('contact
 // })->name('contact_us');
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
+Route::Get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
 Route::Get('get_user_contact', [ChatController::class, 'userContact'])->name('get_user_contact');
 Route::Get('message_store', [ChatController::class, 'storeMessage'])->name('message_store');
