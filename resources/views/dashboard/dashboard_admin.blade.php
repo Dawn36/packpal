@@ -106,7 +106,7 @@
                             </span>
                             <!--end::Svg Icon-->
                             <div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">10</div>
-                            <div class="fw-bold text-gray-400">Total Categories</div>
+                            <div class="fw-bolder text-gray-800 text-hover-primary mb-1">Total Categories</div>
                         </div>
                         <!--end::Body-->
                     </a>
@@ -150,7 +150,7 @@
                             </span>
                             <!--end::Svg Icon-->
                             <div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">120</div>
-                            <div class="fw-bold text-gray-400">Total Buyer</div>
+                            <div class="fw-bolder text-gray-800 text-hover-primary mb-1">Total Buyer</div>
                         </div>
                         <!--end::Body-->
                     </a>
@@ -204,7 +204,7 @@
                                 </span>
                             <!--end::Svg Icon-->
                             <div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">10</div>
-                            <div class="fw-bold text-gray-400">subscribe  User</div>
+                            <div class="fw-bolder text-gray-800 text-hover-primary mb-1">subscribe  User</div>
                         </div>
                         <!--end::Body-->
                     </a>
@@ -246,7 +246,7 @@
                             </span>
                             <!--end::Svg Icon-->
                             <div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">120</div>
-                            <div class="fw-bold text-gray-400">Total Bid</div>
+                            <div class="fw-bolder text-gray-800 text-hover-primary mb-1">Total Bid</div>
                         </div>
                         <!--end::Body-->
                     </a>
