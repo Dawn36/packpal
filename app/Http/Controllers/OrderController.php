@@ -63,6 +63,13 @@ class OrderController extends Controller
         $orderId = $request->orderId;
         return view('buyer-order/buyer_order_feedback', compact('orderId'));
     }
+    public function completeOrder($orderId)
+    {
+        $order = Order::Find($orderId);
+        $order->status = 'complete';
+        $order->save();
+        return redirect()->back();
+    }
     public function reviewStore(Request $request)
     {
         $loginUserId = Auth::user()->id;

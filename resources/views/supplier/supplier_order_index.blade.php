@@ -265,6 +265,7 @@
                                 </div>
                                 <div class="d-flex">
                                     <a href="#" class="fs-3 text-gray-800 text-hover-primary fw-bolder mb-5">{{ucwords($userData->first_name)}} {{ucwords($userData->last_name)}}</a>
+                                    @if(Auth::user()->verified == 'yes')
                                     <a href="#" style="margin-top: 1px;">
                                         <span class="svg-icon svg-icon-1 svg-icon-primary">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
@@ -273,6 +274,7 @@
                                             </svg>
                                         </span>
                                     </a>
+                                    @endif
                                 </div>
                                 <div class="mb-9">
                                     <div class="badge badge-lg badge-light-primary d-inline">Supplier</div>

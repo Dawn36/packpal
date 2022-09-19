@@ -28,6 +28,31 @@
     <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"> -->
     <!-- <script src="https://use.fontawesome.com/792974b28a.js"></script> -->
      <style>
+        .btn-check:active+.btn.btn-primary, .btn-check:checked+.btn.btn-primary, .btn.btn-primary.active, .btn.btn-primary.show, .btn.btn-primary:active:not(.btn-active), .btn.btn-primary:focus:not(.btn-active), .btn.btn-primary:hover:not(.btn-active), .show>.btn.btn-primary {
+    color: #fff;
+    border-color: #d80026;
+    background-color: #d80026!important;
+}
+.badge-light-primary {
+    color: #d80026;
+    background-color: #ffe2e2;
+}
+.btn.btn-light-primary {
+    color: #d80026;
+    border-color: #d80026;
+    background-color: #ffe2e2;
+}
+.btn-check:active+.btn.btn-light-primary, .btn-check:checked+.btn.btn-light-primary, .btn.btn-light-primary.active, .btn.btn-light-primary.show, .btn.btn-light-primary:active:not(.btn-active), .btn.btn-light-primary:focus:not(.btn-active), .btn.btn-light-primary:hover:not(.btn-active), .show>.btn.btn-light-primary {
+    color: #fff;
+    border-color: #d80026;
+    background-color: #d80026!important;
+}
+.nav-line-tabs .nav-item .nav-link.active, .nav-line-tabs .nav-item .nav-link:hover:not(.disabled), .nav-line-tabs .nav-item.show .nav-link {
+    border-bottom: 1px solid #d80026;
+}
+.text-active-primary.active {
+    color: #d80026!important;
+}
        a {
             color: #d80026;
             text-decoration: none;
