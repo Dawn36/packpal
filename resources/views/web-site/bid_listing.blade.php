@@ -27,7 +27,7 @@
             <form   method="GET" action="{{ route('bid_listing') }}">
             <div class="dropdown-filters d-flex">
               <select id='category_id' name="category_id"  class="form-control" required onchange="getSubCategoryAjax()">
-                <option selected="">Select category</option>
+                <option selected="" value="">Select category</option>
                 @for ($i = 0; $i < count($categories); $i++) <option value="{{$categories[$i]->id}}" {{$categoryId == $categories[$i]->id ? 'selected' :''}}>{{ucwords($categories[$i]->category_name)}}</option>
                 @endfor
               </select>
@@ -51,7 +51,7 @@
         <div
           class="sorting-div d-flex align-items-center justify-content-between"
         >
-          <p class="mb-2">{{$bidListing->total()}} Services available</p>
+          <p class="mb-2">{{$bidListing->total()}} Bids Available</p>
           <div class="sorting d-flex align-items-center">
             <p>Sortby</p>
             <form  id='newold' method="GET" action="{{ route('bid_listing') }}">
@@ -64,7 +64,24 @@
             </form>
           </div>
         </div>
-        <h3>Services In Web &amp; Mobile Design</h3>
+        @if(!is_null(request()->category_id))
+        @if(request()->category_id != 'Select category')
+          @php
+           $categoryName='';
+           for($i = 0; $i < count($categories); $i++)
+           {
+            if(request()->category_id == $categories[$i]->id)
+            {
+              $categoryName= $categories[$i]->category_name;
+              break;
+            }
+           }
+          
+          @endphp
+        
+        <h3>Suppliers in {{ucwords($categoryName)}}</h3>
+        @endif
+        @endif
       </div>
       <div class="container">
         <div class="row">

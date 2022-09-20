@@ -6,16 +6,16 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <div class="main-search-headlines">
-              <h2>
-                Find Nearby
+            <div class="main-search-headlines" >
+              <h2 style="font-size: 35px;">
+                A B2B PLATFORM for PACKAGING
                 <!-- Typed words can be configured in script settings at the bottom of this HTML file -->
                 <span class="typed-words"></span>
               </h2>
-              <h4>Expolore top-rated attractions, activities and more</h4>
+              <h4 style="font-size: 23px;">Connecting Buyers & Sellers of Packaging Industry</h4>
             </div>
             <form  id='search_from' method="GET" action="{{route('search_home')}}">
-            <div class="main-search-input">
+            <div class="main-search-input" style="margin-top: 19px;">
               <div class="main-search-input-item">
                 <select
                   data-placeholder="All Categories"
@@ -30,7 +30,7 @@
                 <input
                 name='search'
                   type="text"
-                  placeholder="What are you looking for?"
+                  placeholder="Search your Packaging"
                   value=""
                 />
               </div>
@@ -264,7 +264,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <h3><a href="{{route('web_supplier_listing')}}"> Supplier Listing</a></h3>
+            <h3><a href="{{route('web_supplier_listing')}}">PACKAGING SUPPLIERS</a></h3>
             <div class="view recent-slider recommended-slider"> 
               @for($i=0; $i < count($supplier); $i++)
               @php
