@@ -87,6 +87,15 @@
     background: -o-linear-gradient(left, #863044 0%, #ff010b 100%);
     background: linear-gradient(to right, #863044 0%, #ff010b 100%);
 }
+.btn-success {
+    background: #863044;
+    background: -webkit-linear-gradient( legacy-direction(to right), #863044 0%, #ff010b 100% );
+    background: -webkit-gradient( linear, left top, right top, from(#863044), to(#ff010b) );
+    background: -webkit-linear-gradient(left, #863044 0%, #ff010b 100%);
+    background: -o-linear-gradient(left, #863044 0%, #ff010b 100%);
+    background: linear-gradient(to right, #863044 0%, #ff010b 100%);
+    border-color: #863044;
+}
     .btn-outline-success:hover {
     background: #161616;
     background: -webkit-linear-gradient( legacy-direction(to right), #863044 0%, #ff010b 100% );

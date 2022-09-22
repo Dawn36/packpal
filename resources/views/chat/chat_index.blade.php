@@ -11,6 +11,7 @@
         display: block;
         transition: 0.8s ease;
     }
+    .pointer {cursor: pointer;}
 </style>
 <div class="toolbar py-5 py-lg-15" id="kt_toolbar">
     <!--begin::Container-->
@@ -169,7 +170,7 @@
     var page = 1;
     // let socket = io(ip_address + ":" + socket_port);
     let socket = io(url);
-    console.log(ip_address);
+    console.log(socket);
 
     room = '';
     var i = 0;
@@ -191,7 +192,7 @@
                                             <div style="display:none"  id='userDiv${result[i].user_id}' class="symbol-badge bg-success start-100 top-100 border-4 h-15px w-15px ms-n2 mt-n2"></div>
                                         </div>
                                         <div class="ms-5">
-                                            <a  class="fs-5 fw-bolder text-gray-900 text-hover-primary mb-2"  onclick="openChatWindow(this,'${result[i].therd_id}','${result[i].user_id}')">${result[i].first_name} ${result[i].last_name}</a>
+                                            <a  class="fs-5 fw-bolder text-gray-900 text-hover-primary mb-2 pointer"  onclick="openChatWindow(this,'${result[i].therd_id}','${result[i].user_id}')">${result[i].first_name} ${result[i].last_name}</a>
                                             <div class="fw-bold text-muted">${result[i].email}</div>
                                         </div>
                                     </div>
@@ -264,7 +265,8 @@
                     </div>`);
             },
         });
-        $('#scroll').scrollTop($("#scroll").height());
+        // $('#scroll').scrollTop($("#scroll").height());
+        $('#scroll').scrollTop($("#chatMessage").height());
 
     }
 
@@ -337,7 +339,8 @@
                                     <div class="p-5 rounded bg-light-info text-dark fw-bold mw-lg-400px text-${meClass}" data-kt-element="message-text">${data.message}</div>
                                 </div>
                             </div>`)
-            $('#scroll').scrollTop($("#scroll").height());
+                            $('#scroll').scrollTop($("#chatMessage").height());
+            // $('#scroll').scrollTop($("#scroll").height());
         });
         socket.on('connection');
 
@@ -396,7 +399,8 @@
         // console.log($("#scroll").height());
         if ($("#scroll").scrollTop() == 0) {
             page++;
-            $("#scroll").scrollTop($("#scroll").height())
+            $('#scroll').scrollTop($("#chatMessage").height());
+            // $("#scroll").scrollTop($("#scroll").height())
             loadMoreData(page);
         }
     });

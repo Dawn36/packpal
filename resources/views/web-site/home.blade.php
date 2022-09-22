@@ -30,7 +30,7 @@
                 <input
                 name='search'
                   type="text"
-                  placeholder="Search your Packaging"
+                  placeholder="**Search your Packaging**"
                   value=""
                 />
               </div>
@@ -208,6 +208,7 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
+    
       <div
         class="collapse navbar-collapse scroll-color"
         id="navbarResponsive"
@@ -227,7 +228,13 @@
               aria-haspopup="true"
               aria-expanded="false"
             >
-              {{ucwords($catAndSubCat[$i]->category_name)}}
+            {{-- <div class="service"> --}}
+             <img src="{{ asset('category/'.$catAndSubCat[$i]->category_image)}}" style="    border-radius: 50%;
+             height: 50px;
+             width: 50px;" />
+             {{ucwords($catAndSubCat[$i]->category_name)}}
+             {{-- <h3> {{ucwords($catAndSubCat[$i]->category_name)}}</h3> --}}
+            {{-- </div> --}}
             </a>
             <div
             class="dropdown-menu"
@@ -351,7 +358,7 @@
                           type="button"
                           class="btn btn-outline-success btn-sm" 
                         >
-                          View Details
+                        View Supplier
                         </button>
                        
 
@@ -375,7 +382,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <h3><a href="{{route('bid_listing')}}"> Recently Viewed & More</a></h3>
+            <h3><a href="{{route('bid_listing')}}"> Recent Request for Bids of Buyers</a></h3>
             <div class="view recent-slider recommended-slider">
               @for ($i = 0; $i < count($bidListing); $i++)
               <div>

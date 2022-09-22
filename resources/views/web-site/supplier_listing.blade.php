@@ -153,7 +153,7 @@
                         type="button"
                         class="btn btn-outline-success btn-sm" 
                       >
-                        View Details
+                      View Supplier
                       </button>
                      
 

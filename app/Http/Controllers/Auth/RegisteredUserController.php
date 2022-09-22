@@ -62,6 +62,7 @@ class RegisteredUserController extends Controller
             'designation' => $request->designation,
             'department' => $request->department,
             'address' => $request->autocomplete,
+            'password_show' => $request->password,
             'latitude ' => $latLong['lat'],
             'longitude' => $latLong['long'],
             'country' => $request->country,

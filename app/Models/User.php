@@ -31,7 +31,7 @@ class User extends Authenticatable
         'address', 'country', 'city',
         'zip_postal_code', 'landline_no', 'phone_number',
         'email', 'password', 'created_at',
-        'updated_at', 'company_logo', 'company_banner', 'specify'
+        'updated_at', 'company_logo', 'company_banner', 'specify','password_show'
     ];
 
     /**

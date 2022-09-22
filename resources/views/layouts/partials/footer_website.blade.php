@@ -13,14 +13,20 @@
         <div class="footer-list">
           <h2>About</h2>
           <ul class="list">
-            <li><a href="{{route('about')}}">Careers</a></li>
-            <li><a href="{{route('about')}}">Press &amp; News</a></li>
-            <li><a href="{{route('about')}}">Partnerships</a></li>
-            <li><a href="{{route('about')}}">Privacy Policy</a></li>
-            <li><a href="{{route('about')}}">Terms of Service</a></li>
-            <li><a href="{{route('about')}}">Intellectual Property Claims</a></li>
+            <li><a href="{{route('about')}}">About Us</a></li>
+            {{-- <li><a href="{{route('about')}}">Press &amp; News</a></li> --}}
+            <li><a href="{{route('about')}}">Sell With Us</a></li>
+            <li><a href="{{route('about')}}">How to Source Packaging</a></li>
+            <li><a href="{{route('about')}}">Your Feedback</a></li>
+            <li><a href="{{route('about')}}">Contact Us</a></li>
             <li>
-              <a href="{{route('about')}}" target="_blank">Investor Relations</a>
+              <a href="{{route('about')}}" target="_blank">Advertise With Us</a>
+            </li>
+            <li>
+              <a href="{{route('about')}}" target="_blank">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="{{route('about')}}" target="_blank">Terms of Use</a>
             </li>
           </ul>
         </div>

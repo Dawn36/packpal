@@ -42,6 +42,9 @@
     border-color: #d80026;
     background-color: #ffe2e2;
 }
+.bg-light-info {
+    background-color: #ffb0bb!important;
+}
 .btn-check:active+.btn.btn-light-primary, .btn-check:checked+.btn.btn-light-primary, .btn.btn-light-primary.active, .btn.btn-light-primary.show, .btn.btn-light-primary:active:not(.btn-active), .btn.btn-light-primary:focus:not(.btn-active), .btn.btn-light-primary:hover:not(.btn-active), .show>.btn.btn-light-primary {
     color: #fff;
     border-color: #d80026;
