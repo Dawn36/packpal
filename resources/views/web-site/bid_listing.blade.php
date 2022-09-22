@@ -38,8 +38,14 @@
               <button class="btn btn-success ml-2" type="submit">
                 <i class="fa fa-search fa-sm"></i>
               </button>
+             
             </div>
           </form>
+          </div>
+          <div class="right">
+          <a href="{{route('web_supplier_listing')}}" class="btn btn-success ml-2" type="submit">
+            View Suppliers
+          </a>
           </div>
         </div>
       </div>
@@ -151,7 +157,7 @@
         {{$bidListing->links('pagination::bootstrap-4') }}
       </nav>
     </div>
-    <section class="related-links"></section>
+    {{-- <section class="related-links"></section>
     <div class="container">
       <section class="faqs">
         <h2>Web &amp; Mobile Design FAQs</h2>
@@ -206,7 +212,7 @@
           </li>
         </ul>
       </section>
-    </div>
+    </div> --}}
   </div>
   <script src="{{ asset('theme/website-assets/vendor/jquery/jquery.min.js')}}"></script>
 

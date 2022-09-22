@@ -41,6 +41,22 @@
           </div>
         </form>
         </div>
+        @if(!Auth::check())
+        <div class="right">
+          <a href="{{route('bid_status','active')}}" class="btn btn-success ml-2" type="submit">
+            Request for Bids
+          </a>
+          </div>
+          @endif
+          @if(Auth::check())
+          @if(Auth::user()->hasRole('buyer'))
+          <div class="right">
+            <a href="{{route('bid_status','active')}}" class="btn btn-success ml-2" type="submit">
+              Request for Bids
+            </a>
+            </div>
+            @endif
+            @endif
         </div>
       </div>
     </div>
@@ -174,62 +190,62 @@
         {{$supplier->links('pagination::bootstrap-4') }}
       </nav>
     </div>
-    <section class="related-links"></section>
-    <div class="container">
-      <section class="faqs">
-        <h2>Web &amp; Mobile Design FAQs</h2>
-        <ul>
-          <li>
-            <h3>What is web design?</h3>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy
-              text ever since the 1500s, when an unknown printer took a galley
-              of type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged.
-            </p>
-          </li>
-          <li>
-            <h3>What kinds of projects need web design?</h3>
-            <p>
-              When an unknown printer took Lorem Ipsum is simply dummy text of
-              the printing and typesetting industry. Lorem Ipsum has been the
-              industry's standard dummy text ever since the 1500s, a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged.
-            </p>
-          </li>
-          <li>
-            <h3>What makes good web design?</h3>
-            <p>
-              It is a long established fact that a reader will be distracted
-              by the readable content of a page when looking at its layout.
-              The point of using Lorem Ipsum is that it has a more-or-less
-              normal distribution of letters, as opposed to using 'Content
-              here, content here', making it look like readable English. Many
-              desktop publishing packages and web page editors now use Lorem
-              Ipsum as their default model text, and a search for 'lorem
-              ipsum' will uncover many.
-            </p>
-          </li>
-          <li>
-            <h3>How do I pick the right web designer for me?</h3>
-            <p>
-              Making it look like readable English It is a long established
-              fact that a reader will be distracted by the readable content of
-              a page when looking at its layout. The point of using Lorem
-              Ipsum is that it has a more-or-less normal distribution of
-              letters, as opposed to using 'Content here, content here. Many
-              desktop publishing packages and web page editors now use Lorem
-              Ipsum as their default model text, and a search for 'lorem
-              ipsum' will uncover many.
-            </p>
-          </li>
-        </ul>
-      </section>
-    </div>
+      {{-- <section class="related-links"></section>
+      <div class="container">
+        <section class="faqs">
+          <h2>Web &amp; Mobile Design FAQs</h2>
+          <ul>
+            <li>
+              <h3>What is web design?</h3>
+              <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged.
+              </p>
+            </li>
+            <li>
+              <h3>What kinds of projects need web design?</h3>
+              <p>
+                When an unknown printer took Lorem Ipsum is simply dummy text of
+                the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, a galley of
+                type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged.
+              </p>
+            </li>
+            <li>
+              <h3>What makes good web design?</h3>
+              <p>
+                It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout.
+                The point of using Lorem Ipsum is that it has a more-or-less
+                normal distribution of letters, as opposed to using 'Content
+                here, content here', making it look like readable English. Many
+                desktop publishing packages and web page editors now use Lorem
+                Ipsum as their default model text, and a search for 'lorem
+                ipsum' will uncover many.
+              </p>
+            </li>
+            <li>
+              <h3>How do I pick the right web designer for me?</h3>
+              <p>
+                Making it look like readable English It is a long established
+                fact that a reader will be distracted by the readable content of
+                a page when looking at its layout. The point of using Lorem
+                Ipsum is that it has a more-or-less normal distribution of
+                letters, as opposed to using 'Content here, content here. Many
+                desktop publishing packages and web page editors now use Lorem
+                Ipsum as their default model text, and a search for 'lorem
+                ipsum' will uncover many.
+              </p>
+            </li>
+          </ul>
+        </section>
+      </div> --}}
   </div>
   <script src="{{ asset('theme/website-assets/vendor/jquery/jquery.min.js')}}"></script>
 
