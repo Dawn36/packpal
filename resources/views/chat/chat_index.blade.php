@@ -164,10 +164,11 @@
 <script>
     var myId = "{{Auth::user()->id}}";
     var userId = '';
-    let ip_address = "{{ env('CHAT_IP') }}";
+    let ip_address = "{{env('CHAT_IP') }}";
     let socket_port = "{{ env('CHAT_PORT') }}";
     let url = "{{ env('CHAT_URL') }}";
     var page = 1;
+    console.log('dawn',url);
     // let socket = io(ip_address + ":" + socket_port);
     let socket = io(url);
     console.log(socket);

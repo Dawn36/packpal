@@ -7,12 +7,12 @@
         <div class="row">
           <div class="col-md-12">
             <div class="main-search-headlines" >
-              <h2 style="font-size: 35px;">
+              <h2 style="font-size: 35px; font-weight: 1000;">
                 A B2B PLATFORM for PACKAGING
                 <!-- Typed words can be configured in script settings at the bottom of this HTML file -->
                 <span class="typed-words"></span>
               </h2>
-              <h4 style="font-size: 23px;">Connecting Buyers & Sellers of Packaging Industry</h4>
+              <h4 style="font-size: 23px;">Connecting Buyers & Sellers </h4>
             </div>
             <form  id='search_from' method="GET" action="{{route('search_home')}}">
             <div class="main-search-input" style="margin-top: 19px;">
@@ -30,7 +30,7 @@
                 <input
                 name='search'
                   type="text"
-                  placeholder="**Search your Packaging**"
+                  placeholder="Search your Packaging"
                   value=""
                 />
               </div>
@@ -241,7 +241,7 @@
             aria-labelledby="navbarDropdownPortfolio{{$i}}"
             >
             @for ($j = 0; $j < count($dataSubId); $j++)
-              <a class="dropdown-item" href="{{route('bid_cat_search',['catId'=>$catAndSubCat[$i]->cat_id,'subCat'=>$dataSubId[$j]])}}" >{{ucwords($dataSubName[$j])}}</a>
+              <a class="dropdown-item" href="{{route('web_supplier_listing',['category_id'=>$catAndSubCat[$i]->cat_id,'sub_category_id'=>$dataSubId[$j]])}}" >{{ucwords($dataSubName[$j])}}</a>
               @endfor
             </div>
           </li>

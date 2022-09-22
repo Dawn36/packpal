@@ -30,7 +30,7 @@ Route::Get('/', [WebsiteController::class, 'index']);
 Route::Get('bid_detail/{bidId}', [WebsiteController::class, 'bidDetail'])->name('bid_detail');
 Route::Get('bid_listing', [WebsiteController::class, 'bidListing'])->name('bid_listing');
 Route::Get('bid_cat_search/{catId}/{subCat?}', [WebsiteController::class, 'bidListinga'])->name('bid_cat_search');
-Route::Get('web_supplier_listing', [WebsiteController::class, 'supplierListing'])->name('web_supplier_listing');
+Route::Get('web_supplier_listing/{category_id?}/{sub_category_id?}', [WebsiteController::class, 'supplierListing'])->name('web_supplier_listing');
 Route::Get('search_home', [WebsiteController::class, 'searchHome'])->name('search_home');
 Route::Get('about', [WebsiteController::class, 'about'])->name('about');
 Route::Get('contact_us', [WebsiteController::class, 'contactUs'])->name('contact_us');

@@ -80,7 +80,7 @@
             <img src="{{ asset('theme/website-assets/images/logo-5.png')}}" />
           </a>
         </div>
-        <p>© Copyright 2022 Miver. All Rights Reserved</p>
+        <p>Contact Support / Raise a complaint at : <b style="color: #4e4d4d;">complaints@packpal.pk</b></p>
         <ul class="social">
           <li>
             <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>

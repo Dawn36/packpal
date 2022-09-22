@@ -27,12 +27,12 @@
           <form   method="GET" action="{{ route('web_supplier_listing') }}">
           <div class="dropdown-filters d-flex">
             <select id='category_id' name="category_id"  class="form-control" required onchange="getSubCategoryAjax()">
-              <option selected="">Select category</option>
+              <option value="">Select category</option>
               @for ($i = 0; $i < count($categories); $i++) <option value="{{$categories[$i]->id}}" {{$categoryId == $categories[$i]->id ? 'selected' :''}}>{{ucwords($categories[$i]->category_name)}}</option>
               @endfor
             </select>
             <select id="sub_category_id" name="sub_category_id" class="form-control ml-4">
-              <option selected="">Select Sub category</option>
+              <option value="">Select Sub category</option>
              
             </select>
             <button class="btn btn-success ml-2" type="submit">
