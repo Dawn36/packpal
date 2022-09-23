@@ -421,7 +421,7 @@
                           class="level"
                           style="font-weight: bold; color: #524e4e"
                         >
-                          Buyer from: {{ucwords($bidListing[$i]->address)}}
+                          Buyer from: {{ucwords($bidListing[$i]->city)}}
                         </span>
                       </span>
                     </div>

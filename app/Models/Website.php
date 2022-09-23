@@ -29,6 +29,7 @@ class Website extends Model
             u.`id` AS user_id,
             b.`bids_name`,
             u.`address`,
+            u.`city`,
             u.`first_name`,
             u.`last_name`,
             u.`profile_picture`'))
