@@ -13,6 +13,7 @@ use App\Models\Supplier;
 use Illuminate\Http\Request;
 class WebsiteController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -45,20 +46,20 @@ class WebsiteController extends Controller
 
         return view('web-site/bid_detail',compact('bidDetail','bidsImage','bidListing','categories'));
     }
-    public function bidListinga(Request $request)
-    {
-        $objWebSite= new Website();
-        $categoryId= $request->catId;
-        $subCategoryId= $request->subCat;
+    // public function bidListinga(Request $request)
+    // {
+    //     $objWebSite= new Website();
+    //     $categoryId= $request->catId;
+    //     $subCategoryId= $request->subCat;
 
-        $search=$request->search;
-        $orderBy = $request->newold;
-        $bidListing=$objWebSite->bidListing($categoryId,   $subCategoryId, $search,$orderBy);
+    //     $search=$request->search;
+    //     $orderBy = $request->newold;
+    //     $bidListing=$objWebSite->bidListing($categoryId,   $subCategoryId, $search,$orderBy);
 
-        $categories = Categories::get();
+    //     $categories = Categories::get();
 
-        return view('web-site/bid_listing',compact('bidListing','orderBy','categories','categoryId','subCategoryId'));
-    }
+    //     return view('web-site/bid_listing',compact('bidListing','orderBy','categories','categoryId','subCategoryId'));
+    // }
     public function bidListing(Request $request)
     {
         $objWebSite= new Website();
@@ -194,10 +195,21 @@ class WebsiteController extends Controller
 
         return view('web-site/about',compact('categories')); 
     }
-    public function contactUs()
+    public function feedBack()
     {
         $categories = Categories::get();
 
-        return view('web-site/contact_us',compact('categories')); 
+        return view('web-site/feed_back',compact('categories')); 
+    }
+    public function feedBackSubmit(Request $request)
+    {
+        dd($request);
+    }
+    public function categoryListing()
+    {
+        $categories = Categories::get();
+        $objWebSite= new Website();
+        $catAndSubCat=$objWebSite->getCatAndSubCat();
+        return view('web-site/category_listing',compact('categories','catAndSubCat')); 
     }
 }

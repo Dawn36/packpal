@@ -6,7 +6,7 @@
 
           @for ($i = 0; $i < count($categories); $i++)
           <ul class="list">
-            <li><a href="{{route('bid_cat_search',['catId'=>$categories[$i]->id])}}">{{ucwords($categories[$i]->category_name)}}</li>
+            <li><a href="{{route('bid_listing',['category_id'=>$categories[$i]->id])}}">{{ucwords($categories[$i]->category_name)}}</li>
           </ul>
           @endfor
         </div>
@@ -17,7 +17,7 @@
             {{-- <li><a href="{{route('about')}}">Press &amp; News</a></li> --}}
             <li><a href="{{route('about')}}">Sell With Us</a></li>
             <li><a href="{{route('about')}}">How to Source Packaging</a></li>
-            <li><a href="{{route('about')}}">Your Feedback</a></li>
+            <li><a href="{{route('feed_back')}}">Your Feedback</a></li>
             <li><a href="{{route('about')}}">Contact Us</a></li>
             <li>
               <a href="{{route('about')}}" target="_blank">Advertise With Us</a>
@@ -33,10 +33,10 @@
         <div class="footer-list">
           <h2>Support</h2>
           <ul class="list">
-            <li><a href="{{route('contact_us')}}">Help &amp; Support</a></li>
-            <li><a href="{{route('contact_us')}}">Trust &amp; Safety</a></li>
-            <li><a href="{{route('contact_us')}}">Selling on Miver </a></li>
-            <li><a href="{{route('contact_us')}}">Buying on Miver </a></li>
+            <li><a href="{{route('feed_back')}}">Help &amp; Support</a></li>
+            <li><a href="{{route('feed_back')}}">Trust &amp; Safety</a></li>
+            <li><a href="{{route('feed_back')}}">Selling on Miver </a></li>
+            <li><a href="{{route('feed_back')}}">Buying on Miver </a></li>
           </ul>
         </div>
         <div class="footer-list">

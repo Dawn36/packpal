@@ -243,10 +243,14 @@
             @for ($j = 0; $j < count($dataSubId); $j++)
               <a class="dropdown-item" href="{{route('web_supplier_listing',['category_id'=>$catAndSubCat[$i]->cat_id,'sub_category_id'=>$dataSubId[$j]])}}" >{{ucwords($dataSubName[$j])}}</a>
               @endfor
+              
             </div>
+           
           </li>
           @endfor
-          
+          <button onclick="viewAllCategory()"  type="button" class="btn btn-outline-success btn-sm" tabindex="0">
+            View All <br> Category
+            </button>
         </ul>
       </div>
     </div>
@@ -473,7 +477,7 @@
         @for ($i = 0; $i < count($catAndSubCat); $i++)
         <div class="col">
           <div class="service">
-            <a href="{{route('bid_cat_search',['catId'=>$catAndSubCat[$i]->cat_id])}}" >
+            <a href="{{route('bid_listing',['category_id'=>$catAndSubCat[$i]->cat_id])}}" >
             
             <img src="{{ asset('category/'.$catAndSubCat[$i]->category_image)}}" alt="{{$catAndSubCat[$i]->category_name}}"  />
              <h3>{{ucwords($catAndSubCat[$i]->category_name)}}</h3>
@@ -560,6 +564,11 @@
     </div>
   </div>
   <script>
+    function viewAllCategory()
+    {
+      var url = "{{ route('category_listing') }}";
+	location.href = url;
+    }
   function search() {
     document.getElementById('search').submit();
 }
