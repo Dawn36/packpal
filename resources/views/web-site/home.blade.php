@@ -248,7 +248,7 @@
            
           </li>
           @endfor
-          <button onclick="viewAllCategory()"  type="button" class="btn btn-outline-success btn-sm" tabindex="0">
+          <button onclick="viewAllCategory()"  type="button" class="btn btn-outline-success btn-sm" tabindex="0" style="border: none;">
             View All <br> Category
             </button>
         </ul>
