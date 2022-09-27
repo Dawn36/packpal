@@ -118,7 +118,7 @@
                                 <select id="role_id" name="role_id" class="form-control form-control-lg form-control-solid" onchange="showDiv()">
                                     <option value="2">Seller</option>
                                     <option value="3">Buyer</option>
-                                    <option value="1">admin</option>
+                                    {{-- <option value="1">admin</option> --}}
                                 </select>
                             </div>
                         </div>
