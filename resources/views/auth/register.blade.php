@@ -132,12 +132,12 @@
                                     <label class="form-label required fw-bolder text-dark fs-6">Primary Business:</label>
                                     <select id='primary_business' name="primary_business" class="form-control form-control-lg form-control-solid" onchange="primaryBusinee()" required>
                                         <option value="manufacturer">Manufacturer</option>
-                                        <option value="holesaler">Holesaler</option>
-                                        <option value="rader">Rader</option>
+                                        <option value="wholesaler">Wholesaler</option>
+                                        <option value="trader">Trader</option>
                                         <option value="importer">Importer</option>
                                         <option value="agent">Agent</option>
                                         <option value="distributor">Distributor</option>
-                                        <option value="reseller">Reseller</option>
+                                        <option value="reseller">Re-seller</option>
                                         <option value="other">Other</option>
                                     </select>
                                 </div>
