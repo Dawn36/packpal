@@ -73,17 +73,17 @@
                     <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder">
                         <!--begin::Nav item-->
                         <li class="nav-item">
-                            <a class="nav-link text-active-primary py-5 me-6 position-relative {{$active}}" href="{{ route('bid_status', ['status' => 'active']) }}">Active Bids<span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-success">{{$bidSatatusCount[0]->active_bids == null ? '0' : $bidSatatusCount[0]->active_bids}}</span></a>
+                            <a class="nav-link text-active-primary py-5 me-6 position-relative {{$active}}" href="{{ route('bid_status', ['status' => 'active']) }}"><span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-success">{{$bidSatatusCount[0]->active_bids == null ? '0' : $bidSatatusCount[0]->active_bids}}</span>Active Bids</a>
                         </li>
                         <!--end::Nav item-->
                         <!--begin::Nav item-->
                         <li class="nav-item">
-                            <a class="nav-link text-active-primary py-5 me-6 position-relative {{$inactive}}" href="{{ route('bid_status', ['status' => 'inactive']) }}"><span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-danger">{{$bidSatatusCount[0]->active_bids == null ? '0' : $bidSatatusCount[0]->inactive_bids}}</span>In-active Bids</a>
+                            <a class="nav-link text-active-primary py-5 me-6 position-relative {{$inactive}}" href="{{ route('bid_status', ['status' => 'inactive']) }}"><span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-danger">{{$bidSatatusCount[0]->active_bids == null ? '0' : $bidSatatusCount[0]->inactive_bids}}</span>In-Active Bids</a>
                         </li>
                         <!--end::Nav item-->
                         <!--begin::Nav item-->
                         <li class="nav-item">
-                            <a class="nav-link text-active-primary py-5 me-6 position-relative {{$pending}}" href="{{ route('bid_status', ['status' => 'pending']) }}"><span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-warning">{{$bidSatatusCount[0]->active_bids == null ? '0' : $bidSatatusCount[0]->pending_bids}}</span>Pending for approval</a>
+                            <a class="nav-link text-active-primary py-5 me-6 position-relative {{$pending}}" href="{{ route('bid_status', ['status' => 'pending']) }}"><span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-warning">{{$bidSatatusCount[0]->active_bids == null ? '0' : $bidSatatusCount[0]->pending_bids}}</span>Pending For Approval</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-active-primary py-5 me-6 position-relative {{$denied}}" href="{{ route('bid_status', ['status' => 'denied']) }}"><span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-danger">{{$bidSatatusCount[0]->active_bids == null ? '0' : $bidSatatusCount[0]->denid_bids}}</span>Denied</a>
@@ -101,7 +101,7 @@
                         <div class="p-10">
                             <!--begin::Heading-->
                             <h1 class="anchor fw-bolder mb-5" id="zero-configuration">
-                                <a href="javascript:;"></a>Active Bids List
+                                <a href="javascript:;"></a>{{$title == 'Pending For Approvel' ? 'Pending' :$title}} Bids 
                             </h1>
                             <!--begin::Notice-->
                             <div class="d-flex align-items-center rounded py-5 px-4 bg-light-{{$color}}">
@@ -125,7 +125,7 @@
                                 </div>
                                 <!--end::Icon-->
                                 <!--begin::Description-->
-                                <div class="text-gray-700 fw-bold fs-6 lh-lg">Here we have a list of all of the Bids that are saved in the Database and Posted by the Customers.</div>
+                                <div class="text-gray-700 fw-bold fs-6 lh-lg">{{$headLine}}</div>
                                 <!--end::Description-->
                             </div>
                             <!--end::Notice-->

@@ -78,7 +78,7 @@
                         <!--end::Nav item-->
                         <!--begin::Nav item-->
                         <li class="nav-item">
-                            <a class="nav-link text-active-primary py-5 me-6 position-relative {{$inactive}}" href="{{ route('order_status', ['status' => 'inprocess']) }}">In-process<span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-info">{{$orderStatusCount[0]->inprocess == null ? '0' : $orderStatusCount[0]->inprocess}}</span></a>
+                            <a class="nav-link text-active-primary py-5 me-6 position-relative {{$inactive}}" href="{{ route('order_status', ['status' => 'inprocess']) }}">In-Process<span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-info">{{$orderStatusCount[0]->inprocess == null ? '0' : $orderStatusCount[0]->inprocess}}</span></a>
                         </li>
                         <!--end::Nav item-->
                         <!--begin::Nav item-->

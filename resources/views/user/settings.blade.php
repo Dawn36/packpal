@@ -64,7 +64,7 @@
                                             </span>
                                         </a>
                                         @else
-                                        <div class="badge badge-lg badge-light-primary d-inline">Not verify</div>
+                                        <div class="badge badge-lg badge-light-primary d-inline">NOT-VERIFIED</div>
                                         @endif
                                         @endif
 

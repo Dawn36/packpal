@@ -27,30 +27,38 @@ class BidsController extends Controller
         $pending = '';
         $denied = '';
         $title='';
+        $headLine='';
         if ($status == 'active') {
             $title = "Active";
             $active = 'active';
             $color = 'success';
+        $headLine='Here we have List of all Posted Bids.';
+            
         }
         if ($status == 'inactive') {
-            $title = "In-active";
+            $title = "In-Active";
             $inactive = 'active';
             $color = 'danger';
+            $headLine='Here we have list of all Bids that are In-active due to any possible reason(s). An In-active listing will be deleted after 30 days if not made active. Contact Support for Help.';
         }
         if ($status == 'pending') {
-            $title = "Pending for approvel";
+            $title = "Pending For Approvel";
             $pending = 'active';
             $color = 'warning';
+            $headLine='Here we have list of all Bids Pending for Approval. You can Contact Support for Help.';
+
         }
         if ($status == 'denied') {
             $title = "Denied";
             $denied = 'active';
             $color = 'danger';
+            $headLine='Here is the list of Bids Denied. This is mainly due to any reason that are in violation or inacceptance of defined Terms and Policies of PackPal. Contact Support for further assistance.';
+
         }
         $bidsObj = new Bids();
         $bidSatatusCount = $bidsObj->bidStatusCount($userId);
         $bids = Bids::with('categories')->where('status', $status)->where('user_id', $userId)->get();
-        return view('bids/bids_index', compact('bidSatatusCount', 'bids', 'active', 'inactive', 'pending', 'denied', 'title', 'color'));
+        return view('bids/bids_index', compact('bidSatatusCount', 'bids', 'active', 'inactive', 'pending', 'denied', 'title', 'color','headLine'));
     }
 
     /**

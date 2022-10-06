@@ -214,8 +214,10 @@
                         <div class="card-body pt-0">
                             <div class="mb-10 fv-row">
                                 <input type="file" name="file[]" class="form-control mb-2" required multiple />
+                                <div class="text-muted fs-7">Attach only 5 Pictures’ in JPEG, JPG or PNG.</div>
                             </div>
                         </div>
+
 
                         <!--end::Card header-->
                         <!--begin::Card body-->

@@ -7,17 +7,18 @@
             <div class="menu menu-lg-rounded menu-column menu-lg-row menu-state-bg menu-title-gray-700 menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-400 fw-bold my-5 my-lg-0 align-items-stretch" id="#kt_header_menu" data-kt-menu="true">
                 <a href="{{route('dashboard')}}" class="menu-item  menu-lg-down-accordion me-lg-1">
                     <span class="menu-link py-3">
-                        <span class="menu-title">Dashboards</span>
+                        <span class="menu-title">Dashboard</span>
                         <span class="menu-arrow d-lg-none"></span>
                     </span>
                 </a>
+               
+                @if(Auth::user()->hasRole('admin'))
                 <a href="{{route('chat_index')}}" class="{{ Route::currentRouteName() == 'chat_index' ? 'show here' : '' }} menu-item menu-lg-down-accordion me-lg-1">
                     <span class="menu-link py-3">
                         <span class="menu-title">Chat</span>
                         <span class="menu-arrow d-lg-none"></span>
                     </span>
                 </a>
-                @if(Auth::user()->hasRole('admin'))
                 <a href="{{ route('categories.index') }}" class="{{ Route::currentRouteName() == 'categories.index' || Route::currentRouteName() == 'categories.show' ? 'show here' : '' }} menu-item  menu-lg-down-accordion me-lg-1">
                     <span class="menu-link py-3">
                         <span class="menu-title">Category</span>
@@ -177,14 +178,19 @@
                 </a>
                 <a href="{{ route('order_status', ['status' => 'offer']) }}" class="{{ Route::currentRouteName() == 'order_status' ? 'show here' : ''}} menu-item menu-lg-down-accordion me-lg-1">
                     <span class="menu-link py-3">
-                        <span class="menu-title">Order's b</span>
+                        <span class="menu-title">Orders b</span>
                         <span class="menu-arrow d-lg-none"></span>
                     </span>
                 </a>
-                  
+                <a href="{{route('chat_index')}}" class="{{ Route::currentRouteName() == 'chat_index' ? 'show here' : '' }} menu-item menu-lg-down-accordion me-lg-1">
+                    <span class="menu-link py-3">
+                        <span class="menu-title">Chat</span>
+                        <span class="menu-arrow d-lg-none"></span>
+                    </span>
+                </a>
                 <a href="{{ route('supplier_listing') }}" class="{{ Route::currentRouteName() == 'supplier_listing' ? 'show here' : ''}} menu-item menu-lg-down-accordion me-lg-1">
                     <span class="menu-link py-3">
-                        <span class="menu-title">Supplier</span>
+                        <span class="menu-title">SUPPLIERS DIRECTORY</span>
                         <span class="menu-arrow d-lg-none"></span>
                     </span>
                 </a>
@@ -192,11 +198,17 @@
                 @if(Auth::user()->hasRole('supplier'))
                 <a href="{{ route('supplier_order_status', ['status' => 'offer']) }}" class="{{ Route::currentRouteName() == 'supplier_order_status' ? 'show here' : ''}} menu-item menu-lg-down-accordion me-lg-1">
                     <span class="menu-link py-3">
-                        <span class="menu-title">Order's S</span>
+                        <span class="menu-title">Orders S</span>
                         <span class="menu-arrow d-lg-none"></span>
                     </span>
                 </a>
-
+                <a href="{{route('chat_index')}}" class="{{ Route::currentRouteName() == 'chat_index' ? 'show here' : '' }} menu-item menu-lg-down-accordion me-lg-1">
+                    <span class="menu-link py-3">
+                        <span class="menu-title">Chat</span>
+                        <span class="menu-arrow d-lg-none"></span>
+                    </span>
+                </a>
+                
                 <div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" class="{{ Route::currentRouteName() == 'supplier_listing' || Route::currentRouteName() == 'product_status' ? 'show here' : ''}} menu-item  menu-lg-down-accordion me-lg-1">
                     <span class="menu-link py-3">
                         <span class="menu-title">Supplier</span>
