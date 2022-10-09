@@ -37,23 +37,23 @@
         </div>
         <!--end::Page title-->
         <!--begin::Actions-->
-        <div class="d-flex align-items-center py-3 py-md-1">
-            <!--begin::Wrapper-->
+        {{-- <div class="d-flex align-items-center py-3 py-md-1">
+          
             <div class="me-4">
-                <!--begin::Menu-->
+              
                 <a href="#" class="btn btn-custom btn-active-white btn-flex btn-color-white btn-active-color-primary fw-bolder" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-                    <!--begin::Svg Icon | path: icons/duotune/general/gen031.svg-->
+                    
                     <span class="svg-icon svg-icon-5 svg-icon-gray-500 me-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path d="M19.0759 3H4.72777C3.95892 3 3.47768 3.83148 3.86067 4.49814L8.56967 12.6949C9.17923 13.7559 9.5 14.9582 9.5 16.1819V19.5072C9.5 20.2189 10.2223 20.7028 10.8805 20.432L13.8805 19.1977C14.2553 19.0435 14.5 18.6783 14.5 18.273V13.8372C14.5 12.8089 14.8171 11.8056 15.408 10.964L19.8943 4.57465C20.3596 3.912 19.8856 3 19.0759 3Z" fill="black" />
                         </svg>
                     </span>
-                    <!--end::Svg Icon-->Create
+                    Create
                 </a>
 
             </div>
 
-        </div>
+        </div> --}}
         <!--end::Actions-->
     </div>
     <!--end::Container-->
@@ -72,10 +72,10 @@
                         <!--begin::Body-->
                         <div class="card-body d-flex align-items-center pt-3 pb-0">
                             <div class="d-flex flex-column flex-grow-1 py-2 py-lg-13 me-2">
-                                <a href="#" class="fw-bolder fs-4 mb-2 text-hover-primary">Hi, Adnan</a>
+                                <a href="#" class="fw-bolder fs-4 mb-2 text-hover-primary">Hi, {{ ucwords(Auth::user()->first_name) }} {{ ucwords(Auth::user()->last_name) }}</a>
                                 <span class="fw-bold text-muted fs-5">Buyer &amp; Software Founder</span>
                             </div>
-                            <img src="{{ asset('theme/assets/media/avatars/adnan.webp')}}" alt="" class="dashboard-welcome-card h-100px">
+                            <img src="{{ asset('/profile/' . Auth::user()->profile_picture)}}" alt="" class="dashboard-welcome-card h-100px">
                         </div>
                         <!--end::Body-->
                     </div>

@@ -213,7 +213,7 @@
                         </div>
                         <div class="card-body pt-0">
                             <div class="mb-10 fv-row">
-                                <input type="file" name="file[]" class="form-control mb-2" required multiple />
+                                <input id='media' accept=".png,.jpg" type="file" name="file[]" class="form-control mb-2" required multiple onchange="uploadFileLimit()" />
                                 <div class="text-muted fs-7">Attach only 5 Pictures’ in JPEG, JPG or PNG.</div>
                             </div>
                         </div>
@@ -282,6 +282,28 @@
     <!--end::Main column-->
 </form>
 <script>
+    function uploadFileLimit()
+    {
+        var fileUpload = document.getElementById('media');
+        for (let index = 0; index < fileUpload.files.length; index++) {
+            var  fileType = fileUpload.files[index].type;
+            var validImageTypes = ['image/jpg', 'image/jpeg', 'image/png'];
+            if (!validImageTypes.includes(fileType)) {
+                // invalid file type code goes here.
+                alert("You are only allowed to upload these file extensions JPEG, JPG or PNG");
+                fileUpload.value='';
+            }
+        }
+       
+
+        if (parseInt(fileUpload.files.length) > 5){
+            alert("You are only allowed to upload a maximum of 5 files");
+        fileUpload.value='';
+
+        }
+               
+    }
+
     function getSubCategoryAjax() {
 
         var value = {

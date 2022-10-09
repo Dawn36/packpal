@@ -311,13 +311,17 @@ class UserController extends Controller
         if($user->hasRole('buyer'))
         {
             DB::table('role_user')->where('user_id', $userId)->update(['role_id' => '2']);
-        return redirect()->back();
+            DB::table('users')->where('id', $userId)->update(['user_type' => '2']);
+        return redirect()->route('dashboard');
 
         }
         if($user->hasRole('supplier'))
         {
             DB::table('role_user')->where('user_id', $userId)->update(['role_id' => '3']);
-        return redirect()->back();
+            DB::table('users')->where('id', $userId)->update(['user_type' => '3']);
+
+            return redirect()->route('dashboard');
+
 
         }
 

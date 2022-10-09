@@ -110,7 +110,7 @@
                                                 </svg>
                                             </span>
                                             <!--end::Svg Icon-->
-                                            {{Auth::user()->first_name}} {{Auth::user()->first_name}}
+                                            {{ucwords($bids->user->first_name)}}  {{ucwords($bids->user->last_name)}}
                                         </a>
                                         <a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2">
                                             <!--begin::Svg Icon | path: icons/duotune/general/gen018.svg-->
@@ -122,7 +122,7 @@
                                                 </svg>
                                             </span>
                                             <!--end::Svg Icon-->
-                                            {{Auth::user()->created_at}}
+                                            {{Date("Y-m-d",strtotime($bids->user->created_at))}}
                                         </a>
                                         <a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary mb-2">
                                             <!--begin::Svg Icon | path: icons/duotune/communication/com011.svg-->
@@ -133,7 +133,7 @@
                                                 </svg>
                                             </span>
                                             <!--end::Svg Icon-->
-                                            {{Auth::user()->email}}
+                                            {{$bids->user->email}}
                                         </a>
                                     </div>
                                     <!--end::Info-->
@@ -780,7 +780,7 @@
                             </div>
                             <div class="row mb-7">
                                 <!--begin::Label-->
-                                <label class="col-lg-4 fw-bold text-muted">Location</label>
+                                <label class="col-lg-4 fw-bold text-muted">Address</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg-8 fv-row">
@@ -840,7 +840,7 @@
                                     <!--begin::Overlay-->
                                     <a class="d-block overlay" data-fslightbox="lightbox-basic" href="{{asset('bid/'.$bidsImage[$i]->path)}}">
                                         <!--begin::Image-->
-                                        <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url({{asset('bid/'.$bidsImage[$i]->path)}})">
+                                        <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px" style="background-image:url('{{asset('bid/'.$bidsImage[$i]->path)}}')">
                                         </div>
                                         <!--end::Image-->
                                         <!--begin::Action-->

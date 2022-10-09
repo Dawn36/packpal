@@ -34,7 +34,7 @@ class SupplierController extends Controller
         $supplierObj = new Supplier();
 
         $user = User::where('id', $userId)->with('categories')->with('subCategories')->get();
-        $userListing = User::where('categories_id', $catId)->whereNull('deleted_at')->get();
+        $userListing = User::where('categories_id', $catId)->where('user_type','2')->whereNull('deleted_at')->get();
         $review = $orderObj->orderDataBitReview($bidId = '', $userId);
         $rating = $supplierObj->supplierReviews($userId);
         $rating = round($rating[0]->rating);

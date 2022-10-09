@@ -276,7 +276,7 @@
         <div class="row">
           <div class="col-lg-12">
             <h3><a href="{{route('web_supplier_listing')}}">PACKAGING SUPPLIERS</a></h3>
-            <div class="view recent-slider recommended-slider"> 
+            <div class="view recent-slider recommended-slider" > 
               @for($i=0; $i < count($supplier); $i++)
               @php
                         $rating=round($supplier[$i]->rating);

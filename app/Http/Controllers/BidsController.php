@@ -174,7 +174,7 @@ class BidsController extends Controller
         $bidReview = '';
         $bidDetail = 'active';
         $bidObj = new Bids();
-        $bids = Bids::with('categories')->with('subCategories')->find($id);
+        $bids = Bids::with('categories')->with('subCategories')->with('user')->find($id);
         $bidsImage = $bidObj->getAddsImage($id);
         return view('bids/bids_show', compact('bids', 'bidsImage', 'bidDetail', 'bidOrder', 'bidReview'));
     }

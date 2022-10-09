@@ -228,7 +228,7 @@
                                             <h3 class="fs-5 fw-bolder text-gray-900 mb-1">
                                                 Drop files here or click to upload.</h3>
                                             <span class="fs-7 fw-bold text-gray-400">Upload
-                                                up to 10 files</span>
+                                                up to 5 files</span>
                                         </div>
                                         <!--end::Info-->
                                     </div>
@@ -237,7 +237,7 @@
                             </div>
                             <!--end::Input group-->
                             <!--begin::Description-->
-                            <div class="text-muted fs-7">Set the product media gallery.
+                            <div class="text-muted fs-7">Attach only 5 Pictures’ in JPEG, JPG or PNG.
                             </div>
                             <!--end::Description-->
                         </div>
@@ -366,8 +366,8 @@
         url: "{{ route('bid_upload_image') }}",
         acceptedFiles: ".jpeg,.jpg,.png,.gif",
         paramName: "file",
-        maxFiles: 10,
-        maxFilesize: 10,
+        maxFiles: 4,
+        maxFilesize: 4,
         addRemoveLinks: !0,
         uploadMultiple: true,
         headers: {

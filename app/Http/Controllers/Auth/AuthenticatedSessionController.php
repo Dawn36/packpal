@@ -69,39 +69,28 @@ class AuthenticatedSessionController extends Controller
         }
         else
         {
-          $userData=User::where('email', $request->email)->get();
-          $userData=User::find($userData[0]->id);
-          $to_email = $request->email;
-        $from_email = 'dawngill08@gmail.com';
-        $subject = 'jkhk';
-        $cc = 'dawngill08@gmail.com';
-        $newPassword=$this->randomPassword();
-       
-        $userData->fill([
-            'password' => Hash::make($newPassword),
-            'password_show' => $newPassword
-        ])->save();
-        $data['full_name']=$userData->first_name." ".$userData->last_name;
-        $data['new_password']=$newPassword;
-        // Mail::send('mailtemplate/forgetpassword_template', ['msg' => $data], function ($message) use ($to_email, $from_email, $subject, $cc) {
-        //     $message->to($from_email)
-        //         ->subject($subject)
-        //         ->cc($cc);
-        //     $message->from($to_email);
-        // });  
+            $userData=User::where('email', $request->email)->get();
+            $userData=User::find($userData[0]->id);
+            $to_email = $request->email;
+              $from_email = 'dawngill08@gmail.com';
+              $subject = 'Reset password';
+              $cc = 'dawngill08@gmail.com';
+              $newPassword=$this->randomPassword();
+         
+              $userData->fill([
+                  'password' => Hash::make($newPassword),
+                  'password_show' => $newPassword
+              ])->save();
+              $data['full_name']=$userData->first_name." ".$userData->last_name;
+              $data['new_password']=$newPassword;
+              Mail::send('mail-template/forgetpassword_template', ['data' => $data], function ($message) use ($to_email, $from_email, $subject, $cc) {
+              $message->to($to_email)
+                  ->subject($subject)
+                  ->cc($cc);
+              $message->from($from_email);
+          });    
         }
-        // $to_email = $customerEmail;
-        // $from_email = 'dawngill08@gmail.com';
-        // $subject = 'jkhk';
-
-        // $cc = 'dawngill08@gmail.com';
-
-        // Mail::send('mailtemplate/email_template', ['msg' => $data], function ($message) use ($to_email, $from_email, $subject, $cc) {
-        //     $message->to($from_email)
-        //         ->subject($subject)
-        //         ->cc($cc);
-        //     $message->from($to_email);
-        // });
+       
         return redirect()->route('login');
 
     }

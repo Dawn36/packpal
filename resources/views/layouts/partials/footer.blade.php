@@ -3,8 +3,8 @@
     <div class="container-xxl d-flex flex-column flex-md-row align-items-center justify-content-between">
         <!--begin::Copyright-->
         <div class="text-dark order-2 order-md-1">
-            <span class="text-muted fw-bold me-1">2021©</span>
-            <a href="https://keenthemes.com" target="_blank" class="text-gray-800 text-hover-primary">Keenthemes</a>
+            <span class="text-muted fw-bold me-1"><img src="{{ asset('theme/website-assets/images/logo-5.png')}}" style="width: 60px;" /></span>
+            <a href="https://keenthemes.com" target="_blank" class="text-gray-800 text-hover-primary">Contact Support at : <b style="color: #4e4d4d;">customercare@packpal.pk</b></a>
         </div>
         <!--end::Copyright-->
         <!--begin::Menu-->
