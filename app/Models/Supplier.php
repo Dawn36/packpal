@@ -34,7 +34,7 @@ class Supplier extends Model
                 return $query->where('u.first_name','LIKE', '%'.$search.'%');
             })
             ->orderBy('u.id', $orderBy)
-            ->groupBy('to_user_id')->paginate(2)->appends('newold', $orderBy)->appends('category_id', $categoryId)->appends('sub_category_id', $subCategoryId)->appends('search', $search);
+            ->groupBy('u.id')->paginate(5)->appends('newold', $orderBy)->appends('category_id', $categoryId)->appends('sub_category_id', $subCategoryId)->appends('search', $search);
         // ->get();
     }
     public function supplierReviews($userId)
