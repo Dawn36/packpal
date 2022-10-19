@@ -308,6 +308,12 @@ class UserController extends Controller
     {
         $userId = Auth::user()->id;
         $user = User::find($userId);
+        
+        if(is_null($user->categories_id) && is_null($user->sub_categories_id))
+        {
+            $request->session()->flash('error', 'If you want to change to supplier please select category and sub caregory');
+            return redirect()->route('settings.create');
+        }
         if($user->hasRole('buyer'))
         {
             DB::table('role_user')->where('user_id', $userId)->update(['role_id' => '2']);
