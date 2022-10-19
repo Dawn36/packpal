@@ -78,7 +78,7 @@ Route::middleware(['auth'])->group(function () {
 
 
     Route::Get('supplier_listing', [SupplierController::class, 'index'])->name('supplier_listing');
-    Route::Get('supplier_detail/{userId}/{catId}', [SupplierController::class, 'supplierDetail'])->name('supplier_detail');
+    Route::Get('supplier_detail/{userId?}/{catId?}', [SupplierController::class, 'supplierDetail'])->name('supplier_detail');
 
 
     Route::Get('supplier_info', [OrderController::class, 'supplierCreate'])->name('supplier_info');
