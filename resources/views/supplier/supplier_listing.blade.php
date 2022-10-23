@@ -24,7 +24,7 @@
                 <!--end::Item-->
                 <!--begin::Item-->
                 <li class="breadcrumb-item text-white opacity-75">
-                    <a href="supplier_listing.php" class="text-white text-hover-primary">Supplier listing</a>
+                    <a href="#" class="text-white text-hover-primary">Supplier listing</a>
                 </li>
 
             </ul>

@@ -53,15 +53,15 @@
           <th>Total</th>
           <td>
             <p class="price-label">Rs.4000</p>
-            <button type="button"  onclick="subscribe('1 month')">Select</button>
+            <button type="button"  onclick="subscribe('1 month','Basic')">Select</button>
           </td>
           <td>
             <p class="price-label">Rs.23000</p>
-            <button type="button"  onclick="subscribe('6 month')">Select</button>
+            <button type="button"  onclick="subscribe('6 month','Standard')">Select</button>
           </td>
           <td>
             <p class="price-label">Rs.47000</p>
-            <button type="button"  onclick="subscribe('12 month')">Select</button>
+            <button type="button"  onclick="subscribe('12 month','Premium')">Select</button>
           </td>
         </tr>
       </tbody>
@@ -71,7 +71,7 @@
 </div>
 </div>
 <script>
-     function subscribe(month) {
+     function subscribe(month,package) {
     var value = {
            month: month,
         };
@@ -80,7 +80,7 @@
         url: "{{ route('subscribe_modal') }}",
         data: value,
         success: function(result) {
-            $('#websitemodaltitle').html('Add');
+            $('#websitemodaltitle').html('You are talking '+package +' package');
             $('#websitemodalbody').html(result);
             $('#exampleModalLong').modal('show');
         },

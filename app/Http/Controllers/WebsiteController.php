@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
+use App\Models\User;
+
 class WebsiteController extends Controller
 {
 
@@ -101,6 +103,32 @@ class WebsiteController extends Controller
     public function subscribeModal(Request $request)
     {
         $month=$request->month;
+        $userId = Auth::user()->id;
+        $dataUser=User::find($userId);
+        $dataUserExpiry=DB::table('user_expiry_image')->where('user_id',$userId)->where('status','pending')->orderBy('id','DESC')->limit('1')->get();
+        
+        // $dataUserExpiry[0]->package
+        if(!Auth::user()->hasRole('supplier'))
+        {
+            return '<div class="alert alert-danger" role="alert">
+            Only supplier can subscribe Or change your self from dashboard to supplier
+          </div>';
+        }
+        if(Date("Y-m-d") < Date("Y-m-d",strtotime($dataUser->expiry_date)) )
+        {
+            $date=Date("Y-m-d",strtotime($dataUser->expiry_date));
+            return '<div class="alert alert-danger" role="alert">
+            Your current package is not expiry it will expiry on '.$date.' then you can select new package
+          </div>';
+        }
+        if(count($dataUserExpiry) > 0)
+        {
+            return '<div class="alert alert-danger" role="alert">
+            Thank you for uploading payment slip of package.<br>
+            You have selected '.$dataUserExpiry[0]->package.' package admin will take 2 or 3 working days in process 
+          </div>';
+        }
+        
         return view('web-site/package_modal',compact('month'));
 
     }
@@ -151,8 +179,21 @@ class WebsiteController extends Controller
         $userId=$request->userId;
         $catId=$request->catId;
         $subCatId=$request->subCatId;
-        if (Order::where('s_user_id', $userIdAuth)->where('bids_id', $bidId)->exists()) {
-            return view('web-site/bid_now_message');
+        if (Order::where('s_user_id', $userIdAuth)->where('bids_id', $bidId)->where('status','offer')->orWhere('status','inprocess')->exists()) {
+            $orderData=Order::where('s_user_id', $userIdAuth)->where('bids_id', $bidId)->where('status','offer')->orWhere('status','inprocess')->get();
+            return view('web-site/bid_now_message',compact('orderData'));
+         }
+         if($userIdAuth == $userId)
+         {
+            return '<div class="alert alert-danger" role="alert">
+            You can not make offer on your bid
+          </div>';
+         }
+         if(!Auth::user()->hasRole('supplier'))
+         {
+            return '<div class="alert alert-danger" role="alert">
+            You are not supplier only supplier can bid change your self to supplier from dashboard
+          </div>';
          }
          else
          {

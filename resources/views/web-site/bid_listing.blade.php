@@ -112,37 +112,48 @@
                       class="level"
                       style="font-weight: bold; color: #524e4e"
                     >
-                      Category: {{ucwords($bidListing[$i]->category_name)}}
+                      Category: {{charaterCountTo20($bidListing[$i]->category_name)}}
                     </span>
                     <span
                       class="level"
                       style="font-weight: bold; color: #524e4e"
                     >
-                      Sub Category: {{ucwords($bidListing[$i]->sub_category_name)}}
+                      Sub Category: {{charaterCountTo20($bidListing[$i]->sub_category_name)}}
                     </span>
                     <span
                       class="level"
                       style="font-weight: bold; color: #524e4e"
                     >
-                      Buyer from: {{ucwords($bidListing[$i]->address)}}
+                      Buyer from: {{charaterCountTo20($bidListing[$i]->address)}}
                     </span>
+                    <a href="{{route('bid_detail',$bidListing[$i]->bid_id)}}">{{charaterCountTo26($bidListing[$i]->bids_name)}}</a>
                   </span>
                 </div>
-                <h3>
-                  {{ucwords($bidListing[$i]->bids_name)}}
-                </h3>
                 <div class="content-info"></div>
                 <div class="footer">
                   Starting At: {{$bidListing[$i]->target_price}}
                   <div class="price" >
+                    @if(Auth::check())
+                    @if(date('Y-m-d') > Auth::user()->expiry_date && Auth::user()->hasRole('supplier'))
+                    <a href="{{route('subscribe_page')}}" type="button" class="btn btn-outline-success btn-sm">Bid Now</a>
+                    @else
                     <button
                       type="button"
-                      data-toggle="modal"
-                      data-target="#exampleModalLong"
-                      class="btn btn-outline-success btn-sm"
+                      class="btn btn-outline-success btn-sm" onclick="bidNNow('{{$bidListing[$i]->bid_id}}','{{$bidListing[$i]->user_id}}','{{$bidListing[$i]->cat_id}}','{{$bidListing[$i]->sub_cat_id}}')"
                     >
                       Bid Now
                     </button>
+                    @endif
+                    @else
+                    <button
+                      type="button"
+                      class="btn btn-outline-success btn-sm" onclick="bidNNow('{{$bidListing[$i]->bid_id}}','{{$bidListing[$i]->user_id}}','{{$bidListing[$i]->cat_id}}','{{$bidListing[$i]->sub_cat_id}}')"
+                    >
+                      Bid Now
+                    </button>
+                   
+
+                    @endif
                   </div>
                 </div>
               </div>

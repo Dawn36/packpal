@@ -122,6 +122,24 @@
     background: -o-linear-gradient(left, #863044 0%, #ff010b 100%);
     background: linear-gradient(to right, #863044 0%, #ff010b 100%);
 }
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #d80026;
+}
+.page-item.active .page-link {
+    background: linear-gradient(to right, #863044 0%, #ff010b 100%);
+}
+.page-link:focus {
+    z-index: 3;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(205 37 44);
+}
+ul.pagination li a:hover {
+
+    background: linear-gradient(to right, #863044 0%, #ff010b 100%);
+}
 .btn-light {
     color: #d80026;
     background-color: #ffd5db;

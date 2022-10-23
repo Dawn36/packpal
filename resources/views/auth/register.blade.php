@@ -151,8 +151,8 @@
                             </div>
                             <div class="row fv-row mb-7">
                                 <div class="col-xl-6">
-                                    <label class="form-label  fw-bolder text-dark fs-6">Year of Business Establishment</label>
-                                    <input type="text" name="establishment_year" class="form-control form-control-lg form-control-solid kt_datepicker_3" placeholder="Year of Business Establishment" />
+                                    <label class="form-label required fw-bolder text-dark fs-6">Year of Business Establishment</label>
+                                    <input type="text" id='establishment_year' name="establishment_year" class="form-control form-control-lg form-control-solid kt_datepicker_3" placeholder="Year of Business Establishment" />
                                 </div>
                                 <div class="col-xl-6">
                                     <label class="form-label fw-bolder text-dark fs-6">Annual Sales in Pak Rupees</label>
@@ -160,19 +160,25 @@
                                 </div>
                             </div>
                             <div class="row fv-row mb-7">
-                                <div class="col-xl-6">
+                                <div class="col-xl-12">
                                     <label class="form-label fw-bolder text-dark fs-6">Certifications</label>
-                                    <input class="form-control form-control-lg form-control-solid" type="text" placeholder="ISO 9001 etc" name="certifications" autocomplete="off" />
+                                    <input class="form-control form-control-lg form-control-solid" type="text" placeholder="ISO 9001, ISO 27001 etc" name="certifications" autocomplete="off" />
                                 </div>
-                                <div class="col-xl-6">
-
+                              
+                            </div>
+                            <div class="row fv-row mb-7">
+                                <div class="col-xl-12">
                                     <label class="form-label fw-bolder text-dark fs-6">I’m a seller of:</label>
-                                    <input class="form-control form-control-lg form-control-solid" type="text" placeholder="What you sell?" name="seller_of" autocomplete="off" />
-
-
+                                    <textarea class="form-control form-control-lg form-control-solid" type="text" placeholder="What you sell?" id="seller_of" name="seller_of" autocomplete="off" ></textarea>
                                 </div>
                             </div>
-
+                            <div class="row fv-row mb-7">
+                                <div class="col-xl-12">
+                                    <label class="form-label fw-bolder text-dark fs-6">I’m a buyer of:</label>
+                                    <textarea class="form-control form-control-lg form-control-solid" type="text" placeholder="What you buy?" id="buyer_of" name="buyer_of" autocomplete="off" ></textarea>
+                                </div>
+                            </div>
+                           
                             <div class="row fv-row mb-7">
                                 <div class="col-xl-6">
                                     <label class="fs-6 form-label required fw-bolder text-dark">Category</label>
@@ -194,7 +200,7 @@
 
                             <div class="row fv-row mb-7">
                                 <div class="col-xl-12">
-                                    <label class="fs-6 form-label required fw-bolder text-dark">Description</label>
+                                    <label class="fs-6 form-label required fw-bolder text-dark">Description of your Business</label>
                                     <textarea class="form-control form-control-lg form-control-solid" type="text" placeholder="Description" id="description" name="description" autocomplete="off" required></textarea>
                                 </div>
 
@@ -203,7 +209,8 @@
                         <div class="row fv-row mb-7" id='buyer'>
                             <div class="col-xl-12">
                                 <label class="form-label fw-bolder text-dark fs-6">I’m a buyer of:</label>
-                                <input class="form-control form-control-lg form-control-solid" type="text" placeholder="What you buy?" name="buyer_of" autocomplete="off" />
+                                <textarea class="form-control form-control-lg form-control-solid" type="text" placeholder="What you buy?" id="buyer_of" name="buyer_of" autocomplete="off" ></textarea>
+
                             </div>
 
                         </div>
@@ -215,71 +222,71 @@
                         <div class="row fv-row mb-7">
                             <div class="col-xl-6">
                                 <label class="form-label required fw-bolder text-dark fs-6">First Name</label>
-                                <input class="form-control form-control-lg form-control-solid" type="text" :value="old('first_name')" placeholder="Please enter first name" name="first_name" autocomplete="off" />
+                                <input class="form-control form-control-lg form-control-solid" type="text" :value="old('first_name')" placeholder="Please enter first name" name="first_name" autocomplete="off" required />
                             </div>
                             <div class="col-xl-6">
-                                <label class="form-label fw-bolder required text-dark fs-6">Middle Name</label>
+                                <label class="form-label fw-bolder  text-dark fs-6">Middle Name</label>
                                 <input class="form-control form-control-lg form-control-solid" type="text" :value="old('middle_name')" placeholder="Please enter middle name" name="middle_name" autocomplete="off" />
                             </div>
                         </div>
                         <div class="row fv-row mb-7">
                             <div class="col-xl-6">
                                 <label class="form-label required fw-bolder text-dark fs-6">Last Name</label>
-                                <input class="form-control form-control-lg form-control-solid" type="text" :value="old('last_name')" placeholder="Please enter last name" name="last_name" autocomplete="off" />
+                                <input class="form-control form-control-lg form-control-solid" type="text" :value="old('last_name')" placeholder="Please enter last name" name="last_name" autocomplete="off" required />
                             </div>
                             <div class="col-xl-6">
                                 <label class="form-label fw-bolder required text-dark fs-6">Designation</label>
-                                <input class="form-control form-control-lg form-control-solid" type="text" :value="old('designation')" placeholder="Please enter designation" name="designation" autocomplete="off" />
+                                <input class="form-control form-control-lg form-control-solid" type="text" :value="old('designation')" placeholder="Please enter designation" name="designation" autocomplete="off" required />
                             </div>
                         </div>
                         <div class="row fv-row mb-7">
                             <div class="col-xl-6">
                                 <label class="form-label  fw-bolder text-dark fs-6">Department</label>
-                                <input class="form-control form-control-lg form-control-solid" type="text" :value="old('department')" placeholder="Please enter department" name="department" autocomplete="off" />
+                                <input class="form-control form-control-lg form-control-solid" type="text" :value="old('department')" placeholder="Please enter department" name="department" autocomplete="off"  />
                             </div>
                             <div class="col-xl-6">
                                 <label class="form-label fw-bolder required text-dark fs-6">Address</label>
-                                <input class="form-control form-control-lg form-control-solid" type="text" :value="old('autocomplete')" placeholder="Please enter address" onFocus="geolocate()" id='autocomplete' name="autocomplete" autocomplete="off" />
+                                <input class="form-control form-control-lg form-control-solid" type="text" :value="old('autocomplete')" placeholder="Please enter address" onFocus="geolocate()" id='autocomplete' name="autocomplete" autocomplete="off" required />
                             </div>
                         </div>
                         <div class="row fv-row mb-7">
                             <div class="col-xl-6">
                                 <label class="form-label  fw-bolder required text-dark fs-6">Country</label>
-                                <input class="form-control form-control-lg form-control-solid" type="text" :value="old('country')" placeholder="Please enter country" name="country" autocomplete="off" />
+                                <input class="form-control form-control-lg form-control-solid" type="text" :value="old('country')" placeholder="Please enter country" name="country" autocomplete="off" required />
                             </div>
                             <div class="col-xl-6">
                                 <label class="form-label fw-bolder required text-dark fs-6">City</label>
-                                <input class="form-control form-control-lg form-control-solid" type="text" :value="old('city')"  placeholder="Please enter city" name="city" autocomplete="off" />
+                                <input class="form-control form-control-lg form-control-solid" type="text" :value="old('city')"  placeholder="Please enter city" name="city" autocomplete="off" required />
                             </div>
                         </div>
                         <div class="row fv-row mb-7">
                             <div class="col-xl-6">
                                 <label class="form-label  fw-bolder required text-dark fs-6">Zip/Postal Code</label>
-                                <input class="form-control form-control-lg form-control-solid" type="number" :value="old('zip_postal_code')" placeholder="Please enter zip/postal Code" name="zip_postal_code" autocomplete="off" />
+                                <input class="form-control form-control-lg form-control-solid" type="number" :value="old('zip_postal_code')" placeholder="Please enter zip/postal Code" name="zip_postal_code" autocomplete="off" required />
                             </div>
                             <div class="col-xl-6">
-                                <label class="form-label fw-bolder  text-dark fs-6">Landline No</label>
-                                <input class="form-control form-control-lg form-control-solid" type="number" :value="old('landline_no')" placeholder="Please enter landline no" name="landline_no" autocomplete="off" />
+                                <label class="form-label fw-bolder required  text-dark fs-6">Landline No</label>
+                                <input class="form-control form-control-lg form-control-solid" type="number" :value="old('landline_no')" placeholder="Please enter landline no" name="landline_no" autocomplete="off" required />
                             </div>
                         </div>
                         <div class="row fv-row mb-7">
                             <div class="col-xl-6">
                                 <label class="form-label  fw-bolder required text-dark fs-6">Mobile No</label>
-                                <input class="form-control form-control-lg form-control-solid" :value="old('phone_number')" type="number" placeholder="Please enter Mobile No" name="phone_number" autocomplete="off" />
+                                <input class="form-control form-control-lg form-control-solid" :value="old('phone_number')" type="number" placeholder="Please enter Mobile No" name="phone_number" autocomplete="off"  required/>
                             </div>
                         </div>
                         <div class="fv-row mb-7">
-                            <label class="form-label fw-bolder text-dark fs-6">Email</label>
-                            <input class="form-control form-control-lg form-control-solid" type="email" :value="old('email')" placeholder="Please enter email" name="email" autocomplete="off" />
+                            <label class="form-label fw-bolder required text-dark fs-6">Email</label>
+                            <input class="form-control form-control-lg form-control-solid" type="email" :value="old('email')" placeholder="Please enter email" name="email" autocomplete="off" required/>
                             @if($errors->has('email'))
                             <div class="error" style="color: red"><b>{{ $errors->first('email') }}</b></div>
                             @endif
                         </div>
                         <div class="mb-10 fv-row" data-kt-password-meter="true">
                             <div class="mb-1">
-                                <label class="form-label fw-bolder text-dark fs-6">Password</label>
+                                <label class="form-label required fw-bolder text-dark fs-6">Password</label>
                                 <div class="position-relative mb-3">
-                                    <input class="form-control form-control-lg form-control-solid" type="password" placeholder="" name="password" autocomplete="off" />
+                                    <input class="form-control form-control-lg form-control-solid" type="password" placeholder="" name="password" autocomplete="off" required />
                                     <span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility">
                                         <i class="bi bi-eye-slash fs-2"></i>
                                         <i class="bi bi-eye fs-2 d-none"></i>
@@ -295,8 +302,8 @@
                             <div class="text-muted">Use 8 or more characters with a mix of letters, numbers &amp; symbols.</div>
                         </div>
                         <div class="fv-row mb-5">
-                            <label class="form-label fw-bolder text-dark fs-6">Confirm Password</label>
-                            <input class="form-control form-control-lg form-control-solid" type="password" placeholder="" name="confirm-password" autocomplete="off" />
+                            <label class="form-label required fw-bolder text-dark fs-6">Confirm Password</label>
+                            <input class="form-control form-control-lg form-control-solid" type="password" placeholder="" name="confirm-password" autocomplete="off" required />
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-lg btn-primary">Submit</button>
@@ -366,9 +373,10 @@
                 document.getElementById('buyer').style.display = "none";
                 $("#company_name").attr('required', ''); //turns required oncompany_name
                 $("#primary_business").attr('required', ''); //turns required on
-
+                
                 $("#category_id").attr('required', ''); //turns required on
                 $("#description").attr('required', ''); //turns required on
+                $("#establishment_year").attr('required', ''); //turns required on
             }
             if (val == 3) {
                 document.getElementById('buyer').style.display = "block";
@@ -378,6 +386,7 @@
                 $("#primary_business").removeAttr('required', ''); //turns required on
                 $("#category_id").removeAttr('required', ''); //turns required on
                 $("#description").removeAttr('required', ''); //turns required on
+                $("#establishment_year").removeAttr('required', ''); //turns required on
             }
             if (val == 1) {
                 document.getElementById('buyer').style.display = "none";

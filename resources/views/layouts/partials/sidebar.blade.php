@@ -188,7 +188,7 @@
                         <span class="menu-arrow d-lg-none"></span>
                     </span>
                 </a>
-                <a href="{{ route('supplier_listing') }}" class="{{ Route::currentRouteName() == 'supplier_listing' ? 'show here' : ''}} menu-item menu-lg-down-accordion me-lg-1">
+                <a href="{{ route('supplier_listing') }}" class="{{ Route::currentRouteName() == 'supplier_listing' ? 'show here' : ''}} show here menu-item menu-lg-down-accordion me-lg-1">
                     <span class="menu-link py-3">
                         <span class="menu-title">SUPPLIERS DIRECTORY</span>
                         <span class="menu-arrow d-lg-none"></span>
@@ -208,9 +208,9 @@
                         <span class="menu-arrow d-lg-none"></span>
                     </span>
                 </a>
-                <a href="{{ route('supplier_listing') }}" class="{{ Route::currentRouteName() == 'supplier_listing' ? 'show here' : ''}} menu-item menu-lg-down-accordion me-lg-1">
+                <a href="{{ route('bid_listing') }}" class="{{ Route::currentRouteName() == 'bid_listing' ? 'show here' : ''}} show here menu-item menu-lg-down-accordion me-lg-1">
                     <span class="menu-link py-3">
-                        <span class="menu-title">SUPPLIERS DIRECTORY</span>
+                        <span class="menu-title">BID LODGE</span>
                         <span class="menu-arrow d-lg-none"></span>
                     </span>
                 </a>

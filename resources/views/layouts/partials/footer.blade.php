@@ -18,6 +18,21 @@
             <li class="menu-item">
                 <a href="https://1.envato.market/EA4JP" target="_blank" class="menu-link px-2">Purchase</a>
             </li>
+            <li class="menu-item">
+                <a href="#" target="_blank" class="menu-link px-2"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            </li>
+            <li class="menu-item">
+                <a href="#" target="_blank" class="menu-link px-2"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            </li>
+            <li class="menu-item">
+                <a href="#" target="_blank" class="menu-link px-2"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+            </li>
+            <li class="menu-item">
+                <a href="#" target="_blank" class="menu-link px-2"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
+            </li>
+            <li class="menu-item">
+                <a href="#" target="_blank" class="menu-link px-2"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            </li>
         </ul>
         <!--end::Menu-->
     </div>

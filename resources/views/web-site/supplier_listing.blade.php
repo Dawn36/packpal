@@ -108,19 +108,19 @@
                           class="level"
                           style="font-weight: bold; color: #524e4e"
                         >
-                          Company: {{ucwords($supplier[$i]->company_name)}}
+                          Company: {{charaterCountTo20($supplier[$i]->company_name)}}
                         </span>
                       <span
                           class="level"
                           style="font-weight: bold; color: #524e4e"
                         >
-                          Category: {{ucwords($supplier[$i]->category_name)}}
+                          Category: {{charaterCountTo20($supplier[$i]->category_name)}}
                         </span>
                         <span
                           class="level"
                           style="font-weight: bold; color: #524e4e"
                         >
-                          Sub Category: {{ucwords($supplier[$i]->sub_category_name)}}
+                          Sub Category: {{charaterCountTo20($supplier[$i]->sub_category_name)}}
                         </span>
                           <div class="seller-card">
                             <div>

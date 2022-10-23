@@ -1,6 +1,12 @@
 @extends('layouts.main')
 
 @section('content')
+<style>
+    .badge-light-success {
+    color: #463a3b;
+    background-color: #aeffd0;
+}
+</style>
 <div class="toolbar py-5 py-lg-15" id="kt_toolbar">
     <!--begin::Container-->
     <div id="kt_toolbar_container" class="container-xxl d-flex flex-stack flex-wrap">
@@ -141,6 +147,10 @@
                                             <th>Name</th>
                                             <th>Email Address</th>
                                             <th>Role</th>
+                                            @if($status == 'supplier')
+                                            <th>Verified</th>
+                                            <th>Subscription</th>
+                                            @endif
                                             <th>City</th>
                                             <th>Country</th>
                                             <th>Phone Number</th>
@@ -172,9 +182,30 @@
                                                 <!--end::User-->
                                             </td>
                                             <td><a href="{{route('user.show',$users[$i]->id)}}" class="fw-bolder text-gray-800 text-hover-primary">{{$users[$i]->email}}</a></td>
-
                                             <td>
                                                 <div class="badge badge-light-info text-info">Supplier</div>
+                                            </td>
+                                            <td>
+                                                <div class="badge badge-light-{{$users[$i]->verified == 'yes' ? 'success' : 'danger'}} text-{{$users[$i]->verified == 'yes' ? 'success' : 'danger'}}">{{ucwords($users[$i]->verified)}}</div>
+                                            </td>
+                                            <td>
+                                                @if(is_null($users[$i]->expiry_date))
+                                                @php $success='danger'; @endphp
+                                                @elseif(Date("Y-m-d") > Date('Y-m-d',strtotime($users[$i]->expiry_date)))
+                                                @php $success='danger'; @endphp
+                                                @else
+                                                @php $success='success'; @endphp
+                                                @endif
+                                                <div class="badge badge-light-{{$success}} text-{{$success}}">
+                                                @if(is_null($users[$i]->expiry_date))
+                                                Unpaid
+                                                @elseif(Date("Y-m-d") > Date('Y-m-d',strtotime($users[$i]->expiry_date)))
+                                                Unpaid
+                                                @else
+                                                Paid
+                                                @endif
+
+                                                </div>
                                             </td>
                                             @endif
                                             @if($status == 'buyer')

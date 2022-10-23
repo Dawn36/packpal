@@ -31,3 +31,15 @@ function getLatitudeLongitude($address)
     $locationArray['long'] = "$long";
     return $locationArray;
 }
+function charaterCountTo20($char)
+{
+    $char=substr(ucwords($char), 0, 19);
+    $char .=strlen($char) >= 19 ? '....' : '';
+    return $char;
+}
+function charaterCountTo26($char)
+{
+    $char=substr(ucwords($char), 0, 26);
+    $char .=strlen($char) >= 26 ? '....' : '';
+    return $char;
+}

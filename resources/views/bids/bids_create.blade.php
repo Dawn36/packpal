@@ -156,13 +156,13 @@
                             </div>
                             <div class="mb-10 fv-row">
                                 <!--begin::Label-->
-                                <label class="required form-label">Location</label>
+                                <label class="required form-label">FULL ADDRESS</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <input type="text" name="location" class="form-control mb-2" placeholder="Location" value="" required />
+                                <input type="text" name="location" class="form-control mb-2" placeholder="FULL ADDRESS" value="" required />
                                 <!--end::Input-->
                                 <!--begin::Description-->
-                                <div class="text-muted fs-7">Location is required for Bid posting.</div>
+                                <div class="text-muted fs-7">FULL ADDRESS is required for Bid posting.</div>
                                 <!--end::Description-->
                             </div>
                             <div class="mb-10 fv-row">

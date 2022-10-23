@@ -155,10 +155,10 @@
                       <p class="price-label">Rs.4000</p>
                       @if(Auth::check())
                       @if(date('Y-m-d') > Auth::user()->expiry_date )
-                      <button type="button"  {{!Auth::user()->hasRole('supplier') ? "disabled" : '' }}  onclick="subscribe('1 month')">Select</button>
+                      <button type="button"    onclick="subscribe('1 month','Basic')">Select</button>
                       @endif
                       @else
-                      <button type="button"   onclick="subscribe('1 month')">Select</button>
+                      <button type="button"   onclick="subscribe('1 month','Basic')">Select</button>
                       @endif
                       {{-- <button type="button"  onclick="subscribe('1 month')">Select</button> --}}
                     </td>
@@ -166,10 +166,10 @@
                       <p class="price-label">Rs.23000</p>
                       @if(Auth::check())
                       @if(date('Y-m-d') > Auth::user()->expiry_date )
-                      <button type="button"  {{!Auth::user()->hasRole('supplier') ? "disabled" : '' }}  onclick="subscribe('6 month')">Select</button>
+                      <button type="button"    onclick="subscribe('6 month','Standard')">Select</button>
                       @endif
                       @else
-                      <button type="button"  onclick="subscribe('6 month')">Select</button>
+                      <button type="button"  onclick="subscribe('6 month','Standard')">Select</button>
                       @endif
                       {{-- <button type="button"  onclick="subscribe('6 month')">Select</button> --}}
                     </td>
@@ -177,10 +177,10 @@
                       <p class="price-label">Rs.47000</p>
                       @if(Auth::check())
                       @if(date('Y-m-d') > Auth::user()->expiry_date )
-                      <button type="button"  {{!Auth::user()->hasRole('supplier') ? "disabled" : '' }}  onclick="subscribe('12 month')">Select</button>
+                      <button type="button"    onclick="subscribe('12 month','Premium')">Select</button>
                       @endif
                       @else
-                      <button type="button"  onclick="subscribe('12 month')">Select</button>
+                      <button type="button"  onclick="subscribe('12 month','Premium')">Select</button>
                       @endif
                       {{-- <button type="button"  onclick="subscribe('12 month')">Select</button> --}}
                     </td>
@@ -212,33 +212,29 @@
                             class="level"
                             style="font-weight: bold; color: #524e4e"
                           >
-                            Category: {{ucwords($bidListing[$i]->category_name)}}
+                            Category: {{charaterCountTo20($bidListing[$i]->category_name)}}
                           </span>
                           <span
                             class="level"
                             style="font-weight: bold; color: #524e4e"
                           >
-                            Sub Category: {{ucwords($bidListing[$i]->sub_category_name)}}
+                            Sub Category: {{charaterCountTo20($bidListing[$i]->sub_category_name)}}
                           </span>
                           <span
                             class="level"
                             style="font-weight: bold; color: #524e4e"
                           >
-                            Buyer from: {{ucwords($bidListing[$i]->address)}}
+                            Buyer from: {{charaterCountTo20($bidListing[$i]->address)}}
                           </span>
+                            <a href="{{route('bid_detail',$bidListing[$i]->bid_id)}}">{{charaterCountTo26($bidListing[$i]->bids_name)}}</a>
                         </span>
                       </div>
-                      <h3>
-                        {{ucwords($bidListing[$i]->bids_name)}}
-                      </h3>
                       <div class="content-info"></div>
                       <div class="footer">
                         Starting At: {{$bidListing[$i]->target_price}}
                         <div class="price" >
                           @if(Auth::check())
                           <button
-                          {{Auth::user()->id == $bidListing[$i]->user_id ? "disabled" : '' }}
-                          {{!Auth::user()->hasRole('supplier') ? "disabled" : '' }}
                             type="button"
                             class="btn btn-outline-success btn-sm" onclick="bidNNow('{{$bidListing[$i]->bid_id}}','{{$bidListing[$i]->user_id}}','{{$bidListing[$i]->cat_id}}','{{$bidListing[$i]->sub_cat_id}}')"
                           >
@@ -287,10 +283,10 @@
                 </div>
                 @if(Auth::check())
                 @if(date('Y-m-d') > Auth::user()->expiry_date )
-                <button type="button"  {{!Auth::user()->hasRole('supplier') ? "disabled" : '' }}  onclick="subscribe('1 month')">Continue (Rs.47000)</button>
+                <button type="button"   onclick="subscribe('1 month','Basic')">Continue (Rs.47000)</button>
                 @endif
                 @else
-                <button type="button"   onclick="subscribe('1 month')">Continue (Rs.47000)</button>
+                <button type="button"   onclick="subscribe('1 month','Basic')">Continue (Rs.47000)</button>
                 @endif
               </div>
               <div id="standard" class="tab-pane fade">
@@ -307,10 +303,10 @@
                 </div>
                 @if(Auth::check())
                 @if(date('Y-m-d') > Auth::user()->expiry_date )
-                <button type="button"  {{!Auth::user()->hasRole('supplier') ? "disabled" : '' }}  onclick="subscribe('6 month')">Continue (Rs.47000)</button>
+                <button type="button"    onclick="subscribe('6 month','Standard')">Continue (Rs.47000)</button>
                 @endif
                 @else
-                <button type="button"  onclick="subscribe('6 month')">Continue (Rs.47000)</button>
+                <button type="button"  onclick="subscribe('6 month','Standard')">Continue (Rs.47000)</button>
                 @endif
               </div>
               <div id="Premium" class="tab-pane fade">
@@ -327,21 +323,19 @@
                 </div>
                 @if(Auth::check())
                 @if(date('Y-m-d') > Auth::user()->expiry_date )
-                <button type="button"  {{!Auth::user()->hasRole('supplier') ? "disabled" : '' }}  onclick="subscribe('12 month')">Continue (Rs.47000)</button>
+                <button type="button"    onclick="subscribe('12 month','Premium')">Continue (Rs.47000)</button>
                 @endif
                 @else
-                <button type="button"   onclick="subscribe('12 month')">Continue (Rs.47000)</button>
+                <button type="button"   onclick="subscribe('12 month','Premium')">Continue (Rs.47000)</button>
                 @endif
               </div>
             </div>
             <div class="contact-seller-wrapper tab-content">
                @if(Auth::check())
-               @if(date('Y-m-d') > Auth::user()->expiry_date )
+               @if(date('Y-m-d') > Auth::user()->expiry_date && Auth::user()->hasRole('supplier'))
                <a href="{{route('subscribe_page')}}" type="button" class="btn btn-outline-success btn-sm">Bid Now</a>
                @else
               <button class="fit-button"  
-              {{Auth::user()->id == $bidDetail[0]->user_id ? "disabled" : '' }}
-                {{!Auth::user()->hasRole('supplier') ? "disabled" : '' }} 
                 type="button" onclick="bidNNow('{{$bidDetail[0]->bid_id}}','{{$bidDetail[0]->user_id}}','{{$bidDetail[0]->cat_id}}','{{$bidDetail[0]->sub_cat_id}}')">Bid Now</button>
                 @endif
                 @else
@@ -360,7 +354,7 @@
   
   </div>
   <script>
-  function subscribe(month) {
+  function subscribe(month,package) {
     var value = {
            month: month,
         };
@@ -369,7 +363,7 @@
         url: "{{ route('subscribe_modal') }}",
         data: value,
         success: function(result) {
-            $('#websitemodaltitle').html('Add');
+            $('#websitemodaltitle').html('You are talking '+package +' package');
             $('#websitemodalbody').html(result);
             $('#exampleModalLong').modal('show');
         },

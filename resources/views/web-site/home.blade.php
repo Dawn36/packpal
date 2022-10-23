@@ -301,19 +301,19 @@
                             class="level"
                             style="font-weight: bold; color: #524e4e"
                           >
-                            Company: {{ucwords($supplier[$i]->company_name)}}
+                            Company: {{charaterCountTo20($supplier[$i]->company_name)}}
                           </span>
                         <span
                             class="level"
                             style="font-weight: bold; color: #524e4e"
                           >
-                            Category: {{ucwords($supplier[$i]->category_name)}}
+                            Category: {{charaterCountTo20($supplier[$i]->category_name)}}
                           </span>
                           <span
                             class="level"
                             style="font-weight: bold; color: #524e4e"
                           >
-                            Sub Category: {{ucwords($supplier[$i]->sub_category_name)}}
+                            Sub Category: {{charaterCountTo20($supplier[$i]->sub_category_name)}}
                           </span>
                             <div class="seller-card">
                               <div>
@@ -409,25 +409,23 @@
                           class="level"
                           style="font-weight: bold; color: #524e4e"
                         >
-                          Category: {{ucwords($bidListing[$i]->category_name)}}
+                          Category: {{charaterCountTo20($bidListing[$i]->category_name)}}
                         </span>
                         <span
                           class="level"
                           style="font-weight: bold; color: #524e4e"
                         >
-                          Sub Category: {{ucwords($bidListing[$i]->sub_category_name)}}
+                          Sub Category: {{charaterCountTo20($bidListing[$i]->sub_category_name)}}
                         </span>
                         <span
                           class="level"
                           style="font-weight: bold; color: #524e4e"
                         >
-                          Buyer from: {{ucwords($bidListing[$i]->city)}}
+                          Buyer from: {{charaterCountTo20($bidListing[$i]->city)}}
                         </span>
+                        <a href="{{route('bid_detail',$bidListing[$i]->bid_id)}}">{{charaterCountTo26($bidListing[$i]->bids_name)}}</a>
                       </span>
                     </div>
-                    <h3>
-                      {{ucwords($bidListing[$i]->bids_name)}}
-                    </h3>
                     <div class="content-info"></div>
                     <div class="footer">
                       Starting At: {{$bidListing[$i]->target_price}}
@@ -436,22 +434,24 @@
                         @if(date('Y-m-d') > Auth::user()->expiry_date && Auth::user()->hasRole('supplier'))
                         <a href="{{route('subscribe_page')}}" type="button" class="btn btn-outline-success btn-sm">Bid Now</a>
                         @else
-                        <button
-                        {{Auth::user()->id == $bidListing[$i]->user_id ? "disabled" : '' }}
-                        {{!Auth::user()->hasRole('supplier') ? "disabled" : '' }}
+                        <a href="{{route('bid_detail',$bidListing[$i]->bid_id)}}" type="button" class="btn btn-outline-success btn-sm">Bid Now</a>
+
+                        {{-- <button
                           type="button"
                           class="btn btn-outline-success btn-sm" onclick="bidNNow('{{$bidListing[$i]->bid_id}}','{{$bidListing[$i]->user_id}}','{{$bidListing[$i]->cat_id}}','{{$bidListing[$i]->sub_cat_id}}')"
                         >
                           Bid Now
-                        </button>
+                        </button> --}}
                         @endif
                         @else
-                        <button
+                        <a href="{{route('bid_detail',$bidListing[$i]->bid_id)}}" type="button" class="btn btn-outline-success btn-sm">Bid Now</a>
+
+                        {{-- <button
                           type="button"
                           class="btn btn-outline-success btn-sm" onclick="bidNNow('{{$bidListing[$i]->bid_id}}','{{$bidListing[$i]->user_id}}','{{$bidListing[$i]->cat_id}}','{{$bidListing[$i]->sub_cat_id}}')"
                         >
                           Bid Now
-                        </button>
+                        </button> --}}
                        
 
                         @endif
@@ -572,6 +572,7 @@
   function search() {
     document.getElementById('search').submit();
 }
+
 
 
 </script>
