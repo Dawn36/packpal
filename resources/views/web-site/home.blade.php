@@ -229,9 +229,9 @@
               aria-expanded="false"
             >
             {{-- <div class="service"> --}}
-             <img src="{{ asset('category/'.$catAndSubCat[$i]->category_image)}}" style="    border-radius: 50%;
+             {{-- <img src="{{ asset('category/'.$catAndSubCat[$i]->category_image)}}" style="    border-radius: 50%;
              height: 50px;
-             width: 50px;" />
+             width: 50px;" /> --}}
              {{ucwords($catAndSubCat[$i]->category_name)}}
              {{-- <h3> {{ucwords($catAndSubCat[$i]->category_name)}}</h3> --}}
             {{-- </div> --}}
@@ -248,8 +248,8 @@
            
           </li>
           @endfor
-          <button onclick="viewAllCategory()"  type="button" class="btn btn-outline-success btn-sm" tabindex="0" style="border: none;">
-            View All <br> Category
+          <button onclick="viewAllCategory()"  type="button" class="btn btn-outline-success btn-sm" tabindex="0" style="border: none; margin-top: 10px;height: 50%;">
+            View All 
             </button>
         </ul>
       </div>
