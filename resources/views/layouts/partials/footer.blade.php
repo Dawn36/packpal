@@ -102,6 +102,18 @@
 <!--end::Page Custom Javascript-->
 
 <script>
+    function addBids() {
+        $.ajax({
+            type: 'GET',
+            url: "{{ route('bids.create') }}",
+
+            success: function(result) {
+                $('#myModalXlHeading').html('Add a Bids');
+                $('#modalBodyXl').html(result);
+                $('#myModalXl').modal('show');
+            }
+        });
+    }
     // $("#kt_datatable_example_1").DataTable();
     $(document).ready(function() {
         // 

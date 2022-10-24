@@ -49,6 +49,7 @@ class OrderController extends Controller
         $orderStatusCount = $orderObj->orderStatusCountBuyer($userId);
         return view('buyer-order/buyer_order_index', compact('orderStatusCount', 'order', 'active', 'inactive', 'complete', 'reject', 'title', 'color'));
     }
+    
 
     public function orderAcceptReject(int $id, $status)
     {
