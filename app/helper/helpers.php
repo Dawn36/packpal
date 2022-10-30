@@ -25,10 +25,19 @@ function getLatitudeLongitude($address)
     // traceMessage('http://maps.google.com/maps/api/geocode/json?address='.$address.'&sensor=false');
     $output = json_decode($geocode);
     // traceMessage("Output Info ".print_r_log($output));
-    $lat = $output->results[0]->geometry->location->lat;
-    $long = $output->results[0]->geometry->location->lng;
-    $locationArray['lat'] = "$lat";
-    $locationArray['long'] = "$long";
+    if($output->status == "OK")
+    {
+        $lat = $output->results[0]->geometry->location->lat;
+        $long = $output->results[0]->geometry->location->lng;
+        $locationArray['lat'] = "$lat";
+        $locationArray['long'] = "$long";
+    }
+    else
+    {
+        $locationArray['lat'] = "0";
+        $locationArray['long'] = "0";
+    }
+   
     return $locationArray;
 }
 function charaterCountTo20($char)
