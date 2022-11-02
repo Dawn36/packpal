@@ -221,12 +221,12 @@ a:hover {
         <form class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search" method="GET" action="{{route('search_home')}}">
           <div class="input-group">
             <div class="location-dropdown">
-              <select class="form-control border-0 shadow-sm" name='product_supplier'>
+              <select class="form-control border-0 shadow-sm" name='product_supplier' style="    font-size: 17px !important;">
                   <option value="product">Bids</option>
                   <option value="supplier">Supplier</option>
               </select>
             </div>
-          <input type="text" class="form-control bg-white small" name="search" placeholder="Search Your" aria-label="Search" aria-describedby="basic-addon2" style="height: 34px  !important">
+          <input type="text" class="form-control bg-white small" name="search" placeholder="Search Your" aria-label="Search" aria-describedby="basic-addon2" style="height: 40px  !important">
           <div class="input-group-append">
           <button class="btn btn-success" type="submit">
           <i class="fa fa-search fa-sm"></i>
