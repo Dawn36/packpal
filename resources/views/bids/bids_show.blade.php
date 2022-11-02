@@ -43,12 +43,12 @@
                 <!--begin::Menu-->
                 <button type="button" class="btn btn-custom btn-active-white btn-flex btn-color-white btn-active-color-primary fw-bolder" data-bs-original-title="Create a new Bid" onclick="addBids()">
                     <!--begin::Svg Icon | path: icons/duotune/general/gen031.svg-->
-                    <span class="svg-icon svg-icon-5 svg-icon-gray-500 me-1">
+                    {{-- <span class="svg-icon svg-icon-5 svg-icon-gray-500 me-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path d="M19.0759 3H4.72777C3.95892 3 3.47768 3.83148 3.86067 4.49814L8.56967 12.6949C9.17923 13.7559 9.5 14.9582 9.5 16.1819V19.5072C9.5 20.2189 10.2223 20.7028 10.8805 20.432L13.8805 19.1977C14.2553 19.0435 14.5 18.6783 14.5 18.273V13.8372C14.5 12.8089 14.8171 11.8056 15.408 10.964L19.8943 4.57465C20.3596 3.912 19.8856 3 19.0759 3Z" fill="black" />
                         </svg>
-                    </span>
-                    <!--end::Svg Icon-->Create a Bids
+                    </span> --}}
+                    <!--end::Svg Icon-->CREATE A BID
                 </button>
 
             </div>
@@ -487,10 +487,7 @@
                     <div class="card mb-5 mb-xl-10" id="kt_profile_details_view">
                         <!--begin::Card header-->
                         <div class="p-10">
-                            <!--begin::Heading-->
-                            <h1 class="anchor fw-bolder mb-5" id="zero-configuration">
-                                <a href="javascript:;"></a>Order on this Bid
-                            </h1>
+                            
                             <!--begin::Notice-->
                             <!-- <div class="d-flex align-items-center rounded py-5 px-4 bg-light-warning">
                                 <div class="d-flex h-80px w-80px flex-shrink-0 flex-center position-relative ms-3 me-6">
@@ -540,7 +537,7 @@
                                             <thead>
                                                 <tr class="fw-bold fs-6 text-muted">
                                                     <th class="min-w-30px">Offer ID</th>
-                                                    <th>Gigs Name</th>
+                                                    <th>Bid Name</th>
                                                     <th>Supplier Name</th>
                                                     <th>Category</th>
                                                     <th>Sub-Category</th>
@@ -584,7 +581,7 @@
                                                             <!--end::Wrapper-->
                                                             <!--begin::Info-->
                                                             <div class="d-flex flex-column justify-content-center">
-                                                                <a href="" class="fs-6 text-gray-800 text-hover-primary">{{ucwords($order[$i]->first_name)}} {{ucwords($order[$i]->last_name)}}</a>
+                                                                <a href="{{route('user.show',$order[$i]->user_id)}}" class="fs-6 text-gray-800 text-hover-primary">{{ucwords($order[$i]->first_name)}} {{ucwords($order[$i]->last_name)}}</a>
                                                             </div>
                                                             <!--end::Info-->
                                                         </div>
@@ -921,7 +918,7 @@
             type: 'GET',
             url: url,
             success: function(result) {
-                $('#myModalXlHeading').html('Edit a Bids');
+                $('#myModalXlHeading').html('Edit a Bid');
                 $('#modalBodyXl').html(result);
                 $('#myModalXl').modal('show');
             }

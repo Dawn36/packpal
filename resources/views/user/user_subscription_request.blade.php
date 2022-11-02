@@ -154,13 +154,13 @@
                                                     <!--end::Wrapper-->
                                                     <!--begin::Info-->
                                                     <div class="d-flex flex-column justify-content-center">
-                                                        <a href="#" class="fw-bolder text-gray-800 text-hover-primary">{{ucwords($subscriptionRequest[$i]->first_name)}} {{ucwords($subscriptionRequest[$i]->last_name)}}</a>
+                                                        <a href="{{route('user.show',$subscriptionRequest[$i]->user_id)}}" class="fw-bolder text-gray-800 text-hover-primary">{{ucwords($subscriptionRequest[$i]->first_name)}} {{ucwords($subscriptionRequest[$i]->last_name)}}</a>
                                                     </div>
                                                     <!--end::Info-->
                                                 </div>
                                                 <!--end::User-->
                                             </td>
-                                            <td><a href="#" class="fw-bolder text-gray-800 text-hover-primary">{{$subscriptionRequest[$i]->email}}</a></td>
+                                            <td><a href="{{route('user.show',$subscriptionRequest[$i]->user_id)}}" class="fw-bolder text-gray-800 text-hover-primary">{{$subscriptionRequest[$i]->email}}</a></td>
                                             <td>{{$subscriptionRequest[$i]->phone_number}}</td>
                                             <td class="">{{ucwords($subscriptionRequest[$i]->package)}}</td>
                                             <td><div class="symbol-group symbol-hover flex-nowrap">

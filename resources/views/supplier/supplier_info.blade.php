@@ -8,6 +8,7 @@
                     </div>
                     <div class="d-flex">
                         <a href="#" class="fs-3 text-gray-800 text-hover-primary fw-bolder mb-5">{{ucwords($userData->first_name)}} {{ucwords($userData->last_name)}}</a>
+                        @if($userData->verified == 'yes')
                         <a href="#" style="margin-top: 1px;">
                             <span class="svg-icon svg-icon-1 svg-icon-primary">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
@@ -16,31 +17,12 @@
                                 </svg>
                             </span>
                         </a>
+                        @endif
                     </div>
                     <div class="mb-9">
                         <div class="badge badge-lg badge-light-primary d-inline">Supplier</div>
                     </div>
                     <div class="d-flex flex-wrap flex-center fs-8">
-                        <!-- <div class="border border-gray-300 border-dashed rounded py-3 px-3 me-3 mb-3 text-center">
-                            <div class="fs-5 fw-bolder text-gray-700">
-                                <span class="w-75px">13</span>
-                            </div>
-                            <div class="fw-bold text-muted">Categories</div>
-                        </div>
-                        <div class="border border-gray-300 border-dashed rounded py-3 px-3 me-3 mb-3 text-center">
-                            <div class="fs-5 fw-bolder text-gray-700">
-                                <span class="w-75px">6</span>
-                            </div>
-                            <div class="fw-bold text-muted">Sub-Categories</div>
-                        </div>
-                        <div class="border border-gray-300 border-dashed rounded py-3 px-3 me-3 mb-3 text-center">
-                            <div class="fs-5 fw-bolder text-gray-700">
-                                <span class="w-75px">17</span>
-                            </div>
-                            <div class="fw-bold text-muted">Total Jobs</div>
-                        </div> -->
-                        <!--end::Stats-->
-                        <!--begin::Stats-->
                         <div class="border border-gray-300 border-dashed rounded py-3 px-3 mb-3 text-center">
                             <div class="fs-5 fw-bolder text-gray-700">
                                 <span class="w-75px">{{Date("Y-m-d",strtotime($userData->created_at))}}</span>
@@ -106,7 +88,7 @@
                             <div class="d-flex flex-stack fs-4 py-3">
                                 <div class="fw-bolder d-flex">Ratings
 
-                                    <div class="d-flex " style="margin-left: 170%;">
+                                    <div class="d-flex " style="margin-left: 183%;">
                                         <div class="rating custom-ratings-placement">
                                             <div class="star-ratings d-flex">
                                                 @if($ratingOverAll == 5)

@@ -45,12 +45,12 @@
                 <!--begin::Menu-->
                 <button type="button" class="btn btn-custom btn-active-white btn-flex btn-color-white btn-active-color-primary fw-bolder" data-bs-original-title="Create a new Bid" onclick="addBids()">
                     <!--begin::Svg Icon | path: icons/duotune/general/gen031.svg-->
-                    <span class="svg-icon svg-icon-5 svg-icon-gray-500 me-1">
+                    {{-- <span class="svg-icon svg-icon-5 svg-icon-gray-500 me-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path d="M19.0759 3H4.72777C3.95892 3 3.47768 3.83148 3.86067 4.49814L8.56967 12.6949C9.17923 13.7559 9.5 14.9582 9.5 16.1819V19.5072C9.5 20.2189 10.2223 20.7028 10.8805 20.432L13.8805 19.1977C14.2553 19.0435 14.5 18.6783 14.5 18.273V13.8372C14.5 12.8089 14.8171 11.8056 15.408 10.964L19.8943 4.57465C20.3596 3.912 19.8856 3 19.0759 3Z" fill="black" />
                         </svg>
-                    </span>
-                    <!--end::Svg Icon-->BID LODGE
+                    </span> --}}
+                    <!--end::Svg Icon-->CREATE A BID
                 </button>
 
             </div>
@@ -86,7 +86,7 @@
                             <a class="nav-link text-active-primary py-5 me-6 position-relative {{$pending}}" href="{{ route('bid_status', ['status' => 'pending']) }}"><span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-warning">{{$bidSatatusCount[0]->active_bids == null ? '0' : $bidSatatusCount[0]->pending_bids}}</span>Pending For Approval</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-active-primary py-5 me-6 position-relative {{$denied}}" href="{{ route('bid_status', ['status' => 'denied']) }}"><span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-danger">{{$bidSatatusCount[0]->active_bids == null ? '0' : $bidSatatusCount[0]->denid_bids}}</span>Denied</a>
+                            <a class="nav-link text-active-primary py-5 me-6 position-relative {{$denied}}" href="{{ route('bid_status', ['status' => 'reject']) }}"><span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-danger">{{$bidSatatusCount[0]->active_bids == null ? '0' : $bidSatatusCount[0]->denid_bids}}</span>Reject</a>
                         </li>
 
                     </ul>
@@ -206,7 +206,7 @@
                                                     </span>
                                                 </button>
                                                 @endif
-                                                <button type="button" class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-primary" data-bs-original-title="Edit Bids" onclick="editBids('{{$bids[$i]->id}}')">
+                                                <button type="button" class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-primary" data-bs-original-title="Edit Bid" onclick="editBids('{{$bids[$i]->id}}')">
                                                     <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
                                                     <span class="svg-icon svg-icon-2">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -258,7 +258,7 @@
             type: 'GET',
             url: url,
             success: function(result) {
-                $('#myModalXlHeading').html('Edit a Bids');
+                $('#myModalXlHeading').html('Edit a Bid');
                 $('#modalBodyXl').html(result);
                 $('#myModalXl').modal('show');
             }

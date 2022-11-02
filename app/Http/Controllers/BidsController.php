@@ -48,11 +48,12 @@ class BidsController extends Controller
             $headLine='Here we have list of all Bids Pending for Approval. You can Contact Support for Help.';
 
         }
-        if ($status == 'denied') {
-            $title = "Denied";
+        if ($status == 'reject') {
+            $status='denied';
+            $title = "Reject";
             $denied = 'active';
             $color = 'danger';
-            $headLine='Here is the list of Bids Denied. This is mainly due to any reason that are in violation or inacceptance of defined Terms and Policies of PackPal. Contact Support for further assistance.';
+            $headLine='Here is the list of Bids Rejected. This is mainly due to any reason that are in violation or inacceptance of defined Terms and Policies of PackPal. Contact Support for further assistance.';
 
         }
         $bidsObj = new Bids();

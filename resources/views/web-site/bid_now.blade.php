@@ -8,6 +8,7 @@
         <label for="formGroupExampleInput">Bid</label>
         <input
           type="number"
+          min="0"
           class="form-control"
           id="formGroupExampleInput"
           name='offer'

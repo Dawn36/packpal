@@ -9,15 +9,15 @@
             <li class="nav-overview selected">
               <a href="#overview">Overview</a>
             </li>
-            <li class="nav-description">
+            <li class="nav-description" >
               <a href="#description">Description</a>
             </li>
             <li class="nav-aboutSeller">
               <a href="#aboutSeller">About The Seller</a>
             </li>
-            <li class="nav-packagesTable">
+            {{-- <li class="nav-packagesTable">
               <a href="#packagesTable">Compare Packages</a>
-            </li>
+            </li> --}}
             <li class="nav-recommendations">
               <a href="#recommendations">Recommendations</a>
             </li>
@@ -41,8 +41,9 @@
             </ol>
           </nav>
           <h2>{{ucwords($bidDetail[0]->bids_name)}}</h2>
+          <section id="overview">
           <div
-            id="overview"
+            
             class="seller-overview d-flex align-items-center"
           >
             <div class="user-profile-image d-flex">
@@ -89,13 +90,17 @@
               
             </div>
           </div>
-          <div id="description" class="description">
+        </section>
+          <section id="description" class="description">
             <h3>About This Bid</h3>
               @php echo html_entity_decode($bidDetail[0]->description) @endphp
             
-          </div>
-          <h3 id="aboutSeller">About The Buyer</h3>
+          </section>
+          
+          <h3 >About The Buyer</h3>
+         
           <div class="profile-card">
+            <section id="aboutSeller">
             <div class="stats-desc">
               <ul class="user-stats">
                 <li>From<strong>{{ucwords($bidDetail[0]->address)}}</strong></li>
@@ -104,7 +109,8 @@
               </ul>
             
             </div>
-            <div id="packagesTable" class="table-package">
+          </section>
+            {{-- <div id="packagesTable" class="table-package">
               <h3>Compare Packages</h3>
               <table>
                 <colgroup>
@@ -160,7 +166,6 @@
                       @else
                       <button type="button"   onclick="subscribe('1 month','Basic')">Select</button>
                       @endif
-                      {{-- <button type="button"  onclick="subscribe('1 month')">Select</button> --}}
                     </td>
                     <td>
                       <p class="price-label">Rs.23000</p>
@@ -171,7 +176,6 @@
                       @else
                       <button type="button"  onclick="subscribe('6 month','Standard')">Select</button>
                       @endif
-                      {{-- <button type="button"  onclick="subscribe('6 month')">Select</button> --}}
                     </td>
                     <td>
                       <p class="price-label">Rs.47000</p>
@@ -182,13 +186,13 @@
                       @else
                       <button type="button"  onclick="subscribe('12 month','Premium')">Select</button>
                       @endif
-                      {{-- <button type="button"  onclick="subscribe('12 month')">Select</button> --}}
                     </td>
                   </tr>
                 </tbody>
               </table>
-            </div>
-            <div id="recommendations" class="recommended">
+            </div> --}}
+
+            <section id="recommendations" class="recommended">
               <h3>Recommended For You</h3>
               <div class="recommended-slider recommend">
                 @for ($i = 0; $i < count($bidListing); $i++)
@@ -256,19 +260,19 @@
                 </div>
                 @endfor
               </div>
-            </div>
+            </section>
           </div>
         </div>
         <div class="col-lg-4 right">
           <div class="sticky">
-            <ul class="nav nav-tabs">
+            {{-- <ul class="nav nav-tabs">
               <li>
                 <a class="active" data-toggle="tab" href="#basic">Basic</a>
               </li>
               <li><a data-toggle="tab" href="#standard">Standard</a></li>
               <li><a data-toggle="tab" href="#Premium">Premium</a></li>
-            </ul>
-            <div class="tab-content">
+            </ul> --}}
+            {{-- <div class="tab-content">
               <div id="basic" class="tab-pane fade show active">
                 <div class="header">
                   <h3>
@@ -329,6 +333,21 @@
                 <button type="button"   onclick="subscribe('12 month','Premium')">Continue (Rs.47000)</button>
                 @endif
               </div>
+            </div> --}}
+            <ul class="nav nav-tabs">
+              <li>
+                <a class="active" data-toggle="tab" href="#basic">Price</a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div id="basic" class="tab-pane fade show active">
+                <div class="header" >
+                  <h3 style="min-height: 0px !important;line-height: 0!important;margin-top: 10px;">
+                    <b class="title">Starting At:</b
+                    ><span class="price">Rs.4000</span>
+                  </h3>
+                </div>
+              </div>
             </div>
             <div class="contact-seller-wrapper tab-content">
                @if(Auth::check())
@@ -363,7 +382,7 @@
         url: "{{ route('subscribe_modal') }}",
         data: value,
         success: function(result) {
-            $('#websitemodaltitle').html('You are talking '+package +' package');
+            $('#websitemodaltitle').html(package +' package');
             $('#websitemodalbody').html(result);
             $('#exampleModalLong').modal('show');
         },
@@ -376,5 +395,44 @@
         }
     });
 }
+const sections = [...document.querySelectorAll('section')];
+const link = (id) => document.querySelector(`a[href="#${id}"]`);
+
+const inView = (element) => {
+
+  var top = element.offsetTop;
+  var height = element.offsetHeight;
+  
+  while(element.offsetParent){
+   element = element.offsetParent;
+   top += element.offsetTop;
+  }
+  
+    return (
+      top < (window.pageYOffset + window.innerHeight) && 
+      (top + height) > window.pageYOffset
+    );
+};
+
+const init = () => {
+  function update() {
+    let next = false;
+    
+    sections.forEach(sections => {
+      const current = link(sections.id);
+      console.log(current);
+      if (inView(sections) && !next){
+        current.parentElement.classList.add('selected');
+        next = true;
+      } else {
+        current.parentElement.classList.remove('selected');
+      }
+    });
+  }
+  update();
+  window.addEventListener('scroll', update);
+}
+
+init();
     </script>
   @endsection('content_website')

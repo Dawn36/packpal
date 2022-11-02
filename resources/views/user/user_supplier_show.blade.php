@@ -135,9 +135,9 @@
                                     <hr>
 
                                     <div class="pb-5 fs-6">
-                                        <div class="fs-3 text-gray-800 text-hover-primary fw-bolder  d-flex">Ratings
+                                        <div class="fs-3 text-gray-800 text-hover-primary fw-bolder d-flex justify-content-between horizontal-center">Ratings
 
-                                            <div class="d-flex " style="margin-left: 18%;">
+                                            <div class="d-flex " >
                                                 <div class="rating custom-ratings-placement">
                                                     <div class="star-ratings d-flex">
                                                         @if($ratingSupplier == 5)

@@ -14,7 +14,7 @@
               </h2>
               <h4 style="font-size: 23px;">Connecting Buyers & Sellers </h4>
             </div>
-            <form  id='search_from' method="GET" action="{{route('search_home')}}">
+            {{-- <form  id='search_from' method="GET" action="{{route('search_home')}}">
             <div class="main-search-input" style="margin-top: 19px;">
               <div class="main-search-input-item">
                 <select
@@ -42,7 +42,7 @@
                 Search
               </button>
             </div>
-            </form>
+            </form> --}}
           </div>
         </div>
         <!-- Features Categories -->

@@ -155,8 +155,8 @@
                                     <input type="text" id='establishment_year' name="establishment_year" class="form-control form-control-lg form-control-solid kt_datepicker_3" placeholder="Year of Business Establishment" />
                                 </div>
                                 <div class="col-xl-6">
-                                    <label class="form-label fw-bolder text-dark fs-6">Annual Sales in Pak Rupees</label>
-                                    <input class="form-control form-control-lg form-control-solid" type="number" placeholder="please enter Annual Sales" name="annual_sales" autocomplete="off" />
+                                    <label class="form-label fw-bolder text-dark fs-6">Annual Sales in Pkr</label>
+                                    <input class="form-control form-control-lg form-control-solid" type="number" min="0" placeholder="please enter Annual Sales" name="annual_sales" autocomplete="off" />
                                 </div>
                             </div>
                             <div class="row fv-row mb-7">
@@ -262,17 +262,17 @@
                         <div class="row fv-row mb-7">
                             <div class="col-xl-6">
                                 <label class="form-label  fw-bolder required text-dark fs-6">Zip/Postal Code</label>
-                                <input class="form-control form-control-lg form-control-solid" type="number" :value="old('zip_postal_code')" placeholder="Please enter zip/postal Code" name="zip_postal_code" autocomplete="off" required />
+                                <input class="form-control form-control-lg form-control-solid" type="number" min="0" :value="old('zip_postal_code')" placeholder="Please enter zip/postal Code" name="zip_postal_code" autocomplete="off" required />
                             </div>
                             <div class="col-xl-6">
                                 <label class="form-label fw-bolder required  text-dark fs-6">Landline No</label>
-                                <input class="form-control form-control-lg form-control-solid" type="number" :value="old('landline_no')" placeholder="Please enter landline no" name="landline_no" autocomplete="off" required />
+                                <input class="form-control form-control-lg form-control-solid" type="number" min="0" :value="old('landline_no')" placeholder="Please enter landline no" name="landline_no" autocomplete="off" required />
                             </div>
                         </div>
                         <div class="row fv-row mb-7">
                             <div class="col-xl-6">
                                 <label class="form-label  fw-bolder required text-dark fs-6">Mobile No</label>
-                                <input class="form-control form-control-lg form-control-solid" :value="old('phone_number')" type="number" placeholder="Please enter Mobile No" name="phone_number" autocomplete="off"  required/>
+                                <input class="form-control form-control-lg form-control-solid" :value="old('phone_number')" type="number" min="0" placeholder="Please enter Mobile No" name="phone_number" autocomplete="off"  required/>
                             </div>
                         </div>
                         <div class="fv-row mb-7">

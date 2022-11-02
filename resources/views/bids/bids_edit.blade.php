@@ -168,10 +168,10 @@
                             </div>
                             <div class="mb-10 fv-row">
                                 <!--begin::Label-->
-                                <label class="required form-label">City/ PostCode</label>
+                                <label class="required form-label">City/PostCode</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <input type="text" name="city_post_code" value="{{$bids->city_post_code}}" class="form-control mb-2" placeholder="City/ PostCode" value="" required />
+                                <input type="text" name="city_post_code" value="{{$bids->city_post_code}}" class="form-control mb-2" placeholder="City/PostCode" value="" required />
                                 <!--end::Input-->
                                 <!--begin::Description-->
                                 <div class="text-muted fs-7">City/ PostCode is required and recommended to be unique.</div>
@@ -181,7 +181,7 @@
                             <!--begin::Input group-->
                             <div class="mb-10 fv-row">
                                 <label class="required form-label">Tel No.</label>
-                                <input type="number" name="contact_no" class="form-control mb-2" placeholder="Tel No." value="{{$bids->contact_no}}" required />
+                                <input type="number" min="0" name="contact_no" class="form-control mb-2" placeholder="Tel No." value="{{$bids->contact_no}}" required />
                                 <div class="text-muted fs-7">Tel No. is required and recommended to be unique.</div>
                             </div>
                             <!--end::Input group-->
@@ -258,7 +258,7 @@
                                 <label class="required form-label">Target Price</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <input type="number" name="target_price" value="{{$bids->target_price}}" class="form-control mb-2" placeholder="bid target price" value="" required />
+                                <input type="number" min="0" name="target_price" value="{{$bids->target_price}}" class="form-control mb-2" placeholder="bid target price" value="" required />
                                 <!--end::Input-->
                                 <!--begin::Description-->
                                 <div class="text-muted fs-7">Set the bid target price.</div>

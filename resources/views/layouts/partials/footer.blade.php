@@ -15,9 +15,7 @@
             <li class="menu-item">
                 <a href="https://devs.keenthemes.com" target="_blank" class="menu-link px-2">Support</a>
             </li>
-            <li class="menu-item">
-                <a href="https://1.envato.market/EA4JP" target="_blank" class="menu-link px-2">Purchase</a>
-            </li>
+          
             <li class="menu-item">
                 <a href="#" target="_blank" class="menu-link px-2"><i class="fa fa-facebook" aria-hidden="true"></i></a>
             </li>
@@ -28,7 +26,7 @@
                 <a href="#" target="_blank" class="menu-link px-2"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
             </li>
             <li class="menu-item">
-                <a href="#" target="_blank" class="menu-link px-2"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
+                <a href="#" target="_blank" class="menu-link px-2"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
             </li>
             <li class="menu-item">
                 <a href="#" target="_blank" class="menu-link px-2"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -63,12 +61,10 @@
     var hostUrl = "assets/";
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key={{env('GOOGLE_MAP_ACCESS_KEY')}}&callback=initAutocomplete&libraries=places&v=weekly" async></script>
 
 <script src="{{ asset('theme/assets/plugins/global/plugins.bundle.js') }}"></script>
-<!-- <script src="{{ asset('theme/assets/js/custom/apps/inbox/reply.js') }}"></script> -->
-<!-- <script src="{{ asset('theme/assets/js/custom/apps/chat/chat.js') }}"></script> -->
-<!--begin::Page Custom Javascript(used by this page)-->
+
+
 
 <!--end::Page Vendors Javascript-->
 <!--begin::Page Custom Javascript(used by this page)-->
@@ -82,9 +78,7 @@
 <script src="{{ asset('theme/assets/js/scripts.bundle.js') }}"></script>
 <script src="{{ asset('theme/assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
 <script src="{{ asset('theme/assets/plugins/custom/fslightbox/fslightbox.bundle.js') }}"></script>
-<!-- <script src="{{ asset('theme/assets/js/custom/apps/inbox/reply.js') }}"></script> -->
-<!-- <script src="{{ asset('theme/assets/js/custom/apps/chat/chat.js') }}"></script> -->
-<!--begin::Page Custom Javascript(used by this page)-->
+
 <script src="{{ asset('theme/assets/js/widgets.bundle.js') }}"></script>
 <script src="{{ asset('theme/assets/js/custom/widgets.js') }}"></script>
 <script src="{{ asset('theme/assets/js/custom/signin-methods.js') }}"></script>
@@ -98,6 +92,8 @@
 <script src="https://maps.googleapis.com/maps/api/js?key={{env('GOOGLE_MAP_ACCESS_KEY')}}&callback=myMap"></script>
 
 <script src="{{ asset('theme/assets/js/custom/documentation/editors/quill/basic.js') }}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{env('GOOGLE_MAP_ACCESS_KEY')}}&callback=initAutocomplete&libraries=places&v=weekly" async></script>
+<script src="{{asset('theme/assets/js/location.js')}}"></script>
 {{-- <!-- <script src="{{ asset('theme/assets/custom/customjs.js"></script> --> --}}
 <!--end::Page Custom Javascript-->
 
@@ -108,7 +104,7 @@
             url: "{{ route('bids.create') }}",
 
             success: function(result) {
-                $('#myModalXlHeading').html('Add a Bids');
+                $('#myModalXlHeading').html('Add a Bid');
                 $('#modalBodyXl').html(result);
                 $('#myModalXl').modal('show');
             }

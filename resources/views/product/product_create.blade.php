@@ -180,7 +180,7 @@
                             <!--begin::Input group-->
                             <div class="mb-10 fv-row">
                                 <label class="required form-label">Tel No.</label>
-                                <input type="number" name="contact_no" class="form-control mb-2" placeholder="Tel No." value="" required />
+                                <input type="number" min="0" name="contact_no" class="form-control mb-2" placeholder="Tel No." value="" required />
                                 <div class="text-muted fs-7">Tel No. is required and recommended to be unique.</div>
                             </div>
                             <!--end::Input group-->
@@ -253,7 +253,7 @@
                                 <label class="required form-label">Target Price</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <input type="number" name="target_price" class="form-control mb-2" placeholder="product target price" value="" required />
+                                <input type="number" min="0" name="target_price" class="form-control mb-2" placeholder="product target price" value="" required />
                                 <!--end::Input-->
                                 <!--begin::Description-->
                                 <div class="text-muted fs-7">Set the product target price.</div>

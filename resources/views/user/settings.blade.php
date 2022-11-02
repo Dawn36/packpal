@@ -380,12 +380,12 @@
                                                     <label class="fs-6 form-label fw-bolder text-dark">Primary Business</label>
                                                     <select class="form-select form-select-solid" id='primary_business' name='primary_business' data-control="select2" data-placeholder="In Progress" data-hide-search="true" onchange="primaryBusinee()">
                                                         <option value="manufacturer" {{$user->primary_business == "manufacturer" ? "Selected" : ""}}>Manufacturer</option>
-                                                        <option value="holesaler" {{$user->primary_business == "holesaler" ? "Selected" : ""}}>Holesaler</option>
-                                                        <option value="rader" {{$user->primary_business == "rader" ? "Selected" : ""}}>Rader</option>
+                                                        <option value="wholesaler" {{$user->primary_business == "wholesaler" ? "Selected" : ""}}>Wholesaler</option>
+                                                        <option value="trader" {{$user->primary_business == "trader" ? "Selected" : ""}}>Trader</option>
                                                         <option value="importer" {{$user->primary_business == "importer" ? "Selected" : ""}}>Importer</option>
                                                         <option value="agent" {{$user->primary_business == "agent" ? "Selected" : ""}}>Agent</option>
                                                         <option value="distributor" {{$user->primary_business == "distributor" ? "Selected" : ""}}>Distributor</option>
-                                                        <option value="reseller" {{$user->primary_business == "reseller" ? "Selected" : ""}}>Reseller</option>
+                                                        <option value="reseller" {{$user->primary_business == "reseller" ? "Selected" : ""}}>Re-seller</option>
                                                         <option value="other" {{$user->primary_business == "other" ? "Selected" : ""}}>Other</option>
                                                     </select>
                                                 </div>
@@ -410,7 +410,7 @@
                                                 <!--end::Col-->
                                                 <!--begin::Col-->
                                                 <div class="col-lg-4">
-                                                    <label class="fs-6 form-label fw-bolder text-dark">Annual Sales in Pak Rupees</label>
+                                                    <label class="fs-6 form-label fw-bolder text-dark">Annual Sales in Pkr</label>
                                                     <input class="form-control form-control-lg form-control-solid" value="{{$user->annual_sales}}" type="number" placeholder="please enter Annual Sales" name="annual_sales" autocomplete="off" />
 
                                                 </div>

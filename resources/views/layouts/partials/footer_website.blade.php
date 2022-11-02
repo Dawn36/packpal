@@ -2,77 +2,39 @@
     <div class="container">
       <div class="d-flex justify-content-between">
         <div class="footer-list">
-          <h2>Categories</h2>
-
-          @for ($i = 0; $i < count($categories); $i++)
-          <ul class="list">
-            <li><a href="{{route('bid_listing',['category_id'=>$categories[$i]->id])}}">{{ucwords($categories[$i]->category_name)}}</li>
-          </ul>
-          @endfor
-        </div>
-        <div class="footer-list">
           <h2>About</h2>
           <ul class="list">
             <li><a href="{{route('about')}}">About Us</a></li>
-            {{-- <li><a href="{{route('about')}}">Press &amp; News</a></li> --}}
-            <li><a href="{{route('about')}}">Sell With Us</a></li>
-            <li><a href="{{route('about')}}">How to Source Packaging</a></li>
             <li><a href="{{route('feed_back')}}">Your Feedback</a></li>
             <li><a href="{{route('about')}}">Contact Us</a></li>
-            <li>
-              <a href="{{route('about')}}" target="_blank">Advertise With Us</a>
-            </li>
-            <li>
-              <a href="{{route('about')}}" target="_blank">Privacy Policy</a>
-            </li>
-            <li>
-              <a href="{{route('about')}}" target="_blank">Terms of Use</a>
-            </li>
           </ul>
         </div>
         <div class="footer-list">
-          <h2>Support</h2>
+          <h2>Sell</h2>
           <ul class="list">
-            <li><a href="{{route('feed_back')}}">Help &amp; Support</a></li>
-            <li><a href="{{route('feed_back')}}">Trust &amp; Safety</a></li>
-            <li><a href="{{route('feed_back')}}">Selling on Miver </a></li>
-            <li><a href="{{route('feed_back')}}">Buying on Miver </a></li>
+            <li><a href="{{route('about')}}">Sell With Us</a></li>
           </ul>
         </div>
         <div class="footer-list">
-          <h2>Community</h2>
+          <h2>Packaging</h2>
           <ul class="list">
-            <li><a href="#">Events</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Forum</a></li>
-            <li><a href="#">Community Standards</a></li>
-            <li><a href="#">Podcast</a></li>
-            <li><a href="#">Affiliates</a></li>
-            <li><a href="#">Invite a Friend</a></li>
-            <li><a href="#">Become a Seller</a></li>
-            <li>
-              <a href="#">Miver Elevate<small>Exclusive Benefits</small></a>
-            </li>
+            <li><a href="{{route('about')}}">How to Source Packaging</a></li>
           </ul>
         </div>
         <div class="footer-list">
-          <h2>More From Miver</h2>
+          <h2>Advertise </h2>
           <ul class="list">
-            <li><a href="#">Miver Pro</a></li>
-            <li><a href="#">Miver Studios</a></li>
-            <li><a href="#">Miver Logo Maker</a></li>
-            <li><a href="#">Get Inspired</a></li>
-            <li>
-              <a href="#">ClearVoice<small>Content Marketing</small></a>
-            </li>
-            <li>
-              <a href="#">AND CO<small>Invoice Software</small></a>
-            </li>
-            <li>
-              <a href="#">Learn<small>Online Courses</small></a>
-            </li>
+            <li><a href="{{route('about')}}">Advertise With Us</a></li>
           </ul>
         </div>
+        <div class="footer-list">
+          <h2>Privacy Policy</h2>
+          <ul class="list">
+            <li><a href="{{route('about')}}">Privacy & Policy</a></li>
+            <li><a href="{{route('about')}}">Terms of Use</a></li>
+          </ul>
+        </div>
+        
       </div>
       <div class="copyright">
         <div class="logo">
@@ -93,7 +55,7 @@
           </li>
           <li>
             <a href="#"
-              ><i class="fa fa-pinterest-p" aria-hidden="true"></i
+              ><i class="fa fa-youtube-play" aria-hidden="true"></i
             ></a>
           </li>
           <li>

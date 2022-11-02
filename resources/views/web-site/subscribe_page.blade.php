@@ -80,7 +80,7 @@
         url: "{{ route('subscribe_modal') }}",
         data: value,
         success: function(result) {
-            $('#websitemodaltitle').html('You are talking '+package +' package');
+            $('#websitemodaltitle').html(package +' package');
             $('#websitemodalbody').html(result);
             $('#exampleModalLong').modal('show');
         },

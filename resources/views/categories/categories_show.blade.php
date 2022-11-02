@@ -296,7 +296,7 @@
             type: 'GET',
             url: url,
             success: function(result) {
-                $('#myModalXlHeading').html('Edit a Bids');
+                $('#myModalXlHeading').html('Edit a Bid');
                 $('#modalBodyXl').html(result);
                 $('#myModalXl').modal('show');
             }

@@ -2,7 +2,7 @@
     @csrf
     <input hidden name='pak_month' value="{{$month}}"/>
 <div class="custom-file">
-    <input type="file" class="custom-file-input" id="document" name="document[]" multiple accept=".JPEG, .JPG , .PDF"  required  onchange="uploadFileLimit()"/>
+    <input type="file" class="custom-file-input" id="document" name="document[]" multiple accept=".JPEG, .JPG , .PDF, .PNG"  required  onchange="uploadFileLimit()"/>
     <label class="custom-file-label" for="customFile"
       >Attach Payment Slip</label
     >

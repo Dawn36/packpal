@@ -178,7 +178,7 @@
                 </a>
                 <a href="{{ route('order_status', ['status' => 'offer']) }}" class="{{ Route::currentRouteName() == 'order_status' ? 'show here' : ''}} menu-item menu-lg-down-accordion me-lg-1">
                     <span class="menu-link py-3">
-                        <span class="menu-title">Orders b</span>
+                        <span class="menu-title">Offer's</span>
                         <span class="menu-arrow d-lg-none"></span>
                     </span>
                 </a>
@@ -210,7 +210,7 @@
                 </a>
                 <a href="{{ route('bid_listing') }}" class="{{ Route::currentRouteName() == 'bid_listing' ? 'show here' : ''}} show here menu-item menu-lg-down-accordion me-lg-1">
                     <span class="menu-link py-3">
-                        <span class="menu-title">BID LODGE</span>
+                        <span class="menu-title">BIDS REQUEST</span>
                         <span class="menu-arrow d-lg-none"></span>
                     </span>
                 </a>
