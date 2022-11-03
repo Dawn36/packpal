@@ -234,20 +234,20 @@
                         </li>
                         <!--end::Nav item-->
                         <!--begin::Nav item-->
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link text-active-primary py-5 me-6 {{$bidOrder}}" href="{{ route('bids_order',['id'=>$bids->id] ) }}">Offer</a>
-                        </li>
+                        </li> --}}
                         <!--end::Nav item-->
                         <!--begin::Nav item-->
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link text-active-primary py-5 me-6  {{$bidReview}}" href="{{ route('bids_review',['id'=>$bids->id] ) }}">Bids Reviews</a>
-                        </li>
+                        </li> --}}
 
                     </ul>
                 </div>
 
             </div>
-            @if($bidReview)
+            {{-- @if($bidReview)
             <div class="row">
                 <div class="col-lg-12">
                     <div class="tab-pane fade show active" id="kt_ecommerce_add_product_reviews" role="tab-panel">
@@ -701,7 +701,7 @@
                     </div>
                 </div>
             </div>
-            @endif
+            @endif --}}
             @if($bidDetail)
             <div class="row">
                 <div class="col-lg-12">

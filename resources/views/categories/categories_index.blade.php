@@ -144,7 +144,25 @@
                                     <tbody class="fw-bold text-gray-600">
                                         @for ($i = 0; $i < count($categories); $i++) <tr>
                                             <td><a href="{{ route('categories.show', $categories[$i]->id) }}" class="fw-bolder text-gray-800 text-hover-primary mb-1">{{$categories[$i]->id}}</a></td>
-                                            <td><a href="{{ route('categories.show', $categories[$i]->id) }}" class="fw-bolder text-gray-800 text-hover-primary mb-1">{{ucwords($categories[$i]->category_name)}}</a></td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <!--begin::Wrapper-->
+                                                    <div class="me-5 position-relative">
+                                                        <!--begin::Avatar-->
+                                                        <div class="symbol symbol-35px symbol-circle">
+                                                            <img alt="Pic" src="{{asset('/category/' . $categories[$i]->category_image)}}" target="_blank" />
+                                                        </div>
+                                                        <!--end::Avatar-->
+                                                    </div>
+                                                    <!--end::Wrapper-->
+                                                    <!--begin::Info-->
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <a href="{{ route('categories.show', $categories[$i]->id) }}" class="fs-6 text-gray-800 text-hover-primary">{{ucwords($categories[$i]->category_name)}}</a>
+                                                    </div>
+                                                    <!--end::Info-->
+                                                </div>
+                                                <!--end::User-->
+                                            </td>
                                             <td>{{$categories[$i]->total_subcategory}}</td>
                                             <!-- <td>3</td> -->
                                             <td>{{Date("Y-m-d",strtotime($categories[$i]->created_at))}}</td>

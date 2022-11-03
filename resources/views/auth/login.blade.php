@@ -78,10 +78,9 @@
 <body id="kt_body" class="bg-body">
 
     <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+    {{-- <x-auth-session-status class="mb-4" :status="session('status')" /> --}}
 
     <!-- Validation Errors -->
-    <x-auth-validation-errors class="mb-4" :errors="$errors" />
     <!--begin::Root-->
     <div class="d-flex flex-column flex-root">
         <!--begin::Authentication - Sign-in -->
@@ -92,10 +91,13 @@
                 <a href="#" class="mb-12">
                     <img alt="Logo" src="{{ asset('theme/assets/media/logos/logo-5.png') }}" class="h-70px" />
                 </a>
+
                 <!--end::Logo-->
                 <!--begin::Wrapper-->
                 <div class="w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
                     <!--begin::Form-->
+                <x-auth-validation-errors class="mb-4" :errors="$errors" />
+
                     <form class="form w-100" id="kt_sign_in_form" method="POST" action="{{ route('login') }}" novalidate="novalidate">
                         @csrf
 

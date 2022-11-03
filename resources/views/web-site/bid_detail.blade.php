@@ -13,7 +13,7 @@
               <a href="#description">Description</a>
             </li>
             <li class="nav-aboutSeller">
-              <a href="#aboutSeller">About The Seller</a>
+              <a href="#aboutSeller">ABOUT THE BUYER</a>
             </li>
             {{-- <li class="nav-packagesTable">
               <a href="#packagesTable">Compare Packages</a>
@@ -56,7 +56,7 @@
               </label>
               <div class="profile-name">
                 <span class="user-status">
-                  <a href="#" class="seller-link">{{ucwords($bidDetail[0]->first_name)}} {{ucwords($bidDetail[0]->last_name)}}</a>
+                  <a href="#" class="seller-link">{{ucwords($bidDetail[0]->first_name)}} {{ucwords($bidDetail[0]->middle_name)}} {{ucwords($bidDetail[0]->last_name)}}</a>
                 </span>
               </div>
             </div>
@@ -92,12 +92,14 @@
           </div>
         </section>
           <section id="description" class="description">
-            <h3>About This Bid</h3>
+            <h3 style="padding-bottom: 0px;!important">About This Bid</h3>
+            <div class="stats-desc">
               @php echo html_entity_decode($bidDetail[0]->description) @endphp
+            </div>
             
           </section>
           
-          <h3 >About The Buyer</h3>
+          <h3 style="padding-bottom: 0px;!important">About The Buyer</h3>
          
           <div class="profile-card">
             <section id="aboutSeller">
@@ -344,7 +346,7 @@
                 <div class="header" >
                   <h3 style="min-height: 0px !important;line-height: 0!important;margin-top: 10px;">
                     <b class="title">Starting At:</b
-                    ><span class="price">Rs.4000</span>
+                    ><span class="price">{{$bidDetail[0]->target_price}}</span>
                   </h3>
                 </div>
               </div>
@@ -420,7 +422,6 @@ const init = () => {
     
     sections.forEach(sections => {
       const current = link(sections.id);
-      console.log(current);
       if (inView(sections) && !next){
         current.parentElement.classList.add('selected');
         next = true;

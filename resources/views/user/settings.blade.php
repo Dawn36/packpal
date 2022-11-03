@@ -386,6 +386,7 @@
                                                         <option value="agent" {{$user->primary_business == "agent" ? "Selected" : ""}}>Agent</option>
                                                         <option value="distributor" {{$user->primary_business == "distributor" ? "Selected" : ""}}>Distributor</option>
                                                         <option value="reseller" {{$user->primary_business == "reseller" ? "Selected" : ""}}>Re-seller</option>
+                                                        <option value="direct customer" {{$user->primary_business == "direct customer" ? "Selected" : ""}}>Direct Customer</option>
                                                         <option value="other" {{$user->primary_business == "other" ? "Selected" : ""}}>Other</option>
                                                     </select>
                                                 </div>

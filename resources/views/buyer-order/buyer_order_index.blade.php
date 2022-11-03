@@ -73,7 +73,7 @@
                     <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder">
                         <!--begin::Nav item-->
                         <li class="nav-item">
-                            <a class="nav-link text-active-primary py-5 me-6 position-relative {{$active}}" href="{{ route('order_status', ['status' => 'offer']) }}">Offer<span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-warning">{{$orderStatusCount[0]->offer == null ? '0' : $orderStatusCount[0]->offer}}</span></a>
+                            <a class="nav-link text-active-primary py-5 me-6 position-relative {{$active}}" href="{{ route('order_status', ['status' => 'offer']) }}">Offers<span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-warning">{{$orderStatusCount[0]->offer == null ? '0' : $orderStatusCount[0]->offer}}</span></a>
                         </li>
                         <!--end::Nav item-->
                         <!--begin::Nav item-->
@@ -195,7 +195,7 @@
                                                             <!--end::Wrapper-->
                                                             <!--begin::Info-->
                                                             <div class="d-flex flex-column justify-content-center">
-                                                                <a href="" class="fs-6 text-gray-800 text-hover-primary">{{ucwords($order[$i]->bids_name)}}</a>
+                                                                <a href="{{route('bids.show',$order[$i]->bid_id)}}" class="fs-6 text-gray-800 text-hover-primary">{{ucwords($order[$i]->bids_name)}}</a>
                                                             </div>
                                                             <!--end::Info-->
                                                         </div>
@@ -227,7 +227,7 @@
                                                         <a href="javascript:;" class="btn btn-lg btn-light-{{$color}} fw-bolder ms-2 fs-8 py-1 px-3">{{$title}}</a>
                                                     </td>
                                                     <td>
-                                                        @if($title == 'Offer')
+                                                        @if($title == 'Offers')
                                                         <a href="{{route('check_map_chat',['sUserId'=>$order[$i]->s_user_id,'bUserId'=>$order[$i]->b_user_id])}}" class="btn btn-icon btn-active-light-primary position-relative btn btn-icon btn-active-light-primary btn-custom w-30px h-30px w-md-40px h-md-40px" id="kt_drawer_chat_toggle">
                                                             <span class="svg-icon svg-icon-1">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">

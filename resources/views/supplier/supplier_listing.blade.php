@@ -8,7 +8,7 @@
         <!--begin::Page title-->
         <div class="page-title d-flex flex-column me-3">
             <!--begin::Title-->
-            <h1 class="d-flex text-white fw-bolder my-1 fs-3">Supplier</h1>
+            <h1 class="d-flex text-white fw-bolder my-1 fs-3">Suppliers Directory</h1>
             <!--end::Title-->
             <!--begin::Breadcrumb-->
             <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
@@ -24,7 +24,7 @@
                 <!--end::Item-->
                 <!--begin::Item-->
                 <li class="breadcrumb-item text-white opacity-75">
-                    <a href="#" class="text-white text-hover-primary">Supplier listing</a>
+                    <a href="#" class="text-white text-hover-primary">Supplier listings</a>
                 </li>
 
             </ul>
@@ -35,14 +35,14 @@
         <form>
             <div class="d-flex my-0">
                 <!--begin::Select-->
-                <select name="category_id" id='category_id' data-control="select2" data-hide-search="true" data-placeholder="Filter" class="form-select form-select-sm border-body bg-body w-150px me-5" onchange="getSubCategoryAjax()">
+                <select name="category_id" id='category_id' data-control="select2" data-hide-search="true" data-placeholder="Main Category" class="form-select form-select-sm border-body bg-body w-150px me-5" onchange="getSubCategoryAjax()">
                     <option value="">Select category name</option>
                     @for ($i = 0; $i < count($categories); $i++) <option value="{{$categories[$i]->id}}" {{$categoryId == $categories[$i]->id ? 'Selected' : ""}}>{{ucwords($categories[$i]->category_name)}}</option>
                         @endfor
                 </select>
                 <!--end::Select-->
                 <!--begin::Select-->
-                <select name="sub_category_id" id='sub_category_id' data-control="select2" data-hide-search="true" data-placeholder="Filter" class="form-select form-select-sm border-body bg-body w-150px me-5">
+                <select name="sub_category_id" id='sub_category_id' data-control="select2" data-hide-search="true" data-placeholder="Sub-Category" class="form-select form-select-sm border-body bg-body w-150px me-5">
                     <option value="">Select Sub-Category</option>
 
                 </select>
@@ -99,9 +99,9 @@
                         $rating=round($supplier[$i]->rating);
                         @endphp
                         <!--begin::Card-->
-                        <div class="col-xl-4">
+                        <div class="col-xl-4 myBox">
                             <div class="card card-xl-stretch mb-xl-8">
-                                <div class="card-body">
+                                <div class="card-body" >
                                     <div class="d-flex flex-stack">
                                         <div class="d-flex align-items-center">
                                             <div class="symbol symbol-60px me-5">
@@ -110,7 +110,7 @@
                                                 </span>
                                             </div>
                                             <div class="d-flex flex-column flex-grow-1 my-lg-0 my-2 pr-3">
-                                                <a href="{{route('supplier_detail',['userId'=>$supplier[$i]->user_id,'catId'=>$supplier[$i]->cat_id])}}" class="text-gray-800 text-dark fw-bolder text-hover-primary fs-5">{{ucwords($supplier[$i]->first_name)}} {{ucwords($supplier[$i]->last_name)}}
+                                                <a href="{{route('supplier_detail',['userId'=>$supplier[$i]->user_id,'catId'=>$supplier[$i]->cat_id])}}" class="text-gray-800 text-dark fw-bolder text-hover-primary fs-5">{{ucwords($supplier[$i]->company_name)}} 
                                                 @if($supplier[$i]->verified == 'yes')
                                                     <!--begin::Svg Icon | path: icons/duotune/general/gen026.svg-->
                                                     <span class="svg-icon svg-icon-1 svg-icon-primary">
@@ -134,7 +134,7 @@
                                                         </div>
                                                         @else
                                                         <div class="mb-4 mt-2" >
-                                                            <div class="badge badge-lg badge-light-primary d-inline">Not verified</div>
+                                                            <div class="badge badge-lg badge-light-primary d-inline">NOT-VERIFIED</div>
                                                         </div>
                                                         @endif
                                                         <div class="rating custom-ratings-placement">
@@ -772,5 +772,9 @@
             }
         });
     }
+    $(".myBox").click(function() {
+  window.location = $(this).find("a").attr("href"); 
+  return false;
+});
 </script>
 @endsection('content')

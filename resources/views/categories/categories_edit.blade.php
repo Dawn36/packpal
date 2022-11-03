@@ -5,13 +5,13 @@
 
     <div class="d-flex flex-column scroll-y me-n7 pe-7" id="" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_user_header" data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px">
         <div class="fv-row mb-7">
-            <label class="d-block fw-bold fs-6 mb-5">Category Picture</label>
+            <label class="d-block fw-bold fs-6 required mb-5">Category Picture</label>
             <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url({{ asset('category/'.$categories->category_image) }})">
                 <div class="image-input-wrapper w-125px h-125px" style="background-image: url({{ asset('category/'.$categories->category_image) }});">
                 </div>
                 <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
                     <i class="bi bi-pencil-fill fs-7"></i>
-                    <input type="file" name="file" accept=".png, .jpg, .jpeg" />
+                    <input type="file" name="file" id="file" accept=".png, .jpg, .jpeg" />
                     <input type="hidden" name="avatar_remove" />
                 </label>
                 <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
@@ -32,11 +32,19 @@
     <!--begin::Actions-->
     <div class="text-center pt-15">
         <button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal" aria-label="Close">Discard</button>
-        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="submit" class="btn btn-primary" onclick="check()">Update</button>
     </div>
     <!--end::Actions-->
 </form>
 <script>
+      function check()
+    {
+        if($('#file').val() == '')
+        {
+            alert("Please select category picture to upload");
+        }
+        
+    }
     var KTImageInput = function(e, t) {
         var n = this;
         if (null != e) {

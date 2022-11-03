@@ -1,3 +1,4 @@
+
 <form id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row" method="POST" action="{{ route('bids.update',$bids->id) }}" enctype="multipart/form-data">
     @method("PUT")
     @csrf
@@ -8,8 +9,8 @@
             <!--begin::Card header-->
             <div class="card-header">
                 <!--begin::Card title-->
-                <div class="card-title">
-                    <h2>Bid Thumbnail</h2>
+                <div class=" card-title">
+                    <h2 class="required">Bid Thumbnail </h2>
                 </div>
                 <!--end::Card title-->
             </div>
@@ -17,7 +18,7 @@
             <!--begin::Card body-->
             <div class="card-body text-center pt-0">
                 <!--begin::Image input-->
-                <div class="image-input image-input-empty image-input-outline mb-3" data-kt-image-input="true" style="background-image: url({{asset('bid/'.$bids->thumbnail)}})">
+                <div class="image-input image-input-empty image-input-outline mb-3" data-kt-image-input="true" style="background-image: url('{{asset('bid/'.$bids->thumbnail)}}')">
                     <!--begin::Preview existing avatar-->
                     <div class="image-input-wrapper w-150px h-150px"></div>
                     <!--end::Preview existing avatar-->

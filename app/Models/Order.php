@@ -32,7 +32,7 @@ class Order extends Model
       ->join('categories AS c', 'c.id', '=', 'o.categories_id')
       ->join('sub_categories AS sc', 'sc.id', '=', 'o.sub_categories_id')
       ->join('users AS u', 'u.id', '=', 'o.s_user_id')
-      ->select(DB::raw('o.s_user_id,o.b_user_id,u.`id` AS user_id,u.categories_id AS cat_id,u.`profile_picture`,u.`first_name`,u.`last_name`,b.`bids_name`,b.`thumbnail`,c.`category_name`,sc.`sub_category_name`,o.offer_price,o.feed_back,o.created_at,o.id'))
+      ->select(DB::raw('o.s_user_id,o.b_user_id,u.`id` AS user_id,u.categories_id AS cat_id,u.`profile_picture`,u.`first_name`,u.`last_name`,b.`id` AS bid_id ,b.`bids_name`,b.`thumbnail`,c.`category_name`,sc.`sub_category_name`,o.offer_price,o.feed_back,o.created_at,o.id'))
       ->where('b.status', 'active')
       ->whereNull('o.deleted_at')
       ->whereNull('b.deleted_at')

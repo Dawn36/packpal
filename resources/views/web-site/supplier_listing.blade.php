@@ -26,7 +26,7 @@
         <div class="left">
           <form   method="GET" action="{{ route('web_supplier_listing') }}">
           <div class="dropdown-filters d-flex">
-            <select id='category_id' name="category_id"  class="form-control" required onchange="getSubCategoryAjax()">
+            <select id='category_id' name="category_id"  class="form-control"  onchange="getSubCategoryAjax()">
               <option value="">Select category</option>
               @for ($i = 0; $i < count($categories); $i++) <option value="{{$categories[$i]->id}}" {{$categoryId == $categories[$i]->id ? 'selected' :''}}>{{ucwords($categories[$i]->category_name)}}</option>
               @endfor
@@ -67,7 +67,7 @@
         <div
           class="sorting-div d-flex align-items-center justify-content-between"
         >
-          <p class="mb-2">{{$supplier->total()}} Supplier available</p>
+          <p class="mb-2">{{$supplier->total()}} Supplier Available</p>
           <div class="sorting d-flex align-items-center">
             <p>Sortby</p>
             <form  id='newold' method="GET" action="{{ route('web_supplier_listing') }}">

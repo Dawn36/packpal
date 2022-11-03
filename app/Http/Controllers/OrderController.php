@@ -25,7 +25,7 @@ class OrderController extends Controller
         $complete = '';
         $reject = '';
         if ($status == 'offer') {
-            $title = "Offer's";
+            $title = "Offers";
             $active = 'active';
             $color = 'warning';
         }

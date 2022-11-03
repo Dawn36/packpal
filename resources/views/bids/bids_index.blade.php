@@ -31,7 +31,7 @@
                 <!--end::Item-->
                 <!--begin::Item-->
                 <li class="breadcrumb-item text-white opacity-75">
-                    <a href="#" class="text-white text-hover-primary">{{$title}} Bids</a>
+                    <a href="#" class="text-white text-hover-primary">Bids {{$title}}</a>
                 </li>
 
             </ul>
@@ -83,7 +83,7 @@
                         <!--end::Nav item-->
                         <!--begin::Nav item-->
                         <li class="nav-item">
-                            <a class="nav-link text-active-primary py-5 me-6 position-relative {{$pending}}" href="{{ route('bid_status', ['status' => 'pending']) }}"><span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-warning">{{$bidSatatusCount[0]->active_bids == null ? '0' : $bidSatatusCount[0]->pending_bids}}</span>Pending For Approval</a>
+                            <a class="nav-link text-active-primary py-5 me-6 position-relative {{$pending}}" href="{{ route('bid_status', ['status' => 'pending']) }}"><span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-warning">{{$bidSatatusCount[0]->active_bids == null ? '0' : $bidSatatusCount[0]->pending_bids}}</span>Pending for Approval</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-active-primary py-5 me-6 position-relative {{$denied}}" href="{{ route('bid_status', ['status' => 'reject']) }}"><span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-danger">{{$bidSatatusCount[0]->active_bids == null ? '0' : $bidSatatusCount[0]->denid_bids}}</span>Reject</a>
@@ -101,7 +101,7 @@
                         <div class="p-10">
                             <!--begin::Heading-->
                             <h1 class="anchor fw-bolder mb-5" id="zero-configuration">
-                                <a href="javascript:;"></a>{{$title == 'Pending For Approvel' ? 'Pending' :$title}} Bids 
+                                <a href="javascript:;"></a>{{$title == 'Pending for Approvel' ? 'Pending' :$title}} Bids 
                             </h1>
                             <!--begin::Notice-->
                             <div class="d-flex align-items-center rounded py-5 px-4 bg-light-{{$color}}">

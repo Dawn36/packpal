@@ -32,6 +32,7 @@ class Website extends Model
             u.`city`,
             u.`first_name`,
             u.`last_name`,
+            u.`middle_name`,
             u.`profile_picture`'))
             ->whereNull('b.deleted_at')
             ->where('b.status','active')
@@ -74,9 +75,11 @@ class Website extends Model
         b.`bids_name`,
         b.`categories_id` AS cat_id,
         b.`location`,
+        b.`target_price`,
         b.`sub_categories_id` AS sub_cat_id,
         u.id AS user_id ,
         u.`first_name`,
+        u.`middle_name`,
         u.`last_name`,
         u.`address`,
         u.`created_at`

@@ -13,6 +13,9 @@
                 <span class="typed-words"></span>
               </h2>
               <h4 style="font-size: 23px;">Connecting Buyers & Sellers </h4>
+              <p>We know how desperate brands/people are in knowing different packaging that exists in the market.</p>
+              <p>We like Packaging Companies especially in Pakistan to prosper and grow itself intensively and broader by giving them an economical platform to opt for.</p>
+              <p>YOUR SUPPORT AND OUR EFFORTS MAY MAKE THIS DREAM COME TRUE</p>
             </div>
             {{-- <form  id='search_from' method="GET" action="{{route('search_home')}}">
             <div class="main-search-input" style="margin-top: 19px;">
@@ -46,7 +49,7 @@
           </div>
         </div>
         <!-- Features Categories -->
-        <div class="row">
+        {{-- <div class="row">
           <div class="col-md-12">
             <h5 class="highlighted-categories-headline">
               Or browse featured categories:
@@ -90,7 +93,7 @@
               </a>
             </div>
           </div>
-        </div>
+        </div> --}}
         <!-- Featured Categories - End -->
       </div>
     </div>
@@ -472,7 +475,7 @@
 
   <div class="services-wrapper py-5">
     <div class="container view_slider recommended">
-      <h2>Popular Professional Services</h2>
+      <h2>List of Categories</h2>
       <div class="row service-slider">
         @for ($i = 0; $i < count($catAndSubCat); $i++)
         <div class="col">

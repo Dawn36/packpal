@@ -142,8 +142,12 @@
                                 <!--begin::Details item-->
                                 <div class="fw-bolder mt-5">Country</div>
                                 <div class="text-gray-600">{{ucwords($user[0]->country)}}</div>
-                                <div class="fw-bolder mt-5">I m seller of</div>
+                                <div class="fw-bolder mt-5">I’m a Seller of</div>
                                 <div class="text-gray-600">{{ucwords($user[0]->seller_of)}}</div>
+                                @if($user[0]->buyer_of != '')
+                                <div class="fw-bolder mt-5">I’m a Buyer of</div>
+                                <div class="text-gray-600">{{ucwords($user[0]->buyer_of)}}</div>
+                                @endif
                             </div>
                         </div>
                         <!--end::Details content-->

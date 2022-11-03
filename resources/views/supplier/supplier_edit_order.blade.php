@@ -7,7 +7,7 @@
         <div class="col">
             <label class="required fw-bold fs-6 mb-2">Offer Price</label>
             <div class="input-group input-group-solid mb-5">
-                <span class="input-group-text">Pkr</span>
+                <span class="input-group-text">PKR</span>
                 <input type="number" min="0" name="offer_price" class="form-control" placeholder="Please Enter your Offer price here." required />
                 <span class="input-group-text">.00</span>
             </div>

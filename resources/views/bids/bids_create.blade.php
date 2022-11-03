@@ -8,7 +8,7 @@
             <div class="card-header">
                 <!--begin::Card title-->
                 <div class="card-title">
-                    <h2>Bid Thumbnail</h2>
+                    <h2 class="required">Bid Thumbnail</h2>
                 </div>
                 <!--end::Card title-->
             </div>
@@ -24,7 +24,7 @@
                     <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
                         <i class="bi bi-pencil-fill fs-7"></i>
                         <!--begin::Inputs-->
-                        <input type="file" name="bid_thumbnail" accept=".png, .jpg, .jpeg" required />
+                        <input type="file" id="bid_thumbnail" name="bid_thumbnail" accept=".png, .jpg, .jpeg" required />
                         <input type="hidden" name="avatar_remove" />
                         <!--end::Inputs-->
                     </label>
@@ -273,7 +273,7 @@
         <!--end::Tab content-->
         <div class="d-flex justify-content-end">
             <!-- <a href="#" id="kt_ecommerce_add_product_cancel" class="btn btn-light me-5">Cancel</a> -->
-            <button type="submit" id="" class="btn btn-primary">
+            <button type="submit" id="" class="btn btn-primary" onclick="change()">
                 <span class="indicator-label">Save Changes</span>
             </button>
             <!--end::Button-->
@@ -282,6 +282,13 @@
     <!--end::Main column-->
 </form>
 <script>
+    function change()
+    {
+        if($('#bid_thumbnail').val() == '')
+        {
+            alert('Please upload bid thumbnail');
+        }
+    }
     function uploadFileLimit()
     {
         var fileUpload = document.getElementById('media');

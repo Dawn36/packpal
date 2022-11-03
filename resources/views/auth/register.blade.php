@@ -138,6 +138,7 @@
                                         <option value="agent">Agent</option>
                                         <option value="distributor">Distributor</option>
                                         <option value="reseller">Re-seller</option>
+                                        <option value="direct customer">Direct Customer</option>
                                         <option value="other">Other</option>
                                     </select>
                                 </div>
@@ -155,7 +156,7 @@
                                     <input type="text" id='establishment_year' name="establishment_year" class="form-control form-control-lg form-control-solid kt_datepicker_3" placeholder="Year of Business Establishment" />
                                 </div>
                                 <div class="col-xl-6">
-                                    <label class="form-label fw-bolder text-dark fs-6">Annual Sales in Pkr</label>
+                                    <label class="form-label fw-bolder text-dark fs-6">Annual Sales in PKR</label>
                                     <input class="form-control form-control-lg form-control-solid" type="number" min="0" placeholder="please enter Annual Sales" name="annual_sales" autocomplete="off" />
                                 </div>
                             </div>
@@ -168,13 +169,13 @@
                             </div>
                             <div class="row fv-row mb-7">
                                 <div class="col-xl-12">
-                                    <label class="form-label fw-bolder text-dark fs-6">I’m a seller of:</label>
+                                    <label class="form-label fw-bolder text-dark fs-6">I’m a Seller of:</label>
                                     <textarea class="form-control form-control-lg form-control-solid" type="text" placeholder="What you sell?" id="seller_of" name="seller_of" autocomplete="off" ></textarea>
                                 </div>
                             </div>
                             <div class="row fv-row mb-7">
                                 <div class="col-xl-12">
-                                    <label class="form-label fw-bolder text-dark fs-6">I’m a buyer of:</label>
+                                    <label class="form-label fw-bolder text-dark fs-6">I’m a Buyer of:</label>
                                     <textarea class="form-control form-control-lg form-control-solid" type="text" placeholder="What you buy?" id="buyer_of" name="buyer_of" autocomplete="off" ></textarea>
                                 </div>
                             </div>
@@ -182,7 +183,7 @@
                             <div class="row fv-row mb-7">
                                 <div class="col-xl-6">
                                     <label class="fs-6 form-label required fw-bolder text-dark">Category</label>
-                                    <select class="form-select form-select-solid" id='category_id' name='category' data-control="select2" data-placeholder="In Progress" data-hide-search="true" required onchange="getSubCategoryAjax()">
+                                    <select class="form-select form-select-solid" id='category_id' name='category' data-control="select2" data-placeholder="Choose your Main Category" data-hide-search="true" required onchange="getSubCategoryAjax()">
                                         <option value=""></option>
                                         @for ($i = 0; $i < count($categories); $i++) <option value="{{$categories[$i]->id}}" >{{ucwords($categories[$i]->category_name)}}</option>
                                         @endfor
@@ -191,7 +192,7 @@
                                 </div>
                                 <div class="col-xl-6">
                                     <label class="fs-6 form-label  fw-bolder text-dark">Sub-Category</label>
-                                    <select class="form-select form-select-solid" id='sub_category_id' name='sub_category' data-control="select2" data-placeholder="In Progress" data-hide-search="true">
+                                    <select class="form-select form-select-solid" id='sub_category_id' name='sub_category' data-control="select2" data-placeholder="Choose your Sub-Category" data-hide-search="true">
                                         <option value=""></option>
 
                                     </select>
@@ -201,7 +202,7 @@
                             <div class="row fv-row mb-7">
                                 <div class="col-xl-12">
                                     <label class="fs-6 form-label required fw-bolder text-dark">Description of your Business</label>
-                                    <textarea class="form-control form-control-lg form-control-solid" type="text" placeholder="Description" id="description" name="description" autocomplete="off" required></textarea>
+                                    <textarea class="form-control form-control-lg form-control-solid" type="text" placeholder="Description of your Business" id="description" name="description" autocomplete="off" required></textarea>
                                 </div>
 
                             </div>

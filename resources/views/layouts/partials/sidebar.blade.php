@@ -178,7 +178,7 @@
                 </a>
                 <a href="{{ route('order_status', ['status' => 'offer']) }}" class="{{ Route::currentRouteName() == 'order_status' ? 'show here' : ''}} menu-item menu-lg-down-accordion me-lg-1">
                     <span class="menu-link py-3">
-                        <span class="menu-title">Offer's</span>
+                        <span class="menu-title">Offers</span>
                         <span class="menu-arrow d-lg-none"></span>
                     </span>
                 </a>
@@ -198,7 +198,7 @@
                 @if(Auth::user()->hasRole('supplier'))
                 <a href="{{ route('supplier_order_status', ['status' => 'offer']) }}" class="{{ Route::currentRouteName() == 'supplier_order_status' ? 'show here' : ''}} menu-item menu-lg-down-accordion me-lg-1">
                     <span class="menu-link py-3">
-                        <span class="menu-title">Orders S</span>
+                        <span class="menu-title">Orders </span>
                         <span class="menu-arrow d-lg-none"></span>
                     </span>
                 </a>
@@ -325,13 +325,8 @@
                 <!--end::Menu separator-->
                 <!--begin::Menu item-->
                 <div class="menu-item px-5  active">
-                    <a href="/" class="menu-link px-5">My Website</a>
+                    <a href="/" class="menu-link px-5">Home</a>
                 </div>
-                <div class="menu-item px-5 active ">
-                    <a href="{{ route('about') }}" class="menu-link px-5">About</a>
-                </div>
-
-                <div class="separator my-2"></div>
                 <!--end::Menu separator-->
                 <!--begin::Menu item-->
                 {{-- <div class="menu-item px-5" data-kt-menu-trigger="hover" data-kt-menu-placement="left-start">
@@ -346,7 +341,7 @@
                 <!--begin::Menu item-->
                 @if(Auth::user()->hasRole('supplier') )
                 <div class="menu-item px-5 my-1 ">
-                    <a type="button" class="menu-link px-5" onclick="verifyYourSelf()">Verify your self</a>
+                    <a type="button" class="menu-link px-5" onclick="verifyYourSelf()">Verify Yourself</a>
                 </div>
                 @endif
                 <div class="menu-item px-5 my-1 ">
@@ -355,6 +350,8 @@
 
                 <!--end::Menu item-->
                 <!--begin::Menu item-->
+                <div class="separator my-2"></div>
+
                 <div class="menu-item px-5 active">
                     <form action="{{ route('logout') }}" id='logout-form' method="POST" style="display: none;">
                         @csrf

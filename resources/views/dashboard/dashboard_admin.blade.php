@@ -253,7 +253,6 @@
                     </a>
                     <!--end::Statistics Widget 5-->
                 </div>
-               
             </div>
            
         </div>
