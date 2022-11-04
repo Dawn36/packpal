@@ -116,7 +116,6 @@
 };
 
 // toastr.success("New order has been placed!");
-console.log('sad');
     @if(Session::has('message'))
        var type="{{Session::get('alert-type','info')}}"
     

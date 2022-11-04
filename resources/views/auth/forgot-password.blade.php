@@ -116,13 +116,10 @@
 								<div class="fv-row mb-8 fv-plugins-icon-container">
 									<!--begin::Email-->
 									<input type="email" placeholder="Email" name="email" autocomplete="off" class="form-control bg-transparent" required>
-                                    @if(Session::has('message'))
-                                    <div class="fv-plugins-message-container invalid-feedback">
-                                        <div data-field="email" data-validator="notEmpty"><b>{{Session('message')}}</b></div>
-                                    </div>
-                                    
+                                    @if($errors->has('email'))
+                                    <div class="error" style="color: red"><b>{{ $errors->first('email') }}</b></div>
                                     @endif
-									<!--end::Email-->
+                                    
 								<div class="fv-plugins-message-container invalid-feedback"></div></div>
 								<!--begin::Actions-->
 								<div class="d-flex flex-wrap justify-content-center pb-lg-0">
@@ -163,6 +160,45 @@
     <!--begin::Global Javascript Bundle(used by all pages)-->
     <script src="{{ asset('theme/assets/plugins/global/plugins.bundle.js') }}"></script>
     <script src="{{ asset('theme/assets/js/scripts.bundle.js') }}"></script>
+    <script>
+        toastr.options = {
+      "closeButton": false,
+      "debug": false,
+      "newestOnTop": false,
+      "progressBar": false,
+      "positionClass": "toastr-top-center",
+      "preventDuplicates": false,
+      "onclick": null,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "5000",
+      "extendedTimeOut": "1000",
+      "showEasing": "linear",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    };
+    
+    // toastr.success("New order has been placed!");
+        @if(Session::has('message'))
+           var type="{{Session::get('alert-type','error')}}"
+        
+            switch(type){
+                case 'info':
+                    toastr.info("{{ Session::get('message') }}");
+                    break;
+                case 'success':
+                    toastr.success("{{ Session::get('message') }}");
+                    break;
+                case 'warning':
+                    toastr.warning("{{ Session::get('message') }}");
+                    break;
+                case 'error':
+                   toastr.error("{{ Session::get('message') }}");
+                   break;
+            }
+        @endif
+    </script>
     <!--end::Global Javascript Bundle-->
     <!--end::Javascript-->
 </body>

@@ -208,7 +208,8 @@ class SettingsController extends Controller
             $user->save();
             return redirect()->back();
         } else {
-            $request->session()->flash('error', 'Password does not match');
+            toast('error','Password does not match');
+            // $request->session()->flash('error', 'Password does not match');
             return redirect()->back();
         }
     }
@@ -226,11 +227,12 @@ class SettingsController extends Controller
             $user->fill([
                 'password' => Hash::make($request->password)
             ])->save();
-
-            $request->session()->flash('success', 'Password changed');
+            toast('success','YOUR PASSWORD HAS BEEN UPDATED!');
+            // $request->session()->flash('success', 'Password changed');
             return redirect()->back();
         } else {
-            $request->session()->flash('error', 'Password does not match');
+            toast('error','Password does not match');
+            // $request->session()->flash('error', 'Password does not match');
             return redirect()->back();
         }
     }
