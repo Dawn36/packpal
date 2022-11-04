@@ -37,6 +37,7 @@
         </div>
         <!--end::Page title-->
         <!--begin::Actions-->
+        @if(Auth::user()->hasRole('buyer'))
         <div class="d-flex align-items-center py-3 py-md-1">
             <!--begin::Wrapper-->
             <div class="me-4">
@@ -54,6 +55,7 @@
             </div>
 
         </div>
+        @endif
         <!--end::Actions-->
     </div>
     <!--end::Container-->
@@ -140,9 +142,11 @@
                                 </div>
                                 <!--end::User-->
                                 <!--begin::Actions-->
+                                @if(Auth::user()->hasRole('buyer'))
                                 <div class="d-flex my-4">
                                     <button class="btn btn-sm btn-circle btn-primary me-2" onclick="editBids('{{$bids->id}}')">Edit Bid</button>
                                 </div>
+                                @endif
                                 <!--end::Actions-->
                             </div>
                             <!--end::Title-->

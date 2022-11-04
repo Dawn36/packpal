@@ -286,9 +286,9 @@
                         @endphp
               <div>
                 <a href="{{route('supplier_detail',['userId'=>$supplier[$i]->user_id,'catId'=>$supplier[$i]->cat_id])}}">
-                  <img class="img-fluid" src="{{asset('/profile/' . $supplier[0]->company_banner)}}" />
+                  <img class="img-fluid" src="{{asset('/profile/' . $supplier[$i]->company_banner)}}" />
                 </a>
-                <div class="inner-slider">
+                <div class="inner-slider" onclick="location.href = '{{route('supplier_detail',['userId'=>$supplier[$i]->user_id,'catId'=>$supplier[$i]->cat_id])}}';"  style="cursor: pointer;">
                   <div class="inner-wrapper">
                     <div class="d-flex align-items-center">
                       <span class="seller-image">

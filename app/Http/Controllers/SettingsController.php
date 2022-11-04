@@ -11,8 +11,7 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
-use App\Models\PractitionerDay;
-use App\Models\CenterTiming;
+use App\Models\Categories;
 use Illuminate\Support\Facades\DB;
 
 
@@ -45,6 +44,7 @@ class SettingsController extends Controller
         $userId = Auth::user()->id;
         $user = User::find($userId);
         $userDoc = DB::select(DB::raw("Select * from `user_document` where deleted_at IS NULL AND user_id='$userId'"));
+        $categories=Categories::whereNull('deleted_at')->get();
         // $data['id'] = ucwords($user->id);
         // $data['first_name'] = ucwords($user->first_name);
         // $data['last_name'] = ucwords($user->last_name);
@@ -59,7 +59,7 @@ class SettingsController extends Controller
         // $data['profile_picture'] = $user->profile_picture;
         // $data['user_type'] = $user->user_type;
 
-        return view('user.settings', compact('user', 'userDoc'));
+        return view('user.settings', compact('user', 'userDoc','categories'));
     }
 
     /**
@@ -188,6 +188,7 @@ class SettingsController extends Controller
         $user->landline_no = $request->landline_no;
         $user->phone_number = $request->phone_number;
         $user->save();
+        toast('success','Your data successful updated');
         return redirect()->back();
     }
 

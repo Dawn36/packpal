@@ -84,7 +84,7 @@
                                 </div>
                                 <div class="border border-gray-300 border-dashed rounded py-3 px-3 me-3 mb-3 text-center">
                                     <div class="fs-5 fw-bolder text-gray-700">
-                                        <span class="w-75px">{{ucwords($user[0]->subCategories->sub_category_name)}}</span>
+                                        <span class="w-75px">{{ucwords(isset($user[0]->subCategories->sub_category_name) ? $user[0]->subCategories->sub_category_name : '')}}</span>
                                     </div>
                                     <div class="fw-bold text-muted">Sub-Categories</div>
                                 </div>

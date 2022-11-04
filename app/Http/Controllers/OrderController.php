@@ -116,6 +116,7 @@ class OrderController extends Controller
     }
     public function supplierOrderStatus(string $status)
     {
+        
         $userId = Auth::user()->id;
         $orderObj = new Order();
         $supplierObj = new Supplier();

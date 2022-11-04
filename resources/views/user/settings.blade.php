@@ -58,7 +58,7 @@
                             <div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
                                 <div class="d-flex flex-column">
                                     <div class="d-flex align-items-center mb-2">
-                                        <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bolder me-1">{{ ucwords($user->first_name) }} {{ ucwords($user->last_name) }}</a>
+                                        <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bolder me-1">{{ ucwords($user->first_name) }} {{ ucwords($user->middle_name) }} {{ ucwords($user->last_name) }}</a>
                                         @if(Auth::user()->hasRole('supplier') )
                                         @if($user->verified == 'yes')
                                         <div class="badge badge-lg badge-light-primary d-inline">Verify</div>
@@ -130,9 +130,9 @@
                                 <!--begin::Col-->
                                 <div class="col-lg-8">
                                     <!--begin::Image input-->
-                                    <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url({{asset('/profile/' . $user->profile_picture)}})">
+                                    <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('{{asset('/profile/' . $user->profile_picture)}}')">
                                         <!--begin::Preview existing avatar-->
-                                        <div class="image-input-wrapper w-125px h-125px" style="background-image: url({{asset('/profile/' . $user->profile_picture)}})"></div>
+                                        <div class="image-input-wrapper w-125px h-125px" style="background-image: url('{{asset('/profile/' . $user->profile_picture)}}')"></div>
                                         <!--end::Preview existing avatar-->
                                         <!--begin::Label-->
                                         <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
@@ -177,7 +177,7 @@
                                     <!--end::Col-->
                                     <!--begin::Col-->
                                     <div class="col-lg-4">
-                                        <label class="fs-6 form-label fw-bolder text-dark required">Middle name</label>
+                                        <label class="fs-6 form-label fw-bolder text-dark ">Middle name</label>
                                         <!--begin::Select-->
                                         <input type="text" name="middle_name" value="{{$user->middle_name}}" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Middle name" value="" />
                                         <!--end::Select-->
@@ -295,7 +295,7 @@
                                                 <!--begin::Image input-->
                                                 <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('{{asset('/profile/' . $user->company_logo)}}')">
                                                     <!--begin::Preview existing avatar-->
-                                                    <div class="image-input-wrapper w-125px h-125px" style="background-image: url({{asset('/profile/' . $user->company_logo)}}) ;  "></div>
+                                                    <div class="image-input-wrapper w-125px h-125px" style="background-image: url('{{asset('/profile/' . $user->company_logo)}}') ;  "></div>
                                                     <!--end::Preview existing avatar-->
                                                     <!--begin::Label-->
                                                     <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
@@ -334,7 +334,7 @@
                                                 <!--begin::Image input-->
                                                 <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('{{asset('/profile/' . $user->company_banner)}}')">
                                                     <!--begin::Preview existing avatar-->
-                                                    <div class="image-input-wrapper w-125px h-125px" style="background-image: url({{asset('/profile/' . $user->company_banner)}}) ;  width: 332px!important;"></div>
+                                                    <div class="image-input-wrapper w-125px h-125px" style="background-image: url('{{asset('/profile/' . $user->company_banner)}}') ;  width: 332px!important;"></div>
                                                     <!--end::Preview existing avatar-->
                                                     <!--begin::Label-->
                                                     <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
@@ -447,19 +447,18 @@
                                             <div class="row mb-6">
                                                 <div class="col-lg-4">
                                                     <label class="fs-6 form-label fw-bolder text-dark">Category</label>
-                                                    <select class="form-select form-select-solid" id='category' name='category' data-control="select2" data-placeholder="In Progress" data-hide-search="true">
+                                                    <select class="form-select form-select-solid" id='category_id' name='category' onchange="getSubCategoryAjax()" data-control="select2" data-placeholder="In Progress" data-hide-search="true">
                                                         <option value=""></option>
-                                                        <option value="1">category 1</option>
-                                                        <option value="2" selected="selected">category 2</option>
+                                                        @for ($i = 0; $i < count($categories); $i++) 
+                                                        <option value="{{$categories[$i]->id}}" {{$user->categories_id == $categories[$i]->id ? "selected" : '' }} >{{ucwords($categories[$i]->category_name)}}</option>
+                                                        @endfor
+                                                       
 
                                                     </select>
                                                 </div>
                                                 <div class="col-lg-4">
                                                     <label class="fs-6 form-label fw-bolder text-dark">Sub-Category</label>
-                                                    <select class="form-select form-select-solid" id='sub_category' name='sub_category' data-control="select2" data-placeholder="In Progress" data-hide-search="true">
-                                                        <option value=""></option>
-                                                        <option value="1">sub-category 1</option>
-                                                        <option value="2" selected="selected">sub-category 2</option>
+                                                    <select class="form-select form-select-solid" id='sub_category_id' name='sub_category' data-control="select2" data-placeholder="In Progress" data-hide-search="true">
 
                                                     </select>
                                                 </div>
@@ -726,6 +725,39 @@
 <script src="{{asset('theme/assets/js/location.js')}}"></script>
 
 <script>
+    getSubCategoryAjax()
+    function getSubCategoryAjax() {
+
+var value = {
+    categoryId: $('#category_id').val(),
+};
+$.ajax({
+    type: 'GET',
+    url: "{{ route('sub_categories') }}",
+    data: value,
+
+    success: function(result) {
+    debugger;
+        if (result == 0) {
+            document.getElementById('sub_category_id').innerHTML =
+                '<option value=""> Select  sub-category  </option>';
+        } else {
+            document.getElementById('sub_category_id').innerHTML =
+                '<option value=""> Select  sub-category  </option>';
+            for (var i = 0; i < result.length; i++) {
+                var opt = document.createElement('option');
+                opt.value = result[i].id;
+                opt.innerHTML = result[i].sub_category_name;
+                if (result[i].id == "{{ $user->sub_categories_id }}") opt.defaultSelected =
+                            true;
+                document.getElementById('sub_category_id').appendChild(opt);
+            }
+        }
+
+
+    }
+});
+}
     function verifyYourSelf() {
 
         $.ajax({
