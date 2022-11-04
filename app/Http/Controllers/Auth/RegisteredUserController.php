@@ -21,7 +21,7 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        $categories=Categories::get();
+        $categories=Categories::whereNull('deleted_at')->get();
         return view('auth.register',compact('categories'));
     }
 
