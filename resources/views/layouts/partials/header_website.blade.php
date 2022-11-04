@@ -312,7 +312,7 @@ a:hover {
             /></a>
             <div
               class="dropdown-menu dropdown-menu-right border-0 shadow animated--fade-in-up"
-              aria-labelledby="navbarDropdownUserImage"
+              aria-labelledby="navbarDropdownUserImage" style="    z-index: 9999999999999;"
             >
               <h6 class="dropdown-header d-flex align-items-center">
                 <img class="dropdown-user-img" src="{{ asset('/profile/' . Auth::user()->profile_picture) }}" style="margin-left: -17px;"/>

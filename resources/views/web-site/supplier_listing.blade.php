@@ -69,7 +69,7 @@
         >
           <p class="mb-2">{{$supplier->total()}} Supplier Available</p>
           <div class="sorting d-flex align-items-center">
-            <p>Sortby</p>
+            <p>Sort By</p>
             <form  id='newold' method="GET" action="{{ route('web_supplier_listing') }}">
               <select
                 class="custom-select custom-select-sm border-0 shadow-sm ml-2" name="newold" onchange="AscDesc()"
@@ -88,7 +88,7 @@
               @php
               $rating=round($supplier[$i]->rating);
               @endphp
-          <div class="col-md-3">
+          <div class="col-md-3"  onclick="location.href = '{{route('supplier_detail',['userId'=>$supplier[$i]->user_id,'catId'=>$supplier[$i]->cat_id])}}';"  style="cursor: pointer;">
               <a href="{{route('supplier_detail',['userId'=>$supplier[$i]->user_id,'catId'=>$supplier[$i]->cat_id])}}">
                 <img class="img-fluid" src="{{asset('/profile/' . $supplier[0]->company_banner)}}" />
               </a>

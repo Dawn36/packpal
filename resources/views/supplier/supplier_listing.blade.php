@@ -24,7 +24,7 @@
                 <!--end::Item-->
                 <!--begin::Item-->
                 <li class="breadcrumb-item text-white opacity-75">
-                    <a href="#" class="text-white text-hover-primary">Supplier listings</a>
+                    <a href="#" class="text-white text-hover-primary">Supplier Listings</a>
                 </li>
 
             </ul>
@@ -99,7 +99,7 @@
                         $rating=round($supplier[$i]->rating);
                         @endphp
                         <!--begin::Card-->
-                        <div class="col-xl-4 myBox">
+                        <div class="col-xl-4 myBox" style="cursor: pointer">
                             <div class="card card-xl-stretch mb-xl-8">
                                 <div class="card-body" >
                                     <div class="d-flex flex-stack">

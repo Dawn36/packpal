@@ -392,7 +392,7 @@
             <h3><a href="{{route('bid_listing')}}"> Recent Request for Bids of Buyers</a></h3>
             <div class="view recent-slider recommended-slider">
               @for ($i = 0; $i < count($bidListing); $i++)
-              <div>
+              <div  onclick="location.href = '{{route('bid_detail',$bidListing[$i]->bid_id)}}';"  style="cursor: pointer;">
                 <a href="{{route('bid_detail',$bidListing[$i]->bid_id)}}">
                   <img class="img-fluid" src="{{ asset('bid/'.$bidListing[$i]->thumbnail)}}" />
                 </a>
@@ -475,7 +475,7 @@
 
   <div class="services-wrapper py-5">
     <div class="container view_slider recommended">
-      <h2>List of Categories</h2>
+      <h3><a href="{{ route('category_listing') }}" > List of Categories</a></h3>
       <div class="row service-slider">
         @for ($i = 0; $i < count($catAndSubCat); $i++)
         <div class="col">

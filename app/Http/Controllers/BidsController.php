@@ -278,6 +278,7 @@ class BidsController extends Controller
 
             $bids->save();
         }
+        toast('warning','YOUR CHANGES ARE PENDING FOR APPROVAL FROM ADMIN. KINDLY CHECK YOUR BID SECTION TAB IN YOUR DASHBOARD FOR UPDATE');
 
         return redirect()->back();
     }

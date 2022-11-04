@@ -340,9 +340,16 @@
                 <!--end::Menu item-->
                 <!--begin::Menu item-->
                 @if(Auth::user()->hasRole('supplier') )
+                @if(Auth::user()->verified == 'yes')
+                <div class="menu-item px-5 my-1 " style="margin-left: 13px;margin-top: 5px !important;">
+                    <div class="badge badge-lg badge-light-primary d-inline">Verified</div>
+                </div>
+                @else
                 <div class="menu-item px-5 my-1 ">
                     <a type="button" class="menu-link px-5" onclick="verifyYourSelf()">Verify Yourself</a>
                 </div>
+                @endif
+                
                 @endif
                 <div class="menu-item px-5 my-1 ">
                     <a href="{{ route('settings.create') }}" class="menu-link px-5">Account Settings</a>

@@ -237,7 +237,7 @@
                       </div>
                       <div class="content-info"></div>
                       <div class="footer">
-                        Starting At: {{$bidListing[$i]->target_price}}
+                        Starting At:  {{$bidListing[$i]->target_price}}
                         <div class="price" >
                           @if(Auth::check())
                           <button
@@ -346,7 +346,7 @@
                 <div class="header" >
                   <h3 style="min-height: 0px !important;line-height: 0!important;margin-top: 10px;">
                     <b class="title">Starting At:</b
-                    ><span class="price">{{$bidDetail[0]->target_price}}</span>
+                    ><span class="price">PKR {{$bidDetail[0]->target_price}}</span>
                   </h3>
                 </div>
               </div>

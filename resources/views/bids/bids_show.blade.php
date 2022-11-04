@@ -112,7 +112,7 @@
                                                 </svg>
                                             </span>
                                             <!--end::Svg Icon-->
-                                            {{ucwords($bids->user->first_name)}}  {{ucwords($bids->user->last_name)}}
+                                            {{ucwords($bids->user->first_name)}} {{ucwords($bids->user->middle_name)}} {{ucwords($bids->user->last_name)}}
                                         </a>
                                         <a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2">
                                             <!--begin::Svg Icon | path: icons/duotune/general/gen018.svg-->

@@ -27,12 +27,12 @@
             <form   method="GET" action="{{ route('bid_listing') }}">
             <div class="dropdown-filters d-flex">
               <select id='category_id' name="category_id"  class="form-control" required onchange="getSubCategoryAjax()">
-                <option selected="" value="">Select category</option>
+                <option selected="" value="">Main Category</option>
                 @for ($i = 0; $i < count($categories); $i++) <option value="{{$categories[$i]->id}}" {{$categoryId == $categories[$i]->id ? 'selected' :''}}>{{ucwords($categories[$i]->category_name)}}</option>
                 @endfor
               </select>
               <select id="sub_category_id" name="sub_category_id" class="form-control ml-4">
-                <option selected="">Select Sub category</option>
+                <option selected="">Select Sub-Category</option>
                
               </select>
               <button class="btn btn-success ml-2" type="submit">
@@ -58,8 +58,8 @@
           class="sorting-div d-flex align-items-center justify-content-between"
         >
           <p class="mb-2">{{$bidListing->total()}} Bids Available</p>
-          <div class="sorting d-flex align-items-center">
-            <p>Sortby</p>
+          <div class="sorting d-flex align-items-center" style="margin-right: 7px;">
+            <p>Sort By</p>
             <form  id='newold' method="GET" action="{{ route('bid_listing') }}">
             <select
               class="custom-select custom-select-sm border-0 shadow-sm ml-2" name="newold" onchange="AscDesc()"
@@ -89,10 +89,10 @@
         @endif
         @endif
       </div>
-      <div class="container">
+      <div class="container" style="    margin-top: 14px;">
         <div class="row">
           @for ($i = 0; $i < count($bidListing); $i++)
-          <div class="col-md-3">
+          <div class="col-md-3" onclick="location.href = '{{route('bid_detail',$bidListing[$i]->bid_id)}}';"  style="cursor: pointer;">
             <a href="{{route('bid_detail',$bidListing[$i]->bid_id)}}">
               <img class="img-fluid" src="{{ asset('bid/'.$bidListing[$i]->thumbnail)}}" />
             </a>
@@ -137,24 +137,29 @@
                     @if(date('Y-m-d') > Auth::user()->expiry_date && Auth::user()->hasRole('supplier'))
                     <a href="{{route('subscribe_page')}}" type="button" class="btn btn-outline-success btn-sm">Bid Now</a>
                     @else
-                    <button
+                    <a href="{{route('bid_detail',$bidListing[$i]->bid_id)}}" type="button" class="btn btn-outline-success btn-sm">Bid Now</a>
+
+                    {{-- <button
                       type="button"
                       class="btn btn-outline-success btn-sm" onclick="bidNNow('{{$bidListing[$i]->bid_id}}','{{$bidListing[$i]->user_id}}','{{$bidListing[$i]->cat_id}}','{{$bidListing[$i]->sub_cat_id}}')"
                     >
                       Bid Now
-                    </button>
+                    </button> --}}
                     @endif
                     @else
-                    <button
+                    <a href="{{route('bid_detail',$bidListing[$i]->bid_id)}}" type="button" class="btn btn-outline-success btn-sm">Bid Now</a>
+
+                    {{-- <button
                       type="button"
                       class="btn btn-outline-success btn-sm" onclick="bidNNow('{{$bidListing[$i]->bid_id}}','{{$bidListing[$i]->user_id}}','{{$bidListing[$i]->cat_id}}','{{$bidListing[$i]->sub_cat_id}}')"
                     >
                       Bid Now
-                    </button>
+                    </button> --}}
                    
 
                     @endif
                   </div>
+                  
                 </div>
               </div>
             </div>
@@ -247,10 +252,10 @@ function getSubCategoryAjax() {
           debugger;
             if (result == 0) {
                 document.getElementById('sub_category_id').innerHTML =
-                    '<option value=""> Select  sub-category  </option>';
+                    '<option value="">Select Sub-Category</option>';
             } else {
                 document.getElementById('sub_category_id').innerHTML =
-                    '<option value=""> Select  sub-category  </option>';
+                    '<option value="">Select Sub-Category</option>';
                 for (var i = 0; i < result.length; i++) {
                     var opt = document.createElement('option');
                     opt.value = result[i].id;

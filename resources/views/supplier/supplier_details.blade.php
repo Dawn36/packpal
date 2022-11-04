@@ -794,7 +794,7 @@
                         <div class="d-flex align-items-center flex-row-fluid flex-wrap">
                             <!--begin:Author-->
                             <div class="flex-grow-1 me-2">
-                                <a href="#" class="text-gray-800 text-hover-primary fs-6 fw-bold">{{ucwords($userListing[$i]->first_name)}} {{ucwords($userListing[$i]->last_name)}}</a>
+                                <a href="#" class="text-gray-800 text-hover-primary fs-6 fw-bold">{{ucwords($userListing[$i]->first_name)}} {{ucwords($userListing[$i]->middle_name)}} {{ucwords($userListing[$i]->last_name)}}</a>
                                 <span class="text-muted fw-semibold d-block fs-7">{{ucwords($user[0]->categories->category_name)}}</span>
                             </div>
                             <!--end:Author-->

@@ -72,7 +72,7 @@ class RegisteredUserController extends Controller
             'user_type'=>$request->role_id,
             'phone_number' => $request->phone_number,
             'email' => $request->email,
-            'expiry_date' => Date("Y-m-d H:i:s"),
+            'expiry_date' => Date("Y-m-d H:i:s",strtotime('+6 month')),
             'password' => Hash::make($request->password),
 
         ]);
