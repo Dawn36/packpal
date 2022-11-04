@@ -35,7 +35,7 @@ class ProductController extends Controller
             $color = 'danger';
         }
         if ($status == 'pending') {
-            $title = "Pending for approvel";
+            $title = "Pending for approval";
             $pending = 'active';
             $color = 'warning';
         }

@@ -45,7 +45,7 @@ class Website extends Model
             ->when($subCategoryId, function ($query, $subCategoryId) {
                 return $query->where('sc.id', $subCategoryId);
             })
-            ->orderBy('b.id', $orderBy)->paginate(2)->appends('newold', $orderBy)->appends('category_id', $categoryId)->appends('sub_category_id', $subCategoryId)->appends('search', $search);
+            ->orderBy('b.id', $orderBy)->paginate(10)->appends('newold', $orderBy)->appends('category_id', $categoryId)->appends('sub_category_id', $subCategoryId)->appends('search', $search);
             // ->get();
             //->appends('category_id', $categoryId)->appends('sub_category_id', $subCategoryId)
         // ->get();

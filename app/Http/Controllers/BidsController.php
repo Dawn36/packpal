@@ -42,7 +42,7 @@ class BidsController extends Controller
             $headLine='Here we have list of all Bids that are In-active due to any possible reason(s). An In-active listing will be deleted after 30 days if not made active. Contact Support for Help.';
         }
         if ($status == 'pending') {
-            $title = "Pending for Approvel";
+            $title = "Pending for Approval";
             $pending = 'active';
             $color = 'warning';
             $headLine='Here we have list of all Bids Pending for Approval. You can Contact Support for Help.';

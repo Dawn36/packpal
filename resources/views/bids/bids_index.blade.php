@@ -101,7 +101,7 @@
                         <div class="p-10">
                             <!--begin::Heading-->
                             <h1 class="anchor fw-bolder mb-5" id="zero-configuration">
-                                <a href="javascript:;"></a>{{$title == 'Pending for Approvel' ? 'Pending' :$title}} Bids 
+                                <a href="javascript:;"></a>{{$title == 'Pending for Approval' ? 'Pending' :$title}} Bids 
                             </h1>
                             <!--begin::Notice-->
                             <div class="d-flex align-items-center rounded py-5 px-4 bg-light-{{$color}}">

@@ -226,7 +226,7 @@ a:hover {
                   <option value="supplier">Supplier</option>
               </select>
             </div>
-          <input type="text" class="form-control bg-white small" name="search" placeholder="Search Your" aria-label="Search" aria-describedby="basic-addon2" style="height: 40px  !important">
+          <input type="text" class="form-control bg-white small" name="search" placeholder="Search your Packaging" aria-label="Search" aria-describedby="basic-addon2" style="height: 40px  !important">
           <div class="input-group-append">
           <button class="btn btn-success" type="submit">
           <i class="fa fa-search fa-sm"></i>
