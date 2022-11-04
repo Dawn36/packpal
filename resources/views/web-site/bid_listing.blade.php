@@ -5,11 +5,11 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
-          <h1 class="mt-0 mb-3 text-white">Product</h1>
+          <h1 class="mt-0 mb-3 text-white">Bid Requests</h1>
           <div class="breadcrumbs">
             <p class="mb-0 text-white">
               <a class="text-white" href="#">Home</a> /
-              <span class="text-success">Product</span>
+              <span class="text-success">Bid Requests</span>
             </p>
           </div>
         </div>

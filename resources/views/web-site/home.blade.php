@@ -497,10 +497,10 @@
         <div class="col-lg-12">
           <h3>Innovations</h3>
           <div class="row single-item">
-            @for ($i = 0; $i < count($adsMiddle); $i++)
+            @for ($i = 0; $i < count($adslast); $i++)
             <div class="col">
               <div class="freelancer">
-                <img class="imgbanner" src="{{ asset($adsMiddle[$i]->path)}}" />
+                <img class="imgbanner" src="{{ asset($adslast[$i]->path)}}" />
               </div>
             </div>
             @endfor
