@@ -62,13 +62,16 @@ class AuthenticatedSessionController extends Controller
             'email' => 'required|exists:users',
         ]);
         if ($validator->fails()) {
+            toast('error','Email Does Not Exists');
             
-            $request->session()->flash('message', 'Email Does Not Exists');
+            //$request->session()->flash('message', 'Email Does Not Exists');
             return redirect()->back();
 
         }
         else
         {
+            toast('success','YOUR PASSWORD HAS BEEN RESET. KINDLY CHECK YOUR EMAIL AND SIGN IN AGAIN');
+
             $userData=User::where('email', $request->email)->get();
             $userData=User::find($userData[0]->id);
             $to_email = $request->email;

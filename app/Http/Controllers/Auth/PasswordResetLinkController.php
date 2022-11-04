@@ -31,7 +31,6 @@ class PasswordResetLinkController extends Controller
         $request->validate([
             'email' => ['required', 'email'],
         ]);
-        toast('success','YOUR PASSWORD HAS BEEN RESET. KINDLY CHECK YOUR EMAIL AND SIGN IN AGAIN');
 
         // We will send the password reset link to this user. Once we have attempted
         // to send the link, we will examine the response then see the message we
