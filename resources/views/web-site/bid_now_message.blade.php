@@ -8,10 +8,10 @@
   <p>Kindly Note: Packpal only connect Buyers and Sellers and are not liable legally or non-legally for any mishaps in your business transactions</p>
   </div>
     @endif
-  <div class="alert alert-danger" role="alert">
     @if($orderData[0]->status == 'inprocess')
+    <div class="alert alert-danger" role="alert">
     You have already made an offer on this bid and it is in In-process
-    @endif
   </div>
+    @endif
 
  

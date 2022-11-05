@@ -120,7 +120,7 @@
             url: "{{ route('bid_now') }}",
             data: value,
             success: function(result) {
-                $('#websitemodaltitle').html('Place your bid');
+                $('#websitemodaltitle').html('Place your BID');
                 $('#websitemodalbody').html(result);
                 $('#exampleModalLong').modal('show');
             },
