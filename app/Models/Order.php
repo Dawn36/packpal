@@ -33,7 +33,7 @@ class Order extends Model
       ->join('sub_categories AS sc', 'sc.id', '=', 'o.sub_categories_id')
       ->join('users AS u', 'u.id', '=', 'o.s_user_id')
       ->select(DB::raw('o.s_user_id,o.b_user_id,u.`id` AS user_id,u.categories_id AS cat_id,u.`profile_picture`,u.`first_name`,u.`last_name`,b.`id` AS bid_id ,b.`bids_name`,b.`thumbnail`,c.`category_name`,sc.`sub_category_name`,o.offer_price,o.feed_back,o.created_at,o.id'))
-      
+      ->where('o.show_offer', 'yes')
       ->whereNull('o.deleted_at')
       ->whereNull('b.deleted_at')
       ->where('o.status', $status)
@@ -48,10 +48,10 @@ class Order extends Model
       ->join('categories AS c', 'c.id', '=', 'o.categories_id')
       ->join('sub_categories AS sc', 'sc.id', '=', 'o.sub_categories_id')
       ->select(DB::raw('o.s_user_id,o.b_user_id,b.`id` AS bid_id,b.`bids_name`,b.`thumbnail`,c.`category_name`,sc.`sub_category_name`,o.offer_price,o.feed_back,o.created_at,o.id'))
-     
       ->whereNull('o.deleted_at')
       ->whereNull('b.deleted_at')
       ->where('o.status', $status)
+      ->where('o.show_offer', 'yes')
       ->where('o.s_user_id', $userId)
       ->orderBy('o.id', 'desc')->get();
       // ->where('b.status', 'active')
@@ -141,7 +141,7 @@ SUM(CASE
     ELSE 0
 END) AS complete
 from `orders`
-where deleted_at is null and s_user_id='$userId'"));
+where deleted_at is null and s_user_id='$userId' AND show_offer='yes'"));
   }
   public function orderStatusCountBuyer(int $userId)
   {
@@ -162,6 +162,6 @@ SUM(CASE
     ELSE 0
 END) AS complete
 from `orders`
-where deleted_at is null and b_user_id='$userId'"));
+where deleted_at is null and b_user_id='$userId' AND show_offer='yes' "));
   }
 }

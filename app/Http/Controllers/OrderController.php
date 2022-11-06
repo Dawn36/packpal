@@ -24,22 +24,32 @@ class OrderController extends Controller
         $inactive = '';
         $complete = '';
         $reject = '';
+        $heading='';
+        $title2='';
         if ($status == 'offer') {
             $title = "Offers";
+            $heading="Here we have list of all the offers received from Suppliers on your BID. You can ACCEPT or Reject the Offer from here and even use our Chat feature here to chat with the Supplier directly and visit and see Suppliers page and details by clicking on the name. You may Contact Support for any issues.";
+            $title2="List of Offers";
             $active = 'active';
             $color = 'warning';
         }
         if ($status == 'inprocess') {
+            $heading="Here we have list of all the offers that are accepted and are now In-process to Completion. You can still use our Chat feature here and see supplier reviews and details. DONT FORGET to click the completion button once the order is completed. You may Contact Support for any issues.";
+            $title2="List of In-Process Offers";
             $title = "In-process";
             $inactive = 'active';
             $color = 'info';
         }
         if ($status == 'complete') {
+            $heading="Here we have list of all the offers that were In-process and are now Completed. You can still use our Chat feature here and see suppliers earlier reviews and details. DONT FORGET to REVIEW THE SUPPLIER AND SHARE YOUR FEEDBACK by clicking on the Star Button. The Reviews and Feedback for the Supplier may help other Buyers to do business with confidence. You may Contact Support for any issues.";
+            $title2="List of Completed Offers";
             $title = "Completed";
             $complete = 'active';
             $color = 'success';
         }
         if ($status == 'reject') {
+            $heading="Here we have list of all the offers that are rejected by you. You may Contact Support for any issues.";
+            $title2="List of Rejected Offers";
             $title = "Rejected";
             $reject = 'active';
             $color = 'danger';
@@ -47,14 +57,29 @@ class OrderController extends Controller
         $orderObj = new Order();
         $order = $orderObj->orderDataBuyer($status, $userId);
         $orderStatusCount = $orderObj->orderStatusCountBuyer($userId);
-        return view('buyer-order/buyer_order_index', compact('orderStatusCount', 'order', 'active', 'inactive', 'complete', 'reject', 'title', 'color'));
+        return view('buyer-order/buyer_order_index', compact('orderStatusCount', 'order', 'active', 'title2','heading','inactive', 'complete', 'reject', 'title', 'color'));
     }
     
 
-    public function orderAcceptReject(int $id, $status)
+    public function orderAcceptReject(int $id, $status,$bidId)
     {
         $order = Order::Find($id);
+        $bid=Bids::find($bidId);
         $order->status = $status;
+        if($order->status == 'inprocess')
+        {
+            $bid->show_bid='no';
+            $bid->save();
+            Order::where('bids_id', $bidId)->where('status','offer')->whereNull('deleted_at')->where('id','!=',$id)
+            ->update(['show_offer' => 'no']);
+        }
+        if($order->status == 'reject')
+        {
+            $bid->show_bid='yes';
+            $bid->save();
+            Order::where('bids_id', $bidId)->where('status','offer')->whereNull('deleted_at')->where('id','!=',$id)
+            ->update(['show_offer' => 'yes']);
+        }
         $order->save();
         return redirect()->back();
     }

@@ -611,7 +611,7 @@
                                                     @endif
                                                     <td>
                                                         @if($order[$i]->status == 'offer')
-                                                        <form style="display: inline-block" method="POST" action="{{ route('order_accept_reject', ['id'=>$order[$i]->id,'status'=>'inprocess']) }}">
+                                                        <form style="display: inline-block" method="POST" action="{{ route('order_accept_reject', ['id'=>$order[$i]->id,'status'=>'inprocess','bidId'=>'']) }}">
                                                             @csrf
                                                             <button type="submit" class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-success" data-bs-toggle="tooltip" data-bs-original-title="Accept Offer">
                                                                 <span class="svg-icon svg-icon-2">
@@ -622,7 +622,7 @@
                                                                 </span>
                                                             </button>
                                                         </form>
-                                                        <form style="display: inline-block" method="POST" action="{{ route('order_accept_reject', ['id'=>$order[$i]->id,'status'=>'reject']) }}">
+                                                        <form style="display: inline-block" method="POST" action="{{ route('order_accept_reject', ['id'=>$order[$i]->id,'status'=>'reject','bidId'=>'']) }}">
                                                             @csrf
                                                             <button type="submit" class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-danger" data-bs-toggle="tooltip" data-bs-original-title="Reject Offer">
                                                                 <span class="svg-icon svg-icon-1">

@@ -15,27 +15,9 @@
         <!--begin::Page title-->
         <div class="page-title d-flex flex-column me-3">
             <!--begin::Title-->
-            <h1 class="d-flex text-white fw-bolder my-1 fs-3">{{$title}}</h1>
+            <h1 class="d-flex text-white fw-bolder my-1 fs-3">{{$title2}}</h1>
             <!--end::Title-->
             <!--begin::Breadcrumb-->
-            <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
-                <!--begin::Item-->
-                <li class="breadcrumb-item text-white opacity-75">
-                    <a href="/dashboard" class="text-white text-hover-primary">Home</a>
-                </li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="breadcrumb-item">
-                    <span class="bullet bg-white opacity-75 w-5px h-2px"></span>
-                </li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="breadcrumb-item text-white opacity-75">
-                    <a href="#" class="text-white text-hover-primary">{{$title}}</a>
-                </li>
-
-            </ul>
-            <!--end::Breadcrumb-->
         </div>
         <!--end::Page title-->
         <!--begin::Actions-->
@@ -132,7 +114,7 @@
                                 </div>
                                 <!--end::Icon-->
                                 <!--begin::Description-->
-                                <div class="text-gray-700 fw-bold fs-6 lh-lg">Here we have a list of all of the {{$title}} .</div>
+                                <div class="text-gray-700 fw-bold fs-6 lh-lg">{{$heading}}</div>
                                 <!--end::Description-->
                             </div>
                             <!--end::Notice-->
@@ -238,7 +220,7 @@
                                                             </span>
                                                             <span class="bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink"></span>
                                                         </a>
-                                                        <form style="display: inline-block" method="POST" action="{{ route('order_accept_reject', ['id'=>$order[$i]->id,'status'=>'inprocess']) }}">
+                                                        <form style="display: inline-block" method="POST" action="{{ route('order_accept_reject', ['id'=>$order[$i]->id,'status'=>'inprocess','bidId'=>$order[$i]->bid_id]) }}">
                                                             @csrf
                                                             <button type="submit" class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-success" data-bs-toggle="tooltip" data-bs-original-title="Accept Offer">
                                                                 <span class="svg-icon svg-icon-2">
@@ -249,7 +231,7 @@
                                                                 </span>
                                                             </button>
                                                         </form>
-                                                        <form style="display: inline-block" method="POST" action="{{ route('order_accept_reject', ['id'=>$order[$i]->id,'status'=>'reject']) }}">
+                                                        <form style="display: inline-block" method="POST" action="{{ route('order_accept_reject', ['id'=>$order[$i]->id,'status'=>'reject','bidId'=>$order[$i]->bid_id]) }}">
                                                             @csrf
                                                             <button type="submit" class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-danger" data-bs-toggle="tooltip" data-bs-original-title="Reject Offer">
                                                                 <span class="svg-icon svg-icon-1">

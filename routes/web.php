@@ -89,7 +89,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::Get('order_status/{status}', [OrderController::class, 'index'])->name('order_status');
     Route::Get('order_complete/{orderId}', [OrderController::class, 'completeOrder'])->name('order_complete');
-    Route::Post('order_accept_reject/{id}/{status}', [OrderController::class, 'orderAcceptReject'])->name('order_accept_reject');
+    Route::Post('order_accept_reject/{id}/{status}/{bidId}', [OrderController::class, 'orderAcceptReject'])->name('order_accept_reject');
     Route::Get('review_create', [OrderController::class, 'reviewCreate'])->name('review_create');
     Route::Post('review_store', [OrderController::class, 'reviewStore'])->name('review_store');
 

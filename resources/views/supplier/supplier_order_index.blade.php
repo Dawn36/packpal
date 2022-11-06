@@ -193,6 +193,16 @@
                                                     </td>
                                                     <td>
                                                         @if($title == 'Offer')
+                                                        <a href="{{route('check_map_chat',['sUserId'=>$order[$i]->s_user_id,'bUserId'=>$order[$i]->b_user_id])}}" class="btn btn-icon btn-active-light-primary position-relative btn btn-icon btn-active-light-primary btn-custom w-30px h-30px w-md-40px h-md-40px" id="kt_drawer_chat_toggle">
+                                                            <span class="svg-icon svg-icon-1">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                                    <path opacity="0.3" d="M20 3H4C2.89543 3 2 3.89543 2 5V16C2 17.1046 2.89543 18 4 18H4.5C5.05228 18 5.5 18.4477 5.5 19V21.5052C5.5 22.1441 6.21212 22.5253 6.74376 22.1708L11.4885 19.0077C12.4741 18.3506 13.6321 18 14.8167 18H20C21.1046 18 22 17.1046 22 16V5C22 3.89543 21.1046 3 20 3Z" fill="currentColor" />
+                                                                    <rect x="6" y="12" width="7" height="2" rx="1" fill="currentColor" />
+                                                                    <rect x="6" y="7" width="12" height="2" rx="1" fill="currentColor" />
+                                                                </svg>
+                                                            </span>
+                                                            <span class="bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink"></span>
+                                                        </a>
                                                         <button type="button" class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-warning" data-bs-original-title="Edit Offer" onclick="editOffer('{{$order[$i]->id}}','{{$order[$i]->s_user_id}}','{{$order[$i]->b_user_id}}')">
                                                             <span class="svg-icon svg-icon-1">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -233,6 +243,18 @@
                                                             </span>
                                                             <span class="bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink"></span>
                                                         </a>
+                                                        <form style="display: inline-block" method="POST" action="{{ route('order_accept_reject', ['id'=>$order[$i]->id,'status'=>'reject','bidId'=>$order[$i]->bid_id]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-danger" data-bs-toggle="tooltip" data-bs-original-title="Reject Offer">
+                                                                <span class="svg-icon svg-icon-1">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                                        <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5" fill="black" />
+                                                                        <rect x="7" y="15.3137" width="12" height="2" rx="1" transform="rotate(-45 7 15.3137)" fill="black" />
+                                                                        <rect x="8.41422" y="7" width="12" height="2" rx="1" transform="rotate(45 8.41422 7)" fill="black" />
+                                                                    </svg>
+                                                                </span>
+                                                            </button>
+                                                        </form>
                                                         @endif
                                                         @if( $title == 'Completed')
                                                         <div class="btn btn-icon btn-active-light-primary position-relative btn btn-icon btn-active-light-primary btn-custom w-30px h-30px w-md-40px h-md-40px" id="kt_drawer_chat_toggle">

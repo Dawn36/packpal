@@ -38,6 +38,7 @@ class WebsiteController extends Controller
     }
     public function bidDetail(int $bidId)
     {
+        
         $objWebSite= new Website();
         $bidObj = new Bids();
         $bidDetail=$objWebSite->bidDetails($bidId);

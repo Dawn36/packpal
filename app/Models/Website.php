@@ -36,6 +36,7 @@ class Website extends Model
             u.`profile_picture`'))
             ->whereNull('b.deleted_at')
             ->where('b.status','active')
+            ->where('b.show_bid','yes')
             ->when($categoryId, function ($query, $categoryId) {
                 return $query->where('c.id', $categoryId);
             })
@@ -90,8 +91,9 @@ class Website extends Model
           left join `orders` o
           on b.`id`=o.`bids_id`
           AND o.`status`='offer'
+          AND o.deleted_at IS NULL
       where b.`id` = '$bidId' 
-      AND o.deleted_at IS NULL
+      
       group by o.`bids_id`"));
       
     }
