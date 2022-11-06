@@ -30,6 +30,7 @@ class Website extends Model
             b.`bids_name`,
             u.`address`,
             u.`city`,
+            u.`country`,
             u.`first_name`,
             u.`last_name`,
             u.`middle_name`,

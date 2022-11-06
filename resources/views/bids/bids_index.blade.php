@@ -86,7 +86,7 @@
                             <a class="nav-link text-active-primary py-5 me-6 position-relative {{$pending}}" href="{{ route('bid_status', ['status' => 'pending']) }}"><span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-warning">{{$bidSatatusCount[0]->active_bids == null ? '0' : $bidSatatusCount[0]->pending_bids}}</span>Pending for Approval</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-active-primary py-5 me-6 position-relative {{$denied}}" href="{{ route('bid_status', ['status' => 'reject']) }}"><span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-danger">{{$bidSatatusCount[0]->active_bids == null ? '0' : $bidSatatusCount[0]->denid_bids}}</span>Reject</a>
+                            <a class="nav-link text-active-primary py-5 me-6 position-relative {{$denied}}" href="{{ route('bid_status', ['status' => 'reject']) }}"><span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-danger">{{$bidSatatusCount[0]->active_bids == null ? '0' : $bidSatatusCount[0]->denid_bids}}</span>Rejected Bids</a>
                         </li>
 
                     </ul>

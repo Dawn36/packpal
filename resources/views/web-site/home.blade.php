@@ -7,15 +7,15 @@
         <div class="row">
           <div class="col-md-12">
             <div class="main-search-headlines" >
-              <h2 style="font-size: 35px; font-weight: 1000;">
-                A B2B PLATFORM for PACKAGING
+              <h2 style="font-size: 33px; font-weight: 1000;">
+                A B2B PLATFORM FOR PACKAGING
                 <!-- Typed words can be configured in script settings at the bottom of this HTML file -->
                 <span class="typed-words"></span>
               </h2>
               <h4 style="font-size: 23px;">Connecting Buyers & Sellers </h4>
-              <p>We know how desperate brands/people are in knowing different packaging that exists in the market.</p>
-              <p>We like Packaging Companies especially in Pakistan to prosper and grow itself intensively and broader by giving them an economical platform to opt for.</p>
-              <p>YOUR SUPPORT AND OUR EFFORTS MAY MAKE THIS DREAM COME TRUE</p>
+              <p style="font-style: italic;">We know how desperate brands/people are in knowing different packaging that exists in the market.</p>
+              <p style="font-style: italic;">We like Packaging Companies especially in Pakistan to prosper and grow itself intensively and broader by giving them an economical platform to opt for.</p>
+              <p style="font-style: italic;">YOUR SUPPORT AND OUR EFFORTS MAY MAKE THIS DREAM COME TRUE</p>
             </div>
             {{-- <form  id='search_from' method="GET" action="{{route('search_home')}}">
             <div class="main-search-input" style="margin-top: 19px;">
@@ -299,7 +299,7 @@
                         />
                       </span>
                       <span class="seller-name">
-                        <a href="{{route('supplier_detail',['userId'=>$supplier[$i]->user_id,'catId'=>$supplier[$i]->cat_id])}}">{{ucwords($supplier[$i]->first_name)}} {{ucwords($supplier[$i]->last_name)}}</a>
+                        <a href="{{route('supplier_detail',['userId'=>$supplier[$i]->user_id,'catId'=>$supplier[$i]->cat_id])}}">{{charaterCountTo20($supplier[$i]->first_name." ".$supplier[$i]->middle_name." ".$supplier[$i]->last_name)}}</a>
                         <span
                             class="level"
                             style="font-weight: bold; color: #524e4e"
@@ -407,7 +407,7 @@
                         />
                       </span>
                       <span class="seller-name">
-                        <a href="{{route('bid_detail',$bidListing[$i]->bid_id)}}">{{ucwords($bidListing[$i]->first_name)}} {{ucwords($bidListing[$i]->last_name)}}</a>
+                        <a href="{{route('bid_detail',$bidListing[$i]->bid_id)}}">{{charaterCountTo20($bidListing[$i]->first_name." ".$bidListing[$i]->middle_name." ".$bidListing[$i]->last_name)}} </a>
                         <span
                           class="level"
                           style="font-weight: bold; color: #524e4e"
@@ -424,7 +424,7 @@
                           class="level"
                           style="font-weight: bold; color: #524e4e"
                         >
-                          Buyer from: {{charaterCountTo20($bidListing[$i]->city)}}
+                          Buyer from: {{charaterCountTo20($bidListing[$i]->city." - ".$bidListing[$i]->country)}}
                         </span>
                         <a href="{{route('bid_detail',$bidListing[$i]->bid_id)}}">{{charaterCountTo26($bidListing[$i]->bids_name)}}</a>
                       </span>
@@ -480,7 +480,7 @@
         @for ($i = 0; $i < count($catAndSubCat); $i++)
         <div class="col">
           <div class="service">
-            <a href="{{route('bid_listing',['category_id'=>$catAndSubCat[$i]->cat_id])}}" >
+            <a href="{{route('web_supplier_listing',['category_id'=>$catAndSubCat[$i]->cat_id])}}" >
             
             <img src="{{ asset('category/'.$catAndSubCat[$i]->category_image)}}" alt="{{$catAndSubCat[$i]->category_name}}"  />
              <h3>{{ucwords($catAndSubCat[$i]->category_name)}}</h3>
@@ -510,7 +510,7 @@
       </div>
     </div>
   </div>
-  <div class="d-flex" style="margin-bottom: 50px">
+  {{-- <div class="d-flex" style="margin-bottom: 50px">
     <div class="col-md-6">
       <div class="testi-wrap pt-5 view_slider recommended">
         <div class="container">
@@ -565,7 +565,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> --}}
   <script>
     function viewAllCategory()
     {

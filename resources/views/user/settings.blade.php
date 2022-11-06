@@ -171,7 +171,7 @@
                                     <div class="col-lg-4">
                                         <label class="fs-6 form-label fw-bolder text-dark required">First name</label>
                                         <!--begin::Select-->
-                                        <input type="text" name="first_name" value="{{$user->first_name}}" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="First name" value="" />
+                                        <input type="text" name="first_name" value="{{$user->first_name}}" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="First name" value=""  required/>
                                         <!--end::Select-->
                                     </div>
                                     <!--end::Col-->
@@ -185,7 +185,7 @@
                                     <div class="col-lg-4">
                                         <label class="fs-6 form-label fw-bolder text-dark required">Last name</label>
                                         <!--begin::Select-->
-                                        <input type="text" name="last_name" value="{{$user->last_name}}" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Last name" value="" />
+                                        <input type="text" name="last_name" value="{{$user->last_name}}" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Last name" value="" required/>
                                         <!--end::Select-->
                                     </div>
                                     <!--end::Col-->
@@ -199,7 +199,7 @@
                                     <div class="col-lg-4">
                                         <label class="fs-6 mt-4 form-label fw-bolder text-dark required">Designation</label>
                                         <!--begin::Select-->
-                                        <input type="text" name="designation" value="{{$user->designation}}" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Designation" value="" />
+                                        <input type="text" name="designation" value="{{$user->designation}}" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Designation" value="" required/>
                                         <!--end::Select-->
                                     </div>
                                     <!--end::Col-->
@@ -213,7 +213,7 @@
                                     <div class="col-lg-4">
                                         <label class="fs-6 mt-4 form-label fw-bolder text-dark required">Address</label>
                                         <!--begin::Select-->
-                                        <input type="text" id='autocomplete' name="autocomplete" value="{{$user->address}}" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Address" value="" />
+                                        <input type="text" id='autocomplete' name="autocomplete" value="{{$user->address}}" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Address" value="" required/>
                                         <!--end::Select-->
                                     </div>
                                     <!--end::Col-->
@@ -227,7 +227,7 @@
                                     <div class="col-lg-4">
                                         <label class="fs-6 mt-4 form-label fw-bolder text-dark required">Country</label>
                                         <!--begin::Select-->
-                                        <input type="text" name="country" value="{{$user->country}}" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Country" value="" />
+                                        <input type="text" name="country" value="{{$user->country}}" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Country" value="" required/>
                                         <!--end::Select-->
                                     </div>
                                     <!--end::Col-->
@@ -241,7 +241,7 @@
                                     <div class="col-lg-4">
                                         <label class="fs-6 mt-4 form-label fw-bolder text-dark required">Zip/Postal Code</label>
                                         <!--begin::Select-->
-                                        <input type="text" name="zip_postal_code" value="{{$user->zip_postal_code}}" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Zip/Postal Code" value="" />
+                                        <input type="text" name="zip_postal_code" value="{{$user->zip_postal_code}}" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Zip/Postal Code" value="" required/>
                                         <!--end::Select-->
                                     </div>
                                     <!--end::Col-->
@@ -255,7 +255,7 @@
                                     <div class="col-lg-4">
                                         <label class="fs-6  mt-4 form-label fw-bolder text-dark required">Landline No</label>
                                         <!--begin::Select-->
-                                        <input type="text" name="landline_no" value="{{$user->landline_no}}" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Landline No" value="" />
+                                        <input type="text" name="landline_no" value="{{$user->landline_no}}" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Landline No" value="" required />
                                         <!--end::Select-->
                                     </div>
                                     <!--end::Col-->
@@ -263,7 +263,7 @@
                                     <div class="col-lg-4">
                                         <label class="fs-6 mt-4 form-label fw-bolder text-dark required">Mobile No</label>
                                         <!--begin::Select-->
-                                        <input type="text" name="phone_number" value="{{$user->phone_number}}" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Mobile No" value="" />
+                                        <input type="text" name="phone_number" value="{{$user->phone_number}}" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Mobile No" value="" required/>
                                         <!--end::Select-->
                                     </div>
                                 </div>
@@ -411,7 +411,7 @@
                                                 <!--end::Col-->
                                                 <!--begin::Col-->
                                                 <div class="col-lg-4">
-                                                    <label class="fs-6 form-label fw-bolder text-dark">Annual Sales in Pkr</label>
+                                                    <label class="fs-6 form-label fw-bolder text-dark">Annual Sales in PKR</label>
                                                     <input class="form-control form-control-lg form-control-solid" value="{{$user->annual_sales}}" type="number" placeholder="please enter Annual Sales" name="annual_sales" autocomplete="off" />
 
                                                 </div>
@@ -428,14 +428,14 @@
                                             <div class="row mb-6">
                                                 <!--begin::Col-->
                                                 <div class="col-lg-4">
-                                                    <label class="fs-6 form-label fw-bolder text-dark">I’m a seller of:</label>
+                                                    <label class="fs-6 form-label fw-bolder text-dark">I’m a Seller of:</label>
                                                     <input class="form-control form-control-lg form-control-solid" value="{{$user->seller_of}}" type="text" placeholder="What you sell?" name="seller_of" autocomplete="off" />
                                                     <!--end::Select-->
                                                 </div>
                                                 <!--end::Col-->
                                                 <!--begin::Col-->
                                                 <div class="col-lg-4">
-                                                    <label class="fs-6 form-label fw-bolder text-dark">I’m a buyer of:</label>
+                                                    <label class="fs-6 form-label fw-bolder text-dark">I’m a Buyer of:</label>
                                                     <input class="form-control form-control-lg form-control-solid" value="{{$user->buyer_of}}" type="text" placeholder="What you buy?" name="buyer_of" autocomplete="off" />
 
                                                 </div>
@@ -447,7 +447,7 @@
                                             <div class="row mb-6">
                                                 <div class="col-lg-4">
                                                     <label class="fs-6 form-label fw-bolder text-dark">Category</label>
-                                                    <select class="form-select form-select-solid" id='category_id' name='category' onchange="getSubCategoryAjax()" data-control="select2" data-placeholder="In Progress" data-hide-search="true">
+                                                    <select class="form-select form-select-solid" id='category_id' name='category' onchange="getSubCategoryAjax()" data-control="select2" data-placeholder="Select Main Category" data-hide-search="true">
                                                         <option value=""></option>
                                                         @for ($i = 0; $i < count($categories); $i++) 
                                                         <option value="{{$categories[$i]->id}}" {{$user->categories_id == $categories[$i]->id ? "selected" : '' }} >{{ucwords($categories[$i]->category_name)}}</option>
@@ -458,7 +458,7 @@
                                                 </div>
                                                 <div class="col-lg-4">
                                                     <label class="fs-6 form-label fw-bolder text-dark">Sub-Category</label>
-                                                    <select class="form-select form-select-solid" id='sub_category_id' name='sub_category' data-control="select2" data-placeholder="In Progress" data-hide-search="true">
+                                                    <select class="form-select form-select-solid" id='sub_category_id' name='sub_category' data-control="select2" data-placeholder="Select Sub-Category" data-hide-search="true">
 
                                                     </select>
                                                 </div>
@@ -471,7 +471,7 @@
                                                 <!--begin::Col-->
                                                 <div class="col-lg-12">
                                                     <label class="fs-6 form-label fw-bolder text-dark">Description</label>
-                                                    <textarea class="form-control form-control-lg form-control-solid" type="text" placeholder="Description" name="description" autocomplete="off">{{$user->description}}</textarea>
+                                                    <textarea class="form-control form-control-lg form-control-solid" type="text" placeholder="Description of your Business" name="description" autocomplete="off">{{$user->description}}</textarea>
                                                     <!--end::Select-->
                                                 </div>
 
@@ -740,10 +740,10 @@ $.ajax({
     debugger;
         if (result == 0) {
             document.getElementById('sub_category_id').innerHTML =
-                '<option value=""> Select  sub-category  </option>';
+                '<option value="">Select Sub-Category</option>';
         } else {
             document.getElementById('sub_category_id').innerHTML =
-                '<option value=""> Select  sub-category  </option>';
+                '<option value="">Select Sub-Category</option>';
             for (var i = 0; i < result.length; i++) {
                 var opt = document.createElement('option');
                 opt.value = result[i].id;

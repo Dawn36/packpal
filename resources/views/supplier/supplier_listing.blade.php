@@ -35,14 +35,14 @@
         <form>
             <div class="d-flex my-0">
                 <!--begin::Select-->
-                <select name="category_id" id='category_id' data-control="select2" data-hide-search="true" data-placeholder="Main Category" class="form-select form-select-sm border-body bg-body w-150px me-5" onchange="getSubCategoryAjax()">
-                    <option value="">Select category name</option>
+                <select name="category_id" id='category_id' data-control="select2" data-hide-search="true" data-placeholder="Select Main Category" class="form-select form-select-sm border-body bg-body w-150px me-5" onchange="getSubCategoryAjax()">
+                    <option value="">Select Main Category</option>
                     @for ($i = 0; $i < count($categories); $i++) <option value="{{$categories[$i]->id}}" {{$categoryId == $categories[$i]->id ? 'Selected' : ""}}>{{ucwords($categories[$i]->category_name)}}</option>
                         @endfor
                 </select>
                 <!--end::Select-->
                 <!--begin::Select-->
-                <select name="sub_category_id" id='sub_category_id' data-control="select2" data-hide-search="true" data-placeholder="Sub-Category" class="form-select form-select-sm border-body bg-body w-150px me-5">
+                <select name="sub_category_id" id='sub_category_id' data-control="select2" data-hide-search="true" data-placeholder="Select Sub-Category" class="form-select form-select-sm border-body bg-body w-150px me-5">
                     <option value="">Select Sub-Category</option>
 
                 </select>
@@ -130,7 +130,7 @@
                                                 <div class="fs-6" style="">
                                                         @if($supplier[$i]->verified == 'yes')
                                                         <div class="mb-4 mt-2" >
-                                                            <div class="badge badge-lg badge-light-primary d-inline">Verified</div>
+                                                            <div class="badge badge-lg badge-light-primary d-inline">VERIFIED</div>
                                                         </div>
                                                         @else
                                                         <div class="mb-4 mt-2" >

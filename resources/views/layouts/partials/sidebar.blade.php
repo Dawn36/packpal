@@ -342,11 +342,11 @@
                 @if(Auth::user()->hasRole('supplier') )
                 @if(Auth::user()->verified == 'yes')
                 <div class="menu-item px-5 my-1 " style="margin-left: 13px;margin-top: 5px !important;">
-                    <div class="badge badge-lg badge-light-primary d-inline">Verified</div>
+                    <div class="badge badge-lg badge-light-primary d-inline">VERIFIED</div>
                 </div>
                 @else
                 <div class="menu-item px-5 my-1 ">
-                    <a type="button" class="menu-link px-5" onclick="verifyYourSelf()">Verify Yourself</a>
+                    <a type="button" class="menu-link px-5" onclick="verifyYourSelf()">Verification Center</a>
                 </div>
                 @endif
                 

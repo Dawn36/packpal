@@ -50,7 +50,7 @@ class BidsController extends Controller
         }
         if ($status == 'reject') {
             $status='denied';
-            $title = "Reject";
+            $title = "Rejected";
             $denied = 'active';
             $color = 'danger';
             $headLine='Here is the list of Bids Rejected. This is mainly due to any reason that are in violation or inacceptance of defined Terms and Policies of PackPal. Contact Support for further assistance.';

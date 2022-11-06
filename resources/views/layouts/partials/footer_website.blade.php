@@ -1,4 +1,4 @@
-<footer class="bg-white">
+<footer class="">
     <div class="container">
       <div class="d-flex justify-content-between">
         <div class="footer-list">

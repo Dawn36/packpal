@@ -20,7 +20,7 @@ class Supplier extends Model
             ->leftJoin('reviews AS r', 'u.id', '=', 'r.to_user_id')
             ->leftJoin('categories AS c', 'c.id', '=', 'u.categories_id')
             ->leftJoin('sub_categories AS sc', 'sc.id', '=', 'u.sub_categories_id')
-            ->select(DB::raw('u.`id` AS user_id,u.`verified`,u.`company_banner`,u.`company_name`,u.`company_logo`,u.`first_name`,u.`last_name`,c.`id` AS cat_id,c.`category_name`,sc.`sub_category_name`,(((SUM(star) / 5) / COUNT(to_user_id)) * 5) AS rating,COUNT(to_user_id) as rating_count '))
+            ->select(DB::raw('u.`id` AS user_id,u.`verified`,u.`middle_name`,u.`company_banner`,u.`company_name`,u.`company_logo`,u.`first_name`,u.`last_name`,c.`id` AS cat_id,c.`category_name`,sc.`sub_category_name`,(((SUM(star) / 5) / COUNT(to_user_id)) * 5) AS rating,COUNT(to_user_id) as rating_count '))
             ->whereNull('u.deleted_at')
             ->where('u.user_type','2')
             ->when($categoryId, function ($query, $categoryId) {

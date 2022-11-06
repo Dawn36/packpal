@@ -19,7 +19,7 @@
     </section>
     <div class="services-wrapper bg-white py-5">
       <div class="container">
-        <h2>Popular Professional Services</h2>
+        <h2>List of Categories</h2>
         @for ($i = 0; $i < count($catAndSubCat); $i++)
         @php  
           $dataSubId=explode(",",$catAndSubCat[$i]->sub_cat_id );
@@ -28,13 +28,13 @@
         <div class="row" style="margin-bottom: 20px">
           <div class="col-lg-3">
             <div class="service">
-              <a href="{{route('bid_listing',['category_id'=>$catAndSubCat[$i]->cat_id])}}"><img src="{{ asset('category/'.$catAndSubCat[$i]->category_image)}}" /></a>
+              <a href="{{route('web_supplier_listing',['category_id'=>$catAndSubCat[$i]->cat_id])}}"><img src="{{ asset('category/'.$catAndSubCat[$i]->category_image)}}" /></a>
               <h3>{{ucwords($catAndSubCat[$i]->category_name)}}</h3>
             </div>
           </div>
           <div class="col-lg-9">
             @for ($j = 0; $j < count($dataSubId); $j++)
-                <a href='{{route('bid_listing',['category_id'=>$catAndSubCat[$i]->cat_id,'sub_category_id'=>$dataSubId[$j]])}}'
+                <a href='{{route('web_supplier_listing',['category_id'=>$catAndSubCat[$i]->cat_id,'sub_category_id'=>$dataSubId[$j]])}}'
                     type="button"
                     class="btn btn-outline-success btn-sm" style="margin-bottom: 10px"
                 >

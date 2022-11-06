@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Categories;
 
 
 class UserController extends Controller
@@ -147,8 +148,9 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $userDoc = DB::select(DB::raw("Select * from `user_document` where deleted_at IS NULL AND user_id='$id'"));
+        $categories=Categories::whereNull('deleted_at')->get();
 
-        return view('user/settings', compact('user', 'userDoc'));
+        return view('user/settings', compact('user', 'userDoc','categories'));
     }
 
     /**

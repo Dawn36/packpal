@@ -230,7 +230,7 @@
                             class="level"
                             style="font-weight: bold; color: #524e4e"
                           >
-                            Buyer from: {{charaterCountTo20($bidListing[$i]->address)}}
+                            Buyer from: {{charaterCountTo20($bidListing[$i]->city." - ".$bidListing[$i]->country)}}
                           </span>
                             <a href="{{route('bid_detail',$bidListing[$i]->bid_id)}}">{{charaterCountTo26($bidListing[$i]->bids_name)}}</a>
                         </span>

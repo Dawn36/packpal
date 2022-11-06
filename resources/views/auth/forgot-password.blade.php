@@ -115,7 +115,7 @@
 								<!--begin::Input group=-->
 								<div class="fv-row mb-8 fv-plugins-icon-container">
 									<!--begin::Email-->
-									<input type="email" placeholder="Email" name="email" autocomplete="off" class="form-control bg-transparent" required>
+									<input type="email" placeholder="Email" name="email"  class="form-control bg-transparent" required>
                                     @if($errors->has('email'))
                                     <div class="error" style="color: red"><b>{{ $errors->first('email') }}</b></div>
                                     @endif

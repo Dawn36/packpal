@@ -5,11 +5,11 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
-          <h1 class="mt-0 mb-3 text-white">Supplier</h1>
+          <h1 class="mt-0 mb-3 text-white">Suppliers</h1>
           <div class="breadcrumbs">
             <p class="mb-0 text-white">
               <a class="text-white" href="#">Home</a> /
-              <span class="text-success">Supplier lsiting</span>
+              <span class="text-success">Supplier Listings</span>
             </p>
           </div>
         </div>
@@ -27,12 +27,12 @@
           <form   method="GET" action="{{ route('web_supplier_listing') }}">
           <div class="dropdown-filters d-flex">
             <select id='category_id' name="category_id"  class="form-control"  onchange="getSubCategoryAjax()">
-              <option value="">Select category</option>
+              <option value="">Select Main Category</option>
               @for ($i = 0; $i < count($categories); $i++) <option value="{{$categories[$i]->id}}" {{$categoryId == $categories[$i]->id ? 'selected' :''}}>{{ucwords($categories[$i]->category_name)}}</option>
               @endfor
             </select>
             <select id="sub_category_id" name="sub_category_id" class="form-control ml-4">
-              <option value="">Select Sub category</option>
+              <option value="">Select Sub-Category</option>
              
             </select>
             <button class="btn btn-success ml-2" type="submit">
@@ -67,8 +67,8 @@
         <div
           class="sorting-div d-flex align-items-center justify-content-between"
         >
-          <p class="mb-2">{{$supplier->total()}} Supplier Available</p>
-          <div class="sorting d-flex align-items-center">
+          <h3>Supplier Listings</h3>
+          <div class="sorting d-flex align-items-center" style="margin-bottom: 20px;margin-right: 7px;">
             <p>Sort By</p>
             <form  id='newold' method="GET" action="{{ route('web_supplier_listing') }}">
               <select
@@ -80,7 +80,7 @@
               </form>
           </div>
         </div>
-        <h3>Supplier &amp; Listing</h3>
+        
       </div>
       <div class="container">
         <div class="row">
@@ -103,7 +103,7 @@
                       />
                     </span>
                     <span class="seller-name">
-                      <a href="profile.html">{{ucwords($supplier[$i]->first_name)}} {{ucwords($supplier[$i]->last_name)}}</a>
+                      <a href="{{route('supplier_detail',['userId'=>$supplier[$i]->user_id,'catId'=>$supplier[$i]->cat_id])}}">{{ucwords($supplier[$i]->first_name)}} {{ucwords($supplier[$i]->last_name)}}</a>
                       <span
                           class="level"
                           style="font-weight: bold; color: #524e4e"
@@ -269,10 +269,10 @@ function getSubCategoryAjax() {
           debugger;
             if (result == 0) {
                 document.getElementById('sub_category_id').innerHTML =
-                    '<option value=""> Select  sub-category  </option>';
+                    '<option value=""> Select Sub-Category</option>';
             } else {
                 document.getElementById('sub_category_id').innerHTML =
-                    '<option value=""> Select  sub-category  </option>';
+                    '<option value=""> Select Sub-Category</option>';
                 for (var i = 0; i < result.length; i++) {
                     var opt = document.createElement('option');
                     opt.value = result[i].id;

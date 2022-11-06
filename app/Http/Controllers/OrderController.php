@@ -28,7 +28,7 @@ class OrderController extends Controller
         $title2='';
         if ($status == 'offer') {
             $title = "Offers";
-            $heading="Here we have list of all the offers received from Suppliers on your BID. You can ACCEPT or Reject the Offer from here and even use our Chat feature here to chat with the Supplier directly and visit and see Suppliers page and details by clicking on the name. You may Contact Support for any issues.";
+            $heading="Here we have list of all the offers received from Suppliers on your BID. You can ACCEPT or REJECT the Offer from here and even use our Chat feature here to chat with the Supplier directly and visit and see Suppliers page and details by clicking on the name. You may Contact Support for any issues.";
             $title2="List of Offers";
             $active = 'active';
             $color = 'warning';

@@ -27,7 +27,7 @@
             <form   method="GET" action="{{ route('bid_listing') }}">
             <div class="dropdown-filters d-flex">
               <select id='category_id' name="category_id"  class="form-control" required onchange="getSubCategoryAjax()">
-                <option selected="" value="">Main Category</option>
+                <option selected="" value="">Select Main Category</option>
                 @for ($i = 0; $i < count($categories); $i++) <option value="{{$categories[$i]->id}}" {{$categoryId == $categories[$i]->id ? 'selected' :''}}>{{ucwords($categories[$i]->category_name)}}</option>
                 @endfor
               </select>
@@ -85,7 +85,7 @@
           
           @endphp
         
-        <h3>Suppliers in {{ucwords($categoryName)}}</h3>
+        <h3>List of BID Requests in {{ucwords($categoryName)}}</h3>
         @endif
         @endif
       </div>
@@ -124,7 +124,7 @@
                       class="level"
                       style="font-weight: bold; color: #524e4e"
                     >
-                      Buyer from: {{charaterCountTo20($bidListing[$i]->address)}}
+                      Buyer from: {{charaterCountTo20($bidListing[$i]->city." - ".$bidListing[$i]->country)}}
                     </span>
                     <a href="{{route('bid_detail',$bidListing[$i]->bid_id)}}">{{charaterCountTo26($bidListing[$i]->bids_name)}}</a>
                   </span>
