@@ -1,21 +1,32 @@
 <div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
     <!--begin::Container-->
-    <div class="container-xxl d-flex flex-column flex-md-row align-items-center justify-content-between">
+    <div class="container-xxl d-flex flex-column flex-md-row align-items-center justify-content-between" style="    font-size: 12px!important;">
         <!--begin::Copyright-->
         <div class="text-dark order-2 order-md-1">
             <span class="text-muted fw-bold me-1"><img src="{{ asset('theme/website-assets/images/logo-5.png')}}" style="width: 60px;" /></span>
-            <a href="https://keenthemes.com" target="_blank" class="text-gray-800 text-hover-primary">Contact Support at : <b style="color: #4e4d4d;">customercare@packpal.pk</b></a>
+            <a href="#" target="_blank" class="text-gray-800 text-hover-primary">Contact Support at : <b style="color: #4e4d4d;">customercare@packpal.pk</b></a>
         </div>
         <!--end::Copyright-->
         <!--begin::Menu-->
         <ul class="menu menu-gray-600 menu-hover-primary fw-bold order-1">
             <li class="menu-item">
-                <a href="https://keenthemes.com" target="_blank" class="menu-link px-2">About</a>
+                <a href="{{route('about')}}" target="_blank" class="menu-link px-2">How to Sell on Packpal</a>
             </li>
             <li class="menu-item">
-                <a href="https://devs.keenthemes.com" target="_blank" class="menu-link px-2">Support </a>
+                <a href="{{route('about')}}" target="_blank" class="menu-link px-2">How to Source Packaging</a>
             </li>
-          
+            <li class="menu-item">
+                <a href="{{route('about')}}" target="_blank" class="menu-link px-2">Terms & Conditions of BIDDING </a>
+            </li>
+            <li class="menu-item">
+                <a href="{{route('about')}}" target="_blank" class="menu-link px-2">Privacy Policy </a>
+            </li>
+            <li class="menu-item">
+                <a href="{{route('about')}}" target="_blank" class="menu-link px-2">Terms of Use </a>
+            </li>
+            <li class="menu-item">
+                <a href="{{route('feed_back')}}" target="_blank" class="menu-link px-2">Your Feedback</a>
+            </li>
             <li class="menu-item">
                 <a href="#" target="_blank" class="menu-link px-2"><i class="fa fa-facebook" aria-hidden="true"></i></a>
             </li>

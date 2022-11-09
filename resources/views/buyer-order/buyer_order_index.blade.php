@@ -246,7 +246,7 @@
 
                                                         @endif
                                                         @if($title == 'In-process')
-                                                        <a href='{{route('order_complete',['orderId'=>$order[$i]->id])}}' class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-success" data-bs-toggle="tooltip" data-bs-original-title="Complete Order" >
+                                                        <a href='{{route('order_complete',['orderId'=>$order[$i]->id,'bidId'=>$order[$i]->bid_id])}}' class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-success" data-bs-toggle="tooltip" data-bs-original-title="Complete Order" >
                                                             <span class="svg-icon svg-icon-2">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                                     <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5" fill="black" />

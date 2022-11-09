@@ -49,7 +49,7 @@
             <div class="user-profile-image d-flex">
               <label class="profile-pict" for="profile_image">
                 <img
-                  src="{{ asset('theme/website-assets/images/user/s2.png')}}"
+                  src="{{asset('/profile/' . $bidDetail[0]->profile_picture)}}"
                   class="profile-pict-img img-fluid"
                   alt=""
                 />
@@ -103,13 +103,52 @@
          
           <div class="profile-card">
             <section id="aboutSeller">
-            <div class="stats-desc">
-              <ul class="user-stats">
+            <div class="stats-desc" style="padding: 18px !important;">
+              <ul class="user-stats" style="padding-bottom: 12px !important;padding-top: 8px!important;">
                 <li>From<strong>{{ucwords($bidDetail[0]->address)}}</strong></li>
                 <li>Member since<strong>{{DATE('Y-m-d',strtotime($bidDetail[0]->created_at))}}</strong></li>
-                {{-- <li>Avg. Response Time<strong>1 hour</strong></li> --}}
               </ul>
-            
+              @if(isset($bidDetail[0]->company_name) || isset($bidDetail[0]->primary_business))
+              <ul class="user-stats" style="padding-bottom: 12px !important;padding-top: 8px!important;">
+                @if(isset($bidDetail[0]->company_name))
+                <li>Company Name<strong>{{ucwords($bidDetail[0]->company_name)}}</strong></li>
+                @endif
+                @if(isset($bidDetail[0]->company_name))
+                <li>Primary Business<strong>{{ucwords($bidDetail[0]->primary_business)}}</strong></li>
+                @endif
+              </ul>
+              @endif
+              @if(isset($bidDetail[0]->establishment_year) || isset($bidDetail[0]->annual_sales))
+              <ul class="user-stats" style="padding-bottom: 12px !important;padding-top: 8px!important;">
+                @if(isset($bidDetail[0]->establishment_year))
+                <li>Year of Business Establishment<strong>{{DATE('Y-m-d',strtotime($bidDetail[0]->establishment_year))}}</strong></li>
+                @endif
+                @if(isset($bidDetail[0]->annual_sales))
+                <li>Annual Sales in PKR<strong>{{ucwords($bidDetail[0]->annual_sales)}}</strong></li>
+                @endif
+              </ul>
+              @endif
+              @if(isset($bidDetail[0]->category_name) || isset($bidDetail[0]->first_name))
+              <ul class="user-stats" style="padding-bottom: 12px !important;padding-top: 8px!important;">
+                @if(isset($bidDetail[0]->category_name))
+                <li>Category<strong>{{ucwords($bidDetail[0]->category_name)}}</strong></li>
+                @endif
+                @if(isset($bidDetail[0]->first_name))
+                <li>Contact Person Name<strong>{{ucwords($bidDetail[0]->first_name)}} {{ucwords($bidDetail[0]->last_name)}}</strong></li>
+                @endif
+              </ul>
+              @endif
+              @if(isset($bidDetail[0]->designation) || isset($bidDetail[0]->city) || isset($bidDetail[0]->country))
+              <ul class="user-stats" style="padding-bottom: 12px !important;padding-top: 8px!important;">
+                @if(isset($bidDetail[0]->designation))
+                <li>Designation<strong>{{ucwords($bidDetail[0]->designation)}}</strong></li>
+                @endif
+                @if(isset($bidDetail[0]->city) || isset($bidDetail[0]->country))
+                <li>City & Country<strong>{{ucwords($bidDetail[0]->city)}} {{ucwords($bidDetail[0]->country)}}</strong></li>
+                @endif
+              </ul>
+              @endif
+
             </div>
           </section>
             {{-- <div id="packagesTable" class="table-package">

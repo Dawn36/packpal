@@ -71,24 +71,21 @@
                 <div class="card-body ">
 
                     <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder">
-                        <!--begin::Nav item-->
                         <li class="nav-item">
                             <a class="nav-link text-active-primary py-5 me-6 position-relative {{$active}}" href="{{ route('bid_status', ['status' => 'active']) }}"><span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-success">{{$bidSatatusCount[0]->active_bids == null ? '0' : $bidSatatusCount[0]->active_bids}}</span>Active Bids</a>
                         </li>
-                        <!--end::Nav item-->
-                        <!--begin::Nav item-->
                         <li class="nav-item">
-                            <a class="nav-link text-active-primary py-5 me-6 position-relative {{$inactive}}" href="{{ route('bid_status', ['status' => 'inactive']) }}"><span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-danger">{{$bidSatatusCount[0]->active_bids == null ? '0' : $bidSatatusCount[0]->inactive_bids}}</span>In-Active Bids</a>
-                        </li>
-                        <!--end::Nav item-->
-                        <!--begin::Nav item-->
-                        <li class="nav-item">
-                            <a class="nav-link text-active-primary py-5 me-6 position-relative {{$pending}}" href="{{ route('bid_status', ['status' => 'pending']) }}"><span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-warning">{{$bidSatatusCount[0]->active_bids == null ? '0' : $bidSatatusCount[0]->pending_bids}}</span>Pending for Approval</a>
+                            <a class="nav-link text-active-primary py-5 me-6 position-relative {{$inactive}}" href="{{ route('bid_status', ['status' => 'inactive']) }}"><span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-danger">{{$bidSatatusCount[0]->inactive_bids == null ? '0' : $bidSatatusCount[0]->inactive_bids}}</span>In-Active Bids</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-active-primary py-5 me-6 position-relative {{$denied}}" href="{{ route('bid_status', ['status' => 'reject']) }}"><span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-danger">{{$bidSatatusCount[0]->active_bids == null ? '0' : $bidSatatusCount[0]->denid_bids}}</span>Rejected Bids</a>
+                            <a class="nav-link text-active-primary py-5 me-6 position-relative {{$completed}}" href="{{ route('bid_status', ['status' => 'completed']) }}"><span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-info">{{$bidSatatusCount[0]->completed_bids == null ? '0' : $bidSatatusCount[0]->completed_bids}}</span>Completed Bids</a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link text-active-primary py-5 me-6 position-relative {{$pending}}" href="{{ route('bid_status', ['status' => 'pending']) }}"><span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-warning">{{$bidSatatusCount[0]->pending_bids == null ? '0' : $bidSatatusCount[0]->pending_bids}}</span>Pending for Approval</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-active-primary py-5 me-6 position-relative {{$denied}}" href="{{ route('bid_status', ['status' => 'reject']) }}"><span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-danger">{{$bidSatatusCount[0]->denid_bids == null ? '0' : $bidSatatusCount[0]->denid_bids}}</span>Rejected Bids</a>
+                        </li>
                     </ul>
                 </div>
 
@@ -164,7 +161,9 @@
                                             <th>Category</th>
                                             <th>Status</th>
                                             <th>Creation Date</th>
+                                            @if($status  != 'completed')
                                             <th>Actions</th>
+                                            @endif
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -196,6 +195,7 @@
                                             </td>
 
                                             <td>{{Date("Y-m-d",strtotime($bids[$i]->created_at))}}</td>
+                                            @if($status  != 'completed')
                                             <td>
                                                 @if($bids[$i]->status == 'denied')
                                                 <button type="button" class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-primary" data-bs-original-title="Comment" onclick="rejectBids('{{$bids[$i]->id}}')">
@@ -230,6 +230,7 @@
                                                     </button>
                                                 </form>
                                             </td>
+                                            @endif
                                             </tr>
                                             @endfor
                                     </tbody>

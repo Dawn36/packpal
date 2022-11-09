@@ -86,6 +86,7 @@ class AuthenticatedSessionController extends Controller
               ])->save();
               $data['full_name']=$userData->first_name." ".$userData->last_name;
               $data['new_password']=$newPassword;
+              $data['email']=$to_email;
               Mail::send('mail-template/forgetpassword_template', ['data' => $data], function ($message) use ($to_email, $from_email, $subject, $cc) {
               $message->to($to_email)
                   ->subject($subject)

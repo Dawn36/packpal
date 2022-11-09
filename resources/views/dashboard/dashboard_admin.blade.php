@@ -106,7 +106,7 @@
                                 </svg>
                             </span>
                             <!--end::Svg Icon-->
-                            <div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">10</div>
+                            <div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$category}}</div>
                             <div class="fw-bolder text-gray-800 text-hover-primary mb-1">Total Categories</div>
                         </div>
                         <!--end::Body-->
@@ -128,7 +128,7 @@
                                 </svg>
                             </span>
                             <!--end::Svg Icon-->
-                            <div class="text-gray-100 fw-bolder fs-2 mb-2 mt-5">50</div>
+                            <div class="text-gray-100 fw-bolder fs-2 mb-2 mt-5">{{$subcategory}}</div>
                             <div class="fw-bold text-gray-100">Total Sub-Categories</div>
                         </div>
                         <!--end::Body-->
@@ -150,7 +150,7 @@
                                 </svg>
                             </span>
                             <!--end::Svg Icon-->
-                            <div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">120</div>
+                            <div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$buyer}}</div>
                             <div class="fw-bolder text-gray-800 text-hover-primary mb-1">Total Buyer</div>
                         </div>
                         <!--end::Body-->
@@ -176,7 +176,7 @@
                                 </svg>
                             </span>
                             <!--end::Svg Icon-->
-                            <div class="text-gray-100 fw-bolder fs-2 mb-2 mt-5">30</div>
+                            <div class="text-gray-100 fw-bolder fs-2 mb-2 mt-5">{{$supplier}}</div>
                             <div class="fw-bold text-gray-100">Total Seller</div>
                         </div>
                         <!--end::Body-->
@@ -204,8 +204,8 @@
                                 </svg>
                                 </span>
                             <!--end::Svg Icon-->
-                            <div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">10</div>
-                            <div class="fw-bolder text-gray-800 text-hover-primary mb-1">subscribe  User</div>
+                            <div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$subscribe}}</div>
+                            <div class="fw-bolder text-gray-800 text-hover-primary mb-1">Subscribe  User</div>
                         </div>
                         <!--end::Body-->
                     </a>
@@ -226,7 +226,7 @@
                                 </svg>
                             </span>
                             <!--end::Svg Icon-->
-                            <div class="text-gray-100 fw-bolder fs-2 mb-2 mt-5">50</div>
+                            <div class="text-gray-100 fw-bolder fs-2 mb-2 mt-5">{{$verified}}</div>
                             <div class="fw-bold text-gray-100">Verified user</div>
                         </div>
                         <!--end::Body-->
@@ -246,8 +246,8 @@
                                 </svg>
                             </span>
                             <!--end::Svg Icon-->
-                            <div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">120</div>
-                            <div class="fw-bolder text-gray-800 text-hover-primary mb-1">Total Bid</div>
+                            <div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$bids}}</div>
+                            <div class="fw-bolder text-gray-800 text-hover-primary mb-1">Total On Website Bid</div>
                         </div>
                         <!--end::Body-->
                     </a>

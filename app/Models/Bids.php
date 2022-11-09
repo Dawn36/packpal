@@ -53,7 +53,11 @@ class Bids extends Model
     SUM(CASE
         WHEN `status` = 'inactive' THEN 1
         ELSE 0
-    END) AS inactive_bids
+    END) AS inactive_bids,
+    SUM(CASE
+        WHEN `status` = 'completed' THEN 1
+        ELSE 0
+    END) AS completed_bids
     from `bids` b
     where deleted_at is null and user_id='$userId'"));
     }

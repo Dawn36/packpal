@@ -1,40 +1,17 @@
 <footer class="">
     <div class="container">
-      <div class="d-flex justify-content-between">
-        <div class="footer-list">
-          <h2>About</h2>
-          <ul class="list">
-            <li><a href="{{route('about')}}">About Us</a></li>
-            <li><a href="{{route('feed_back')}}">Your Feedback</a></li>
-            <li><a href="{{route('about')}}">Contact Us</a></li>
-          </ul>
+      <div class="d-flex " style="justify-content: center; !important">
+        <div class="">
+          <p><a href="{{route('about')}}">About Us</a> | 
+            <a href="{{route('about')}}">Sell With Us</a> |
+            <a href="{{route('about')}}">How to Source Packaging</a> |
+            <a href="{{route('feed_back')}}">Your Feedback</a> | 
+            <a href="{{route('about')}}">Contact Us</a> |
+            <a href="{{route('about')}}">Advertise With Us</a> |
+            <a href="{{route('about')}}">Privacy Policy</a> |
+            <a href="{{route('about')}}">Terms of Use</a>
+          </p>
         </div>
-        <div class="footer-list">
-          <h2>Sell</h2>
-          <ul class="list">
-            <li><a href="{{route('about')}}">Sell With Us</a></li>
-          </ul>
-        </div>
-        <div class="footer-list">
-          <h2>Packaging</h2>
-          <ul class="list">
-            <li><a href="{{route('about')}}">How to Source Packaging</a></li>
-          </ul>
-        </div>
-        <div class="footer-list">
-          <h2>Advertise </h2>
-          <ul class="list">
-            <li><a href="{{route('about')}}">Advertise With Us</a></li>
-          </ul>
-        </div>
-        <div class="footer-list">
-          <h2>Privacy Policy</h2>
-          <ul class="list">
-            <li><a href="{{route('about')}}">Privacy & Policy</a></li>
-            <li><a href="{{route('about')}}">Terms of Use</a></li>
-          </ul>
-        </div>
-        
       </div>
       <div class="copyright">
         <div class="logo">

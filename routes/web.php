@@ -56,12 +56,12 @@ Route::Get('category_listing', [WebsiteController::class, 'categoryListing'])->n
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
-Route::Get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
 Route::Get('get_user_contact', [ChatController::class, 'userContact'])->name('get_user_contact');
 Route::Get('message_store', [ChatController::class, 'storeMessage'])->name('message_store');
 
 Route::middleware(['auth'])->group(function () {
+    Route::Get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
     Route::get('bid_now', [WebsiteController::class, 'bidNow'])->name('bid_now');
     Route::post('bid_now', [WebsiteController::class, 'bidNowStore'])->name('bid_now');
     Route::Get('subscribe_modal', [WebsiteController::class, 'subscribeModal'])->name('subscribe_modal');
@@ -88,7 +88,7 @@ Route::middleware(['auth'])->group(function () {
     Route::Get('order_edit', [OrderController::class, 'edit'])->name('order_edit');
 
     Route::Get('order_status/{status}', [OrderController::class, 'index'])->name('order_status');
-    Route::Get('order_complete/{orderId}', [OrderController::class, 'completeOrder'])->name('order_complete');
+    Route::Get('order_complete/{orderId}/{bidId}', [OrderController::class, 'completeOrder'])->name('order_complete');
     Route::Post('order_accept_reject/{id}/{status}/{bidId}', [OrderController::class, 'orderAcceptReject'])->name('order_accept_reject');
     Route::Get('review_create', [OrderController::class, 'reviewCreate'])->name('review_create');
     Route::Post('review_store', [OrderController::class, 'reviewStore'])->name('review_store');

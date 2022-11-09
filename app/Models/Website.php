@@ -79,8 +79,17 @@ class Website extends Model
         b.`location`,
         b.`target_price`,
         b.`sub_categories_id` AS sub_cat_id,
+        c.`category_name`,
         u.id AS user_id ,
+        u.profile_picture,
         u.`first_name`,
+        u.`company_name`,
+        u.`primary_business`,
+        u.`establishment_year`,
+        u.`annual_sales`,
+        u.`designation`,
+        u.`city`,
+        u.`country`,
         u.`middle_name`,
         u.`last_name`,
         u.`address`,
@@ -89,6 +98,8 @@ class Website extends Model
         `bids` b 
         inner join `users` u 
           on u.`id` = b.`user_id` 
+          left join `categories` c
+          on c.`id`=b.`categories_id`
           left join `orders` o
           on b.`id`=o.`bids_id`
           AND o.`status`='offer'

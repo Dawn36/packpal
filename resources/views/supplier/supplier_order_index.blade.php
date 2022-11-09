@@ -15,27 +15,9 @@
         <!--begin::Page title-->
         <div class="page-title d-flex flex-column me-3">
             <!--begin::Title-->
-            <h1 class="d-flex text-white fw-bolder my-1 fs-3">Order</h1>
+            <h1 class="d-flex text-white fw-bolder my-1 fs-3">{{$titleTop}}</h1>
             <!--end::Title-->
             <!--begin::Breadcrumb-->
-            <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
-                <!--begin::Item-->
-                <li class="breadcrumb-item text-white opacity-75">
-                    <a href="/dashboard" class="text-white text-hover-primary">Home</a>
-                </li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="breadcrumb-item">
-                    <span class="bullet bg-white opacity-75 w-5px h-2px"></span>
-                </li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="breadcrumb-item text-white opacity-75">
-                    <a href="#" class="text-white text-hover-primary">{{$title}} Order</a>
-                </li>
-
-            </ul>
-            <!--end::Breadcrumb-->
         </div>
 
     </div>
@@ -54,7 +36,7 @@
                     <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder">
                         <!--begin::Nav item-->
                         <li class="nav-item">
-                            <a class="nav-link text-active-primary py-5 me-6 position-relative {{$active}}" href="{{ route('supplier_order_status', ['status' => 'offer']) }}">Offer<span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-warning">{{$orderStatusCount[0]->offer == null ? '0' : $orderStatusCount[0]->offer}}</span></a>
+                            <a class="nav-link text-active-primary py-5 me-6 position-relative {{$active}}" href="{{ route('supplier_order_status', ['status' => 'offer']) }}">Offers<span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-warning">{{$orderStatusCount[0]->offer == null ? '0' : $orderStatusCount[0]->offer}}</span></a>
                         </li>
                         <!--end::Nav item-->
                         <!--begin::Nav item-->
@@ -67,7 +49,7 @@
                             <a class="nav-link text-active-primary py-5 me-6 position-relative {{$complete}}" href="{{ route('supplier_order_status', ['status' => 'complete']) }}">Completed<span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-success">{{$orderStatusCount[0]->complete == null ? '0' : $orderStatusCount[0]->complete}}</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-active-primary py-5 me-6 position-relative {{$reject}}" href="{{ route('supplier_order_status', ['status' => 'reject']) }}">Reject<span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-danger">{{$orderStatusCount[0]->reject == null ? '0' : $orderStatusCount[0]->reject}}</span></a>
+                            <a class="nav-link text-active-primary py-5 me-6 position-relative {{$reject}}" href="{{ route('supplier_order_status', ['status' => 'reject']) }}">Rejected<span class="position-absolute top-100 start-100 translate-middle  badge badge-circle badge-danger">{{$orderStatusCount[0]->reject == null ? '0' : $orderStatusCount[0]->reject}}</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-active-primary py-5 me-6 {{$reviews}}" href="{{ route('supplier_order_status', ['status' => 'reviews']) }}">Reviews</a>
@@ -85,9 +67,9 @@
                         <!--begin::Card header-->
                         <div class="p-10">
                             <!--begin::Heading-->
-                            <h1 class="anchor fw-bolder mb-5" id="zero-configuration">
+                            {{-- <h1 class="anchor fw-bolder mb-5" id="zero-configuration">
                                 <a href="javascript:;"></a>Order {{$title}}
-                            </h1>
+                            </h1> --}}
                             <!--begin::Notice-->
                             <div class="d-flex align-items-center rounded py-5 px-4 bg-light-{{$color}}">
                                 <!--begin::Icon-->
@@ -117,7 +99,7 @@
                                 </div>
                                 <!--end::Icon-->
                                 <!--begin::Description-->
-                                <div class="text-gray-700 fw-bold fs-6 lh-lg">Here we have a list of all of the {{$title}} .</div>
+                                <div class="text-gray-700 fw-bold fs-6 lh-lg">{{$heading}}</div>
                                 <!--end::Description-->
                             </div>
                             <!--end::Notice-->
@@ -192,7 +174,7 @@
                                                         <a href="javascript:;" class="btn btn-lg btn-light-{{$color}} fw-bolder ms-2 fs-8 py-1 px-3">{{$title}}</a>
                                                     </td>
                                                     <td>
-                                                        @if($title == 'Offer')
+                                                        @if($title == 'Offers')
                                                         <a href="{{route('check_map_chat',['sUserId'=>$order[$i]->s_user_id,'bUserId'=>$order[$i]->b_user_id])}}" class="btn btn-icon btn-active-light-primary position-relative btn btn-icon btn-active-light-primary btn-custom w-30px h-30px w-md-40px h-md-40px" id="kt_drawer_chat_toggle">
                                                             <span class="svg-icon svg-icon-1">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">

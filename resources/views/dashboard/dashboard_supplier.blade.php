@@ -81,7 +81,7 @@
                         <div class="card-body d-flex align-items-center pt-3 pb-0">
                             <div class="d-flex flex-column flex-grow-1 py-2 py-lg-13 me-2">
                                 <a href="#" class="fw-bolder fs-4 mb-2 text-hover-primary">Hi, {{ ucwords(Auth::user()->first_name) }} {{ ucwords(Auth::user()->last_name) }}</a>
-                                <span class="fw-bold text-muted fs-5">Buyer &amp; Software Founder</span>
+                                <span class="fw-bold text-muted fs-5">{{ Auth::user()->roles->first()->display_name }}</span>
                             </div>
                             <img src="{{ asset('/profile/' . Auth::user()->profile_picture)}}" alt="" class="dashboard-welcome-card h-100px" style="width: 36% !important;">
                         </div>
@@ -106,7 +106,7 @@
                                     </svg>
                             </span>
                             <!--end::Svg Icon-->
-                            <div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">10</div>
+                            <div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$offer}}</div>
                             <div class="fw-bolder text-gray-800 text-hover-primary mb-1">Active Offers</div>
                         </div>
                         <!--end::Body-->
@@ -126,8 +126,8 @@
                                     </svg>
                             </span>
                             <!--end::Svg Icon-->
-                            <div class="text-gray-100 fw-bolder fs-2 mb-2 mt-5">50</div>
-                            <div class="fw-bold text-gray-100">Approved Bids</div>
+                            <div class="text-gray-100 fw-bolder fs-2 mb-2 mt-5">{{$inProcess}}</div>
+                            <div class="fw-bold text-gray-100">In-Process Offers</div>
                         </div>
                         <!--end::Body-->
                     </a>
@@ -146,8 +146,8 @@
                                     </svg>
                             </span>
                             <!--end::Svg Icon-->
-                            <div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">120</div>
-                            <div class="fw-bolder text-gray-800 text-hover-primary mb-1">Rejected Bids</div>
+                            <div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$reject}}</div>
+                            <div class="fw-bolder text-gray-800 text-hover-primary mb-1">Rejected Offers</div>
                         </div>
                         <!--end::Body-->
                     </a>
@@ -167,7 +167,7 @@
                                     </svg>
                             </span>
                             <!--end::Svg Icon-->
-                            <div class="text-gray-100 fw-bolder fs-2 mb-2 mt-5">30</div>
+                            <div class="text-gray-100 fw-bolder fs-2 mb-2 mt-5">{{$reviewsGiven}}</div>
                             <div class="fw-bold text-gray-100">Total Reviews</div>
                         </div>
                         <!--end::Body-->
@@ -190,7 +190,7 @@
                                     </svg>
                                 </span>
                             <!--end::Svg Icon-->
-                            <div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">10</div>
+                            <div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$totalBussiness}}</div>
                             <div class="fw-bolder text-gray-800 text-hover-primary mb-1">Total Business in Rupees</div>
                         </div>
                         <!--end::Body-->

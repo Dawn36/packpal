@@ -52,6 +52,7 @@ function charaterCountTo26($char)
     $char .=strlen($char) >= 26 ? '....' : '';
     return $char;
 }
+
 function toast($alertType,$message)
 {
     session()->flash('message', $message);

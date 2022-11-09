@@ -98,7 +98,13 @@
                                             </span>
                                             <!--end::Svg Icon-->
                                         </a>
-                                        <a href="#" class="btn btn-sm btn-light-success fw-bolder ms-2 fs-8 py-1 px-3">Active</a>
+                                        @if($bids->status == 'completed')
+                                        <a href="#" class="btn btn-lg btn-light-info fw-bolder ms-2 fs-8 py-1 px-3">Completed</a>
+                                        @elseif($bids->status == 'inactive')
+                                        <a href="#" class="btn btn-lg btn-light-danger fw-bolder ms-2 fs-8 py-1 px-3">In-Active</a>
+                                        @else
+                                        <a href="#" class="btn btn-lg btn-light-success fw-bolder ms-2 fs-8 py-1 px-3">Active</a>
+                                        @endif
                                     </div>
                                     <!--end::Name-->
                                     <!--begin::Info-->
@@ -143,9 +149,11 @@
                                 <!--end::User-->
                                 <!--begin::Actions-->
                                 @if(Auth::user()->hasRole('buyer'))
+                                @if($bids->status != 'completed')
                                 <div class="d-flex my-4">
                                     <button class="btn btn-sm btn-circle btn-primary me-2" onclick="editBids('{{$bids->id}}')">Edit Bid</button>
                                 </div>
+                                @endif
                                 @endif
                                 <!--end::Actions-->
                             </div>
@@ -218,7 +226,13 @@
                                 <div class="d-flex align-items-center w-200px w-sm-300px flex-column mt-3">
                                     <div class="d-flex justify-content-end w-100 mt-auto mb-2">
                                         <span class="fw-bold fs-6 text-gray-400">Status</span>
+                                        @if($bids->status == 'completed')
+                                        <a href="#" class="btn btn-lg btn-light-info fw-bolder ms-2 fs-8 py-1 px-3">Completed</a>
+                                        @elseif($bids->status == 'inactive')
+                                        <a href="#" class="btn btn-lg btn-light-danger fw-bolder ms-2 fs-8 py-1 px-3">In-Active</a>
+                                        @else
                                         <a href="#" class="btn btn-lg btn-light-success fw-bolder ms-2 fs-8 py-1 px-3">Active</a>
+                                        @endif
                                     </div>
                                 </div>
                                 <!--end::Progress-->

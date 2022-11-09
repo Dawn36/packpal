@@ -89,8 +89,11 @@ class OrderController extends Controller
         $orderId = $request->orderId;
         return view('buyer-order/buyer_order_feedback', compact('orderId'));
     }
-    public function completeOrder($orderId)
+    public function completeOrder($orderId,$bidId)
     {
+        $bids=Bids::find($bidId);
+        $bids['status']='completed';
+        $bids->save();
         $order = Order::Find($orderId);
         $order->status = 'complete';
         $order->save();
@@ -155,29 +158,40 @@ class OrderController extends Controller
         $userData = '';
         $rating = '';
         $review = '';
+        $heading='';
+        $titleTop='';
         $ratingSupplier = '';
         if ($status == 'offer') {
-            $title = "Offer";
+            $title = "Offers";
+            $titleTop='List of Offers';
+            $heading='Here we have list of all the offers posted against the BIDs posted by the Buyers. Your offer can either be ACCEPTED or REJECTED by the Buyer. Use our Chat feature here to chat with the Buyer directly and even review the BID details again by clicking on the Bid Name. You may Contact Support for any issues.';
             $active = 'active';
             $color = 'warning';
         }
         if ($status == 'inprocess') {
             $title = "In-process";
+            $titleTop='List of In-Process Offers';
+            $heading='Here we have list of all the offers that are accepted by the Buyers and are now In-process to Completion. You can still use our Chat feature here and even re-negotiate price. The Offer can also be rejected due to any possible reason(s). You may Contact Support for any issues.';
             $inactive = 'active';
             $color = 'info';
         }
         if ($status == 'complete') {
             $title = "Completed";
+            $titleTop='List of Completed Offers';
+            $heading='Here we have list of all the offers that were In-process and are now Completed. You can still use our Chat feature here and ask buyers for Review. The Reviews and Feedback may help other Buyers to do business with confidence. You may Contact Support for any issues.';
             $complete = 'active';
             $color = 'success';
         }
         if ($status == 'reject') {
             $title = "Rejected";
+            $titleTop='List of Rejected Offers';
+            $heading='Here we have list of all the offers that are rejected by the Buyers. You may Contact Support for any issues';
             $reject = 'active';
             $color = 'danger';
         }
         if ($status == 'reviews') {
             $reviews = 'active';
+            $titleTop='Reviews';
             $userData = User::find($userId);
             $rating = $orderObj->ratingCount($userId);
             $review = $orderObj->orderDataBitReview($bidId = '', $userId);
@@ -186,7 +200,7 @@ class OrderController extends Controller
         }
         $order = $orderObj->orderDataSupplier($status, $userId);
         $orderStatusCount = $orderObj->orderStatusCount($userId);
-        return view('supplier/supplier_order_index', compact('orderStatusCount', 'order', 'active', 'inactive', 'complete', 'reject', 'title', 'color', 'reviews', 'userData', 'review', 'rating', 'ratingSupplier'));
+        return view('supplier/supplier_order_index', compact('orderStatusCount', 'order', 'active','titleTop', 'inactive', 'complete', 'reject', 'title', 'color', 'reviews', 'userData', 'review', 'rating', 'ratingSupplier','heading'));
     }
     /**
      * Show the form for creating a new resource.
