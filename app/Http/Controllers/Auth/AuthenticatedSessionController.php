@@ -76,8 +76,8 @@ class AuthenticatedSessionController extends Controller
             $userData=User::find($userData[0]->id);
             $to_email = $request->email;
               $from_email = env('MAIL_FROM_ADDRESS');
-              $subject = 'Reset password';
-              $cc = 'dawngill08@gmail.com';
+              $subject = 'REQUEST FOR PASSWORD RESET';
+              $cc = env('CCEMAIL');
               $newPassword=$this->randomPassword();
          
               $userData->fill([

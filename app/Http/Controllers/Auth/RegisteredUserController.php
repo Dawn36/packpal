@@ -10,6 +10,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rules;
 
 class RegisteredUserController extends Controller
@@ -81,6 +82,22 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
+
+        $sendEmail=env('SEND_EMAIL');
+        $to_email=$request->email;
+        $from_email = env('MAIL_FROM_ADDRESS');
+        $subject = 'Welcome';
+        $cc = env('CCEMAIL');
+        if($sendEmail == '1')
+        {
+            Mail::send('mail-template/register_template', [], function ($message) use ($to_email, $from_email, $subject, $cc) {
+                $message->to($to_email)
+                    ->subject($subject)
+                    ->cc($cc);
+                $message->from($from_email);
+          });    
+
+        }
 
         return redirect(RouteServiceProvider::HOME);
     }
