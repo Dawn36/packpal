@@ -11,7 +11,7 @@
                 <tr>
                     <td align="center" valign="center" style="text-align:center; padding: 40px">
                         <a href="{{env('URL')}}" rel="noopener" target="_blank">
-                            <img alt="Logo" src="{{ asset('theme/assets/media/logos/logo-5.png')}}" />
+                            <img alt="Logo" style="width: 40%;" src="{{ asset('theme/assets/media/logos/logo-5.png')}}" />
                         </a>
                     </td>
                 </tr>
