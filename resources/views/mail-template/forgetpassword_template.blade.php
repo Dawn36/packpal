@@ -5,7 +5,7 @@
             margin: 0;
         }
     </style>
-    <div style="font-family:Arial,Helvetica,sans-serif; line-height: 1.5; font-weight: normal; font-size: 15px; color: #2F3044; min-height: 100%; margin:0; padding:0; width:100%; background-color:#edf2f7">
+    <div style="font-family:Arial,Helvetica,sans-serif; line-height: 1.5; font-weight: normal; font-size: 15px; color: #2F3044; min-height: 100%; margin:0; padding:0; width:100%; background-color:#edf2f7;background-image: url('{{ asset('theme/assets/media/logos/bg5.jpg')}}')">
         <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;margin:0 auto; padding:0; max-width:600px">
             <tbody>
                 <tr>
@@ -34,7 +34,7 @@
                                 <a href="https://keenthemes.com/password/reset/07579ae29b6?email=max%40kt.com" rel="noopener" target="_blank" style="text-decoration:none;color: #009EF7">https://keenthemes.com/account/password/reset/07579ae29b6?email=max%40kt.com</a>
                             </div> -->
                             <!--end:Email content-->
-                            <div style="padding-bottom: 10px">Kind regards,
+                            <div style="padding-bottom: 30px">Kind regards,
                                 <br>The PackPal Team,
                                 <!-- <tr>
                                     <td align="center" valign="center" style="font-size: 13px; text-align:center;padding: 20px; color: #6d6e7c;">
