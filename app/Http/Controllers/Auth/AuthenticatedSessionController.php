@@ -74,7 +74,7 @@ class AuthenticatedSessionController extends Controller
 
             $userData=User::where('email', $request->email)->get();
             $userData=User::find($userData[0]->id);
-            $to_email = $request->email;
+            $toEmail = $request->email;
               $from_email = env('MAIL_FROM_ADDRESS');
               $subject = 'REQUEST FOR PASSWORD RESET';
               $cc = env('CCEMAIL');
@@ -86,13 +86,10 @@ class AuthenticatedSessionController extends Controller
               ])->save();
               $data['full_name']=$userData->first_name." ".$userData->last_name;
               $data['new_password']=$newPassword;
-              $data['email']=$to_email;
-              Mail::send('mail-template/forgetpassword_template', ['data' => $data], function ($message) use ($to_email, $from_email, $subject, $cc) {
-              $message->to($to_email)
-                  ->subject($subject)
-                  ->cc($cc);
-              $message->from($from_email);
-          });    
+              $data['email']=$toEmail;
+              $fileName='forgetpassword_template';
+              sendEmail($toEmail,$subject,$fileName,$data);
+               
         }
        
         return redirect()->route('login');
