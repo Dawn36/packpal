@@ -83,21 +83,11 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        $sendEmail=env('SEND_EMAIL');
-        $to_email=$request->email;
-        $from_email = env('MAIL_FROM_ADDRESS');
+        $toEmail=$request->email;
         $subject = 'Welcome';
-        $cc = env('CCEMAIL');
-        if($sendEmail == '1')
-        {
-            Mail::send('mail-template/register_template', [], function ($message) use ($to_email, $from_email, $subject, $cc) {
-                $message->to($to_email)
-                    ->subject($subject)
-                    ->cc($cc);
-                $message->from($from_email);
-          });    
+        $fileName='register_template';
+        sendEmail($toEmail,$subject,$fileName);
 
-        }
 
         return redirect(RouteServiceProvider::HOME);
     }

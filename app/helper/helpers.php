@@ -1,4 +1,6 @@
 <?php
+use Illuminate\Support\Facades\Mail;
+
 function sizeFilter($bytes)
 {
     $label = array('B', 'KB', 'MB', 'GB', 'TB', 'PB');
@@ -57,4 +59,23 @@ function toast($alertType,$message)
 {
     session()->flash('message', $message);
     session()->flash('alert-type', $alertType);
+}
+
+function sendEmail($toEmail,$subject,$fileName,$data='')
+{
+    $to_email=$toEmail;
+    $from_email = env('MAIL_FROM_ADDRESS');
+    $subject = $subject;
+    $cc = env('CCEMAIL');
+    $sendEmail=env('SEND_EMAIL');
+    if($sendEmail == '1')
+        {
+            Mail::send("mail-template/$fileName", ['data' => $data], function ($message) use ($to_email, $from_email, $subject, $cc) {
+                $message->to($to_email)
+                    ->subject($subject)
+                    ->cc($cc);
+                $message->from($from_email);
+          });    
+
+        }
 }
