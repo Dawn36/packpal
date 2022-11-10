@@ -177,9 +177,16 @@ class WebsiteController extends Controller
     {
         $userIdAuth = Auth::user()->id;
         $bidId=$request->bidId;
+        $bidDetails=Bids::find($bidId);
         $userId=$request->userId;
         $catId=$request->catId;
         $subCatId=$request->subCatId;
+        $toEmail=Auth::user()->email;
+        $subject="OUR OFFER AGAINST THE (BID NAME) HAS BEEN SENT!";
+        $fileName='offer_send_email_supplier';
+        $data['full_name']=Auth::user()->first_name ." ".Auth::user()->last_name;
+        $data['bid_name']=$bidDetails->bids_name;
+        sendEmail($toEmail,$subject,$fileName,$data);
         if (Order::where('s_user_id', $userIdAuth)->where('bids_id', $bidId)->where('status','offer')->orWhere('status','inprocess')->exists()) {
             $orderData=Order::where('s_user_id', $userIdAuth)->where('bids_id', $bidId)->where('status','offer')->orWhere('status','inprocess')->get();
             return view('web-site/bid_now_message',compact('orderData'));
