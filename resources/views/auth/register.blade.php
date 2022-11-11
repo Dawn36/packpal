@@ -192,27 +192,20 @@
                                 </div>
                               
                             </div>
-                            <div class="row fv-row mb-7">
-                                <div class="col-xl-12">
-                                    <label class="form-label fw-bolder text-dark fs-6">I’m a Seller of:</label>
-                                    <textarea class="form-control form-control-lg form-control-solid" type="text" placeholder="What you sell? Use ',' as separator for multiple selling products" id="seller_of" name="seller_of" autocomplete="off" ></textarea>
-                                </div>
+                        </div>
+                        <div class="row fv-row mb-7">
+                            <div class="col-xl-12">
+                                <label class="form-label fw-bolder text-dark fs-6">I’m a Seller of:</label>
+                                <textarea class="form-control form-control-lg form-control-solid" type="text" placeholder="What you sell? Use ',' as separator for multiple selling products" id="seller_of" name="seller_of" autocomplete="off" ></textarea>
                             </div>
-                            <div class="row fv-row mb-7">
-                                <div class="col-xl-12">
-                                    <label class="form-label fw-bolder text-dark fs-6">I’m a Buyer of:</label>
-                                    <textarea class="form-control form-control-lg form-control-solid" type="text" placeholder="What you buy? Use ',' as separator for multiple buying products " id="buyer_of" name="buyer_of" autocomplete="off" ></textarea>
-                                </div>
+                        </div>
+                        <div class="row fv-row mb-7">
+                            <div class="col-xl-12">
+                                <label class="form-label fw-bolder text-dark fs-6">I’m a Buyer of:</label>
+                                <textarea class="form-control form-control-lg form-control-solid" type="text" placeholder="What you buy? Use ',' as separator for multiple buying products " id="buyer_of" name="buyer_of" autocomplete="off" ></textarea>
                             </div>
-
-                            
                         </div>
                         <div class="row fv-row mb-7" id='buyer'>
-                            <div class="col-xl-12">
-                                <label class="form-label fw-bolder text-dark fs-6">I’m a buyer of:</label>
-                                <textarea class="form-control form-control-lg form-control-solid" type="text" placeholder="What you buy?" id="buyer_of" name="buyer_of" autocomplete="off" ></textarea>
-
-                            </div>
 
                         </div>
                         <div class="d-flex align-items-center mb-10">
