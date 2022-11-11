@@ -72,19 +72,19 @@ class AuthenticatedSessionController extends Controller
         // {
             toast('success','YOUR PASSWORD HAS BEEN RESET. KINDLY CHECK YOUR EMAIL AND SIGN IN AGAIN');
 
-            $userData=User::where('email', $request->email)->get();
-            $userData=User::find($userData[0]->id);
+            // $userData=User::where('email', $request->email)->get();
+            // $userData=User::find($userData[0]->id);
             $toEmail = $request->email;
               $from_email = env('MAIL_FROM_ADDRESS');
               $subject = 'REQUEST FOR PASSWORD RESET';
               $cc = env('CCEMAIL');
               $newPassword=$this->randomPassword();
          
-              $userData->fill([
-                  'password' => Hash::make($newPassword),
-                  'password_show' => $newPassword
-              ])->save();
-              $data['full_name']=$userData->first_name." ".$userData->last_name;
+            //   $userData->fill([
+            //       'password' => Hash::make($newPassword),
+            //       'password_show' => $newPassword
+            //   ])->save();
+              $data['full_name']='';
               $data['new_password']=$newPassword;
               $data['email']=$toEmail;
               $fileName='forgetpassword_template';
