@@ -144,7 +144,7 @@
                 <li>Designation<strong>{{ucwords($bidDetail[0]->designation)}}</strong></li>
                 @endif
                 @if(isset($bidDetail[0]->city) || isset($bidDetail[0]->country))
-                <li>City & Country<strong>{{ucwords($bidDetail[0]->city)}} {{ucwords($bidDetail[0]->country)}}</strong></li>
+                <li>City & Country<strong>{{ucwords($bidDetail[0]->city)}} {{isset($bidDetail[0]->city) ? ' - ' : ''}} {{ucwords($bidDetail[0]->country)}}</strong></li>
                 @endif
               </ul>
               @endif
