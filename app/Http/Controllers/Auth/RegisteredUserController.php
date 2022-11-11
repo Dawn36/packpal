@@ -48,6 +48,7 @@ class RegisteredUserController extends Controller
         $user = User::create([
             'company_name' => $request->company_name,
             'primary_business' => $request->primary_business,
+            'website' => $request->website,
             'specify' => $request->specify,
             'establishment_year' => $request->establishment_year,
             'annual_sales' => $request->annual_sales,

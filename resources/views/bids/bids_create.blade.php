@@ -209,35 +209,34 @@
                         <div class="card-header">
                             <div class="card-title">
                                 <h2 class="required">Media</h2>
+                                
                             </div>
+                            <a href="#" class="btn btn-sm btn-icon btn-primary" style="background-color: #009ef7; margin-right: 1px;" onclick="appendDiv(this)"><span class="svg-icon svg-icon-1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5" fill="currentColor"/>
+                                <rect x="10.8891" y="17.8033" width="12" height="2" rx="1" transform="rotate(-90 10.8891 17.8033)" fill="currentColor"/>
+                                <rect x="6.01041" y="10.9247" width="12" height="2" rx="1" fill="currentColor"/>
+                                </svg></span></a>
                         </div>
                         <div class="card-body pt-0">
-                            <div class="mb-10 fv-row">
-                                <input id='media' accept=".png,.jpg" type="file" name="file[]" class="form-control mb-2" required multiple onchange="uploadFileLimit()" />
+                            <div id='newDiv' class="row ">
+                            <div class="mb-10  col-lg-11">
+                                <input id='media' accept=".jpeg,.png,.jpg" type="file" name="file[]" class="form-control mb-2" required   />
                                 <div class="text-muted fs-7">Attach only 5 Pictures’ in JPEG, JPG or PNG.</div>
                             </div>
+                            <div class="mb-10  col-lg-1" style="display: none">
+                                <a href="#" class="btn btn-sm btn-icon btn-primary" onclick="removeDiv(this)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="currentColor"/>
+                                    <path opacity="0.5" d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z" fill="currentColor"/>
+                                    <path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="currentColor"/>
+                                    </svg></span></a>
+                            </div>
+                            </div>
+
+                            <div id="appenddiv"></div>
+                            
                         </div>
+                        
 
-
-                        <!--end::Card header-->
-                        <!--begin::Card body-->
-                        <!-- <div class="card-body pt-0">
-                                <div class="fv-row mb-2">
-                                    <div class="dropzone kt_ecommerce_add_product_media1" id="previewsContainer">
-                                        <div class="dz-message needsclick">
-                                            <i class="bi bi-file-earmark-arrow-up text-primary fs-3x"></i>
-                                            <div class="ms-4">
-                                                <h3 class="fs-5 fw-bolder text-gray-900 mb-1">
-                                                    Drop files here or click to upload.</h3>
-                                                <span class="fs-7 fw-bold text-gray-400">Upload
-                                                    up to 10 files</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text-muted fs-7">Set the product media gallery.
-                                </div>
-                            </div> -->
                     </div>
                     <div class="card card-flush py-4">
                         <!--begin::Card header-->
@@ -289,27 +288,50 @@
             alert('Please upload bid thumbnail');
         }
     }
-    function uploadFileLimit()
+    function removeDiv(obj)
     {
-        var fileUpload = document.getElementById('media');
-        for (let index = 0; index < fileUpload.files.length; index++) {
-            var  fileType = fileUpload.files[index].type;
-            var validImageTypes = ['image/jpg', 'image/jpeg', 'image/png'];
-            if (!validImageTypes.includes(fileType)) {
-                // invalid file type code goes here.
-                alert("You are only allowed to upload these file extensions JPEG, JPG or PNG");
-                fileUpload.value='';
-            }
+        obj.parentElement.parentElement.remove()
+        i--;
+    }
+    var i=0;
+    function appendDiv(obj)
+    {
+        if(i== 4)
+        {
+            alert('Attach only 5 Pictures’ in JPEG, JPG or PNG');
+            return false;
         }
+        ids=obj.parentElement.parentElement.children[1].children[0].id
+        aa=$('#'+ids).clone();
+        aa[0].children[1].style.display='block';
+        aa[0].id='';
+        aa[0].children[0].children[0].value='';
+        aa.appendTo("#appenddiv");
+        i++;
+
+
+    }
+    // function uploadFileLimit()
+    // {
+    //     var fileUpload = document.get('media');
+    //     for (let index = 0; index < fileUpload.files.length; index++) {
+    //         var  fileType = fileUpload.files[index].type;
+    //         var validImageTypes = ['image/jpg', 'image/jpeg', 'image/png'];
+    //         if (!validImageTypes.includes(fileType)) {
+    //             // invalid file type code goes here.
+    //             alert("You are only allowed to upload these file extensions JPEG, JPG or PNG");
+    //             fileUpload.value='';
+    //         }
+    //     }
        
 
-        if (parseInt(fileUpload.files.length) > 5){
-            alert("You are only allowed to upload a maximum of 5 files");
-        fileUpload.value='';
+    //     if (parseInt(fileUpload.files.length) > 5){
+    //         alert("You are only allowed to upload a maximum of 5 files");
+    //     fileUpload.value='';
 
-        }
+    //     }
                
-    }
+    // }
 
     function getSubCategoryAjax() {
 

@@ -266,6 +266,10 @@
                                         <input type="text" name="phone_number" value="{{$user->phone_number}}" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Mobile No" value="" required/>
                                         <!--end::Select-->
                                     </div>
+                                    <div class="col-lg-4">
+                                        <label class="fs-6 mt-4 form-label fw-bolder text-dark">Website</label>
+                                        <input class="form-control form-control-lg form-control-solid" value="{{$user->website}}" type="text" placeholder="Enter website" name="website" autocomplete="off" />
+                                    </div>
                                 </div>
                                 <!--end::Row-->
                             </div>
@@ -420,6 +424,8 @@
                                                     <input class="form-control form-control-lg form-control-solid" value="{{$user->certifications}}" type="text" placeholder="ISO 9001 etc" name="certifications" autocomplete="off" />
                                                     <!--end::Select-->
                                                 </div>
+                                               
+                                                
                                             </div>
                                             <!--end::Row-->
                                         </div>

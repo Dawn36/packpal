@@ -177,16 +177,11 @@ class WebsiteController extends Controller
     {
         $userIdAuth = Auth::user()->id;
         $bidId=$request->bidId;
-        $bidDetails=Bids::find($bidId);
         $userId=$request->userId;
         $catId=$request->catId;
         $subCatId=$request->subCatId;
-        $toEmail=Auth::user()->email;
-        $subject="OUR OFFER AGAINST THE (BID NAME) HAS BEEN SENT!";
-        $fileName='offer_send_email_supplier';
-        $data['full_name']=Auth::user()->first_name ." ".Auth::user()->last_name;
-        $data['bid_name']=$bidDetails->bids_name;
-        sendEmail($toEmail,$subject,$fileName,$data);
+       
+
         if (Order::where('s_user_id', $userIdAuth)->where('bids_id', $bidId)->where('status','offer')->orWhere('status','inprocess')->exists()) {
             $orderData=Order::where('s_user_id', $userIdAuth)->where('bids_id', $bidId)->where('status','offer')->orWhere('status','inprocess')->get();
             return view('web-site/bid_now_message',compact('orderData'));
@@ -228,6 +223,25 @@ class WebsiteController extends Controller
             'created_by' => Auth::user()->id,
             'created_at' => Date("Y-m-d"),
         ]);
+        $bidDetails=Bids::find($request->bid_id);
+
+         //supplier
+         $toEmail=Auth::user()->email;
+         $subject="OUR OFFER AGAINST THE $bidDetails->bids_name HAS BEEN SENT!";
+         $fileName='offer_send_email_supplier';
+         $data['full_name']=Auth::user()->first_name ." ".Auth::user()->last_name;
+         $data['bid_name']=$bidDetails->bids_name;
+         sendEmail($toEmail,$subject,$fileName,$data);
+         //buyer
+         $userDetails=User::find($request->user_id);
+         $toEmail=$userDetails->email;
+         $subject="OU RECEIVED A NEW BID AGAINST YOUR $bidDetails->bids_name";
+         $fileName='offer_send_email_supplier';
+         $data['full_name']=$userDetails->first_name ." ".$userDetails->last_name;
+         $data['bid_name']=$bidDetails->bids_name;
+         $data['supplier_name']=Auth::user()->first_name ." ".Auth::user()->last_name;
+         sendEmail($toEmail,$subject,$fileName,$data);
+
         return redirect()->back();
 
     }

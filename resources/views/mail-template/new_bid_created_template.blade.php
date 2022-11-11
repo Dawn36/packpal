@@ -23,12 +23,12 @@ background-size: cover;">
                     <div style="text-align:left; margin: 0 20px; padding: 40px; background-color:#ffffff; border-radius: 43px;">
                         <!--begin:Email content-->
                         <div style="padding-bottom: 30px; font-size: 17px;">
-                            <strong>Dear {{ucwords($data['full_name'])}},</strong>
+                            <strong>Dear <b>{{ucwords($data['full_name'])}}</b>,</strong>
                         </div>
                         <div style="padding-bottom: 30px">Thank you for Creating a New BID. Your request for BID has been approved and posted on the portal. You will start receiving BIDs from suppliers now.</div>
-                        <div style="padding-bottom: 30px">You can check the offers against your BID by going in your DASHBOARD and clicking on OFFERS. Use the search bar to search for the offers against a specific BID. Once an offer is accepted by you the BID created will move to the In-Process section where you can still reject the accepted offer in case satisfaction is not met with the supplier. In case of this rejection the other offers received from other suppliers will be live again and you can select other supplier from the list. When the deal is closed make sure to mark it COMPLETE and review the supplier for other buyers to conduct business with confidence.</div>
-                        <div style="padding-bottom: 30px">Make sure to check your emails and OFFERS section in your DASHBOARD for updates regarding your posted BIDS.</div>
-                        <div style="padding-bottom: 30px">We wish you best sourcing experience on PackPal.</div>
+                        <div style="padding-bottom: 30px">You can check the offers against your BID by going in your <b>DASHBOARD</b> and clicking on <b>OFFERS</b>. Use the search bar to search for the offers against a specific BID. Once an offer is accepted by you the BID created will move to the <b>In-Process</b> section where you can still reject the accepted offer in case satisfaction is not met with the supplier. In case of this rejection the other offers received from other suppliers will be live again and you can select other supplier from the list. When the deal is closed make sure to mark it <b>COMPLETE</b> and review the supplier for other buyers to conduct business with confidence.</div>
+                        <div style="padding-bottom: 30px">Make sure to check your emails and <b>OFFERS</b> section in your <b>DASHBOARD</b> for updates regarding your posted BIDS.</div>
+                        <div style="padding-bottom: 30px">We wish you best sourcing experience on <b>PackPal</b>.</div>
                         <!-- <div style="border-bottom: 1px solid #eeeeee; margin: 15px 0"></div>
                         <div style="padding-bottom: 50px; word-wrap: break-all;">
                             <p style="margin-bottom: 10px;">Button not working? Try pasting this URL into your browser:</p>

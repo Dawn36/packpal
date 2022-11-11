@@ -164,6 +164,7 @@ class SettingsController extends Controller
         }
 
         $user->company_name = $request->company_name;
+        $user->website = $request->website;
         $user->primary_business = $request->primary_business;
         $user->specify = $request->specify;
         $user->establishment_year = Date("Y-m-d", strtotime($request->establishment_year));

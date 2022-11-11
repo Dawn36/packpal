@@ -23,14 +23,14 @@
                         <div style="text-align:left; margin: 0 20px; padding: 40px; background-color:#ffffff; border-radius: 43px;">
                             <!--begin:Email content-->
                             <div style="padding-bottom: 30px; font-size: 17px;">
-                                <strong>Dear {{ucwords($data['full_name'])}},</strong>
+                                <strong>Dear <b>{{ucwords($data['full_name'])}}</b>,</strong>
                             </div>
                             <div style="padding-bottom: 30px">Warm Greetings from the PackPal Team,</div>
-                            <div style="padding-bottom: 30px">A password reset has been requested from your email address: {{$data['email']}}</div>
-                            <div style="padding-bottom: 30px">A new password has been created for you {{$data['new_password']}}</div>
+                            <div style="padding-bottom: 30px">A password reset has been requested from your email address: <b>{{$data['email']}}</b></div>
+                            <div style="padding-bottom: 30px">A new password has been created for you <b>{{$data['new_password']}}</b></div>
                             <div style="padding-bottom: 30px">You are requested to sign in again with the above password and from your settings change the password.</div>
                             <div style="padding-bottom: 30px">Make sure not to share your Password with anyone for the safety of your privacy.</div>
-                            <div style="padding-bottom: 30px">We wish you best USER experience on PackPal</div>
+                            <div style="padding-bottom: 30px">We wish you best USER experience on <b>PackPal</b></div>
                             <!-- <div style="border-bottom: 1px solid #eeeeee; margin: 15px 0"></div>
                             <div style="padding-bottom: 50px; word-wrap: break-all;">
                                 <p style="margin-bottom: 10px;">Button not working? Try pasting this URL into your browser:</p>

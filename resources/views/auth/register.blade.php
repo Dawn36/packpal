@@ -122,7 +122,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div id='seller'>
+                        
                             <div class="row fv-row mb-7">
                                 <div class="col-xl-6">
                                     <label class="form-label required fw-bolder text-dark fs-6">Company Name</label>
@@ -150,9 +150,10 @@
                                 </div>
 
                             </div>
+                           
                             <div class="row fv-row mb-7">
                                 <div class="col-xl-6">
-                                    <label class="form-label required fw-bolder text-dark fs-6">Year of Business Establishment</label>
+                                    <label class="form-label  fw-bolder text-dark fs-6">Year of Business Establishment</label>
                                     <input type="text" id='establishment_year' name="establishment_year" class="form-control form-control-lg form-control-solid kt_datepicker_3" placeholder="Year of Business Establishment" />
                                 </div>
                                 <div class="col-xl-6">
@@ -160,6 +161,30 @@
                                     <input class="form-control form-control-lg form-control-solid" type="number" min="0" placeholder="please enter Annual Sales" name="annual_sales" autocomplete="off" />
                                 </div>
                             </div>
+                            <div class="row fv-row mb-7">
+                                <div class="col-xl-6">
+                                    <label class="fs-6 form-label required fw-bolder text-dark">Category</label>
+                                    <select class="form-select form-select-solid" id='category_id' name='category' data-control="select2" data-placeholder="Choose your Main Category" data-hide-search="true" required onchange="getSubCategoryAjax()">
+                                        <option value=""></option>
+                                        @for ($i = 0; $i < count($categories); $i++) <option value="{{$categories[$i]->id}}" >{{ucwords($categories[$i]->category_name)}}</option>
+                                        @endfor
+
+                                    </select>
+                                </div>
+                                <div class="col-xl-6">
+                                    <label class="fs-6 form-label  fw-bolder text-dark">Sub-Category</label>
+                                    <select class="form-select form-select-solid" id='sub_category_id' name='sub_category' data-control="select2" data-placeholder="Choose your Sub-Category" data-hide-search="true">
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row fv-row mb-7">
+                                <div class="col-xl-12">
+                                    <label class="fs-6 form-label required fw-bolder text-dark">Description </label>
+                                    <textarea class="form-control form-control-lg form-control-solid" type="text" placeholder="Description of your Business" id="description" name="description" autocomplete="off" required></textarea>
+                                </div>
+                            </div>
+                            <div id='seller'>
                             <div class="row fv-row mb-7">
                                 <div class="col-xl-12">
                                     <label class="form-label fw-bolder text-dark fs-6">Certifications</label>
@@ -179,33 +204,8 @@
                                     <textarea class="form-control form-control-lg form-control-solid" type="text" placeholder="What you buy? Use ',' as separator for multiple buying products " id="buyer_of" name="buyer_of" autocomplete="off" ></textarea>
                                 </div>
                             </div>
-                           
-                            <div class="row fv-row mb-7">
-                                <div class="col-xl-6">
-                                    <label class="fs-6 form-label required fw-bolder text-dark">Category</label>
-                                    <select class="form-select form-select-solid" id='category_id' name='category' data-control="select2" data-placeholder="Choose your Main Category" data-hide-search="true" required onchange="getSubCategoryAjax()">
-                                        <option value=""></option>
-                                        @for ($i = 0; $i < count($categories); $i++) <option value="{{$categories[$i]->id}}" >{{ucwords($categories[$i]->category_name)}}</option>
-                                        @endfor
 
-                                    </select>
-                                </div>
-                                <div class="col-xl-6">
-                                    <label class="fs-6 form-label  fw-bolder text-dark">Sub-Category</label>
-                                    <select class="form-select form-select-solid" id='sub_category_id' name='sub_category' data-control="select2" data-placeholder="Choose your Sub-Category" data-hide-search="true">
-                                        <option value=""></option>
-
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="row fv-row mb-7">
-                                <div class="col-xl-12">
-                                    <label class="fs-6 form-label required fw-bolder text-dark">Description </label>
-                                    <textarea class="form-control form-control-lg form-control-solid" type="text" placeholder="Description of your Business" id="description" name="description" autocomplete="off" required></textarea>
-                                </div>
-
-                            </div>
+                            
                         </div>
                         <div class="row fv-row mb-7" id='buyer'>
                             <div class="col-xl-12">
@@ -242,8 +242,8 @@
                         </div>
                         <div class="row fv-row mb-7">
                             <div class="col-xl-6">
-                                <label class="form-label  fw-bolder text-dark fs-6">Department</label>
-                                <input class="form-control form-control-lg form-control-solid" type="text" :value="old('department')" placeholder="Please enter department" name="department" autocomplete="off"  />
+                                <label class="form-label required fw-bolder text-dark fs-6">Department</label>
+                                <input class="form-control form-control-lg form-control-solid" type="text" :value="old('department')" placeholder="Please enter department" name="department" autocomplete="off"  required/>
                             </div>
                             <div class="col-xl-6">
                                 <label class="form-label fw-bolder required text-dark fs-6">Address</label>
@@ -252,11 +252,11 @@
                         </div>
                         <div class="row fv-row mb-7">
                             <div class="col-xl-6">
-                                <label class="form-label  fw-bolder required text-dark fs-6">Country</label>
+                                <label class="form-label required fw-bolder required text-dark fs-6">Country</label>
                                 <input class="form-control form-control-lg form-control-solid" type="text" :value="old('country')" placeholder="Please enter country" name="country" autocomplete="off" required />
                             </div>
                             <div class="col-xl-6">
-                                <label class="form-label fw-bolder required text-dark fs-6">City</label>
+                                <label class="form-label required fw-bolder required text-dark fs-6">City</label>
                                 <input class="form-control form-control-lg form-control-solid" type="text" :value="old('city')"  placeholder="Please enter city" name="city" autocomplete="off" required />
                             </div>
                         </div>
@@ -271,11 +271,18 @@
                             </div>
                         </div>
                         <div class="row fv-row mb-7">
-                            <div class="col-xl-6">
+                            <div class="col-xl-12">
                                 <label class="form-label  fw-bolder required text-dark fs-6">Mobile No</label>
                                 <input class="form-control form-control-lg form-control-solid" :value="old('phone_number')" type="number" min="0" placeholder="Please enter Mobile No" name="phone_number" autocomplete="off"  required/>
                             </div>
                         </div>
+                        <div class="row fv-row mb-7">
+                            <div class="col-xl-12">
+                                <label class="form-label fw-bolder  text-dark fs-6">Website</label>
+                                <input class="form-control form-control-lg form-control-solid" :value="old('website')"  placeholder="Please Enter Website" name="website" autocomplete="off"  />
+                            </div>
+                        </div>
+                        
                         <div class="fv-row mb-7">
                             <label class="form-label fw-bolder required text-dark fs-6">Email</label>
                             <input class="form-control form-control-lg form-control-solid" type="email" :value="old('email')" placeholder="Please enter email" name="email" autocomplete="off" required/>
@@ -372,22 +379,22 @@
             if (val == 2) {
                 document.getElementById('seller').style.display = "block";
                 document.getElementById('buyer').style.display = "none";
-                $("#company_name").attr('required', ''); //turns required oncompany_name
-                $("#primary_business").attr('required', ''); //turns required on
+               // $("#company_name").attr('required', ''); //turns required oncompany_name
+               // $("#primary_business").attr('required', ''); //turns required on
                 
-                $("#category_id").attr('required', ''); //turns required on
+               // $("#category_id").attr('required', ''); //turns required on
                 $("#description").attr('required', ''); //turns required on
-                $("#establishment_year").attr('required', ''); //turns required on
+              //  $("#establishment_year").attr('required', ''); //turns required on
             }
             if (val == 3) {
                 document.getElementById('buyer').style.display = "block";
                 document.getElementById('seller').style.display = "none";
-                $("#company_name").removeAttr('required', ''); //turns required on
+                //$("#company_name").removeAttr('required', ''); //turns required on
 
-                $("#primary_business").removeAttr('required', ''); //turns required on
-                $("#category_id").removeAttr('required', ''); //turns required on
+               // $("#primary_business").removeAttr('required', ''); //turns required on
+               // $("#category_id").removeAttr('required', ''); //turns required on
                 $("#description").removeAttr('required', ''); //turns required on
-                $("#establishment_year").removeAttr('required', ''); //turns required on
+              //  $("#establishment_year").removeAttr('required', ''); //turns required on
             }
             if (val == 1) {
                 document.getElementById('buyer').style.display = "none";
