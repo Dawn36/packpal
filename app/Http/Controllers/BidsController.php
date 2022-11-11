@@ -88,82 +88,82 @@ class BidsController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'bids_name' => ['required'],
-        //     'target_price' => ['required'],
-        //     'city_post_code' => ['required'],
-        //     'location' => ['required'],
-        //     'description' => ['required'],
-        //     'category_id' => ['required'],
-        //     'sub_category_id' => ['required'],
+        $request->validate([
+            'bids_name' => ['required'],
+            'target_price' => ['required'],
+            'city_post_code' => ['required'],
+            'location' => ['required'],
+            'description' => ['required'],
+            'category_id' => ['required'],
+            'sub_category_id' => ['required'],
 
-        // ]);
+        ]);
         // $validatedData = $request->validate([
         //     'bid_thumbnail' => 'png,jpg,jpeg|max:2048',
         //     'file' => 'png,jpg,jpeg|max:2048'
 
         // ]);
-        // $data = Bids::create([
-        //     'bids_name' => $request->bids_name,
-        //     'city_post_code' => $request->city_post_code,
-        //     'location' => $request->location,
-        //     'contact_no' => $request->contact_no,
-        //     'description' => $request->description,
-        //     'categories_id' => $request->category_id,
-        //     'sub_categories_id' => $request->sub_category_id,
-        //     'target_price' => $request->target_price,
-        //     'user_id' => Auth::user()->id,
-        //     'created_at' => date("Y-m-d h:i:s"),
-        //     'created_by' => Auth::user()->id,
-        // ]);
+        $data = Bids::create([
+            'bids_name' => $request->bids_name,
+            'city_post_code' => $request->city_post_code,
+            'location' => $request->location,
+            'contact_no' => $request->contact_no,
+            'description' => $request->description,
+            'categories_id' => $request->category_id,
+            'sub_categories_id' => $request->sub_category_id,
+            'target_price' => $request->target_price,
+            'user_id' => Auth::user()->id,
+            'created_at' => date("Y-m-d h:i:s"),
+            'created_by' => Auth::user()->id,
+        ]);
 
-        // if ($request->hasFile('bid_thumbnail')) {
-        //     $id = $data['id'];
+        if ($request->hasFile('bid_thumbnail')) {
+            $id = $data['id'];
 
-        //     $bid = Bids::find($id);
+            $bid = Bids::find($id);
 
-        //     // $folderName = $userId;
-        //     // $fileName = time();
-        //     // $previousPic = $user->profile_picture;
-        //     // $previousPicDest = "profile/" . $previousPic;
-        //     // File::delete($previousPicDest);
-        //     // $request->profile_picture->storeAs("profile/$folderName/", $fileName . '.jpg', 'public');
-        //     // $user->profile_picture = $folderName . '/' . $fileName . '.jpg';
-        //     $path = "bid/" . $id;
-        //     $file = $request->file('bid_thumbnail');
-        //     $filename = date('YmdHi') . $file->getClientOriginalName();
-        //     $file->move(public_path($path), $filename);
-        //     $bid['thumbnail'] = $id  . "/" . $filename;
+            // $folderName = $userId;
+            // $fileName = time();
+            // $previousPic = $user->profile_picture;
+            // $previousPicDest = "profile/" . $previousPic;
+            // File::delete($previousPicDest);
+            // $request->profile_picture->storeAs("profile/$folderName/", $fileName . '.jpg', 'public');
+            // $user->profile_picture = $folderName . '/' . $fileName . '.jpg';
+            $path = "bid/" . $id;
+            $file = $request->file('bid_thumbnail');
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path($path), $filename);
+            $bid['thumbnail'] = $id  . "/" . $filename;
 
-        //     $bid->save();
-        // }
-        // if ($request->hasFile('file')) {
-        //     $id = $data['id'];
+            $bid->save();
+        }
+        if ($request->hasFile('file')) {
+            $id = $data['id'];
 
-        //     // $folderName = $userId;
-        //     // $fileName = time();
-        //     // $previousPic = $user->profile_picture;
-        //     // $previousPicDest = "profile/" . $previousPic;
-        //     // File::delete($previousPicDest);
-        //     // $request->profile_picture->storeAs("profile/$folderName/", $fileName . '.jpg', 'public');
-        //     // $user->profile_picture = $folderName . '/' . $fileName . '.jpg';
-        //     $path = "bid/" . $id;
-        //     $file = $request->file('file');
-        //     for ($i = 0; $i < count($file); $i++) {
-        //         $size = $file[$i]->getSize();
-        //         $filename = date('YmdHi') . $file[$i]->getClientOriginalName();
-        //         $file[$i]->move(public_path($path), $filename);
-        //         $paths = $id  . "/" . $filename;
+            // $folderName = $userId;
+            // $fileName = time();
+            // $previousPic = $user->profile_picture;
+            // $previousPicDest = "profile/" . $previousPic;
+            // File::delete($previousPicDest);
+            // $request->profile_picture->storeAs("profile/$folderName/", $fileName . '.jpg', 'public');
+            // $user->profile_picture = $folderName . '/' . $fileName . '.jpg';
+            $path = "bid/" . $id;
+            $file = $request->file('file');
+            for ($i = 0; $i < count($file); $i++) {
+                $size = $file[$i]->getSize();
+                $filename = date('YmdHi') . $file[$i]->getClientOriginalName();
+                $file[$i]->move(public_path($path), $filename);
+                $paths = $id  . "/" . $filename;
 
-        //         DB::table('bid_images')->insert([
-        //             'bids_id' => $id,
-        //             'user_id' => Auth::user()->id,
-        //             'file_name' => $filename,
-        //             'path' => $paths,
-        //             'size' => $size,
-        //         ]);
-        //     }
-        // }
+                DB::table('bid_images')->insert([
+                    'bids_id' => $id,
+                    'user_id' => Auth::user()->id,
+                    'file_name' => $filename,
+                    'path' => $paths,
+                    'size' => $size,
+                ]);
+            }
+        }
 
         $toEmail=Auth::user()->email;
         $subject = 'YOU CREATED A NEW BID';
