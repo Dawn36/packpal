@@ -169,7 +169,7 @@ class BidsController extends Controller
         $subject = 'YOU CREATED A NEW BID';
         $fileaName='new_bid_created_template';
         $data['full_name']=Auth::user()->first_name ." ".Auth::user()->last_name;
-        sendEmail($toEmail,$subject,$fileaName);
+        sendEmail($toEmail,$subject,$fileaName,$data);
         return redirect()->back();
     }
 
