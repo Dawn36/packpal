@@ -5,11 +5,11 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
-          <h1 class="mt-0 mb-3 text-white">Feed Back</h1>
+          <h1 class="mt-0 mb-3 text-white">Feedback</h1>
           <div class="breadcrumbs">
             <p class="mb-0 text-white">
               <a class="text-white" href="#">Home</a> /
-              <span class="text-success">Feed Back</span>
+              <span class="text-success">Feedback</span>
             </p>
           </div>
         </div>
@@ -21,7 +21,9 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 col-md-12 section-title text-left mb-4">
-          <h2>Feed Back</h2>
+          <h2 style="text-align: center;">Your Feedback is our Success</h2>
+          <p style="font-size: 18px;
+          font-style: italic;">We appreciate you taking the time in providing us your valuable feedback. Please fill the below form for any suggestions, comments or even if you are looking for some help. We value it the most in order to make the user experience the best</P>
         </div>
         {{-- <form
           name="sentMessage"
@@ -35,8 +37,18 @@
           <div class="control-group col form-group">
             <div class="controls">
               <label
-                >Full Name <small class="text-danger">*</small></label
+                >Title<small class="text-danger">*</small></label
               >
+              <select class="form-control border-0 shadow-sm" name='title' >
+                <option value="Mr">Mr</option>
+                <option value="Ms">Ms</option>
+                <option value="Ms">Mrs</option>
+            </select>
+            </div>
+          </div>
+          <div class="control-group col form-group">
+            <div class="controls">
+              <label >Full Name <small class="text-danger">*</small></label>
               <input
                 type="text"
                 placeholder="Please enter full name"
@@ -48,25 +60,24 @@
               />
             </div>
           </div>
-          <div class="control-group col form-group">
-            <div class="controls">
-              <label
-                >Company Name<small class="text-danger">*</small></label
-              >
-              <input
-                type="text"
-                placeholder="Please enter company name"
-                name='company_name'
-                class="form-control"
-                id="email"
-                required
-                data-validation-required-message="Please enter your company name."
-              />
-            </div>
-          </div>
         </div>
-          
           <div class="form-row">
+            <div class="control-group col form-group">
+              <div class="controls">
+                <label
+                  >Company Name <small class="text-danger">*</small></label
+                >
+                <input
+                  type="text"
+                  placeholder="Please enter company name"
+                  name="company_name"
+                  class="form-control"
+                  id="phone"
+                  required
+                  data-validation-required-message="Please enter your company name."
+                />
+              </div>
+            </div>
             <div class="control-group col form-group">
               <div class="controls">
                 <label
@@ -83,36 +94,22 @@
                 />
               </div>
             </div>
-            <div class="control-group col form-group">
-              <div class="controls">
-                <label
-                  >Email Address <small class="text-danger">*</small></label
-                >
-                <input
-                  type="email"
-                  placeholder="Please enter your email"
-                  nam="email"
-                  class="form-control"
-                  id="email"
-                  required
-                  data-validation-required-message="Please enter your email address."
-                />
-              </div>
-            </div>
+            
           </div>
           <div class="control-group form-group">
             <div class="controls">
-              <label>Tile <small class="text-danger">*</small></label>
+              <label
+                >Email Address <small class="text-danger">*</small></label
+              >
               <input
-                type="text"
-                placeholder="Please enter title"
-                name="title"
+                type="email"
+                placeholder="Please enter your email"
+                nam="email"
                 class="form-control"
-                id="name"
+                id="email"
                 required
-                data-validation-required-message="Please enter your title."
+                data-validation-required-message="Please enter your email address."
               />
-              <p class="help-block"></p>
             </div>
           </div>
           <div class="control-group form-group">

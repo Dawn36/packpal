@@ -229,34 +229,126 @@ class UserController extends Controller
         $userData->save();
 
         $request->validate([
-            'document' => ['required', 'max:5000'],
+            'utiltity_bill' => ['required', 'max:5000'],
         ]);
 
-        if ($request->hasFile('document')) {
-            $file = $request->file('document');
-            //  print_r($image);
-            for ($i = 0; $i < count($file); $i++) {
-                # code...
-                $file_name = time() . $file[$i]->getClientOriginalName();
-                $size = $file[$i]->getSize();
-                //  echo $image;
-                //  exit(0);
+        if ($request->hasFile('utiltity_bill')) {
+            $file = $request->file('utiltity_bill');
+                $file_name = time() . $file->getClientOriginalName();
+                $size = $file->getSize();
                 $destinationPath = base_path('public/uploads/user-document/' . $userId);
-                $file[$i]->move($destinationPath, $file_name);
+                $file->move($destinationPath, $file_name);
                 $path = 'uploads/user-document/' . $userId . "/" . $file_name;
-
-                $data = DB::table('user_document')->insert([
-                    'user_id' => $userId,
-                    'file_name' => $file[$i]->getClientOriginalName(),
-                    'size' => $size,
-                    'path' => $path,
-                    'created_at' => date("Y-m-d h:i:s"),
-                    'created_by' => $userId,
-                ]);
+                $data=DB::table('user_document')->where('status','utiltity bill')->where('user_id',$userId)->get();
+                if(count($data) > 0)
+                {
+                    $previousPicDest=$data[0]->path;
+                     File::delete($previousPicDest);
+                     DB::table('user_document')->where('user_id', $userId)->where('status', 'utiltity bill')
+                    ->update(['file_name' => $file->getClientOriginalName(),'size' => $size,'path' => $path,'created_at' => date("Y-m-d h:i:s")]);
+                }
+                else
+                {
+                    $data = DB::table('user_document')->insert([
+                        'user_id' => $userId,
+                        'file_name' => $file->getClientOriginalName(),
+                        'size' => $size,
+                        'path' => $path,
+                        'status' => 'utiltity bill',
+                        'created_at' => date("Y-m-d h:i:s"),
+                        'created_by' => $userId,
+                    ]);
+                }
+                
             }
+        if ($request->hasFile('letter_of_authorization')) {
+            $file = $request->file('letter_of_authorization');
+                $file_name = time() . $file->getClientOriginalName();
+                $size = $file->getSize();
+                $destinationPath = base_path('public/uploads/user-document/' . $userId);
+                $file->move($destinationPath, $file_name);
+                $path = 'uploads/user-document/' . $userId . "/" . $file_name;
+                $data=DB::table('user_document')->where('status','letter of authorization')->where('user_id',$userId)->get();
+                if(count($data) > 0)
+                {
+                    $previousPicDest=$data[0]->path;
+                     File::delete($previousPicDest);
+                     DB::table('user_document')->where('user_id', $userId)->where('status', 'letter of authorization')
+                    ->update(['file_name' => $file->getClientOriginalName(),'size' => $size,'path' => $path,'created_at' => date("Y-m-d h:i:s")]);
+                }
+                else
+                {
+                    $data = DB::table('user_document')->insert([
+                        'user_id' => $userId,
+                        'file_name' => $file->getClientOriginalName(),
+                        'size' => $size,
+                        'path' => $path,
+                        'status' => 'letter of authorization',
+                        'created_at' => date("Y-m-d h:i:s"),
+                        'created_by' => $userId,
+                    ]);
+                }
+               
+            }
+        if ($request->hasFile('visiting_card')) {
+            $file = $request->file('visiting_card');
+                $file_name = time() . $file->getClientOriginalName();
+                $size = $file->getSize();
+                $destinationPath = base_path('public/uploads/user-document/' . $userId);
+                $file->move($destinationPath, $file_name);
+                $path = 'uploads/user-document/' . $userId . "/" . $file_name;
+                $data=DB::table('user_document')->where('status','visiting card')->where('user_id',$userId)->get();
+                if(count($data) > 0)
+                {
+                    $previousPicDest=$data[0]->path;
+                     File::delete($previousPicDest);
+                     DB::table('user_document')->where('user_id', $userId)->where('status', 'visiting card')
+                    ->update(['file_name' => $file->getClientOriginalName(),'size' => $size,'path' => $path,'created_at' => date("Y-m-d h:i:s")]);
+                }
+                else
+                {
+                    $data = DB::table('user_document')->insert([
+                        'user_id' => $userId,
+                        'file_name' => $file->getClientOriginalName(),
+                        'size' => $size,
+                        'path' => $path,
+                        'status' => 'visiting card',
+                        'created_at' => date("Y-m-d h:i:s"),
+                        'created_by' => $userId,
+                    ]);
+                }
+            }
+            if ($request->hasFile('ntn_certificate')) {
+                $file = $request->file('ntn_certificate');
+                    $file_name = time() . $file->getClientOriginalName();
+                    $size = $file->getSize();
+                    $destinationPath = base_path('public/uploads/user-document/' . $userId);
+                    $file->move($destinationPath, $file_name);
+                    $path = 'uploads/user-document/' . $userId . "/" . $file_name;
+                    $data=DB::table('user_document')->where('status','ntn certificate')->where('user_id',$userId)->get();
+                    if(count($data) > 0)
+                    {
+                        $previousPicDest=$data[0]->path;
+                         File::delete($previousPicDest);
+                         DB::table('user_document')->where('user_id', $userId)->where('status', 'ntn certificate')
+                        ->update(['file_name' => $file->getClientOriginalName(),'size' => $size,'path' => $path,'created_at' => date("Y-m-d h:i:s")]);
+                    }
+                    else
+                    {
+                        $data = DB::table('user_document')->insert([
+                            'user_id' => $userId,
+                            'file_name' => $file->getClientOriginalName(),
+                            'size' => $size,
+                            'path' => $path,
+                            'status' => 'ntn certificate',
+                            'created_at' => date("Y-m-d h:i:s"),
+                            'created_by' => $userId,
+                        ]);
+                    }
+                }
+                toast('success','Thank you for submitting you valuable information and trusting us. It takes 7 working days for the verification process to complete. We assures your data being secure with us. We appreciate going through our Privacy Policy to know about the data you shared with us.We appreciate your patience by the time we complete our verification process.');
 
             return redirect()->back();
-        }
     }
     public function subscriptionRequest()
     {

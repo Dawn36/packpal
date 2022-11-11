@@ -663,10 +663,10 @@
                                                 <thead>
                                                     <!--begin::Table row-->
                                                     <tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
-                                                        <th class="min-w-250px">Name</th>
-                                                        <th class="min-w-10px">Size</th>
+                                                        <th class="min-w-125px">Name</th>
+                                                        <th class="min-w-125px">For</th>
+                                                        <th class="min-w-125px">Size</th>
                                                         <th class="min-w-125px">Last Modified</th>
-                                                        <th class="w-125px"></th>
                                                     </tr>
                                                     <!--end::Table row-->
                                                 </thead>
@@ -690,6 +690,8 @@
                                                         </td>
                                                         <!--end::Name=-->
                                                         <!--begin::Size-->
+                                                        <td>{{ucwords($userDoc[$i]->status)}}</td>
+
                                                         <td>{{sizeFilter($userDoc[$i]->size)}}</td>
                                                         <!--end::Size-->
                                                         <!--begin::Last modified-->

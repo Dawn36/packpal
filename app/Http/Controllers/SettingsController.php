@@ -40,24 +40,16 @@ class SettingsController extends Controller
 
         // dd(DB::getQueryLog());
 
-
+      
         $userId = Auth::user()->id;
         $user = User::find($userId);
         $userDoc = DB::select(DB::raw("Select * from `user_document` where deleted_at IS NULL AND user_id='$userId'"));
         $categories=Categories::whereNull('deleted_at')->get();
-        // $data['id'] = ucwords($user->id);
-        // $data['first_name'] = ucwords($user->first_name);
-        // $data['last_name'] = ucwords($user->last_name);
-        // $data['nick_name'] = $user->nick_name;
-        // $data['email'] = $user->email;
-        // $data['local_count'] = $user->local_count;
-        // $data['tax_number'] = $user->tax_number;
-        // $data['contact_no'] = $user->contact_no;
-        // $data['street'] = $user->street;
-        // $data['country'] = $user->country;
-        // $data['company_name'] = $user->company_name;
-        // $data['profile_picture'] = $user->profile_picture;
-        // $data['user_type'] = $user->user_type;
+        $comment=DB::table('user_document_reject_command')->where('user_id',$userId)->orderBy('id','desc')->limit(1)->get();
+        if(count($comment) == '1')
+        {
+            toast('error',ucfirst($comment[0]->comment));
+        }
 
         return view('user.settings', compact('user', 'userDoc','categories'));
     }

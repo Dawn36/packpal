@@ -1,24 +1,30 @@
 <form id="" class="form" method="POST" action="{{ route('user_upload_doc') }}" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
-        <input type="file" id="fileinput" name="document[]" class="form-control" multiple required="">
+        <label class="required fw-bold fs-6 mb-2">Any Utiltity Bill</label>
+        <input type="file" id="utiltity_bill" name="utiltity_bill" class="form-control"  required="">
         <span class="form-text fs-6 text-danger">
-            <h5> Attachments for Verification:</h5>
-            • Any Utility Bill:<br>
-            • Should be on Company’s name<br>
-            • Last 3 months<br>
-            • Visiting Card<br>
-            • NTN<br>
-            • Should be on company’s name same as on utility bills.<br>
-            • Letter of Authorization<br>
-            • Needed in case of an employee<br>
-            • Not needed in case of director or owner.<br>
-            <h5> Review Verification:</h5>
-            i. Through Call OR<br>
-            ii. Through Physical visit<br>
-            d. Verified tag and registration done.<br>
+            • Should be on the name of your company<br>
+            • Should be not older then 3 months<br>
         </span>
     </div>
+    <div class="form-group mt-3">
+        <label class=" fw-bold fs-6 mb-2">Letter of Authorization</label>
+        <input type="file" id="letter_of_authorization" name="letter_of_authorization" class="form-control"  >
+        <span class="form-text fs-6 text-danger">
+            • Needed in case of an Employee.<br>
+            • Not needed in case of Director or Owner.<br>
+        </span>
+    </div>
+    <div class="form-group mt-3">
+        <label class=" fw-bold fs-6 mb-2">Visiting Card</label>
+        <input type="file" id="visiting" name="visiting_card" class="form-control"  >
+    </div>
+    <div class="form-group mt-3">
+        <label class=" fw-bold fs-6 mb-2">NTN Certificate</label>
+        <input type="file" id="ntn_certificate" name="ntn_certificate" class="form-control"  >
+    </div>
+    
     <div class="text-center pt-15">
         <button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal" aria-label="Close">Discard</button>
         <button type="submit" class="btn btn-primary" data-kt-users-modal-action="submit">Submit</button>
