@@ -238,7 +238,7 @@
              @php 
              $categoryName = explode(' ', $catAndSubCat[$i]->category_name, 2);
              @endphp
-             @if(isset($array[1]))
+             @if(isset($categoryName[1]))
              {{ucwords($categoryName[0])}} <br>
              {{ucwords($categoryName[1])}}  
              @else
