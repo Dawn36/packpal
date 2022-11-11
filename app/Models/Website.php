@@ -88,6 +88,7 @@ class Website extends Model
         u.`establishment_year`,
         u.`annual_sales`,
         u.`designation`,
+        u.`description`,
         u.`city`,
         u.`website`,
         u.`country`,

@@ -148,6 +148,13 @@
                 @endif
               </ul>
               @endif
+              @if(isset($bidDetail[0]->description) )
+              <ul class="user-stats" style="padding-bottom: 12px !important;padding-top: 8px!important;">
+                @if(isset($bidDetail[0]->description))
+                <li>Description<strong>{{ucwords($bidDetail[0]->description)}}</strong></li>
+                @endif
+              </ul>
+              @endif
               @if(isset($bidDetail[0]->website) )
               <ul class="user-stats" style="padding-bottom: 12px !important;padding-top: 8px!important;">
                 @if(isset($bidDetail[0]->website))
