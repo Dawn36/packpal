@@ -89,6 +89,7 @@ class Website extends Model
         u.`annual_sales`,
         u.`designation`,
         u.`city`,
+        u.`website`,
         u.`country`,
         u.`middle_name`,
         u.`last_name`,
