@@ -83,7 +83,7 @@
             <!--begin::Content-->
             <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
                 <!--begin::Logo-->
-                <a href="#" class="mb-12">
+                <a href="/" class="mb-12">
                     <img alt="Logo" src="{{ asset('theme/assets/media/logos/logo-5.png')}}" class="h-70px" />
                 </a>
                 <!--end::Logo-->
