@@ -64,6 +64,8 @@ class OrderController extends Controller
     public function orderAcceptReject(int $id, $status,$bidId)
     {
         $order = Order::Find($id);
+        $buyer=User::find($order->b_user_id);
+        $supplier=User::find($order->s_user_id);
         $bid=Bids::find($bidId);
         $order->status = $status;
         if($order->status == 'inprocess')
@@ -72,6 +74,20 @@ class OrderController extends Controller
             $bid->save();
             Order::where('bids_id', $bidId)->where('status','offer')->whereNull('deleted_at')->where('id','!=',$id)
             ->update(['show_offer' => 'no']);
+            // supplier
+            $toEmail=$supplier->email;
+            $subject = "OFFER ACCEPTED BY THE BUYER OF THE BID ($bid->bids_name)!";
+            $data['full_name']=$supplier->first_name." ".$supplier->last_name;
+            $data['bid_name']=$bid->bids_name;
+            $fileName='in_process_supplier';
+            sendEmail($toEmail,$subject,$fileName,$data);
+            // buyer
+            $toEmail=$buyer->email;
+            $subject = "YOU ACCEPTED THE OFFER OF THE BID ($bid->bids_name) GIVEN BY THE SUPPLIER!";
+            $data['full_name']=$buyer->first_name." ".$buyer->last_name;
+            $data['bid_name']=$bid->bids_name;
+            $fileName='in_process_buyer';
+            sendEmail($toEmail,$subject,$fileName,$data);
         }
         if($order->status == 'reject')
         {
@@ -95,8 +111,25 @@ class OrderController extends Controller
         $bids['status']='completed';
         $bids->save();
         $order = Order::Find($orderId);
+        $buyer=User::find($order->b_user_id);
+        $supplier=User::find($order->s_user_id);
         $order->status = 'complete';
         $order->save();
+         // supplier
+         $toEmail=$supplier->email;
+         $subject = "THE BID ($bids->bids_name) HAS BEEN COMPLETED";
+         $data['full_name']=$supplier->first_name." ".$supplier->last_name;
+         $data['bid_name']=$bids->bids_name;
+         $fileName='bid_complete_supplier';
+         sendEmail($toEmail,$subject,$fileName,$data);
+         // buyer
+         $toEmail=$buyer->email;
+         $subject = "YOUR BID ($bids->bids_name) HAS BEEN COMPLETED";
+         $data['full_name']=$buyer->first_name." ".$buyer->last_name;
+         $data['bid_name']=$bids->bids_name;
+         $fileName='bid_complete_buyer';
+         sendEmail($toEmail,$subject,$fileName,$data);
+         
         return redirect()->back();
     }
     public function reviewStore(Request $request)

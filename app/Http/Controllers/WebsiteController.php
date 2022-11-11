@@ -236,7 +236,7 @@ class WebsiteController extends Controller
          $userDetails=User::find($request->user_id);
          $toEmail=$userDetails->email;
          $subject="OU RECEIVED A NEW BID AGAINST YOUR $bidDetails->bids_name";
-         $fileName='offer_send_email_supplier';
+         $fileName='offer_send_email_buyer';
          $data['full_name']=$userDetails->first_name ." ".$userDetails->last_name;
          $data['bid_name']=$bidDetails->bids_name;
          $data['supplier_name']=Auth::user()->first_name ." ".Auth::user()->last_name;
