@@ -335,6 +335,25 @@ class UserController extends Controller
         }
 
     }
-    
+    public function userComment(Request $request)
+    {
+        $userId = $request->userId;
+        $comment = DB::table('user_document_reject_command')->where('user_id',$userId)->get();
+        $user = User::where('id',$userId)->get();
+        return view('user/user_doc_comment', compact('userId', 'comment','user'));
+    }
+    public function userCommentSubmit(Request $request, int $userId)
+    {
+        $request->validate([
+            'comment' => ['required'],
+        ]);
+        DB::insert('insert into user_document_reject_command (user_id, comment,created_at) values (?, ?,?)', [$userId, $request->comment,date("Y-m-d H:i:s")]);
+
+        $user = User::find($userId);
+        $user['send_doc'] = 'no';
+        $user->save();
+
+        return redirect()->back();
+    }
     
 }

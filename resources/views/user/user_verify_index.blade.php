@@ -184,6 +184,15 @@
                                                         </svg>
                                                     </span>
                                                 </a>
+                                                <button type="button" class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-danger" data-bs-toggle="tooltip" data-bs-original-title="Reject User" onclick="rejectUserDoc('{{$users[$i]->id}}')">
+                                                    <span class="svg-icon svg-icon-1">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                            <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5" fill="black"></rect>
+                                                            <rect x="7" y="15.3137" width="12" height="2" rx="1" transform="rotate(-45 7 15.3137)" fill="black"></rect>
+                                                            <rect x="8.41422" y="7" width="12" height="2" rx="1" transform="rotate(45 8.41422 7)" fill="black"></rect>
+                                                        </svg>
+                                                    </span>
+                                                </button>
                                             </td>
                                             </tr>
                                             @endfor
@@ -204,4 +213,21 @@
     </div>
     <!--end::Post-->
 </div>
+<script>
+    function rejectUserDoc(userId) {
+        var value = {
+            userId: userId,
+        };
+        $.ajax({
+            type: 'GET',
+            url: "{{ route('user_comment') }}",
+            data: value,
+            success: function(result) {
+                $('#myModalLgHeading').html('Reject Documents');
+                $('#modalBodyLarge').html(result);
+                $('#myModalLg').modal('show');
+            }
+        });
+    }
+</script>
 @endsection('content')

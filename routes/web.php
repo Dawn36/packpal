@@ -103,6 +103,8 @@ Route::middleware(['auth'])->group(function () {
     Route::Get('user_verify_submit/{userId}', [UserController::class, 'verifySubmit'])->name('user_verify_submit');
     Route::Get('user_subscription_request', [UserController::class, 'subscriptionRequest'])->name('user_subscription_request');
     Route::Get('user_subscription_accept_reject/{userId}/{month}/{status}', [UserController::class, 'subscriptionAcceptReject'])->name('user_subscription_accept_reject');
+    Route::Get('user_comment', [UserController::class, 'userComment'])->name('user_comment');
+    Route::Post('user_comment_submit/{userId}', [UserController::class, 'userCommentSubmit'])->name('user_comment_submit');
     
     Route::resource('categories', CategoriesController::class);
     Route::resource('ads', AdsController::class);

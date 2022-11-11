@@ -182,9 +182,9 @@ class WebsiteController extends Controller
         $subCatId=$request->subCatId;
        
 
-        if (Order::where('s_user_id', $userIdAuth)->where('bids_id', $bidId)->where('status','offer')->orWhere('status','inprocess')->exists()) {
-            $orderData=Order::where('s_user_id', $userIdAuth)->where('bids_id', $bidId)->where('status','offer')->orWhere('status','inprocess')->get();
-            return view('web-site/bid_now_message',compact('orderData'));
+        if (Order::where('s_user_id', $userIdAuth)->where('bids_id', $bidId)->where('status','offer')->exists()) {
+          
+            return view('web-site/bid_now_message');
          }
          if($userIdAuth == $userId)
          {
