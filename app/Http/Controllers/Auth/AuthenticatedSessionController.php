@@ -58,39 +58,39 @@ class AuthenticatedSessionController extends Controller
 
     public function sendEmailAndRestPassword(Request $request)
     {
-        // $validator = Validator::make($request->all(), [
-        //     'email' => 'required|exists:users',
-        // ]);
-        // if ($validator->fails()) {
-        //     toast('error','Email Does Not Exists');
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|exists:users',
+        ]);
+        if ($validator->fails()) {
+            toast('error','Email Does Not Exists');
             
-        //     //$request->session()->flash('message', 'Email Does Not Exists');
-        //     return redirect()->back();
+            //$request->session()->flash('message', 'Email Does Not Exists');
+            return redirect()->back();
 
-        // }
-        // else
-        // {
+        }
+        else
+        {
             toast('success','YOUR PASSWORD HAS BEEN RESET. KINDLY CHECK YOUR EMAIL AND SIGN IN AGAIN');
 
-            // $userData=User::where('email', $request->email)->get();
-            // $userData=User::find($userData[0]->id);
+            $userData=User::where('email', $request->email)->get();
+            $userData=User::find($userData[0]->id);
             $toEmail = $request->email;
               $from_email = env('MAIL_FROM_ADDRESS');
               $subject = 'REQUEST FOR PASSWORD RESET';
               $cc = env('CCEMAIL');
               $newPassword=$this->randomPassword();
          
-            //   $userData->fill([
-            //       'password' => Hash::make($newPassword),
-            //       'password_show' => $newPassword
-            //   ])->save();
-              $data['full_name']='';
+              $userData->fill([
+                  'password' => Hash::make($newPassword),
+                  'password_show' => $newPassword
+              ])->save();
+              $data['full_name']=$userData->first_name." ".$userData->last_name;
               $data['new_password']=$newPassword;
               $data['email']=$toEmail;
               $fileName='forgetpassword_template';
               sendEmail($toEmail,$subject,$fileName,$data);
                
-        // }
+        }
        
         return redirect()->route('login');
 
