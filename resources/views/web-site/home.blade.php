@@ -236,13 +236,13 @@
              height: 50px;
              width: 50px;" /> --}}
              @php 
-             $categoryName = explode(' ', $catAndSubCat[$i]->category_name, 2);
+             $categoryName = explode(' ', $catAndSubCat[$i]->category_name, 3);
              @endphp
-             @if(isset($categoryName[1]))
-             {{ucwords($categoryName[0])}} <br>
-             {{ucwords($categoryName[1])}}  
+             @if(isset($categoryName[2]))
+             <b> {{ucwords($categoryName[0])}} {{ucwords($categoryName[1])}} <br>
+             {{ucwords($categoryName[2])}}</b> 
              @else
-             {{ucwords($catAndSubCat[$i]->category_name)}} 
+             <b>{{ucwords($catAndSubCat[$i]->category_name)}}</b> 
              @endif
              {{-- <h3> {{ucwords($catAndSubCat[$i]->category_name)}}</h3> --}}
             {{-- </div> --}}
