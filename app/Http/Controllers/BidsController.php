@@ -116,9 +116,6 @@ class BidsController extends Controller
             'created_at' => date("Y-m-d h:i:s"),
             'created_by' => Auth::user()->id,
         ]);
-        //        'contact_no' => $request->contact_no,
-
-
 
         if ($request->hasFile('bid_thumbnail')) {
             $id = $data['id'];
@@ -170,9 +167,9 @@ class BidsController extends Controller
 
         $toEmail=Auth::user()->email;
         $subject = 'YOU CREATED A NEW BID';
-        $fileName='new_bid_created_template';
+        $fileaName='new_bid_created_template';
         $data['full_name']=Auth::user()->first_name ." ".Auth::user()->last_name;
-        sendEmail($toEmail,$subject,$fileName);
+        sendEmail($toEmail,$subject,$fileaName);
         return redirect()->back();
     }
 
