@@ -106,7 +106,7 @@
             <div class="stats-desc" style="padding: 18px !important;">
               <ul class="user-stats" style="padding-bottom: 12px !important;padding-top: 8px!important;">
                 <li>From<strong>{{ucwords($bidDetail[0]->address)}}</strong></li>
-                <li>Member since<strong>{{DATE('Y-m-d',strtotime($bidDetail[0]->created_at))}}</strong></li>
+                <li>Member since {{$bidDetail[0]->company_name}} {{$bidDetail[0]->primary_business}}<strong>{{DATE('Y-m-d',strtotime($bidDetail[0]->created_at))}}</strong></li>
               </ul>
               @if(isset($bidDetail[0]->company_name) || isset($bidDetail[0]->primary_business))
               <ul class="user-stats" style="padding-bottom: 12px !important;padding-top: 8px!important;">
