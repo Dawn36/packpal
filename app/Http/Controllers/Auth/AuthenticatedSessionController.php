@@ -58,18 +58,18 @@ class AuthenticatedSessionController extends Controller
 
     public function sendEmailAndRestPassword(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'email' => 'required|exists:users',
-        ]);
-        if ($validator->fails()) {
-            toast('error','Email Does Not Exists');
+        // $validator = Validator::make($request->all(), [
+        //     'email' => 'required|exists:users',
+        // ]);
+        // if ($validator->fails()) {
+        //     toast('error','Email Does Not Exists');
             
-            //$request->session()->flash('message', 'Email Does Not Exists');
-            return redirect()->back();
+        //     //$request->session()->flash('message', 'Email Does Not Exists');
+        //     return redirect()->back();
 
-        }
-        else
-        {
+        // }
+        // else
+        // {
             toast('success','YOUR PASSWORD HAS BEEN RESET. KINDLY CHECK YOUR EMAIL AND SIGN IN AGAIN');
 
             $userData=User::where('email', $request->email)->get();
@@ -90,7 +90,7 @@ class AuthenticatedSessionController extends Controller
               $fileName='forgetpassword_template';
               sendEmail($toEmail,$subject,$fileName,$data);
                
-        }
+        // }
        
         return redirect()->route('login');
 
