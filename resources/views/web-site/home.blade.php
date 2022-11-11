@@ -259,7 +259,7 @@
            
           </li>
           @endfor
-          <button onclick="viewAllCategory()"  type="button" class="btn btn-outline-success btn-sm" tabindex="0" style="border: none; margin-top: 10px;height: 50%;">
+          <button onclick="viewAllCategory()"  type="button" class="btn btn-outline-success btn-sm" tabindex="0" style="border: none; margin-top: 20px;height: 50%;">
             View All 
             </button>
         </ul>
