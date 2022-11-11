@@ -235,7 +235,15 @@
              {{-- <img src="{{ asset('category/'.$catAndSubCat[$i]->category_image)}}" style="    border-radius: 50%;
              height: 50px;
              width: 50px;" /> --}}
-             {{ucwords($catAndSubCat[$i]->category_name)}}
+             @php 
+             $categoryName = explode(' ', $catAndSubCat[$i]->category_name, 2);
+             @endphp
+             @if(isset($array[1]))
+             {{ucwords($categoryName[0])}} <br>
+             {{ucwords($categoryName[1])}}  
+             @else
+             {{ucwords($catAndSubCat[$i]->category_name)}} 
+             @endif
              {{-- <h3> {{ucwords($catAndSubCat[$i]->category_name)}}</h3> --}}
             {{-- </div> --}}
             </a>
