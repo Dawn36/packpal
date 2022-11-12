@@ -95,11 +95,11 @@
             <div class="row g-5 g-xl-8">
                 <div class="col-xl-3">
                     <!--begin::Statistics Widget 5-->
-                    <a href="#" class="card bg-body hoverable card-xl-stretch mb-xl-8">
+                    <div class="card card-xl-stretch mb-xl-8 bg-light-success">
                         <!--begin::Body-->
                         <div class="card-body">
                             <!--begin::Svg Icon | path: icons/duotune/general/gen032.svg-->
-                            <span class="svg-icon svg-icon-danger svg-icon-3x ms-n1">
+                            <span class="svg-icon svg-icon-success svg-icon-3x ms-n1">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path opacity="0.3" d="M21 18.3V4H20H5C4.4 4 4 4.4 4 5V20C10.9 20 16.7 15.6 19 9.5V18.3C18.4 18.6 18 19.3 18 20C18 21.1 18.9 22 20 22C21.1 22 22 21.1 22 20C22 19.3 21.6 18.6 21 18.3Z" fill="currentColor"/>
                                     <path d="M22 4C22 2.9 21.1 2 20 2C18.9 2 18 2.9 18 4C18 4.7 18.4 5.29995 18.9 5.69995C18.1 12.6 12.6 18.2 5.70001 18.9C5.30001 18.4 4.7 18 4 18C2.9 18 2 18.9 2 20C2 21.1 2.9 22 4 22C4.8 22 5.39999 21.6 5.79999 20.9C13.8 20.1 20.1 13.7 20.9 5.80005C21.6 5.40005 22 4.8 22 4Z" fill="currentColor"/>
@@ -110,24 +110,24 @@
                             <div class="fw-bolder text-gray-800 text-hover-primary mb-1">Active Offers</div>
                         </div>
                         <!--end::Body-->
-                    </a>
+                    </div>
                     <!--end::Statistics Widget 5-->
                 </div>
                 <div class="col-xl-3">
                     <!--begin::Statistics Widget 5-->
-                    <a href="#" class="card bg-dark hoverable card-xl-stretch mb-xl-8">
+                    <a href="#" class="card card-xl-stretch mb-xl-8 bg-light-info">
                         <!--begin::Body-->
                         <div class="card-body">
                             <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm008.svg-->
-                            <span class="svg-icon svg-icon-gray-100 svg-icon-3x ms-n1">
+                            <span class="svg-icon svg-icon-info svg-icon-3x ms-n1">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="currentColor"/>
                                     <path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="currentColor"/>
                                     </svg>
                             </span>
                             <!--end::Svg Icon-->
-                            <div class="text-gray-100 fw-bolder fs-2 mb-2 mt-5">{{$inProcess}}</div>
-                            <div class="fw-bold text-gray-100">In-Process Offers</div>
+                            <div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$inProcess}}</div>
+                            <div class="fw-bolder text-gray-800 text-hover-primary mb-1">In-Process Offers</div>
                         </div>
                         <!--end::Body-->
                     </a>
@@ -135,7 +135,7 @@
                 </div>
                 <div class="col-xl-3">
                     <!--begin::Statistics Widget 5-->
-                    <a href="#" class="card bg-body hoverable card-xl-stretch mb-xl-8">
+                    <a href="#" class="card card-xl-stretch mb-xl-8 bg-light-danger">
                         <!--begin::Body-->
                         <div class="card-body">
                             <!--begin::Svg Icon | path: icons/duotune/general/gen032.svg-->

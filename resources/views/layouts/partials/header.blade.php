@@ -111,7 +111,7 @@
     </style> 
 </head>
 
-<body id="kt_body" style="background-image: url({{ asset('theme/assets/media/patterns/header-bg.jpg')}})" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled">
+<body id="kt_body" style="background-image: url({{ asset('theme/assets/media/patterns/pattern-4.jpeg')}})" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled">
     <!--begin::Main-->
     <!--begin::Root-->
     <div class="d-flex flex-column flex-root">
