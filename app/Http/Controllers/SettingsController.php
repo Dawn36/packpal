@@ -45,7 +45,7 @@ class SettingsController extends Controller
         $user = User::find($userId);
         $userDoc = DB::select(DB::raw("Select * from `user_document` where deleted_at IS NULL AND user_id='$userId'"));
         $categories=Categories::whereNull('deleted_at')->get();
-        if(Auth::user()->hasRole('supplier'))
+        if(Auth::user()->hasRole('supplier') && Auth::user()->verified == 'no')
         {
             $comment=DB::table('user_document_reject_command')->where('user_id',$userId)->orderBy('id','desc')->limit(1)->get();
             if(count($comment) == '1')
