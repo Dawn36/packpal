@@ -20,7 +20,7 @@
                 <div class="d-flex align-items-center">
                     <!--begin::Avatar-->
                     <div class="symbol symbol-50 me-4">
-                        <span class="symbol-label" style="background-image:url({{asset('profile/'.$user[0]->profile_picture)}})"></span>
+                        <span class="symbol-label" style="background-image:url('{{asset('profile/'.$user[0]->profile_picture)}}')"></span>
                     </div>
                     <!--end::Avatar-->
                     <div class="pe-5">

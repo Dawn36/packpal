@@ -183,19 +183,21 @@ class WebsiteController extends Controller
        
 
         if (Order::where('s_user_id', $userIdAuth)->where('bids_id', $bidId)->where('status','offer')->exists()) {
-          
-            return view('web-site/bid_now_message');
+            return '<div class="alert alert-danger" role="alert">
+            You have already make an offer on this BID.
+          </div>';
+            // return view('web-site/bid_now_message');
          }
          if($userIdAuth == $userId)
          {
             return '<div class="alert alert-danger" role="alert">
-            You can not make offer on your bid
+            You can not make offer on your BID.
           </div>';
          }
          if(!Auth::user()->hasRole('supplier'))
          {
             return '<div class="alert alert-danger" role="alert">
-            You are not supplier only supplier can bid change your self to supplier from dashboard
+            You are not supplier only supplier can bid change your self to supplier from dashboard.
           </div>';
          }
          else
@@ -227,7 +229,7 @@ class WebsiteController extends Controller
 
          //supplier
          $toEmail=Auth::user()->email;
-         $subject="OUR OFFER AGAINST THE $bidDetails->bids_name HAS BEEN SENT!";
+         $subject="YOUR OFFER AGAINST THE $bidDetails->bids_name HAS BEEN SENT!";
          $fileName='offer_send_email_supplier';
          $data['full_name']=Auth::user()->first_name ." ".Auth::user()->last_name;
          $data['bid_name']=$bidDetails->bids_name;
@@ -235,13 +237,13 @@ class WebsiteController extends Controller
          //buyer
          $userDetails=User::find($request->user_id);
          $toEmail=$userDetails->email;
-         $subject="OU RECEIVED A NEW BID AGAINST YOUR $bidDetails->bids_name";
+         $subject="YOUR RECEIVED A NEW BID AGAINST YOUR $bidDetails->bids_name";
          $fileName='offer_send_email_buyer';
          $data['full_name']=$userDetails->first_name ." ".$userDetails->last_name;
          $data['bid_name']=$bidDetails->bids_name;
          $data['supplier_name']=Auth::user()->first_name ." ".Auth::user()->last_name;
          sendEmail($toEmail,$subject,$fileName,$data);
-
+        
         return redirect()->back();
 
     }
@@ -266,7 +268,16 @@ class WebsiteController extends Controller
     }
     public function feedBackSubmit(Request $request)
     {
-        dd($request);
+        $toEmail='thepackpal@gmail.com';
+        $subject="Feedback from $request->full_name";
+        $fileName='feedback_template';
+        $data['title']=$request->title;
+        $data['full_name']=$request->full_name;
+        $data['company_name']=$request->company_name;
+        $data['phone_number']=$request->phone_number;
+        $data['email']=$request->email;
+        $data['message']=$request->message;
+        sendEmail($toEmail,$subject,$fileName,$data='');
     }
     public function categoryListing()
     {

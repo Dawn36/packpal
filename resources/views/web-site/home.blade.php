@@ -503,7 +503,7 @@
     <div class="container view_slider recommended">
       <div class="row">
         <div class="col-lg-12">
-          <h3>Innovations</h3>
+          <h3 style="color: #d80026">Innovations</h3>
           <div class="row single-item">
             @for ($i = 0; $i < count($adslast); $i++)
             <div class="col">

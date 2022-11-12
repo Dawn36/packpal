@@ -104,7 +104,7 @@
               <input
                 type="email"
                 placeholder="Please enter your email"
-                nam="email"
+                name="email"
                 class="form-control"
                 id="email"
                 required

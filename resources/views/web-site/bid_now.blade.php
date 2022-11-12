@@ -1,4 +1,4 @@
-<form id="" class="form" method="POST" action="{{ route('bid_now') }}" >
+<form id="bid_form" class="form" method="POST" action="{{ route('bid_now') }}" >
     @csrf
     <input hidden name='bid_id' value="{{$bidId}}"/>
     <input hidden name='user_id' value="{{$userId}}"/>
@@ -24,7 +24,24 @@
     >
       Close
     </button>
-    <button type="submit" class="btn btn-primary">submit</button>
+    <button type="button" onclick="bidNowSubmit()" class="btn btn-primary">submit</button>
   </div>
 </form>
- 
+ <script>
+      function bidNowSubmit() {
+        
+        $.ajax({
+                url: $("#bid_form").attr('action'),
+                method: 'POST',
+                data: $('#bid_form').serialize(),
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                },
+            success: function(result) {
+              $('#websitemodaltitle').html('Thank You! your BID has been placed');
+                $('#websitemodalbody').html('<div class="alert alert-success" role="alert"><p>Thank you! for submitting your BID. The Buyer will now ACCEPT OR REJECT your BID. You can use our CHAT feature for further discussion with the buyer</p></div><div class="alert alert-danger" role="alert"><p>Kindly Note: Packpal only connect Buyers and Sellers and are not liable legally or non-legally for any mishaps in your business transactions</p></div>');
+                $('#exampleModalLong').modal('show');
+            }
+        });
+    }
+  </script>

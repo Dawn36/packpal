@@ -165,87 +165,6 @@
 
             </div>
           </section>
-            {{-- <div id="packagesTable" class="table-package">
-              <h3>Compare Packages</h3>
-              <table>
-                <colgroup>
-                  <col />
-                  <col />
-                  <col />
-                  <col />
-                </colgroup>
-                <tbody>
-                  <tr class="package-type">
-                    <th>Package</th>
-                    <td>
-                      <p class="price">Rs.4000</p>
-                      <b class="type">Basic</b><b class="title">per month</b>
-                    </td>
-                    <td>
-                      <p class="price">Rs.23000</p>
-                      <b class="type">Standard</b
-                      ><b class="title">6 months</b>
-                    </td>
-                    <td>
-                      <p class="price">Rs.47000</p>
-                      <b class="type">Premium</b><b class="title">12 month</b>
-                    </td>
-                  </tr>
-                  <tr class="description">
-                    <th></th>
-                    <td>
-                      Introducing Bid System where seller will enter a bidding
-                      system after paying an amount on give credentials and
-                      select the package and upload payment image.
-                    </td>
-                    <td>
-                      Introducing Bid System where seller will enter a bidding
-                      system after paying an amount on give credentials and
-                      select the package and upload payment image.
-                    </td>
-                    <td>
-                      Introducing Bid System where seller will enter a bidding
-                      system after paying an amount on give credentials and
-                      select the package and upload payment image.
-                    </td>
-                  </tr>
-                 
-                  <tr class="select-package">
-                    <th>Total</th>
-                    <td>
-                      <p class="price-label">Rs.4000</p>
-                      @if(Auth::check())
-                      @if(date('Y-m-d') > Auth::user()->expiry_date )
-                      <button type="button"    onclick="subscribe('1 month','Basic')">Select</button>
-                      @endif
-                      @else
-                      <button type="button"   onclick="subscribe('1 month','Basic')">Select</button>
-                      @endif
-                    </td>
-                    <td>
-                      <p class="price-label">Rs.23000</p>
-                      @if(Auth::check())
-                      @if(date('Y-m-d') > Auth::user()->expiry_date )
-                      <button type="button"    onclick="subscribe('6 month','Standard')">Select</button>
-                      @endif
-                      @else
-                      <button type="button"  onclick="subscribe('6 month','Standard')">Select</button>
-                      @endif
-                    </td>
-                    <td>
-                      <p class="price-label">Rs.47000</p>
-                      @if(Auth::check())
-                      @if(date('Y-m-d') > Auth::user()->expiry_date )
-                      <button type="button"    onclick="subscribe('12 month','Premium')">Select</button>
-                      @endif
-                      @else
-                      <button type="button"  onclick="subscribe('12 month','Premium')">Select</button>
-                      @endif
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div> --}}
 
             <section id="recommendations" class="recommended">
               <h3>Recommended For You</h3>
@@ -428,6 +347,7 @@
   
   </div>
   <script>
+    
   function subscribe(month,package) {
     var value = {
            month: month,

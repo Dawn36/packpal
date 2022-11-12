@@ -29,27 +29,23 @@
         </div>
         <div class="col-lg-6 col-md-6 pl-5 pr-5">
           <h2 class="mb-5">
-            The leading global marketplace for learning and instruction
+           <b> THE LEADING AND THE ONLY PACKAGING MARKETPLACE FOR PACKAGING INDUSTRY WHERE WE CONNECT BUYERS AND SELLERS</b>
           </h2>
-          <h5 class="mt-2">Our Vision</h5>
+          <h5 class="mt-2">About PackPal.pk</h5>
           <p>
-            It is a long established fact that a reader will be distracted by
-            the readable content of a page when looking at its layout. The
-            point of using Lorem Ipsum is that it has a more-or-less normal
-            distribution of letters, as opposed to using 'Content here,
+            Packpal is an e-commerce B2B platform for packaging, inaugurated in 2022, for buyers and sellers specifically related to packaging industry in order to facilitate the Pakistan’s packaging industry. A platform that can help buyers and sellers to showcase their products and innovations. PackPal aims on enabling Small-Medium Enterprises, Large industries and individuals to do business easily. 
           </p>
-          <h5 class="mt-4">Our Goal</h5>
+          <h5 class="mt-4">Mission of PackPal.pk</h5>
           <p>
-            When looking at its layout. The point of using Lorem Ipsum is that
-            it has a more-or-less normal distribution of letters, as opposed
-            to using 'Content here,
+            Our mission is to do business the easy way with liberty.
+            By giving Sellers and Buyers the tools to communicate directly and reach locally as well as globally in an efficient manner.  
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-5">
+  {{-- <section class="py-5">
     <div class="section-title text-center mb-5">
       <h2>What We Provide?</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
@@ -182,5 +178,5 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> --}}
 @endsection('content_website')
