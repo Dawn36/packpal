@@ -254,20 +254,20 @@ a:hover {
               class="dropdown-menu dropdown-menu-right p-3 shadow-sm animated--grow-in"
               aria-labelledby="searchDropdown"
             >
-              <form class="form-inline mr-auto w-100 navbar-search">
+              <form class="form-inline mr-auto w-100 navbar-search" method="GET" action="{{route('search_home')}}">
                 <div class="input-group">
-                  <input
-                    type="text"
-                    class="form-control bg-light border-0 small"
-                    placeholder="Find Services..."
-                    aria-label="Search"
-                    aria-describedby="basic-addon2"
-                  />
-                  <div class="input-group-append">
-                    <button class="btn btn-primary" type="button">
-                      <i class="fa fa-search fa-sm"></i>
-                    </button>
+                  <div class="location-dropdown">
+                    <select class="form-control border-0 shadow-sm" name='product_supplier' style="    font-size: 17px !important;">
+                        <option value="product">Bids</option>
+                        <option value="supplier">Supplier</option>
+                    </select>
                   </div>
+                <input type="text" class="form-control bg-white small" name="search" placeholder="Search your Packaging" aria-label="Search" aria-describedby="basic-addon2" style="height: 40px  !important">
+                <div class="input-group-append">
+                <button class="btn btn-success" type="submit">
+                <i class="fa fa-search fa-sm"></i>
+                </button>
+                </div>
                 </div>
               </form>
             </div>
