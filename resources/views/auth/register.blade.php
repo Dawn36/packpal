@@ -343,7 +343,6 @@
                 data: value,
 
                 success: function(result) {
-                debugger;
                     if (result == 0) {
                         document.getElementById('sub_category_id').innerHTML =
                             '<option value=""> Select  sub-category  </option>';

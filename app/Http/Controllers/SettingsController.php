@@ -45,13 +45,28 @@ class SettingsController extends Controller
         $user = User::find($userId);
         $userDoc = DB::select(DB::raw("Select * from `user_document` where deleted_at IS NULL AND user_id='$userId'"));
         $categories=Categories::whereNull('deleted_at')->get();
+        if(Auth::user()->hasRole('supplier'))
+        {
+            $comment=DB::table('user_document_reject_command')->where('user_id',$userId)->orderBy('id','desc')->limit(1)->get();
+            if(count($comment) == '1')
+            {
+                toast('error',ucfirst($comment[0]->comment));
+            }
+        }
+        
+
+        return view('user.settings', compact('user', 'userDoc','categories'));
+    }
+    public static function comment()
+    {
+        $userId = Auth::user()->id;
         $comment=DB::table('user_document_reject_command')->where('user_id',$userId)->orderBy('id','desc')->limit(1)->get();
         if(count($comment) == '1')
         {
-            toast('error',ucfirst($comment[0]->comment));
+            return true;
         }
+        return false;
 
-        return view('user.settings', compact('user', 'userDoc','categories'));
     }
 
     /**
