@@ -134,7 +134,7 @@
                 <li>Category<strong>{{ucwords($bidDetail[0]->category_name)}}</strong></li>
                 @endif
                 @if(isset($bidDetail[0]->first_name))
-                <li>Contact Person Name<strong>{{ucwords($bidDetail[0]->first_name)}} {{ucwords($bidDetail[0]->last_name)}}</strong></li>
+                <li>Contact Person Name<strong>{{ucwords($bidDetail[0]->first_name)}} {{ucwords($bidDetail[0]->middle_name)}} {{ucwords($bidDetail[0]->last_name)}}</strong></li>
                 @endif
               </ul>
               @endif

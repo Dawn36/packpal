@@ -175,7 +175,7 @@
                                                     </td>
                                                     <td>
                                                         @if($title == 'Offers')
-                                                        <a href="{{route('check_map_chat',['sUserId'=>$order[$i]->s_user_id,'bUserId'=>$order[$i]->b_user_id])}}" class="btn btn-icon btn-active-light-primary position-relative btn btn-icon btn-active-light-primary btn-custom w-30px h-30px w-md-40px h-md-40px" id="kt_drawer_chat_toggle">
+                                                        <a href="{{route('check_map_chat',['sUserId'=>$order[$i]->s_user_id,'bUserId'=>$order[$i]->b_user_id])}}" class="btn btn-icon btn-active-light-primary position-relative btn btn-icon btn-active-light-primary btn-custom w-30px h-30px w-md-40px h-md-40px" data-bs-toggle="tooltip" data-bs-original-title="Chat">
                                                             <span class="svg-icon svg-icon-1">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                                     <path opacity="0.3" d="M20 3H4C2.89543 3 2 3.89543 2 5V16C2 17.1046 2.89543 18 4 18H4.5C5.05228 18 5.5 18.4477 5.5 19V21.5052C5.5 22.1441 6.21212 22.5253 6.74376 22.1708L11.4885 19.0077C12.4741 18.3506 13.6321 18 14.8167 18H20C21.1046 18 22 17.1046 22 16V5C22 3.89543 21.1046 3 20 3Z" fill="currentColor" />
@@ -185,7 +185,7 @@
                                                             </span>
                                                             <span class="bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink"></span>
                                                         </a>
-                                                        <button type="button" class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-warning" data-bs-original-title="Edit Offer" onclick="editOffer('{{$order[$i]->id}}','{{$order[$i]->s_user_id}}','{{$order[$i]->b_user_id}}')">
+                                                        <button type="button" class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-warning" data-bs-toggle="tooltip" data-bs-original-title="Edit Offer" onclick="editOffer('{{$order[$i]->id}}','{{$order[$i]->s_user_id}}','{{$order[$i]->b_user_id}}')">
                                                             <span class="svg-icon svg-icon-1">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                                     <path opacity="0.3" d="M21.4 8.35303L19.241 10.511L13.485 4.755L15.643 2.59595C16.0248 2.21423 16.5426 1.99988 17.0825 1.99988C17.6224 1.99988 18.1402 2.21423 18.522 2.59595L21.4 5.474C21.7817 5.85581 21.9962 6.37355 21.9962 6.91345C21.9962 7.45335 21.7817 7.97122 21.4 8.35303ZM3.68699 21.932L9.88699 19.865L4.13099 14.109L2.06399 20.309C1.98815 20.5354 1.97703 20.7787 2.03189 21.0111C2.08674 21.2436 2.2054 21.4561 2.37449 21.6248C2.54359 21.7934 2.75641 21.9115 2.989 21.9658C3.22158 22.0201 3.4647 22.0084 3.69099 21.932H3.68699Z" fill="black"></path>
@@ -207,7 +207,7 @@
                                                         </form>
                                                         @endif
                                                         @if($title == 'In-process')
-                                                        <button type="button" class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-warning" data-bs-original-title="Edit Offer" onclick="editOffer('{{$order[$i]->id}}','{{$order[$i]->s_user_id}}','{{$order[$i]->b_user_id}}')">
+                                                        <button type="button" class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-warning"data-bs-toggle="tooltip" data-bs-original-title="Edit Offer" onclick="editOffer('{{$order[$i]->id}}','{{$order[$i]->s_user_id}}','{{$order[$i]->b_user_id}}')">
                                                             <span class="svg-icon svg-icon-1">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                                     <path opacity="0.3" d="M21.4 8.35303L19.241 10.511L13.485 4.755L15.643 2.59595C16.0248 2.21423 16.5426 1.99988 17.0825 1.99988C17.6224 1.99988 18.1402 2.21423 18.522 2.59595L21.4 5.474C21.7817 5.85581 21.9962 6.37355 21.9962 6.91345C21.9962 7.45335 21.7817 7.97122 21.4 8.35303ZM3.68699 21.932L9.88699 19.865L4.13099 14.109L2.06399 20.309C1.98815 20.5354 1.97703 20.7787 2.03189 21.0111C2.08674 21.2436 2.2054 21.4561 2.37449 21.6248C2.54359 21.7934 2.75641 21.9115 2.989 21.9658C3.22158 22.0201 3.4647 22.0084 3.69099 21.932H3.68699Z" fill="black"></path>
@@ -215,7 +215,7 @@
                                                                 </svg>
                                                             </span>
                                                         </button>
-                                                        <a href="{{route('check_map_chat',['sUserId'=>$order[$i]->s_user_id,'bUserId'=>$order[$i]->b_user_id])}}" class="btn btn-icon btn-active-light-primary position-relative btn btn-icon btn-active-light-primary btn-custom w-30px h-30px w-md-40px h-md-40px" id="kt_drawer_chat_toggle">
+                                                        <a href="{{route('check_map_chat',['sUserId'=>$order[$i]->s_user_id,'bUserId'=>$order[$i]->b_user_id])}}" class="btn btn-icon btn-active-light-primary position-relative btn btn-icon btn-active-light-primary btn-custom w-30px h-30px w-md-40px h-md-40px" data-bs-toggle="tooltip" data-bs-original-title="Chat">
                                                             <span class="svg-icon svg-icon-1">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                                     <path opacity="0.3" d="M20 3H4C2.89543 3 2 3.89543 2 5V16C2 17.1046 2.89543 18 4 18H4.5C5.05228 18 5.5 18.4477 5.5 19V21.5052C5.5 22.1441 6.21212 22.5253 6.74376 22.1708L11.4885 19.0077C12.4741 18.3506 13.6321 18 14.8167 18H20C21.1046 18 22 17.1046 22 16V5C22 3.89543 21.1046 3 20 3Z" fill="currentColor" />
@@ -239,7 +239,7 @@
                                                         </form>
                                                         @endif
                                                         @if( $title == 'Completed')
-                                                        <div class="btn btn-icon btn-active-light-primary position-relative btn btn-icon btn-active-light-primary btn-custom w-30px h-30px w-md-40px h-md-40px" id="kt_drawer_chat_toggle">
+                                                        <div class="btn btn-icon btn-active-light-primary position-relative btn btn-icon btn-active-light-primary btn-custom w-30px h-30px w-md-40px h-md-40px" data-bs-toggle="tooltip" data-bs-original-title="Chat">
                                                             <span class="svg-icon svg-icon-1">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                                     <path opacity="0.3" d="M20 3H4C2.89543 3 2 3.89543 2 5V16C2 17.1046 2.89543 18 4 18H4.5C5.05228 18 5.5 18.4477 5.5 19V21.5052C5.5 22.1441 6.21212 22.5253 6.74376 22.1708L11.4885 19.0077C12.4741 18.3506 13.6321 18 14.8167 18H20C21.1046 18 22 17.1046 22 16V5C22 3.89543 21.1046 3 20 3Z" fill="currentColor" />

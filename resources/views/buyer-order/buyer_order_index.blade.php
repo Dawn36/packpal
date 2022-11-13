@@ -210,7 +210,7 @@
                                                     </td>
                                                     <td>
                                                         @if($title == 'Offers')
-                                                        <a href="{{route('check_map_chat',['sUserId'=>$order[$i]->s_user_id,'bUserId'=>$order[$i]->b_user_id])}}" class="btn btn-icon btn-active-light-primary position-relative btn btn-icon btn-active-light-primary btn-custom w-30px h-30px w-md-40px h-md-40px" id="kt_drawer_chat_toggle">
+                                                        <a href="{{route('check_map_chat',['sUserId'=>$order[$i]->s_user_id,'bUserId'=>$order[$i]->b_user_id])}}" class="btn btn-icon btn-active-light-primary position-relative btn btn-icon btn-active-light-primary btn-custom w-30px h-30px w-md-40px h-md-40px"  data-bs-toggle="tooltip" data-bs-original-title="Chat">
                                                             <span class="svg-icon svg-icon-1">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                                     <path opacity="0.3" d="M20 3H4C2.89543 3 2 3.89543 2 5V16C2 17.1046 2.89543 18 4 18H4.5C5.05228 18 5.5 18.4477 5.5 19V21.5052C5.5 22.1441 6.21212 22.5253 6.74376 22.1708L11.4885 19.0077C12.4741 18.3506 13.6321 18 14.8167 18H20C21.1046 18 22 17.1046 22 16V5C22 3.89543 21.1046 3 20 3Z" fill="currentColor" />
@@ -254,7 +254,7 @@
                                                                 </svg>
                                                             </span>
                                                         </a>
-                                                        <a href="{{route('check_map_chat',['sUserId'=>$order[$i]->s_user_id,'bUserId'=>$order[$i]->b_user_id])}}" class="btn btn-icon btn-active-light-primary position-relative btn btn-icon btn-active-light-primary btn-custom w-30px h-30px w-md-40px h-md-40px" id="kt_drawer_chat_toggle">
+                                                        <a href="{{route('check_map_chat',['sUserId'=>$order[$i]->s_user_id,'bUserId'=>$order[$i]->b_user_id])}}" class="btn btn-icon btn-active-light-primary position-relative btn btn-icon btn-active-light-primary btn-custom w-30px h-30px w-md-40px h-md-40px" data-bs-toggle="tooltip" data-bs-original-title="Chat">
                                                             <span class="svg-icon svg-icon-1">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                                     <path opacity="0.3" d="M20 3H4C2.89543 3 2 3.89543 2 5V16C2 17.1046 2.89543 18 4 18H4.5C5.05228 18 5.5 18.4477 5.5 19V21.5052C5.5 22.1441 6.21212 22.5253 6.74376 22.1708L11.4885 19.0077C12.4741 18.3506 13.6321 18 14.8167 18H20C21.1046 18 22 17.1046 22 16V5C22 3.89543 21.1046 3 20 3Z" fill="currentColor" />
@@ -264,7 +264,7 @@
                                                             </span>
                                                             <span class="bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink"></span>
                                                         </a>
-                                                        <button type="button" class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-primary" data-bs-original-title="Supplier Info" onclick="supplierInfo('{{$order[$i]->user_id}}')">
+                                                        <button type="button" class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-primary" data-bs-toggle="tooltip"  data-bs-original-title="Supplier Info" onclick="supplierInfo('{{$order[$i]->user_id}}')">
                                                             <span class="svg-icon svg-icon-1">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                                     <path opacity="0.3" d="M20.5543 4.37824L12.1798 2.02473C12.0626 1.99176 11.9376 1.99176 11.8203 2.02473L3.44572 4.37824C3.18118 4.45258 3 4.6807 3 4.93945V13.569C3 14.6914 3.48509 15.8404 4.4417 16.984C5.17231 17.8575 6.18314 18.7345 7.446 19.5909C9.56752 21.0295 11.6566 21.912 11.7445 21.9488C11.8258 21.9829 11.9129 22 12.0001 22C12.0872 22 12.1744 21.983 12.2557 21.9488C12.3435 21.912 14.4326 21.0295 16.5541 19.5909C17.8169 18.7345 18.8277 17.8575 19.5584 16.984C20.515 15.8404 21 14.6914 21 13.569V4.93945C21 4.6807 20.8189 4.45258 20.5543 4.37824Z" fill="black" />
@@ -276,7 +276,7 @@
                                                         @endif
                                                         @if($title == 'Completed')
                                                         @if($order[$i]->feed_back == 'no')
-                                                        <button class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-warning" data-bs-original-title="Review" onclick="feedBack('{{$order[$i]->id}}')">
+                                                        <button class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-warning"data-bs-toggle="tooltip"  data-bs-original-title="Review" onclick="feedBack('{{$order[$i]->id}}')">
                                                             <div class="rating-label">
                                                                 <span class="svg-icon svg-icon-1">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -286,7 +286,7 @@
                                                             </div>
                                                         </button>
                                                         @endif
-                                                        <div class="btn btn-icon btn-active-light-primary position-relative btn btn-icon btn-active-light-primary btn-custom w-30px h-30px w-md-40px h-md-40px" id="kt_drawer_chat_toggle">
+                                                        <a href="{{route('check_map_chat',['sUserId'=>$order[$i]->s_user_id,'bUserId'=>$order[$i]->b_user_id])}}" class="btn btn-icon btn-active-light-primary position-relative btn btn-icon btn-active-light-primary btn-custom w-30px h-30px w-md-40px h-md-40px"  data-bs-toggle="tooltip" data-bs-original-title="Chat">
                                                             <span class="svg-icon svg-icon-1">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                                     <path opacity="0.3" d="M20 3H4C2.89543 3 2 3.89543 2 5V16C2 17.1046 2.89543 18 4 18H4.5C5.05228 18 5.5 18.4477 5.5 19V21.5052C5.5 22.1441 6.21212 22.5253 6.74376 22.1708L11.4885 19.0077C12.4741 18.3506 13.6321 18 14.8167 18H20C21.1046 18 22 17.1046 22 16V5C22 3.89543 21.1046 3 20 3Z" fill="currentColor" />
@@ -295,8 +295,8 @@
                                                                 </svg>
                                                             </span>
                                                             <span class="bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink"></span>
-                                                        </div>
-                                                        <button type="button" class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-primary" data-bs-original-title="Supplier Info" onclick="supplierInfo('{{$order[$i]->user_id}}')">
+                                                        </a>
+                                                        <button type="button" class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-primary" data-bs-toggle="tooltip"  data-bs-original-title="Supplier Info" onclick="supplierInfo('{{$order[$i]->user_id}}')">
                                                             <span class="svg-icon svg-icon-1">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                                     <path opacity="0.3" d="M20.5543 4.37824L12.1798 2.02473C12.0626 1.99176 11.9376 1.99176 11.8203 2.02473L3.44572 4.37824C3.18118 4.45258 3 4.6807 3 4.93945V13.569C3 14.6914 3.48509 15.8404 4.4417 16.984C5.17231 17.8575 6.18314 18.7345 7.446 19.5909C9.56752 21.0295 11.6566 21.912 11.7445 21.9488C11.8258 21.9829 11.9129 22 12.0001 22C12.0872 22 12.1744 21.983 12.2557 21.9488C12.3435 21.912 14.4326 21.0295 16.5541 19.5909C17.8169 18.7345 18.8277 17.8575 19.5584 16.984C20.515 15.8404 21 14.6914 21 13.569V4.93945C21 4.6807 20.8189 4.45258 20.5543 4.37824Z" fill="black" />
