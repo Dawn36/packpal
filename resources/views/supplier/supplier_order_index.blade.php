@@ -225,7 +225,7 @@
                                                             </span>
                                                             <span class="bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink"></span>
                                                         </a>
-                                                        <form style="display: inline-block" method="POST" action="{{ route('order_accept_reject', ['id'=>$order[$i]->id,'status'=>'reject','bidId'=>$order[$i]->bid_id]) }}">
+                                                        {{-- <form style="display: inline-block" method="POST" action="{{ route('order_accept_reject', ['id'=>$order[$i]->id,'status'=>'reject','bidId'=>$order[$i]->bid_id]) }}">
                                                             @csrf
                                                             <button type="submit" class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-danger" data-bs-toggle="tooltip" data-bs-original-title="Reject Offer">
                                                                 <span class="svg-icon svg-icon-1">
@@ -236,7 +236,7 @@
                                                                     </svg>
                                                                 </span>
                                                             </button>
-                                                        </form>
+                                                        </form> --}}
                                                         @endif
                                                         @if( $title == 'Completed')
                                                         <div class="btn btn-icon btn-active-light-primary position-relative btn btn-icon btn-active-light-primary btn-custom w-30px h-30px w-md-40px h-md-40px" data-bs-toggle="tooltip" data-bs-original-title="Chat">

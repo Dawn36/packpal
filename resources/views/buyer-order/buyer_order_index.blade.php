@@ -254,6 +254,7 @@
                                                                 </svg>
                                                             </span>
                                                         </a>
+                                                        
                                                         <a href="{{route('check_map_chat',['sUserId'=>$order[$i]->s_user_id,'bUserId'=>$order[$i]->b_user_id])}}" class="btn btn-icon btn-active-light-primary position-relative btn btn-icon btn-active-light-primary btn-custom w-30px h-30px w-md-40px h-md-40px" data-bs-toggle="tooltip" data-bs-original-title="Chat">
                                                             <span class="svg-icon svg-icon-1">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -273,6 +274,18 @@
                                                                 </svg>
                                                             </span>
                                                         </button>
+                                                        <form style="display: inline-block" method="POST" action="{{ route('order_accept_reject', ['id'=>$order[$i]->id,'status'=>'reject','bidId'=>$order[$i]->bid_id]) }}">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-danger" data-bs-toggle="tooltip" data-bs-original-title="Reject Offer">
+                                                                <span class="svg-icon svg-icon-1">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                                        <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5" fill="black" />
+                                                                        <rect x="7" y="15.3137" width="12" height="2" rx="1" transform="rotate(-45 7 15.3137)" fill="black" />
+                                                                        <rect x="8.41422" y="7" width="12" height="2" rx="1" transform="rotate(45 8.41422 7)" fill="black" />
+                                                                    </svg>
+                                                                </span>
+                                                            </button>
+                                                        </form>
                                                         @endif
                                                         @if($title == 'Completed')
                                                         @if($order[$i]->feed_back == 'no')

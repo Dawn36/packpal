@@ -111,7 +111,7 @@
     </style> 
 </head>
 
-<body id="kt_body" style="background-image: url({{ asset('theme/assets/media/patterns/pattern-4.jpeg')}})" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled">
+<body id="kt_body" style="background-image: url({{ asset('theme/assets/media/patterns/pattern-9.jpeg')}})" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled" >
     <!--begin::Main-->
     <!--begin::Root-->
     <div class="d-flex flex-column flex-root">
@@ -120,7 +120,7 @@
             <!--begin::Wrapper-->
             <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
                 <!--begin::Header-->
-                <div id="kt_header" class="header align-items-stretch" data-kt-sticky="true" data-kt-sticky-name="header" data-kt-sticky-offset="{default: '200px', lg: '300px'}">
+                <div id="kt_header" class="header align-items-stretch" data-kt-sticky="true" data-kt-sticky-name="header" data-kt-sticky-offset="{default: '200px', lg: '300px'}" style="border-bottom: 0px !important">
                     <!--begin::Container-->
                     <div class="container-xxl d-flex align-items-center">
                         <!--begin::Heaeder menu toggle-->

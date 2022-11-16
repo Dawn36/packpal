@@ -1,3 +1,31 @@
+{{-- <style>
+    body:not([data-kt-sticky-header=on])  .header .header-menu .menu>.menu-item.show>.menu-link {
+    transition: color .2s ease,background-color .2s ease;
+    transition-duration: 0.2s, 0.2s;
+    transition-timing-function: ease, ease;
+    transition-delay: 0s, 0s;
+    transition-property: color, background-color;
+    background-color: rgb(255 99 99 / 10%);
+    color: #fff;
+}
+body:not([data-kt-sticky-header=on]) .header .header-menu .menu>.menu-item.show>.menu-link .menu-title {
+    color: #b31d21;
+}
+body:not([data-kt-sticky-header=on]) .header .header-menu .menu>.menu-item>.menu-link .menu-title {
+    color: #b31d21;
+}
+body:not([data-kt-sticky-header=on]) .header .header-menu .menu>.menu-item.hover:not(.here)>.menu-link:not(.disabled):not(.active):not(.here) .menu-title, body:not([data-kt-sticky-header=on]) .header .header-menu .menu>.menu-item:not(.here)>.menu-link:hover:not(.disabled):not(.active):not(.here) .menu-title {
+    color: #b31d21;
+}
+body:not([data-kt-sticky-header=on]) .header .header-menu .menu>.menu-item:not(.here)>.menu-link:hover:not(.disabled):not(.active):not(.here) {
+    transition: color .2s ease,background-color .2s ease;
+    background-color: rgb(255 99 99 / 10%);
+    color: #fff;
+}
+.btn-check:active+body:not([data-kt-sticky-header=on]) .topbar .btn.btn-custom, .btn-check:checked+body:not([data-kt-sticky-header=on]) .topbar .btn.btn-custom, .show>body:not([data-kt-sticky-header=on]) .topbar .btn.btn-custom, body:not([data-kt-sticky-header=on]) .topbar .btn.btn-custom.active, body:not([data-kt-sticky-header=on]) .topbar .btn.btn-custom.show, body:not([data-kt-sticky-header=on]) .topbar .btn.btn-custom:active:not(.btn-active), body:not([data-kt-sticky-header=on]) .topbar .btn.btn-custom:focus:not(.btn-active), body:not([data-kt-sticky-header=on]) .topbar .btn.btn-custom:hover:not(.btn-active) {
+    background-color: rgb(255 99 99 / 10%)!important;
+}
+    </style> --}}
 <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1">
     <!--begin::Navbar-->
     <div class="d-flex align-items-stretch" id="kt_header_nav">
@@ -275,13 +303,13 @@
                 <form action="{{ route('user_change_role') }}" id='user_change_role' method="POST" style="display: none;">
                     @csrf
                 </form>
-                <a  href="{{ route('user_change_role') }}" class="menu-item menu-lg-down-accordion me-lg-1" onclick="event.preventDefault(); document.getElementById('user_change_role').submit();">
+                <a  href="{{ route('user_change_role') }}" class=" menu-item menu-lg-down-accordion me-lg-1" onclick="event.preventDefault(); document.getElementById('user_change_role').submit();">
                     <span class="menu-link py-3">
                         @if(Auth::user()->hasRole('supplier'))
-                        <span class="menu-title" style="color: white;">Switch to Buyer</span>
+                        <span class="menu-title" style="color: #b31d21">Switch to Buyer</span>
                         @endif
                         @if(Auth::user()->hasRole('buyer'))
-                        <span class="menu-title" style="color: white;">Switch to Supplier</span>
+                        <span class="menu-title" style="color: #b31d21">Switch to Supplier</span>
                         @endif
                         <span class="menu-arrow d-lg-none"></span>
                     </span>
