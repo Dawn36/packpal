@@ -306,10 +306,10 @@ body:not([data-kt-sticky-header=on]) .header .header-menu .menu>.menu-item:not(.
                 <a  href="{{ route('user_change_role') }}" class=" menu-item menu-lg-down-accordion me-lg-1" onclick="event.preventDefault(); document.getElementById('user_change_role').submit();">
                     <span class="menu-link py-3">
                         @if(Auth::user()->hasRole('supplier'))
-                        <span class="menu-title" style="color: #b31d21">Switch to Buyer</span>
+                        <span class="menu-title" style="color: #fff">Switch to Buyer</span>
                         @endif
                         @if(Auth::user()->hasRole('buyer'))
-                        <span class="menu-title" style="color: #b31d21">Switch to Supplier</span>
+                        <span class="menu-title" style="color: #fff">Switch to Supplier</span>
                         @endif
                         <span class="menu-arrow d-lg-none"></span>
                     </span>

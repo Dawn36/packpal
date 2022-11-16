@@ -114,7 +114,7 @@
                             </span>
                             <!--end::Svg Icon-->
                             <div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$mainCategory[0]->main_category}}</div>
-                            <div class="fw-bolder text-gray-800 text-hover-primary mb-1">Main Categories for Bid Requests</div>
+                            <div class="fw-bolder text-gray-800 text-hover-primary mb-1" style="text-transform: uppercase;">Main Categories for Bid Requests</div>
                         </div>
                         <!--end::Body-->
                     </a>
@@ -134,7 +134,7 @@
                             </span>
                             <!--end::Svg Icon-->
                             <div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$activeRequests}}</div>
-                            <div class="fw-bolder text-gray-800 text-hover-primary mb-1">Active Bid Requests</div>
+                            <div class="fw-bolder text-gray-800 text-hover-primary mb-1" style="text-transform: uppercase;">Active Bid Requests</div>
                         </div>
                         <!--end::Body-->
                     </a>
@@ -154,7 +154,7 @@
                             </span>
                             <!--end::Svg Icon-->
                             <div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$approved}}</div>
-                            <div class="fw-bolder text-gray-800 text-hover-primary mb-1">Approved Bid Requests</div>
+                            <div class="fw-bolder text-gray-800 text-hover-primary mb-1" style="text-transform: uppercase;">Approved Bid Requests</div>
                         </div>
                         <!--end::Body-->
                     </a>
@@ -174,7 +174,7 @@
                             </span>
                             <!--end::Svg Icon-->
                             <div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$denied}}</div>
-                            <div class="fw-bolder text-gray-800 text-hover-primary mb-1">Rejected Bid Requests</div>
+                            <div class="fw-bolder text-gray-800 text-hover-primary mb-1" style="text-transform: uppercase;">Rejected Bid Requests</div>
                         </div>
                         <!--end::Body-->
                     </a>
@@ -202,7 +202,7 @@
                                 </span>
                             <!--end::Svg Icon-->
                             <div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$totalBussiness}}</div>
-                            <div class="fw-bolder text-gray-800 text-hover-primary mb-1">Total Business in Rupees</div>
+                            <div class="fw-bolder text-gray-800 text-hover-primary mb-1" style="text-transform: uppercase;">Total Business in Rupees</div>
                         </div>
                         <!--end::Body-->
                     </a>
@@ -223,7 +223,7 @@
                             </span>
                             <!--end::Svg Icon-->
                             <div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$reviewsPost}}</div>
-                            <div class="fw-bolder text-gray-800 text-hover-primary mb-1">Total Reviews Posted</div>
+                            <div class="fw-bolder text-gray-800 text-hover-primary mb-1" style="text-transform: uppercase;">Total Reviews Posted</div>
                         </div>
                         <!--end::Body-->
                     </a>
