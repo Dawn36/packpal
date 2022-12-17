@@ -83,7 +83,7 @@
                                 <a href="#" class="fw-bolder fs-4 mb-2 text-hover-primary">Hi, {{ ucwords(Auth::user()->first_name) }} {{ ucwords(Auth::user()->last_name) }}</a>
                                 <span class="fw-bold text-muted fs-5">{{ Auth::user()->roles->first()->display_name }}</span>
                             </div>
-                            <img src="{{ asset('/profile/' . Auth::user()->profile_picture)}}" alt="" class="dashboard-welcome-card h-100px" style="width: 36% !important;">
+                            <img src="{{ asset('/profile/' . Auth::user()->profile_picture)}}" alt="" class="dashboard-welcome-card h-100px" style="width: 36% !important; border-radius: 15px !important;">
                         </div>
                         <!--end::Body-->
                     </div>

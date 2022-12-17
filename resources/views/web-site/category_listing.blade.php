@@ -2,15 +2,15 @@
 
 @section('content_website')
 
-    <section class="section-padding bg-dark py-5 inner-header">
+    <section class="section-padding bg-dark py-5 inner-header" style="background-image: url({{ asset('theme/assets/media/patterns/pattern-9.jpeg')}});     background-repeat: round;">
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
             <h1 class="mt-0 mb-3 text-white">Categories</h1>
             <div class="breadcrumbs">
               <p class="mb-0 text-white">
-                <a class="text-white" href="#">Home</a> /
-                <span class="text-success">Categories</span>
+                <a class="text-white" style="font-weight: 900;" href="#">Home</a> /
+                <span class="text-white" style="font-weight: 900;">Categories</span>
               </p>
             </div>
           </div>
@@ -19,7 +19,11 @@
     </section>
     <div class="services-wrapper bg-white py-5">
       <div class="container">
-        <h2>List of Categories</h2>
+        <div class="row">
+          <div class="col-lg-3"><h2>Categories</h2></div>
+          <div class="col-lg-6"><h2>Sub-Categories</h2></div>
+        </div>
+        
         @for ($i = 0; $i < count($catAndSubCat); $i++)
         @php  
           $dataSubId=explode(",",$catAndSubCat[$i]->sub_cat_id );

@@ -180,7 +180,7 @@
            
           </li>
           @endfor
-          <button onclick="viewAllCategory()"  type="button" class="btn btn-outline-success btn-sm" tabindex="0" style="border: none; margin-top: 20px;height: 50%;">
+          <button onclick="viewAllCategory()"  type="button" class="btn btn-outline-success btn-sm" tabindex="0" style="border: none; margin-top: 10px;height: 50%;">
             View All 
             </button>
         </ul>
@@ -407,12 +407,14 @@
       <h3><a href="{{ route('category_listing') }}" > List of Categories</a></h3>
       <div class="row service-slider">
         @for ($i = 0; $i < count($catAndSubCat); $i++)
+        
         <div class="col">
+          <h3>{{ucwords($catAndSubCat[$i]->category_name)}}</h3>
           <div class="service">
             <a href="{{route('web_supplier_listing',['category_id'=>$catAndSubCat[$i]->cat_id])}}" >
             
             <img src="{{ asset('category/'.$catAndSubCat[$i]->category_image)}}" alt="{{$catAndSubCat[$i]->category_name}}"  />
-             <h3>{{ucwords($catAndSubCat[$i]->category_name)}}</h3>
+            
             </a>
           </div>
         </div>

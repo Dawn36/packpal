@@ -83,7 +83,7 @@
                                 <a href="#" class="fw-bolder fs-4 mb-2 text-hover-primary">Hi, {{ ucwords(Auth::user()->first_name) }} {{ ucwords(Auth::user()->last_name) }}</a>
                                 <span class="fw-bold text-muted fs-5">{{ Auth::user()->roles->first()->display_name }}</span>
                             </div>
-                            <img src="{{ asset('/profile/' . Auth::user()->profile_picture)}}" alt="" class="dashboard-welcome-card h-100px" style="width: 36% !important;">
+                            <img src="{{ asset('/profile/' . Auth::user()->profile_picture)}}" alt="" class="dashboard-welcome-card h-100px" style="width: 36% !important;border-radius: 15px !important;">
                         </div>
                         <!--end::Body-->
                     </div>
@@ -184,10 +184,8 @@
                         }
                     </style>
                     <!--begin::Statistics Widget 5-->
-                    <a href="#" class="card card-xl-stretch mb-xl-8" style="background-color: #b3b0b0; color: #676263;">
-                        <!--begin::Body-->
+                    {{-- <a href="#" class="card card-xl-stretch mb-xl-8" style="background-color: #b3b0b0; color: #676263;">
                         <div class="card-body">
-                            <!--begin::Svg Icon | path: icons/duotune/general/gen032.svg-->
                             
                             <span class="svg-icon svg-icon-dangers svg-icon-3x ms-n1" >
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="#4c353b" xmlns="http://www.w3.org/2000/svg">
@@ -195,12 +193,10 @@
                                     <path d="M3 12H20" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
                                 </span>
-                            <!--end::Svg Icon-->
                             <div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{$totalBussiness}}</div>
                             <div class="fw-bolder text-gray-800 text-hover-primary mb-1">TOTAL BUSINESS IN RUPEES</div>
                         </div>
-                        <!--end::Body-->
-                    </a>
+                    </a> --}}
                     <!--end::Statistics Widget 5-->
                 </div>
                 

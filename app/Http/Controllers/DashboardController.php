@@ -31,12 +31,12 @@ class DashboardController extends Controller
         if(Auth::user()->hasRole('supplier'))
         {
             $userId = Auth::user()->id;
-            $totalBussiness=Order::where('s_user_id',$userId)->where('status','complete')->sum('offer_price');
+            // $totalBussiness=Order::where('s_user_id',$userId)->where('status','complete')->sum('offer_price');
             $reject=Order::where('s_user_id',$userId)->where('status','reject')->count();
             $inProcess=Order::where('s_user_id',$userId)->where('status','inprocess')->count();
             $offer=Order::where('s_user_id',$userId)->where('status','offer')->count();
             $reviewsGiven=DB::table('reviews')->where('to_user_id',$userId)->count();
-            return view('dashboard/dashboard_supplier',compact('totalBussiness','reviewsGiven','reject','inProcess','offer'));
+            return view('dashboard/dashboard_supplier',compact('reviewsGiven','reject','inProcess','offer'));
         } 
         if(Auth::user()->hasRole('buyer'))
         {
@@ -45,9 +45,9 @@ class DashboardController extends Controller
             $activeRequests=Bids::where('status','pending')->where('user_id',$userId)->count();
             $denied=Bids::where('status','denied')->where('user_id',$userId)->count();
             $reviewsPost=DB::table('reviews')->where('from_user_id',$userId)->count();
-            $totalBussiness=Order::where('b_user_id',$userId)->where('status','complete')->sum('offer_price');
+            // $totalBussiness=Order::where('b_user_id',$userId)->where('status','complete')->sum('offer_price');
             $mainCategory=DB::select(DB::raw("SELECT COUNT(DISTINCT(b.`categories_id`)) AS main_category FROM `bids` b INNER JOIN `categories` c ON b.`categories_id`=c.`id` WHERE b.`user_id`='$userId'"));  
-            return view('dashboard/dashboard_buyer',compact('activeRequests','approved','denied','reviewsPost','totalBussiness','mainCategory'));
+            return view('dashboard/dashboard_buyer',compact('activeRequests','approved','denied','reviewsPost','mainCategory'));
         } 
         
         

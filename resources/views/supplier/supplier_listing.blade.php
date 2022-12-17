@@ -106,7 +106,7 @@
                                         <div class="d-flex align-items-center">
                                             <div class="symbol symbol-60px me-5">
                                                 <span class=" bg-danger-light">
-                                                    <img src="{{asset('/profile/' . $supplier[$i]->company_logo)}}" style="width: 145px; height: 170px !important;" class="h-50 align-self-center" alt="">
+                                                    <img src="{{asset('/profile/' . $supplier[$i]->company_logo)}}" style="width: 145px; height: 170px !important;border-radius: 12px!important" class="h-50 align-self-center" alt="">
                                                 </span>
                                             </div>
                                             <div class="d-flex flex-column flex-grow-1 my-lg-0 my-2 pr-3">

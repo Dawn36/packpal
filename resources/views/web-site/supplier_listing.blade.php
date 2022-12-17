@@ -1,15 +1,15 @@
 @extends('layouts.main_website')
 
 @section('content_website')
-<section class="py-5 bg-dark inner-header">
+<section class="py-5 bg-dark inner-header" style="background-image: url({{ asset('theme/assets/media/patterns/pattern-9.jpeg')}});     background-repeat: round;">
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
           <h1 class="mt-0 mb-3 text-white">Suppliers</h1>
           <div class="breadcrumbs">
             <p class="mb-0 text-white">
-              <a class="text-white" href="#">Home</a> /
-              <span class="text-success">Supplier Listings</span>
+              <a class="text-white" style="font-weight: 900;" href="#">Home</a> /
+              <span class="text-white" style="font-weight: 900;">Supplier Listings</span>
             </p>
           </div>
         </div>
