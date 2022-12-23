@@ -62,6 +62,7 @@ class Website extends Model
             c.`category_name`,
             GROUP_CONCAT(sc.`sub_category_name`) AS sub_cat_name'))
             ->whereNull('c.deleted_at')
+            ->whereNull('sc.deleted_at')
             ->groupBy('c.id')
             ->get();
             //->appends('category_id', $categoryId)->appends('sub_category_id', $subCategoryId)
