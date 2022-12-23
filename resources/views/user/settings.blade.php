@@ -528,7 +528,7 @@
                                             <div class="fv-row mb-0">
                                                 <label for="emailaddress" class="form-label fs-6 fw-bolder mb-3">Enter
                                                     New Email Address</label>
-                                                <input type="email" class="form-control form-control-lg form-control-solid" id="emailaddress" placeholder="Email Address" name="email" value="admin@gmail.com" />
+                                                <input type="email" class="form-control form-control-lg form-control-solid" id="emailaddress" placeholder="Email Address" name="email" value="{{ $user->email }}" />
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
