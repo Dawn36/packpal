@@ -138,7 +138,7 @@
         id="navbarResponsive"
       >
         <ul class="navbar-nav">
-          @for ($i = 0; $i < count($catAndSubCat); $i++)
+          @for ($i = 0; $i < 7; $i++)
           @php  
           $dataSubId=explode(",",$catAndSubCat[$i]->sub_cat_id );
           $dataSubName=explode(",",$catAndSubCat[$i]->sub_cat_name );
@@ -409,10 +409,9 @@
         @for ($i = 0; $i < count($catAndSubCat); $i++)
         
         <div class="col">
-          <h3>{{ucwords($catAndSubCat[$i]->category_name)}}</h3>
           <div class="service">
             <a href="{{route('web_supplier_listing',['category_id'=>$catAndSubCat[$i]->cat_id])}}" >
-            
+              <h3>{{ucwords($catAndSubCat[$i]->category_name)}}</h3>
             <img src="{{ asset('category/'.$catAndSubCat[$i]->category_image)}}" alt="{{$catAndSubCat[$i]->category_name}}"  />
             
             </a>
