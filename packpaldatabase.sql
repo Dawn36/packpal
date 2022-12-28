@@ -2,8 +2,7 @@
 SQLyog Ultimate v12.09 (64 bit)
 MySQL - 5.7.33 : Database - packpal
 *********************************************************************
-*/
-
+*/
 
 /*!40101 SET NAMES utf8 */;
 
@@ -55,11 +54,9 @@ CREATE TABLE `bid_comments` (
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `bid_comments` */
-
-insert  into `bid_comments`(`id`,`bids_id`,`user_id`,`comment`,`created_by`,`updated_by`,`created_at`,`updated_at`,`deleted_at`) values (1,1,1,'no sad \\ad as\r\nd as\r\nsad as',1,NULL,'2022-09-04 21:10:39','2022-09-04 21:10:39',NULL);
 
 /*Table structure for table `bid_images` */
 
@@ -78,11 +75,11 @@ CREATE TABLE `bid_images` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `bid_images` */
 
-insert  into `bid_images`(`id`,`bids_id`,`user_id`,`file_name`,`path`,`size`,`created_by`,`updated_by`,`created_at`,`updated_at`,`deleted_at`) values (1,1,2,'202209042033about.jpg','1/202209042033about.jpg','129573',NULL,NULL,NULL,NULL,NULL),(2,1,2,'202209042033ads1.png','1/202209042033ads1.png','353384',NULL,NULL,NULL,NULL,NULL),(3,1,2,'202209042033artsi3d.jpg','1/202209042033artsi3d.jpg','49840',NULL,NULL,NULL,NULL,NULL);
+insert  into `bid_images`(`id`,`bids_id`,`user_id`,`file_name`,`path`,`size`,`created_by`,`updated_by`,`created_at`,`updated_at`,`deleted_at`) values (1,1,2,'202211061738300-17.jpg','1/202211061738300-17.jpg','72904',NULL,NULL,NULL,NULL,NULL),(2,1,2,'202211061738300-18.jpg','1/202211061738300-18.jpg','85950',NULL,NULL,NULL,NULL,NULL),(3,1,2,'202211061738300-19.jpg','1/202211061738300-19.jpg','73568',NULL,NULL,NULL,NULL,NULL),(4,2,2,'202211110938img-28.jpg','2/202211110938img-28.jpg','34868',NULL,NULL,NULL,NULL,NULL),(5,2,2,'202211110938img-30.jpg','2/202211110938img-30.jpg','100171',NULL,NULL,NULL,NULL,NULL),(6,2,2,'202211110938img-32.jpg','2/202211110938img-32.jpg','82793',NULL,NULL,NULL,NULL,NULL);
 
 /*Table structure for table `bids` */
 
@@ -100,18 +97,19 @@ CREATE TABLE `bids` (
   `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `thumbnail` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `target_price` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` enum('active','inactive','pending','denied') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
+  `status` enum('active','inactive','pending','denied','completed') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
   `created_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `updated_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
+  `show_bid` enum('yes','no') COLLATE utf8mb4_unicode_ci DEFAULT 'yes',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `bids` */
 
-insert  into `bids`(`id`,`user_id`,`categories_id`,`sub_categories_id`,`bids_name`,`location`,`city_post_code`,`contact_no`,`description`,`thumbnail`,`target_price`,`status`,`created_by`,`updated_by`,`created_at`,`updated_at`,`deleted_at`) values (1,2,1,1,'Alma Trana','Rerum corrupti expl','Suscipit magni aut e','29131','<p><strong><em>hi i m selleinsad as das dkj sajd sad kaskd \'asl d</em></strong></p>','1/202209042033artsi3d.jpg','1000','active','2','2','2022-09-04 08:33:42','2022-09-04 21:15:32',NULL);
+insert  into `bids`(`id`,`user_id`,`categories_id`,`sub_categories_id`,`bids_name`,`location`,`city_post_code`,`contact_no`,`description`,`thumbnail`,`target_price`,`status`,`created_by`,`updated_by`,`created_at`,`updated_at`,`deleted_at`,`show_bid`) values (1,2,1,1,'Mariam Casey','Saepe maiores provid','In aut neque nisi ex','59','<p>this is my first bid</p>','1/202211061738300-3.jpg','741','completed','2',NULL,'2022-11-06 05:38:13','2022-11-09 19:00:23',NULL,'no'),(2,2,2,5,'Paul Hodge','Voluptates dolor ame','Nam proident enim e','70','<p>sad asd assas</p>','2/202211110938img-15.jpg','332','active','2',NULL,'2022-11-11 09:38:56','2022-11-15 16:45:20',NULL,'yes');
 
 /*Table structure for table `categories` */
 
@@ -148,11 +146,11 @@ CREATE TABLE `chat` (
   `deleted_at` datetime DEFAULT NULL,
   `is_read` enum('yes','no') DEFAULT 'no',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `chat` */
 
-insert  into `chat`(`id`,`therd_id`,`user_id`,`message`,`type`,`created_at`,`deleted_at`,`is_read`) values (1,1,2,'aa','text','2022-09-04 20:09:14',NULL,'yes'),(2,1,1,'who','text','2022-09-04 22:41:36',NULL,'yes'),(3,1,1,'hn','text','2022-09-04 22:43:15',NULL,'yes'),(4,3,4,'hi','text','2022-09-05 11:08:19',NULL,'yes'),(5,3,2,'who','text','2022-09-05 11:08:35',NULL,'yes'),(6,3,2,'what do you want','text','2022-09-05 11:08:44',NULL,'yes'),(7,3,4,'hi da','text','2022-09-05 11:27:37',NULL,'yes'),(8,3,4,'asd','text','2022-09-05 11:27:37',NULL,'yes'),(9,3,4,'sad','text','2022-09-05 11:27:38',NULL,'yes'),(10,3,2,'sdas dsa d','text','2022-09-05 11:38:03',NULL,'yes'),(11,3,2,'as das','text','2022-09-05 11:38:03',NULL,'yes'),(12,3,2,'as d','text','2022-09-05 11:38:04',NULL,'yes'),(13,3,2,'Offer price change old offer price is : 200 and the new offer price is : 1000','text','2022-09-05 12:00:37',NULL,'yes'),(14,3,4,'l','text','2022-09-05 12:01:34',NULL,'yes'),(15,3,4,'Offer price change old offer price is : 1000 and the new offer price is : 200','text','2022-09-05 12:02:08',NULL,'yes'),(16,3,4,'asd','text','2022-09-05 12:22:18',NULL,'yes'),(17,3,4,'asd','text','2022-09-05 12:22:21',NULL,'yes'),(18,3,4,'sad','text','2022-09-05 12:23:58',NULL,'yes'),(19,3,4,'asd','text','2022-09-05 12:24:01',NULL,'yes'),(20,3,4,'cb','text','2022-09-05 12:24:58',NULL,'yes'),(21,3,4,'a','text','2022-09-05 12:26:56',NULL,'yes'),(22,3,4,'hi','text','2022-09-05 12:27:32',NULL,'yes'),(23,3,4,'a','text','2022-09-05 12:27:52',NULL,'yes'),(24,3,4,'a','text','2022-09-05 12:27:59',NULL,'yes'),(25,3,4,'a','text','2022-09-05 12:28:03',NULL,'yes'),(26,3,4,'dawn','text','2022-09-05 12:28:09',NULL,'yes'),(27,3,4,'what','text','2022-09-05 12:33:54',NULL,'yes'),(28,3,4,'the','text','2022-09-05 12:33:57',NULL,'yes'),(29,3,4,'it is working','text','2022-09-05 12:34:01',NULL,'yes'),(30,3,2,'fuck you','text','2022-09-05 12:34:28',NULL,'no');
+insert  into `chat`(`id`,`therd_id`,`user_id`,`message`,`type`,`created_at`,`deleted_at`,`is_read`) values (1,1,2,'hi sadksndlksa','text','2022-11-06 17:43:28',NULL,'yes'),(2,1,2,'asdasd','text','2022-11-06 17:43:32',NULL,'yes'),(3,1,2,'dsan','text','2022-11-06 17:44:21',NULL,'yes'),(4,1,2,'sad','text','2022-11-06 17:44:22',NULL,'yes'),(5,1,2,'sa d','text','2022-11-06 17:44:26',NULL,'yes'),(6,1,2,'asd','text','2022-11-06 17:45:36',NULL,'yes'),(7,1,2,'hi dawn here','text','2022-11-06 17:45:43',NULL,'yes'),(8,1,8,'asda','text','2022-11-06 17:46:07',NULL,'yes'),(9,1,8,'as d','text','2022-11-06 17:46:08',NULL,'yes'),(10,1,8,'sa d','text','2022-11-06 17:46:08',NULL,'yes'),(11,1,8,'as','text','2022-11-06 17:46:08',NULL,'yes'),(12,1,8,'da','text','2022-11-06 17:46:08',NULL,'yes'),(13,1,8,'Offer price change old offer price is : 5000 and the new offer price is : 10000','text','2022-11-06 17:48:51',NULL,'no'),(14,1,8,'Offer price change old offer price is : 10000 and the new offer price is : 1000','text','2022-11-06 17:49:17',NULL,'no'),(15,2,4,'dsaas d','text','2022-11-06 17:52:05',NULL,'yes'),(16,2,4,'sad','text','2022-11-06 17:52:06',NULL,'yes'),(17,2,4,'as','text','2022-11-06 17:52:06',NULL,'yes'),(18,2,4,'d as','text','2022-11-06 17:52:06',NULL,'yes'),(19,2,4,'d','text','2022-11-06 17:52:06',NULL,'yes'),(20,2,4,'as','text','2022-11-06 17:52:06',NULL,'yes'),(21,2,4,'d','text','2022-11-06 17:52:09',NULL,'yes');
 
 /*Table structure for table `failed_jobs` */
 
@@ -206,12 +204,13 @@ CREATE TABLE `orders` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
+  `show_offer` enum('yes','no') COLLATE utf8mb4_unicode_ci DEFAULT 'yes',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `orders` */
 
-insert  into `orders`(`id`,`b_user_id`,`s_user_id`,`bids_id`,`categories_id`,`sub_categories_id`,`offer_price`,`status`,`feed_back`,`created_by`,`updated_by`,`created_at`,`updated_at`,`deleted_at`) values (1,2,4,1,1,1,'200','complete','yes',4,NULL,'2022-09-05 00:00:00','2022-09-05 12:08:00',NULL);
+insert  into `orders`(`id`,`b_user_id`,`s_user_id`,`bids_id`,`categories_id`,`sub_categories_id`,`offer_price`,`status`,`feed_back`,`created_by`,`updated_by`,`created_at`,`updated_at`,`deleted_at`,`show_offer`) values (1,2,4,1,1,1,'1000','complete','no',4,NULL,'2022-11-06 00:00:00','2022-11-09 19:00:23',NULL,'yes'),(2,2,6,1,1,1,'1000','offer','no',6,NULL,'2022-11-06 00:00:00','2022-11-09 18:57:00',NULL,'no'),(3,2,8,1,1,1,'1000','reject','no',8,NULL,'2022-11-06 00:00:00','2022-11-06 17:49:39',NULL,'yes'),(4,2,4,2,2,5,'1000','reject','no',4,NULL,'2022-11-12 00:00:00','2022-11-15 16:45:20',NULL,'yes');
 
 /*Table structure for table `password_resets` */
 
@@ -225,6 +224,8 @@ CREATE TABLE `password_resets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `password_resets` */
+
+insert  into `password_resets`(`email`,`token`,`created_at`) values ('dawngill08@gmail.com','$2y$10$KbbdWMsHZEDcSqOfFjAJ.uxtTN5EKW2Lhf9YE6CiHV6RgrQ5VR0/W','2022-09-13 18:31:50');
 
 /*Table structure for table `permission_role` */
 
@@ -364,7 +365,7 @@ CREATE TABLE `reviews` (
 
 /*Data for the table `reviews` */
 
-insert  into `reviews`(`id`,`from_user_id`,`to_user_id`,`bids_id`,`order_id`,`star`,`comment`,`created_by`,`updated_by`,`created_at`,`updated_at`,`deleted_at`) values (1,2,4,1,1,'5','good work',2,NULL,'2022-09-05 00:00:00',NULL,NULL);
+insert  into `reviews`(`id`,`from_user_id`,`to_user_id`,`bids_id`,`order_id`,`star`,`comment`,`created_by`,`updated_by`,`created_at`,`updated_at`,`deleted_at`) values (1,2,4,1,1,'5','sada das das d',2,NULL,'2022-11-06 00:00:00',NULL,NULL);
 
 /*Table structure for table `role_user` */
 
@@ -381,7 +382,7 @@ CREATE TABLE `role_user` (
 
 /*Data for the table `role_user` */
 
-insert  into `role_user`(`role_id`,`user_id`,`user_type`) values (1,1,'App\\Models\\User'),(2,4,'App\\Models\\User'),(3,2,'App\\Models\\User');
+insert  into `role_user`(`role_id`,`user_id`,`user_type`) values (1,1,'App\\Models\\User'),(2,4,'App\\Models\\User'),(2,5,'App\\Models\\User'),(2,6,'App\\Models\\User'),(2,8,'App\\Models\\User'),(3,2,'App\\Models\\User'),(3,7,'App\\Models\\User'),(3,9,'App\\Models\\User');
 
 /*Table structure for table `roles` */
 
@@ -435,11 +436,11 @@ CREATE TABLE `therd` (
   `created_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `therd` */
 
-insert  into `therd`(`id`,`user_id_from`,`user_id_to`,`last_message_date`,`created_at`,`deleted_at`) values (1,2,1,'2022-09-04 20:00:15',NULL,NULL),(3,4,2,'2022-09-05 11:02:39',NULL,NULL),(4,4,1,'2022-09-05 11:03:23',NULL,NULL);
+insert  into `therd`(`id`,`user_id_from`,`user_id_to`,`last_message_date`,`created_at`,`deleted_at`) values (1,8,2,'2022-11-06 17:43:23',NULL,NULL),(2,4,2,'2022-11-06 17:51:59',NULL,NULL);
 
 /*Table structure for table `user_document` */
 
@@ -451,13 +452,32 @@ CREATE TABLE `user_document` (
   `file_name` varchar(255) DEFAULT NULL,
   `size` bigint(20) DEFAULT NULL,
   `path` varchar(255) DEFAULT NULL,
+  `status` enum('utiltity bill','letter of authorization','visiting card','ntn certificate') DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `created_by` bigint(20) DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `user_document` */
+
+insert  into `user_document`(`id`,`user_id`,`file_name`,`size`,`path`,`status`,`created_at`,`created_by`,`deleted_at`) values (1,4,'pattern-10.png',305010,'uploads/user-document/4/1668198971pattern-10.png','utiltity bill','2022-11-11 08:27:29',4,NULL),(2,4,'pattern-9.png',515558,'uploads/user-document/4/1668198468pattern-9.png','letter of authorization','2022-11-11 08:27:29',4,NULL);
+
+/*Table structure for table `user_document_reject_command` */
+
+DROP TABLE IF EXISTS `user_document_reject_command`;
+
+CREATE TABLE `user_document_reject_command` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) DEFAULT NULL,
+  `comment` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+/*Data for the table `user_document_reject_command` */
+
+insert  into `user_document_reject_command`(`id`,`user_id`,`comment`,`created_at`) values (1,4,'sada',NULL),(2,4,'sd',NULL);
 
 /*Table structure for table `user_expiry_image` */
 
@@ -474,11 +494,11 @@ CREATE TABLE `user_expiry_image` (
   `created_by` bigint(20) DEFAULT NULL,
   `status` enum('pending','accept','reject') DEFAULT 'pending',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `user_expiry_image` */
 
-insert  into `user_expiry_image`(`id`,`user_id`,`package`,`file_name`,`size`,`path`,`created_at`,`created_by`,`status`) values (1,4,'1 month','about.jpg','129573','uploads/user-subscription-document/4/1662367296about.jpg','2022-09-05 08:41:36',4,'accept'),(2,4,'1 month','ads1.png','353384','uploads/user-subscription-document/4/1662367296ads1.png','2022-09-05 08:41:36',4,'accept');
+insert  into `user_expiry_image`(`id`,`user_id`,`package`,`file_name`,`size`,`path`,`created_at`,`created_by`,`status`) values (1,4,'1 month','about.jpg','129573','uploads/user-subscription-document/4/1662367296about.jpg','2022-09-05 08:41:36',4,'accept'),(2,4,'1 month','ads1.png','353384','uploads/user-subscription-document/4/1662367296ads1.png','2022-09-05 08:41:36',4,'accept'),(3,4,'1 month','img20.jpg','11324','uploads/user-subscription-document/4/1663588112img20.jpg','2022-09-19 11:48:32',4,'accept'),(4,7,'1 month','sink-counter-repair.jpg','26169','uploads/user-subscription-document/7/1666291087sink-counter-repair.jpg','2022-10-20 18:38:07',7,'accept'),(5,7,'6 month','sink-counter-repair.jpg','26169','uploads/user-subscription-document/7/1666291395sink-counter-repair.jpg','2022-10-20 18:43:15',7,'accept'),(6,7,'1 month','studio-city-silicon-replacement-600.jpg','10649','uploads/user-subscription-document/7/1666361063studio-city-silicon-replacement-600.jpg','2022-10-21 14:04:23',7,'accept'),(7,7,'1 month','Screenshot 2022-10-26 104550.png','32206','uploads/user-subscription-document/7/1667334374Screenshot 2022-10-26 104550.png','2022-11-01 20:26:14',7,'pending');
 
 /*Table structure for table `users` */
 
@@ -491,11 +511,12 @@ CREATE TABLE `users` (
   `middle_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password_show` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `user_type` bigint(20) DEFAULT NULL,
   `profile_picture` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'blank.png',
   `company_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `company_logo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'blanklogo.jpg',
-  `company_banner` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'blankbanner.jpg',
+  `company_logo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'blank.png',
+  `company_banner` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'Company_Banner.png',
   `designation` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `department` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -524,13 +545,14 @@ CREATE TABLE `users` (
   `expiry_date` datetime DEFAULT NULL,
   `latitude` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `longitude` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `website` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `users` */
 
-insert  into `users`(`id`,`first_name`,`last_name`,`middle_name`,`email`,`password`,`user_type`,`profile_picture`,`company_name`,`company_logo`,`company_banner`,`designation`,`department`,`address`,`country`,`city`,`zip_postal_code`,`landline_no`,`phone_number`,`primary_business`,`specify`,`establishment_year`,`annual_sales`,`certifications`,`seller_of`,`buyer_of`,`categories_id`,`sub_categories_id`,`description`,`verified`,`send_doc`,`email_verified_at`,`remember_token`,`created_at`,`updated_at`,`deleted_at`,`expiry_date`,`latitude`,`longitude`) values (1,'dawn','gill','sad','dawngill08@gmail.com','$2y$10$Z2zScBG2OsLDJAqxc616Cu5VX.OzZhtUrCS64raxFB/Xfl.XjkVAu',1,'blank.png',NULL,'blanklogo.jpg','blankbanner.jpg','sad','sad','Saddar Karachi, Pakistan','sad','sad','02121','02020','212020',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1','1',NULL,'yes','no',NULL,NULL,'2022-09-04 11:23:55','2022-09-04 11:23:55',NULL,NULL,NULL,NULL),(2,'darrel','asd','asd','darrelgill08@gmail.com','$2y$10$shmXeh/m5h8FkOzWw/Di1O.7prRuJqc1kpqf/onUp.UpdzTsd3zh6',3,'blank.png',NULL,'blanklogo.jpg','blankbanner.jpg','asd','sad','Karimabad Block 3 Gulberg Town, Karachi, Pakistan','asd','dasd','3213','2131','23131',NULL,NULL,NULL,NULL,NULL,NULL,'asd',NULL,NULL,NULL,'no','no',NULL,NULL,'2022-09-04 19:48:52','2022-09-04 19:48:52',NULL,'2022-09-04 12:47:28',NULL,NULL),(4,'darwin','gill','sad','darwingill08@gmail.com','$2y$10$hrr5EIkko2FG2GVK.kWsPOvttQiWRQOxaG0T7oU/BD6zswbqN.hhO',2,'blank.png','hahahaha','blanklogo.jpg','blankbanner.jpg','sad','sds','Hyderabad, Pakistan','asd','asd','032','3213','3213',NULL,NULL,'2022-09-01 00:00:00','2121212','sadsad','sdasd',NULL,'2','5','sad asda dkjaslkj','no','no',NULL,NULL,'2022-09-05 08:00:48','2022-09-05 08:42:21',NULL,'2022-10-05 00:00:00','40.7767644','-73.9761399');
+insert  into `users`(`id`,`first_name`,`last_name`,`middle_name`,`email`,`password`,`password_show`,`user_type`,`profile_picture`,`company_name`,`company_logo`,`company_banner`,`designation`,`department`,`address`,`country`,`city`,`zip_postal_code`,`landline_no`,`phone_number`,`primary_business`,`specify`,`establishment_year`,`annual_sales`,`certifications`,`seller_of`,`buyer_of`,`categories_id`,`sub_categories_id`,`description`,`verified`,`send_doc`,`email_verified_at`,`remember_token`,`created_at`,`updated_at`,`deleted_at`,`expiry_date`,`latitude`,`longitude`,`website`) values (1,'dawn','gill','hi','dawngill08@gmail.com','$2y$10$shmXeh/m5h8FkOzWw/Di1O.7prRuJqc1kpqf/onUp.UpdzTsd3zh6','aa',1,'blank.png',NULL,'blank.png','Company_Banner.png','sad','sad','Saddar Karachi, Pakistan','sad','sad','02121','02020','212020','manufacturer',NULL,'1970-01-01 00:00:00',NULL,NULL,NULL,NULL,'2','2',NULL,'yes','no',NULL,NULL,'2022-09-04 11:23:55','2022-11-06 16:03:25',NULL,'2023-03-01 15:47:17','24.8615984','67.0290744',NULL),(2,'darrel','asd','hi','darrelgill08@gmail.com','$2y$10$shmXeh/m5h8FkOzWw/Di1O.7prRuJqc1kpqf/onUp.UpdzTsd3zh6','aa',3,'blank.png',NULL,'blank.png','Company_Banner.png','asd','sad','Karimabad Block 3 Gulberg Town, Karachi, Pakistan','asd','dasd','3213','2131','23131',NULL,NULL,NULL,NULL,NULL,NULL,'asd',NULL,NULL,NULL,'no','no',NULL,NULL,'2022-09-04 19:48:52','2022-09-04 19:48:52',NULL,'2023-03-01 15:47:17',NULL,NULL,NULL),(4,'darwin','gill','hi','darwingill08@gmail.com','$2y$10$shmXeh/m5h8FkOzWw/Di1O.7prRuJqc1kpqf/onUp.UpdzTsd3zh6','aa',2,'blank.png','lliilil testing','blank.png','Company_Banner.png','sad','sds','Hyderabad, Pakistan','asd','asd','032','3213','3213','manufacturer',NULL,'2022-09-01 00:00:00','2121212','sadsad','sdasd',NULL,'2',NULL,'sad asda dkjaslkj','no','yes',NULL,NULL,'2022-09-05 08:00:48','2022-11-11 20:43:21',NULL,'2023-03-01 15:47:17','25.3959687','68.357776',NULL),(5,'asd','asd','hi','dawngill90090@gmail.com','$2y$10$iA/TT0OwYW61nhz3bKrzrOXn4ifi2L2YsVng8oDxtv0GkxUt9kmiS','aa',2,'blank.png','asd asdsa','blank.png','Company_Banner.png','sad','asd','asd',NULL,NULL,'21321','231321','213132','holesaler',NULL,'2022-09-21 00:00:00','10000','sad','asd',NULL,'2','4','Tempor atque dolorem','no','no',NULL,NULL,'2022-09-18 13:17:13','2022-09-18 13:17:13',NULL,'2023-03-01 15:47:17',NULL,NULL,NULL),(6,'Hedwig','Golden','hi','zusym@mailinator.com','$2y$10$Mh/m787qQmQc3rqat3fY3ezOL8QycbBRUbh37TcZjvZbYrXn3sxAy','aa',2,'blank.png','Herman Graham Trading','blank.png','Company_Banner.png','Consequat Velit es','Qui nulla sed mollit','Asghar Ali Shah Cricket Stadium Shahrah Noor Jahan, Block C North Nazimabad Town, Karachi, Pakistan','Expedita id quaerat','dawn','48810','89','56','manufacturer',NULL,'2022-09-30 00:00:00','24','Fugit enim odio rep','Nam non nisi qui fug',NULL,'2','4','Amet sint possimus','yes','yes',NULL,NULL,'2022-10-09 21:53:23','2022-10-21 13:57:27',NULL,'2023-03-01 15:47:17',NULL,NULL,NULL),(7,'Blaze','gill','hi','dybonyju@mailinator.com','$2y$10$Y/rHPnH1.sObA/WvIeUfheMMv0mYrscgwpoNKBno.qJMSUQ2ybe1q','aa',3,'blank.png','Palmer and Buckley Co','7/202211061436150-17.jpg','7/202211042004Screenshot 2022-10-26 104550.png','In sunt sequi eum al','Ex rerum adipisci ne','Nankana Sahib, Pakistan','Nihil et aut illum','Corrupti numquam en','27097','64','275','manufacturer',NULL,'2022-10-05 00:00:00','54','Reprehenderit expli','Doloremque voluptate','sad kndbas ','3','6','Dicta aperiam sit de','no','no',NULL,NULL,'2022-10-20 18:37:33','2022-11-06 16:51:12',NULL,'2023-03-01 15:47:17','31.449151','73.712479',NULL),(8,'Phillip','Landry','hi','lehakivi@mailinator.com','$2y$10$eYuy1V5r84mkbhJd4JhVV.MfyCwyml9rjVfeGxzQ185Pqt8Q.NnFm','aa',2,'blank.png','Burch and Obrien Inc','blank.png','Company_Banner.png','Mollit vitae irure i','Labore suscipit inci','Consequuntur digniss','Exercitationem paria','Laudantium culpa et','19319','17','558','reseller',NULL,'2022-11-02 00:00:00','88','Sapiente error excep','Numquam qui earum co',NULL,'2','4','Aut dolor placeat e','no','no',NULL,NULL,'2022-11-06 10:47:03','2022-11-06 10:47:03',NULL,'2023-03-01 15:47:17',NULL,NULL,NULL),(9,'Denton','Norman','Elton Brown','sisyz@mailinator.com','$2y$10$PYq0bZ5/HD1hRvMuSQWaAew4MNz7AFLPzHKwWp9gkW9.ASmBS0x1u','aa',3,'blank.png','Moran and Hunt Trading','blank.png','Company_Banner.png','Nesciunt numquam ab','Officia amet dolore','Nobis nisi ab molest','Sit alias in aperia','Ut atque ut odio dol','39840','62','744','distributor',NULL,'1970-01-01 00:00:00','78','Deserunt Nam minima','Sed quaerat enim omn','asd asdas d','2','4','Duis asperiores aut','no','no',NULL,NULL,'2022-11-11 09:52:32','2022-11-11 09:53:36',NULL,NULL,'0','0','https://www.luvokimokiror.wsdawn');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
