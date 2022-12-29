@@ -1,7 +1,7 @@
 @extends('layouts.main_website')
 
 @section('content_website')
-<section class="section-padding bg-dark py-5 inner-header">
+<section class="section-padding bg-dark py-5 inner-header" style="background-image: url({{ asset('theme/assets/media/patterns/pattern-9.jpeg')}});     background-repeat: round;">
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
