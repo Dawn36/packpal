@@ -33,6 +33,14 @@ Route::Get('bid_listing/{category_id?}/{sub_category_id?}', [WebsiteController::
 Route::Get('web_supplier_listing/{category_id?}/{sub_category_id?}', [WebsiteController::class, 'supplierListing'])->name('web_supplier_listing');
 Route::Get('search_home', [WebsiteController::class, 'searchHome'])->name('search_home');
 Route::Get('about', [WebsiteController::class, 'about'])->name('about');
+Route::Get('sell-with-us', [WebsiteController::class, 'sellWithUs'])->name('sell-with-us');
+Route::Get('how-to-source-packaging', [WebsiteController::class, 'howToSourcePackaging'])->name('how-to-source-packaging');
+Route::Get('contact-us', [WebsiteController::class, 'contactUs'])->name('contact-us');
+Route::Get('contact-us', [WebsiteController::class, 'contactUs'])->name('contact-us');
+Route::Get('advertise-with-us', [WebsiteController::class, 'advertiseWithUs'])->name('advertise-with-us');
+Route::Get('privacy-policy', [WebsiteController::class, 'privacyPolicy'])->name('privacy-policy');
+Route::Get('terms-of-use', [WebsiteController::class, 'termsOfUse'])->name('terms-of-use');
+Route::Get('terms-condition-bidding', [WebsiteController::class, 'termsConditionBidding'])->name('terms-condition-bidding');
 Route::Get('feed_back', [WebsiteController::class, 'feedBack'])->name('feed_back');
 Route::Post('feed_back', [WebsiteController::class, 'feedBackSubmit'])->name('feed_back');
 Route::Get('category_listing', [WebsiteController::class, 'categoryListing'])->name('category_listing');

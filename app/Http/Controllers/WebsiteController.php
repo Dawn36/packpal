@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Website;
 use App\Models\Ads;
 use App\Models\Categories;
+use App\Models\SubCategories;
 use App\Models\Bids;
 use App\Models\Order;
 use Illuminate\Support\Facades\DB;
@@ -33,12 +34,11 @@ class WebsiteController extends Controller
         $catAndSubCat=$objWebSite->getCatAndSubCat();
         $objSupplier = new Supplier();
         $supplier = $objSupplier->supplierListing($categoryId,   $subCategoryId);
-        $categories = Categories::get();
-        return view('web-site/home',compact('supplier','bidListing','adsTop','adsMiddle','adslast','catAndSubCat','categories'));
+        $categories = Categories::orderBy('id','DESC')->get();
+        return view('web-site/home',compact('supplier','bidListing','adsTop','adsMiddle','adslast','categories'));
     }
     public function bidDetail(int $bidId)
     {
-        
         $objWebSite= new Website();
         $bidObj = new Bids();
         $bidDetail=$objWebSite->bidDetails($bidId);
@@ -46,7 +46,6 @@ class WebsiteController extends Controller
         $categoryId = $bidDetail[0]->cat_id;
         $bidListing=$objWebSite->bidListing($categoryId);
         $categories = Categories::get();
-
         return view('web-site/bid_detail',compact('bidDetail','bidsImage','bidListing','categories'));
     }
     // public function bidListinga(Request $request)
@@ -256,15 +255,12 @@ class WebsiteController extends Controller
     }
     public function about()
     {
-        $categories = Categories::get();
-
-        return view('web-site/about',compact('categories')); 
+        return view('web-site/about'); 
     }
     public function feedBack()
     {
-        $categories = Categories::get();
 
-        return view('web-site/feed_back',compact('categories')); 
+        return view('web-site/feed_back'); 
     }
     public function feedBackSubmit(Request $request)
     {
@@ -279,11 +275,44 @@ class WebsiteController extends Controller
         $data['message']=$request->message;
         sendEmail($toEmail,$subject,$fileName,$data='');
     }
+    static function getSubCategory($catId)
+    {
+        return SubCategories::where('categories_id',$catId)->orderBy('id','DESC')->get();
+    }
     public function categoryListing()
     {
         $categories = Categories::get();
         $objWebSite= new Website();
         $catAndSubCat=$objWebSite->getCatAndSubCat();
         return view('web-site/category_listing',compact('categories','catAndSubCat')); 
+    }
+    public function sellWithUs()
+    {
+        return view('web-site/sell_with_us'); 
+    }
+    public function howToSourcePackaging()
+    {
+        return view('web-site/how_to_source_packaging'); 
+    }
+    public function contactUs()
+    {
+        return view('web-site/contact_us'); 
+    }
+    public function advertiseWithUs()
+    {
+        return view('web-site/advertise_with_us'); 
+    }
+    public function privacyPolicy()
+    {
+        return view('web-site/privacy_policy'); 
+
+    }
+    public function termsOfUse()
+    {
+        return view('web-site/terms_of_use'); 
+    }
+    public function termsConditionBidding()
+    {
+        return view('web-site/terms_condition_bidding'); 
     }
 }

@@ -6,11 +6,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h1 class="mt-0 mb-3 text-white">Feedback</h1>
+                    <h1 class="mt-0 mb-3 text-white">Advertise With Us</h1>
                     <div class="breadcrumbs">
                         <p class="mb-0 text-white">
                             <a class="text-white" href="#">Home</a> /
-                            <span class="text-success">Feedback</span>
+                            <span class="text-success">Advertise With Us</span>
                         </p>
                     </div>
                 </div>
@@ -21,13 +21,13 @@
     <section class="py-5">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 col-md-12 section-title text-left mb-4">
+                {{-- <div class="col-lg-12 col-md-12 section-title text-left mb-4">
                     <h2 style="text-align: center;">Your Feedback is our Success</h2>
                     <p style="font-size: 18px;
           font-style: italic;">We appreciate you taking the time in providing
                         us your valuable feedback. Please fill the below form for any suggestions, comments or even if you
                         are looking for some help. We value it the most in order to make the user experience the best</P>
-                </div>
+                </div> --}}
                 <form id="" class="col-lg-12 col-md-12" method="POST" action="{{ route('feed_back') }}">
                     @csrf
                     <div class="form-row">
