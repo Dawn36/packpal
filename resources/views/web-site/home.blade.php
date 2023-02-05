@@ -155,14 +155,16 @@
                                     $subCategory = App\Http\Controllers\WebsiteController::getSubCategory($categories[$i]->id);
                                 @endphp
                                 @for ($j = 0; $j < count($subCategory); $j++)
-                                    @if (strtolower($subCategory[$j]->sub_category_name) == 'other')
+                                    @if (strtolower($subCategory[$j]->sub_category_name) == 'other' ||
+                                            strtolower($subCategory[$j]->sub_category_name) == 'others')
                                         @php continue @endphp
                                     @endif
                                     <a class="dropdown-item"
                                         href="{{ route('web_supplier_listing', ['category_id' => $subCategory[$j]->categories_id, 'sub_category_id' => $subCategory[$j]->id]) }}">{{ ucwords($subCategory[$j]->sub_category_name) }}</a>
                                 @endfor
                                 @for ($j = 0; $j < count($subCategory); $j++)
-                                    @if (strtolower($subCategory[$j]->sub_category_name) == 'other')
+                                    @if (strtolower($subCategory[$j]->sub_category_name) == 'other' ||
+                                            strtolower($subCategory[$j]->sub_category_name) == 'others')
                                         <a class="dropdown-item"
                                             href="{{ route('web_supplier_listing', ['category_id' => $subCategory[$j]->categories_id, 'sub_category_id' => $subCategory[$j]->id]) }}">{{ ucwords($subCategory[$j]->sub_category_name) }}</a>
                                     @endif
